@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
-<wb-module deploy-name="namesonnodes-html">
+<wb-module deploy-name="namesonnodes_html">
 <wb-resource deploy-path="/" source-path="/WebContent"/>
-<property name="context-root" value="namesonnodes-html"/>
+        <property name="context-root" value="namesonnodes_html"/>
 </wb-module>
 </project-modules>

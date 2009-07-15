@@ -11,656 +11,773 @@
 		<meta name="Author" content="T. Michael Keesey" />
 		<meta name="Description" content="Documentation of the Names on Nodes: Mathematics namespace (Definition URL: http://namesonnodes.org/ns/math/2009)." />
 		<meta name="Keywords" content="names,nodes,Keesey,Mike,Michael,biological,biology,hierarchy,nomenclature,code,phylogeny,phylogenetic,rank,based,mathemetics,mathematical,graph,digraph,network,arc,edge,vertex,weight,predecessor,successor,ancestor,descendant,parent,child,set,list,triple,triplet,ordered,partial,order" />
-		<style type="text/css">
-			a {color:#003333}
-			a.symbol {text-decoration:none}
-			body {margin:2em;background-color:#103300;color:#333300}
-			h1 {font-weight:bold;text-align:center;font-size:150%;font-variant:small-caps}
-			h2 {font-weight:normal;text-align:center;font-size:120%;font-variant:small-caps}
-			h3 {font-weight:normal;font-style:italic;font-variant:small-caps;margin-left:-0.5em;margin-top:-0.5em}
-			h4 {font-weight:normal;font-style:italic;text-align: center}
-			p {margin-top:0px;margin-bottom:1em}
-			sub {vertical-align:text-bottom;font-size: 0.8em;top:0.4em;position:relative}
-			sup {vertical-align:text-top;font-size: 0.8em;top:-0.4em;position:relative}
-			table {width:100%;margin-bottom:1em;border-collapse:collapse}
-			td {text-align:left;vertical-align:top;text-align: justify;padding:3px}
-			th {font-style:italic;font-weight:bold;text-align:center;vertical-align:top;white-space:nowrap;border-bottom:1px solid #333300;padding:3px}
-			tr {padding-top:0.5em}
-			.info, .note, .section {margin:10px;padding:1em;border:3px solid #203040;background-color:#99CCA0}
-			.info {font-size:75%}
-			.note {font-size:90%}
-			.section {}
-		</style>
+		<link href="../../../css/screen.css" type="text/css" rel="stylesheet"/>
 	</head>
 	<body>
-		<div class="section">
-			<h1>Names on Nodes: <i>MathML</i> Definitions</h1>
-			<h2>Version 0.1</h2>
-			<h2>T. Michael Keesey</h2>
-			<h2>2009 July 11</h2>
-			<p><i>Abstract.</i>&mdash;<a href="http://www.w3.org/TR/MathML2/"><i>Mathematical Markup Language 2.0</i></a>, or <i>MathML 2.0</i>, is an <a href="http://www.w3.org/XML/"><i>XML</i></a> language which may be used to model mathematical concepts. <a href="http://dx.doi.org/10.1111/j.1463-6409.2007.00302.x">Keesey (2007)</a> explored how <i>MathML</i> could be used to model phylogenetic definitions, that is, definitions of taxonomic names which rely on phylogeny (patterns of ancestry and descent), such as those specified in the <a href="http://phylocode.org"><i>International Code of Phylogenetic Nomenclature</i></a> (or <i>PhyloCode</i>). This method involves the use of certain mathematical collections, relations, and operations which relate to phylogeny. In <i>MathML</i>, these mathematical entities may be referenced using a <code>csymbol</code> element which indicates the URL of a definition. For example, the set of all organisms may be referenced as <code>&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#U" xmlns="http://www.w3.org/1998/Math/MathML"/&gt;</code>. This document contains the mathematical definitions needed to model phylogenetic definitions in <i>MathML</i>. These definitions are implemented in the application <a href="/"><i>Names on Nodes</i></a>.</p>
-		</div>
-		<div class="section">
-			<h3>General Review of Mathematical Terms</h3>
+		<div id="content">
+			<h1><span class="title">Names on Nodes</span>: <span class="langname">MathML</span> Definitions (Draft)</h1>
+			<p class="authors">T. Michael Keesey<sup><a href="#aff1">1</a></sup></p>
+			<p class="affiliations"><a name="aff1" id="aff1"></a><strong>1</strong> P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes"><code>keesey@gmail.com</code></a></p>
+			<div id="abstract">
+				<a name="abstract" id="abstract"></a>
+				<h2>Abstract</h2>
+				<p>
+					<a href="http://www.w3.org/TR/MathML2/" class="langname">Mathematical Markup Language 2.0</a>, or <span class="langname">MathML 2.0</span>, is an <a href="http://www.w3.org/XML/" class="langname">XML</a> language which may be used to model mathematical concepts.
+					<a href="http://dx.doi.org/10.1111/j.1463-6409.2007.00302.x">Keesey (2007)</a> explored how <span class="langname">MathML</span> could be used to model phylogenetic definitions, that is, definitions of taxonomic names which rely on phylogeny (patterns of ancestry and descent), such as those specified in the <a href="http://phylocode.org" class="title">International Code of Phylogenetic Nomenclature</a> (for short, <span class="title">PhyloCode</span>).
+					This method involves the use of certain mathematical collections, relations, and operations which relate to phylogeny.
+					In <span class="langname">MathML</span>, these mathematical entities may be referenced using a <code>csymbol</code> element which indicates the <a href="http://www.w3.org/Addressing/URL/url-spec.txt">URL</a> of a definition.
+					For example, the set of all organisms may be referenced as <code>&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#universalTaxon" xmlns="http://www.w3.org/1998/Math/MathML"/&gt;</code>.
+					This document contains the mathematical definitions needed to model phylogenetic definitions in <span class="langname">MathML</span>.
+					These definitions are implemented in the application <a href="/" class="title">Names on Nodes</a>.
+				</p>
+			</div>
+			<h2>Introduction</h2>
+			<h3>General Review of Mathematical Concepts, Terms, and Notation</h3>
+			<p>
+				Some terminology and notation varies across different contexts.
+				Where possible, I have followed <span class="langname">MathML</span>'s terminology and default notation.
+				Some exceptions have been made for certain logical symbols which are more easily read as words than as symbols, e.g., <span class="math">and</span>  instead of <span class="math">&and;</span>.
+			</p>
+			<p>
+				The symbol <span class="math">:=</span> means "is defined as".
+			</p>
 			<h4>Collections</h4>
-			<p>A <b>collection</b> is an entity which consists of zero or more distinct objects. Objects in a collection are <b>members</b> of the collection.</p>
+			<p>
+				A <strong>collection</strong> is an entity which consists of zero or more distinct objects.
+				Objects in a collection are <strong>members</strong> of the collection.
+				A collection with one member is a <strong>singleton</strong>.
+			</p>
 			<h4>Sets</h4>
-			<p>A <b>set</b> is an unordered collection of elements. When an element, <i>x</i>, is a member of a set, <i>S</i>, this is written <i>x</i> &isin; <i>S</i>. Sets may themselves be members of other sets. Sets may be denoted in the following ways:</p>
+			<p>
+				A <strong>set</strong> is an unordered collection.
+				When an element, <span class="math"><i>x</i></span>, is a member of a set, <span class="math"><i>S</i></span>, this is denoted <span class="math"><i>x</i> &isin; <i>S</i></span>.
+				Sets may themselves be members of other sets.
+				Sets may be denoted in the following ways:
+			</p>
 			<ul>
-				<li>Extensionally, as a list of elements: {<i>x</i>, <i>y</i>, <i>z</i>}</li>
-				<li>Intensionally, with a rule that determines membership: {<i>x</i> : <i>x</i> &gt; 1}, {<i>x</i> : <i>x</i> has a cellular nucleus}</li>
-				<li>Using a defined name, phrase, or other symbol: &#x2205;, <i>U</i>, <i>Mammalia</i>, YPM-VP 1450</li>
+				<li>Extensionally, as a list of elements: <span class="math">{<i>x</i>, <i>y</i>, <i>z</i>}</span></li>
+				<li>Intensionally, with a rule that determines membership: <span class="math">{<i>x</i> | <i>x</i> &gt; 1}</span>, <span class="math">{<i>x</i> | <i>x</i> has a cellular nucleus}</span></li>
+				<li>Using a defined symbol, name, or phrase: <span class="math">&#x2205;</span>, <span class="math"><i>U</i></span>, <span class="math nomen">Mammalia</span>, <span class="math">YPM-VP 1450</span></li>
 			</ul>
-			<p>The <b>empty set</b> is the set which includes no members, denoted as &#x2205;.</p>
-			<p>The <b>cardinality</b> of a set is the number of elements in that set, denoted by surrounding the set with vertical bars, e.g., |<i>S</i>|.</p>
-			<p><i>Examples.</i> |&#x2205;| = 0. |{1, 2, 3}| = 3.</p>
-			<p>If all elements of a set, <i>A</i> are members of a set, <i>B</i>, then <i>A</i> is a <b>subset</b> of <i>B</i>, written <i>A</i> &#x2286; <i>B</i>. <i>B</i> is a <b>superset</b> of <i>A</i>. Note that all sets are subsets and supersets of themselves. If <i>A</i> &#x2260; <i>B</i>, then <i>A</i> is a <b>proper subset</b> of <i>B</i>, and <i>B</i> is a <b>proper superset</b> of <i>A</i>: <i>A</i> &#x2282; <i>B</i>. Note that &#x2205; is a subset of all sets.</p>
-			<p>The following operations may be applied to sets:</p>
+			<p>
+				The <strong>empty set</strong> is the set which includes no members, denoted as <span class="math">&#x2205;</span>.
+			</p>
+			<p>
+				The <strong>cardinality</strong> of a set is the number of elements in that set, denoted by surrounding the set with vertical bars, e.g., <span class="math">|<i>S</i>|</span>.
+			</p>
+			<p>
+				<span class="header">Examples.</span>
+				<span class="math">|&#x2205;| = 0</span>.
+				<span class="math">|{1, 2, 3}| = 3</span>.
+			</p>
+			<p>
+				If all elements of a set, <span class="math"><i>A</i></span> are members of a set, <span class="math"><i>B</i></span>, then <span class="math"><i>A</i></span> is a <strong>subset</strong> of <span class="math"><i>B</i></span>, denoted <span class="math"><i>A</i> &#x2286; <i>B</i></span>.
+				<span class="math"><i>B</i></span> is a <strong>superset</strong> of <span class="math"><i>A</i></span>.
+				Note that all sets are subsets and supersets of themselves.
+				If <span class="math"><i>A</i> &#x2260; <i>B</i></span>, then <span class="math"><i>A</i></span> is a <strong>proper subset</strong> of <span class="math"><i>B</i></span>, denoted <span class="math"><i>A</i> &#x2282; <i>B</i></span>, and <span class="math"><i>B</i></span> is a <strong>proper superset</strong> of <span class="math"><i>A</i></span>.
+				Note that <span class="math">&#x2205;</span> is a subset of all sets.
+			</p>
+			<p>
+				The operations of <strong>union</strong>, <strong>intersection</strong>, and <strong>difference</strong> may be applied to sets:
+			</p>
 			<ul>
-				<li><i>Union.</i> <i>A</i> &#x222A; <i>B</i> &#x2254; {<i>x</i> : <i>x</i> &isin; <i>A</i> or <i>x</i> &isin; <i>B</i>}</li>
-				<li><i>Intersection.</i> <i>A</i> &#x2229; <i>B</i> &#x2254; {<i>x</i> : <i>x</i> &isin; <i>A</i> and <i>x</i> &isin; <i>B</i>}</li>
-				<li><i>Difference.</i> <i>A</i> &minus; <i>B</i> &#x2254; {<i>x</i> &isin; <i>A</i> : <i>x</i> &notin; <i>B</i>}</li>
+				<li>
+					<span class="header">Union.</span>
+					<span class="math"><i>A</i> &#x222A; <i>B</i> := {<i>x</i> | <i>x</i> &isin; <i>A</i> or <i>x</i> &isin; <i>B</i>}</span>
+				</li>
+				<li>
+					<span class="header">Intersection.</span>
+					<span class="math"><i>A</i> &#x2229; <i>B</i> := {<i>x</i> | <i>x</i> &isin; <i>A</i> and <i>x</i> &isin; <i>B</i>}</span>
+				</li>
+				<li>
+					<span class="header">Difference.</span>
+					<span class="math"><i>A</i> &minus; <i>B</i> := {<i>x</i> &isin; <i>A</i> | <i>x</i> &notin; <i>B</i>}</span>
+				</li>
 			</ul>
-			<p>The set consisting of all (relevant) objects is called the <b>universal set</b>, denoted <i>U</i>. The difference of <i>U</i> and a set, <i>S</i>, is the <b>complement</b> of <i>S</i>, written <span style="text-decoration:overline;font-style:italic">S</span>.</p>
-			<p>A <b>power set</b> of a set, <i>S</i>, is the set of all subsets of <i>S</i>. The power set of <i>S</i> is written as 2<sup><i>S</i></sup>.</p>
-			<p><i>Example.</i> If <i>S</i> = {1, 2}, then 2<sup><i>S</i></sup> =  {&#x2205;, {1}, {2}, {1, 2}}.</p>
-			<h4>Sequences</h4>
-			<p>A <b>sequence</b> is an ordered collection of elements, generally denoted as a list of elements within parentheses, e.g., (<i>x</i>, <i>y</i>, <i>z</i>). Unlike sets, sequences may have the same member multiple times, e.g., (<i>x</i>, <i>x</i>, <i>y</i>). A sequence with two members is an <b>ordered pair</b>. A sequence with three members is an <b>ordered triple</b>. A sequence with <i>n</i> members is an <b><i>n</i>-tuple</b>.</p>
-			<p>A <b>Cartesian product</b> of two <b>factor sets</b>, <i>A</i> and <i>B</i>, is the set of all ordered pairs wherein the first element is a member of <i>A</i> and the second element is a member of <i>B</i>. This is written as <i>A</i> &times; <i>B</i>. <i>A</i> &times; <i>A</i> may be written as <i>A</i><sup>2</sup>. A Cartesian product may have any number, <i>n</i>, of factor sets, in which case the members of the product are <i>n</i>-tuples.</p>
-			<p><i>Example.</i> {1, 2} &times; {2, 3} = {(1, 2), (1, 3), (2, 2), (2, 3)}.</p>
+			<p>
+				A <strong>partition</strong> of a set, <span class="math"><i>S</i></span>, is a set of subsets of <span class="math"><i>S</i></span>, so that no sets in the partition overlap and all members of <span class="math"><i>S</i></span> are members of some set in the partition.
+			</p>
+			<p>
+				<span class="header">Example.</span>
+				If <span class="math"><i>S</i> = {1, 2, 3}</span>, then the partitions of <span class="math"><i>S</i></span> are <span class="math">{&#x2205;, <i>S</i>}</span>, <span class="math">{&#x2205;, {1}, {2, 3}}</span>, <span class="math">{&#x2205;, {1, 2}, {3}}</span>, <span class="math">{&#x2205;, {1, 3}, {2}}</span>, and <span class="math">{&#x2205;, {1}, {2}, {3}}</span>.
+			</p>
+			<p>
+				The set consisting of all (relevant) objects is called the <strong>universal set</strong>, denoted <span class="math"><i>U</i></span>.
+				The difference of <span class="math"><i>U</i></span> and a set, <span class="math"><i>S</i></span>, is the <strong>complement</strong> of <span class="math"><i>S</i></span>, denoted <span class="math set-complement"><i>S</i></span>.
+			</p>
+			<p>
+				A <strong>power set</strong> of a set, <span class="math"><i>S</i></span>, is the set of all subsets of <span class="math"><i>S</i></span>.
+				The power set of <span class="math"><i>S</i></span> is denoted as <span class="math">2<sup><i>S</i></sup></span>.
+			</p>
+			<p>
+				<span class="header">Example.</span>
+				If <span class="math"><i>S</i> = {1, 2}</span>, then <span class="math">2<sup><i>S</i></sup> = {&#x2205;, {1}, {2}, {1, 2}}</span>.
+			</p>
+			<h4>Lists</h4>
+			<p>
+				A <strong>list</strong> is an ordered collection of elements, denoted as a series of elements within brackets, e.g., <span class="math">[<i>x</i>, <i>y</i>, <i>z</i>]</span>.
+				Unlike sets, lists may have the same member multiple times, e.g., <span class="math">[<i>x</i>, <i>x</i>, <i>y</i>]</span>.
+				A list with two members is an <strong>ordered pair</strong>.
+				A list with three members is an <strong>ordered triple</strong>.
+				A list with <span class="math"><i>n</i></span> members is an <strong><span class="math"><i>n</i></span>-tuple</strong>.
+			</p>
+			<p>
+				A <strong>Cartesian product</strong> of two sets, <span class="math"><i>A</i></span> and <span class="math"><i>B</i></span>, is the set of all ordered pairs wherein the first element is a member of <span class="math"><i>A</i></span> and the second element is a member of <span class="math"><i>B</i></span>.
+				This product is denoted as <span class="math"><i>A</i> &times; <i>B</i></span>.
+				The product <span class="math"><i>A</i> &times; <i>A</i></span> may also be denoted as <span class="math"><i>A</i><sup>2</sup></span>.
+				Cartesian products may be generalized to cover any whole number, <span class="math"><i>n</i></span>, of sets, in which case the members of the product are <span class="math"><i>n</i></span>-tuples.
+			</p>
+			<p>
+				<span class="header">Example.</span>
+				<span class="math">{1, 2} &times; {2, 3} = {(1, 2), (1, 3), (2, 2), (2, 3)}</span>.
+			</p>
 			<h4>Relations</h4>
-			<p>A <b>relation</b> is a set of ordered pairs. If (<i>x</i>, <i>y</i>) is a pair in the relation <i>R</i>, this is written as <i>x</i> <i>R</i> <i>y</i>. The first element in such a pair is the <b>predecessor</b>, and the second element is the <b>successor</b>. If <i>x</i> <i>R</i> <i>z</i> and there is no other element, <i>y</i>, such that <i>x</i> <i>R</i> <i>y</i> and <i>y</i> <i>R</i> <i>z</i>, then <i>x</i> is an <b>immediate predecessor</b> of <i>z</i> and <i>z</i> is an <b>immediate successor</b> of <i>x</i>.</p>
-			<p>A <b>partial order</b> is a relation with the following properties:</p>
+			<p>
+				A <strong>relation</strong> is a set of ordered pairs.
+				If <span class="math">[<i>x</i>, <i>y</i>]</span> is a pair in the relation <span class="math"><i>R</i></span>, then this is denoted as <span class="math"><i>x</i> <i>R</i> <i>y</i></span>.
+				The first element in such a pair is the <strong>predecessor</strong>, and the second element is the <strong>successor</strong>.
+				If <span class="math"><i>x</i> <i>R</i> <i>z</i></span> and there is no other element, <span class="math"><i>y</i></span>, such that <span class="math"><i>x</i> <i>R</i> <i>y</i></span> and <span class="math"><i>y</i> <i>R</i> <i>z</i></span>, then <span class="math"><i>x</i></span> is an <strong>immediate predecessor</strong> of <span class="math"><i>z</i></span> and <span class="math"><i>z</i></span> is an <strong>immediate successor</strong> of <span class="math"><i>x</i></span>.
+			</p>
+			<p>
+				A <strong>partial order</strong> is a relation with the properties of <strong>reflexivity</strong>, <strong>antisymmetry</strong>, and <strong>transitivity</strong>:
+			</p>
 			<ul>
-				<li><i>Reflexivity.</i>&mdash;For all <i>x</i>, <i>x</i> &#x227c; <i>x</i>.</li>
-				<li><i>Antisymmetry.</i>&mdash;For all <i>x</i> and <i>y</i>, if <i>x</i> &#x227c; <i>y</i> and <i>x</i> &#x2260; <i>y</i>, then <i>y</i> &#x22E0; <i>x</i>.</li>
-				<li><i>Transitivity.</i>&mdash;For all <i>x</i>, <i>y</i>, and <i>z</i>, if <i>x</i> &#x227c; <i>y</i> and <i>y</i> &#x227c; <i>z</i>, then <i>x</i> &#x227c; <i>z</i>.</li>
+				<li>
+					<span class="header">Reflexivity.</span>
+					<span class="math">For all <i>x</i>, <i>x</i> <i>R</i> <i>x</i></span>.
+				</li>
+				<li>
+					<span class="header">Antisymmetry.</span>
+					<span class="math">For all <i>x</i>, <i>y</i>, if <i>x</i> <i>R</i> <i>y</i> and <i>x</i> <i>R</i> <i>y</i>, then <i>y</i> <i>R</i> <i>x</i></span>.
+				</li>
+				<li>
+					<span class="header">Transitivity.</span>
+					<span class="math">For all <i>x</i>, <i>y</i>, <i>z</i>, if <i>x</i> <i>R</i> <i>y</i> and <i>y</i> <i>R</i> <i>z</i>, then <i>x</i> <i>R</i> <i>z</i></span>.
+				</li>
 			</ul>
-			<p>A <b>transitive closure</b> of a relation, <i>R</i>, is the smallest (i.e., least inclusive) transitive relation that includes <i>R</i>.</p>
-			<p>If &#x227c; is a partial order and <i>x</i> &#x227c; <i>y</i> or <i>y</i> &#x227c; <i>x</i>, then <i>x</i> and <i>y</i> are <b>comparable</b>. If all elements in a set can be compared to each other, then the set is a <b>chain</b>. If no two different elements in a set are comparable, then it is an <b>antichain</b>.</p>
-			<p>The</p>
+			<p>
+				The <strong>transitive closure</strong> of a relation, <span class="math"><i>R</i></span>, is the smallest (i.e., least inclusive) transitive relation that includes <span class="math"><i>R</i></span>.
+			</p>
+			<p>
+				If <span class="math"><i>R</i></span> is a partial order and <span class="math"><i>x</i> <i>R</i> <i>y</i></span> or <span class="math"><i>y</i> <i>R</i> <i>x</i></span>, then <span class="math"><i>x</i></span> and <span class="math"><i>y</i></span> are <strong>comparable</strong>.
+				If all elements in a set can be compared to each other, then the set is a <strong>chain</strong>.
+				If no two different elements in a set are comparable, then it is an <strong>antichain</strong>.
+			</p>
 			<h4>Graphs</h4>
-			<p>A <b>graph</b> is an entity containing a set of objects, called <b>vertices</b>, and connections of these objects, called <b>edges</b>. A graph may be defined as a type of ordered pair, in which the first element is the <b>vertex set</b> and the second element is the <b>edge set</b>. In an <b>undirected graph</b>, each edge is a set of two vertices, indicating that those vertices are connected, or <b>incident</b>. In a <b>directed graph</b>, each edge is an unordered pair of vertices, indicating that the first element, or <b>head</b>, connects to the second element, or <b>tail</b>. Edges in directed graphs may also be called <b>arcs</b>.</p>
-			<p>A <b>walk</b> in a graph is a sequence of vertices in which each vertex is incident to the adjacent vertices in the sequence. A <b>path</b> is a walk in a directed graph wherein an arc points from one vertex to the next vertex in the sequence. A <b>cycle</b> is a path which begins and ends with the same vertex. A directed graph is said to be <b>acyclic</b> if there are no cycles in it.</p>
+			<p>
+				A <strong>graph</strong> is an entity containing a set of objects, called <strong>vertices</strong>, and connections of the vertices, called <strong>edges</strong>.
+				A graph may be defined as a type of ordered pair, in which the first element is the <strong>vertex set</strong> and the second element is the <strong>edge set</strong>: <span class="math">[<i>V</i>, <i>E</i>]</span>.
+				In an <strong>undirected graph</strong>, each edge is a set of two vertices, indicating that those vertices are connected, or <strong>incident</strong>.
+				In a <strong>directed graph</strong>, each edge is an ordered pair of vertices, indicating that the first element, or <strong>head</strong>, connects to the second element, or <strong>tail</strong>.
+				Edges in directed graphs may also be called <strong>arcs</strong>.
+			</p>
+			<p>
+				A <strong>walk</strong> in a graph is a list of vertices in which each vertex is incident to the next vertex in the list.
+				A <strong>path</strong> is a walk in a directed graph wherein some arc in the graph points from each vertex to the next vertex in the list.
+				A <strong>cycle</strong> is a path which begins and ends with the same vertex.
+				A directed graph is said to be <strong>acyclic</strong> if there are no cycles in it.
+			</p>
 			<h4>Functions</h4>
-			<p>A <b>function</b> maps an element, called an <b>argument</b>, to a value. Formally, a function may be defined as an ordered triple of three sets: <i>f</i> := (<i>X</i>, <i>Y</i>, <i>F</i>). The final set, <i>F</i>, is a set of ordered pairs, wherein the first element is the argument and the second element is the value. There may be only one ordered pair per argument. If an ordered pair, (<i>x</i>, <i>y</i>), is a member of <i>F</i>, this is commonly written as <i>f</i>(<i>x</i>) = <i>y</i>.</p>
-			<p>The set including all of a function's arguments is the <b>domain</b>. All values of the function are within the <b>target set</b>. The set of all values is the <b>image</b>, which is a subset of the target set. If a function, <i>f</i>, has domain <i>X</i> and codomain <i>Y</i>, this is written as <i>f</i>: <i>X</i> &rarr; <i>Y</i>.</p>
+			<p>
+				A <strong>function</strong> maps an element, called an <strong>argument</strong>, to a value.
+				Formally, a function may be defined as an ordered triple of three sets: <span class="math"><i>f</i> := (<i>X</i>, <i>Y</i>, <i>F</i>)</span>.
+				The final set, <span class="math"><i>F</i></span>, is a set of ordered pairs, wherein the first element is the argument and the second element is the value.
+				There may be only one ordered pair per argument.
+				If an ordered pair, <span class="math">(<i>x</i>, <i>y</i>)</span>, is a member of <span class="math"><i>F</i></span>, this may be denoted as <span class="math"><i>f</i>(<i>x</i>) = <i>y</i></span>.
+			</p>
+			<p>
+				The set including all of a function's arguments is the <strong>domain</strong>.
+				All values of the function are within the <strong>codomain</strong>.
+				The set of all values is the <strong>image</strong>, which is a subset of the codomain.
+				If a function, <span class="math"><i>f</i></span>, has domain <span class="math"><i>X</i></span> and codomain <span class="math"><i>Y</i></span>, this is denoted as <span class="math"><i>f</i>: <i>X</i> &rarr; <i>Y</i></span>.
+			</p>
 			<p>[Composition]</p>
 			<p>[Metrics]</p>
-		</div>
-		<div class="section">
-			<h3>General Review of Biological Terms</h3>
-			<h4>Organisms</h4>
-			<p>An <b>organism</b> is an individual living entity. Although in many cases it is clear what constitutes an individual, there are notable difficult cases. However, although the mathematical system used by <i>Names on Nodes</i> assumes that there are discrete, individual entities, it never deals with them directly. Thus there is no present need to clarify the term.</p>
-			<h4>Taxonomy</h4>
-			<p>A nonempty set of organisms is a <b>taxon</b>. A taxon whose members are all within another taxon is a <b>subtaxon</b> of that other taxon. A taxon which includes all members of another taxon is a <b>supertaxon</b> of that taxon. The most inclusive taxon is the <b>universal taxon</b>, which includes all organisms. A <b>taxonomy</b> is a system for dividing a taxon into subtaxa.</p>
-			<p>A <b>taxonomic name</b> is a word or phrase which signifies a taxon. A <b>nomenclatural code</b> is a code of rules which governs taxonomic names.</p>
-			<h4>Specimens</h4>
-			<p>In addition to taxonomic names, taxa may also be referenced using <b>specimens</b>. A specimen is an object which has been catalogued as part of a specimen collection. A specimen collection is often indicated by an abbreviation of its name, specified within the context, e.g., "Yale Peabody Museum: Vertebrate Paleontology Collection" may be abbreviated as YPM-VP. A specimen within a collection may be indicated by the collection's name or abbreviation followed by an <b>identifier</b> that is unique within the collection, e.g., YPM-VP 1450. A specimen may have multiple identifiers if it has been transferred from one collection to another. For example, AMNH 973 and CM 9380 are the same specimen. A specimen may represent no organisms (e.g., a mineralogical specimen), one organism (e.g., a fossil skeleton), or multiple organisms (e.g., a microbe slide).</p>
-			<h4>Character States</h4>
-			<p>Taxa may also be defined intensionally using a description of a necessary characteristic, that is, a <b>character state</b>. Organisms exhibiting the state are part of the taxon. Valid states must be discrete and absolute, that is, organisms cannot partially exhibit them.</p>
-			<p>Taxa may be defined using a combination of character states. If all states are required for membership, the taxon is <b>monosynthetic</b>. If only one state is required, the taxon is <b>polysynthetic</b>.</p>
-			<p>Taxonomic names are not usually defined according to character states, but the taxa that the names signify may be <b>diagnosed</b> by character states.</p>
-			<h4>Rank-Based Nomenclature</h4>
-			<p>Taxonomic names may be loosely defined using <b>rank-based definitions</b>. A taxon is rank-defined by specifying one or more <b>type specimens</b> or a <b>type subtaxon</b> (generally, a <b>type</b>), which must be included in the taxon by definition, and a <b>rank</b>, which indicates relative inclusivity of the taxon. Commonly used ranks are, from least to most inclusive, <b>species</b>, <b>genus</b>, <b>family</b>, <b>order</b>, <b>division</b> or <b>phylum</b>, and <b>kingdom</b>. Many others exist as well.</p>
-			<p>Note that rank-based definitions do not dictate any criteria for membership, apart from the requirement that the type (specimens or subtaxon) must represent included organisms.</p>
-			<p>A <b>rank-based code</b> is a nomenclatural code which governs rank-based definitions. Currently there are four in effect:</p>
-			<table>
-				<tr>
-					<th>Name of Rank-Based Code</th>
-					<th>Abbreviation</th>
-					<th>Organisms Covered</th>
-				</tr>
-				<tr>
-					<td><i>International Code of Botanical Nomenclature</i></td>
-					<td><i>ICBN</i></td>
-					<td>plants, fungi, some other eukaryotes</td>
-				</tr>
-				<tr>
-					<td><i>International Code of Zoological Nomenclature</i></td>
-					<td><i>ICZN</i></td>
-					<td>animals, some other eukaryotes</td>
-				</tr>
-				<tr>
-					<td><i>International Code of Nomenclature of Prokaryotes</i></td>
-					<td><i>ICNP</i></td>
-					<td>prokaryotes</td>
-				</tr>
-				<tr>
-					<td><i>International Code of Nomenclature for Cultivated Plants</i></td>
-					<td><i>ICNCP</i></td>
-					<td>cultivated plants</td>
-				</tr>
-			</table>
-			<p><i>Example.</i> Under <i>ICZN</i> rules, the name "<i>Tyrannosaurus rex</i>" refers to a taxon of the species rank typified by CM 9380 (formerly AMNH 973). Therefore, <i>Tyrannosaurus rex</i> must include the organism represented by that specimen. The name "<i>Tyrannosaurus</i>" refers to a taxon of genus rank typified by <i>Tyrannosaurus rex</i>, so it must be a supertaxon of that species (and, by extension, it must include the organism represented by CM 9380). The name "<i>Tyrannosauridae</i>" refers to a taxon of family rank typified by <i>Tyrannosaurus</i>, so it must be a supertaxon of <i>Tyrannosaurus</i>.</p>
-			<h4>Phylogeny</h4>
-			<p>Every organism has one or more <b>ancestors</b> and/or one or more <b>descendants</b>. An immediate ancestor is a <b>parent</b>, and an immediate descendant is a <b>child</b>. The pattern of ancestry and descent among organisms is <b>phylogeny</b>.</p>
-			<p>Although a fuller correlation wil be made further on, let us note that the biological term "ancestor" correlates to the mathematical term "proper predecessor", and the biological term "descendant" correlates to the mathematical term "proper successor". Therefore, we may say that a <b>predecessor</b> of an organism is any ancestor of that organism, or that organism itself. Conversely, a <b>successor</b> of an organism is any descendant of that organism, or that organism itself. Let us also note that the terms "maximal" and "minimal" may be applied to organisms with regard to taxa. The <b>minimal</b> members of a taxon are those which are not descended from any other member. The <b>maximal</b> members of a taxon are those which are not ancestral to any other member.</p>
-			<p>The <b>common predecessors</b> of a taxon are all organisms which are predecessors of all members of that taxon. The <b>common successors</b> of a taxon are all organisms which are successors of all members of that taxon.</p>
-			<p>The <b>exclusive predecessors</b> of a taxon, <i>A</i>, with regard to another taxon, <i>Z</i>, are all common predecessors of <i>A</i> except any which are predecessors of any member of <i>Z</i>.</p>
-			<p>The <b>comember predecessors</b> of a taxon, <i>A</i>, with regard to another (generally character-based) taxon, <i>M</i>, are all common predecessors of <i>A</i> which are also members of <i>M</i>. A <i>synapomorphic predecessor</i> of a taxon, <i>A</i>, with regard to taxon <i>M</i>, is a comember predecessor for which there is at least one lineage for every member of <i>A</i> satisfying the following conditions:</p>
-			<ol>
-				<li>The first member in the lineage is the synapomorphic predecessor.</li>
-				<li>The last member in the lineage is the member of <i>A</i>.</li>
-				<li>All members of the lineage are members of <i>M</i>.</li>
-			</ol>
-			<h4>Lineages</h4>
-			<p>A <b>lineage</b> is a sequence of organisms wherein each organism is followed by one of its children.</p>
-			<h4>Cladogens</h4>
-			<p>A taxon which fulfills the following requirements is here termed a <b>cladogen</b> (new term; previously "cladogenetic set" in Keesey [2007]):</p>
-			<ul>
-				<li>No member of a cladogen can be ancestral to any other member.</li>
-				<li>There must be at least one organism which is a common successor of all members of the cladogen.</li>
-			</ul>
-			<p>All singleton taxa are cladogens, but cladogens may have larger numbers of members as well.</p>
-			<p>A <b>node-based cladogen</b> consists of the maximal common predecessors of a taxon. That taxon is a <b>specifying taxon</b>.</p>
-			<p>A <b>branch-based cladogen</b> consists of the minimal exclusive predecessor of a taxon, the <b>internal specifying taxon</b>, with regard to another taxon, the <b>external specifying taxon</b>.</p>
-			<p>An <b>apomorphy-based cladogen</b> consists of the minimal synapomorphic predecessor of a taxon, the <b>representative taxon</b>, with regard to another taxon, the <b>apomorphic taxon</b>.</p>
-			<h4>Clades</h4>
-			<p>A <b>clade</b> is taxon including all members of a cladogen and all descendants of all of those members. Clades are <b>monophyletic</b>.</p>
-			<p>A <b>node-based clade</b> consist of a node-based cladogen and all descendants of all of its members. A <b>branch-based clade</b> consist of a branch-based cladogen and all descendants of all of its members. An <b>apomorphy-based clade</b> consist of an apomorphy-based cladogen and all descendants of all of its members.</p>
-			<h4>Non-Clades</h4>
-			<p>If a taxon includes all members of a cladogen, but not all descendants of those members, then it is <b>paraphyletic</b>. (Note that cladogens themselves are paraphyletic, with the exception of singleton cladogens wherein the single member has no descendants.)</p>
-			<p>If the maximal common predecessors (i.e., the members of the node-based cladogen) of a taxon are not included within that taxon, then that taxon is <b>polyphyletic</b>.</p>
-			<h4>Phylogeny-Based Nomenclature</h4>
-			<p>A taxon may be strictly defined according to phylogeny, using a <b>phylogeny-based definition</b>. Most commonly, the taxa defined are clades, but other types of taxa may also be phylogenetically defined.</p>
-			<p>A <b>phylogeny-based code</b> is one which governs phylogeny-based definitions. Currently there are no such codes in effect, but there is a draft of one called the <i>International Code of Phylogenetic Nomenclature</i> (the <i>ICPN</i> or the <i>PhyloCode</i> for short). This code is intended to go into effect in the next few years, exist alognside the rank-based codes, and govern phylogeny-based names for all types of organisms.</p>
-		</div>
-		<div class="section">
-			<h3>On the Correlation of Biological and Mathematical Terms</h3>
-			<h4>Taxa and Sets</h4>
-			<h4>Ancestry and Precedence</h4>
-			<h4>Phylogeny and Graphs</h4>
-			<table>
-				<tr>
-					<th>Biological Term</th>
-					<th>Mathematical Symbol, Term, or Phrase</th>
-				</tr>
-				<tr>
-					<td>taxon</td>
-					<td>nonempty set of organisms</td>
-				</tr>
-				<tr>
-					<td>parentage</td>
-					<td>~ (partially ordered relation)</td>
-				</tr>
-				<tr>
-					<td>ancestry</td>
-					<td>&#x227a; (transitive closure of ~)</td>
-				</tr>
-				<tr>
-					<td>descent</td>
-					<td>&#x227b; (inverse relation of &#x227a;)</td>
-				</tr>
-				<tr>
-					<td>ancestor</td>
-					<td>proper predecessor (in &#x227c;)</td>
-				</tr>
-				<tr>
-					<td>descendant</td>
-					<td>proper successor (in &#x227c;)</td>
-				</tr>
-				<tr>
-					<td>parent</td>
-					<td>immediate predecessor (in &#x227a;)</td>
-				</tr>
-				<tr>
-					<td>child</td>
-					<td>immediate successor (in &#x227a;)</td>
-				</tr>
-				<tr>
-					<td>phylogeny</td>
-					<td>(<i>U</i>, ~) (directed, acyclic graph/partially-ordered set)</td>
-				</tr>
-				<tr>
-					<td>lineage</td>
-					<td>chain (in phylogeny)</td>
-				</tr>
-				<tr>
-					<td>polysynthetic taxon</td>
-					<td>union</td>
-				</tr>
-				<tr>
-					<td>monosynthetic taxon</td>
-					<td>intersection</td>
-				</tr>
-				<tr>
-					<td>cladogen</td>
-					<td>nonempty antichain (in phylogeny) with at least one common successor</td>
-				</tr>
-				<tr>
-					<td>null definition</td>
-					<td>definition yielding &#x2205;</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="universalTaxon"></a>
-			<h3>Universal Taxon</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#universalTaxon</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td><i>U</i></td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Set</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p><i>U</i> is the set of all organisms, be they extinct, extant, or yet to be.</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::UniversalSet</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>Although in many cases it is a clear-cut matter as to whether an entity is an organism or not, there are notable difficult cases. However, although the mathematical system used by <i>Names on Nodes</i> assumes that there are discrete entities called "organisms", it never deals with them directly. Rather it deals exclusively with taxa, that is, sets of organisms. Given this, the question of what constitutes an "organism", while interesting in its own right, is not directly relevant to this application. Taxa may be considered subsets of <i>U</i>, without a direct need to specify what the elements are.</p>
-						<p>Operationally, <i>Names on Nodes</i> treats the smallest discernible taxa in a given case as individuals.</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="predecessors"></a>
-			<h3>Predecessors</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#predecessors</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>&#x227c;[]</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							&#x227c; : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							&#x227c;[<i>S</i>] &#x2254; {<i>x</i> &isin; <i>U</i> : for some <i>y</i> in <i>S</i>, <i>x</i> &#x227c; <i>y</i>}
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::Predecessors</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>&#x227c;[<i>S</i>] includes all members of <i>S</i> and all of each member's ancestors.</p>
-						<p>This is similar to the concept of "ancestors" except that <i>S</i> &#x2286; &#x227c;[<i>S</i>]. "Ancestors" may be thought of as "strict predecessors".</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="successors"></a>
-			<h3>Successors</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#successors</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>&#x227d;[]</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							&#x227d; : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							&#x227d;(<i>S</i>) &#x2254; {<i>x</i> &isin; <i>U</i> : for some <i>y</i> in <i>S</i>, <i>x</i> &#x227d; <i>y</i>}
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::Successors</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>&#x227d;[<i>S</i>] includes all members of <i>S</i> and all of each member's descendants.</p>
-						<p>This is similar to the concept of "descendants" except that <i>S</i> &#x2286; &#x227d;[<i>S</i>]. "Descendants" may be thought of as "strict successors".</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="commonPredecessors"></a>
-			<h3>Common Predecessors</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#commonPredecessors</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>&#x227c;<sub>common</sub>[]</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							&#x227c;<sub>common</sub> : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							&#x227c;<sub>common</sub>(<i>S</i>) &#x2254; {<i>x</i> &isin; <i>U</i> : for all <i>y</i> in <i>S</i>, <i>x</i> &#x227c; <i>y</i>}
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::CommonPredecessors</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>CP(<i>S</i>) includes all organisms ancestral to (or equal to) all members of <i>S</i>.</p>
-						<p>This is similar to the concept of "common ancestors" except that <i>S</i> may overlap CP(<i>S</i>). "Common ancestors" may be thought of as "strict common predecessors".</p>
-						<p>Note that for all <i>S</i> &#x2286; <i>U</i> such that |<i>S</i>| &le; 1, &#x227c;[<i>S</i>] = CP(<i>S</i>).</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="commonSuccessors"></a>
-			<h3>Common Successors</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#commonSuccessors</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>CS</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							CS : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							CS(<i>S</i>) &#x2254; {<i>x</i> &isin; <i>U</i> : for all <i>y</i> in <i>S</i>, <i>x</i> &#x227d; <i>y</i>}
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::CommonSuccessors</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>CP(<i>S</i>) includes all organisms descended from (or equal to) all members of <i>S</i>.</p>
-						<p>This is similar to the concept of "common descendants" except that <i>S</i> may overlap CS(<i>S</i>). "Common descendants" may be thought of as "strict common successors".</p>
-						<p>Note that for all <i>S</i> &#x2286; <i>U</i> such that |<i>S</i>| &le; 1, &#x227d;[<i>S</i>] = CS(<i>S</i>).</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="max"></a>
-			<h3>Maximal</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#max</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>max</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							max : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							max(<i>S</i>) &#x2254; {<i>x</i> &isin; <i>S</i> : for all <i>y</i> &isin; <i>S</i>, <i>x</i> <a class="symbol" href="#prec">&#x2280;</a> <i>y</i>}
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::Maximal</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>The maximal members of a set are all members which are not strictly ancestral to any other member.</p>
-						<p>The concept of "maximal" correlates to what some authors have termed "last", "latest", or "most recent", as in "most recent common ancestor". However, unlike those other terms, "maximal" is not tied to chronology; the maximal members of a set are not necessarily contemporaries.</p>
-						<p>Other potential synonyms of "maximal" are "final", "terminal", or "leafmost".</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="min"></a>
-			<h3>Minimal</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#min</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>min</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							min : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							min(<i>S</i>) &#x2254; {<i>x</i> &isin; <i>S</i> : for all <i>y</i> &isin; <i>S</i>, <i>x</i> <a class="symbol" href="#succ">&#x2281;</a> <i>y</i>}
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::Minimal</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>The minimal members of a set are all members which are not strictly descended from any other member.</p>
-						<p>The concept of "minimal" correlates to what some authors have termed "earliest", "first", or "least recent", as in "least recent common ancestor". However, unlike those other terms, "minimal" is not tied to chronology; the minimal members of a set are not necessarily contemporaries.</p>
-						<p>Other potential synonyms of "minimal" are "initial" or "rootmost".</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="cladogens"></a>
-			<h3>Cladogens</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#cladogens</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>Cladogens</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Set (Finite)</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>Cladogens &#x2254; {<i>S</i> &#x2286; <i>U</i> : CS(<i>S</i>) &ne; &#x2205; and for all <i>x</i>, <i>y</i> &isin; <i>S</i>, <i>x</i> &#x2280; <i>y</i>}</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::Cladogens</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>A cladogen is an independent taxon that has at least one common successor. By "independent", I mean that no member is comparable to (i.e., strictly ancestral to or descended from) any other member.</p>
-						<p>Note that all singleton sets are cladogens. The empty set is not a cladogen, because CS(&#x2205;) = &#x2205;.</p>
-						<p>If (and only if) <i>S</i> is a cladogen, then &#x227d;[<i>S</i>] is a clade.</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="nodePredecessors"></a>
-			<h3>Node-Based Predecessors</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#nodePredecessors</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>+</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							+ : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							+(<i>S</i>) &#x2254; max(CP(<i>S</i>))
-							<br/>
-							<i>A</i> + <i>B</i> + ... + <i>Z</i> &#x2254; +(<i>A</i> &#x222a; <i>B</i> &#x222a; ... &#x222a; <i>Z</i>)
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::NodePredecessors</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>The node-based predecessors of a set are its maximal common predecessors. This is a similar concept to "most recent common ancestors".</p>
-						<p>This operation has two forms of notation: 1) as a prefix; and 2) as an infix, which is shorthand for applying the function to a union of sets.</p>
-						<p>Unless <i>S</i> has no common predecessors, +(<i>S</i>) is a cladogen. Since all known organisms are theorized to descend from common ancestors, the node-based predecessors of all known taxa are cladogens, in theory.</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="branchPredecessors"></a>
-			<h3>Branch-Based Predecessors</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#branchPredecessors</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>&larr;</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							&larr; : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &times; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							<i>S</i><sub>1</sub> &larr; <i>S</i><sub>2</sub> &#x2254; min(CP(<i>S</i><sub>1</sub>) &minus; &#x227c;[<i>S</i><sub>2</sub>])
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::BranchPredecessors</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						<p>Specifying branch-based predecessors requires two sets, one internal and one external. The exclusive common predecessors of the internal set are all of its common predecessors minus all predecessors of the external set. The branch-based predecessors are the minimal exclusive common ancestors of the internal set.</p>
-						<p>Unless <i>S</i><sub>1</sub> has no common predecessors, or all of those common predecessors are also predecessors of <i>S</i><sub>2</sub>, then <i>S</i><sub>1</sub> &larr; <i>S</i><sub>2</sub> is a cladogen.</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="section">
-			<a name="clade"></a>
-			<h3>Clade</h3>
-			<table>
-				<tr>
-					<th>Definition URL</th>
-					<td><code>http://namesonnodes.org/ns/math/2009#clade</code></td>
-				</tr>
-				<tr>
-					<th>Symbol</th>
-					<td>Clade</td>
-				</tr>
-				<tr>
-					<th>Class</th>
-					<td>Function</td>
-				</tr>
-				<tr>
-					<th>Definition</th>
-					<td>
-						<p>
-							Clade : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
-							<br/>
-							Clade(<i>S</i>) &#x2254; &#x227d;[<i>S</i>], if <i>S</i> &isin; Cladogens; &#x2205; otherwise.
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<th>Implementation</th>
-					<td><code>org.namesonnodes.math::Clade</code></td>
-				</tr>
-				<tr>
-					<th>Discussion</th>
-					<td>
-						TBD
-					</td>
-				</tr>
-			</table>
+			<div class="section">
+				<h3>General Review of Biological Terms</h3>
+				<h4>Organisms</h4>
+				<p>
+					An <strong>organism</strong> is an individual living entity.
+					Although in many cases it is clear what constitutes an individual, there are notable difficult cases.
+					However, although the mathematical system used by <span class="title">Names on Nodes</span> assumes that there are discrete, individual entities, it never deals with them directly.
+					Thus there is no present need to clarify the term.
+				</p>
+				<h4>Taxonomy</h4>
+				<p>
+					A nonempty set of organisms is a <strong>taxon</strong>.
+					A taxon whose members are all within another taxon is a <strong>subtaxon</strong> of that other taxon.
+					A taxon which includes all members of another taxon is a <strong>supertaxon</strong> of that taxon.
+					The most inclusive taxon is the <strong>universal taxon</strong>, which includes all organisms.
+					A <strong>taxonomy</strong> is a system for dividing a taxon into subtaxa.
+				</p>
+				<p>A <strong>taxonomic name</strong> is a word or phrase which signifies a taxon. A <strong>nomenclatural code</strong> is a code of rules which governs taxonomic names.</p>
+				<h4>Specimens</h4>
+				<p>In addition to taxonomic names, taxa may also be referenced using <strong>specimens</strong>. A specimen is an object which has been catalogued as part of a specimen collection. A specimen collection is often indicated by an abbreviation of its name, specified within the context, e.g., "Yale Peabody Museum: Vertebrate Paleontology Collection" may be abbreviated as YPM-VP. A specimen within a collection may be indicated by the collection's name or abbreviation followed by an <strong>identifier</strong> that is unique within the collection, e.g., YPM-VP 1450. A specimen may have multiple identifiers if it has been transferred from one collection to another. For example, AMNH 973 and CM 9380 are the same specimen. A specimen may represent no organisms (e.g., a mineralogical specimen), one organism (e.g., a fossil skeleton), or multiple organisms (e.g., a microbe slide).</p>
+				<h4>Character States</h4>
+				<p>Taxa may also be defined intensionally using a description of a necessary characteristic, that is, a <strong>character state</strong>. Organisms exhibiting the state are part of the taxon. Valid states must be discrete and absolute, that is, organisms cannot partially exhibit them.</p>
+				<p>Taxa may be defined using a combination of character states. If all states are required for membership, the taxon is <strong>monosynthetic</strong>. If only one state is required, the taxon is <strong>polysynthetic</strong>.</p>
+				<p>Taxonomic names are not usually defined according to character states, but the taxa that the names signify may be <strong>diagnosed</strong> by character states.</p>
+				<h4>Rank-Based Nomenclature</h4>
+				<p>Taxonomic names may be loosely defined using <strong>rank-based definitions</strong>. A taxon is rank-defined by specifying one or more <strong>type specimens</strong> or a <strong>type subtaxon</strong> (generally, a <strong>type</strong>), which must be included in the taxon by definition, and a <strong>rank</strong>, which indicates relative inclusivity of the taxon. Commonly used ranks are, from least to most inclusive, <strong>species</strong>, <strong>genus</strong>, <strong>family</strong>, <strong>order</strong>, <strong>division</strong> or <strong>phylum</strong>, and <strong>kingdom</strong>. Many others exist as well.</p>
+				<p>Note that rank-based definitions do not dictate any criteria for membership, apart from the requirement that the type (specimens or subtaxon) must represent included organisms.</p>
+				<p>A <strong>rank-based code</strong> is a nomenclatural code which governs rank-based definitions. Currently there are four in effect:</p>
+				<table>
+					<tr>
+						<th>Name of Rank-Based Code</th>
+						<th>Abbreviation</th>
+						<th>Organisms Covered</th>
+					</tr>
+					<tr>
+						<td><i>International Code of Botanical Nomenclature</i></td>
+						<td><i>ICBN</i></td>
+						<td>plants, fungi, some other eukaryotes</td>
+					</tr>
+					<tr>
+						<td><i>International Code of Zoological Nomenclature</i></td>
+						<td><i>ICZN</i></td>
+						<td>animals, some other eukaryotes</td>
+					</tr>
+					<tr>
+						<td><i>International Code of Nomenclature of Prokaryotes</i></td>
+						<td><i>ICNP</i></td>
+						<td>prokaryotes</td>
+					</tr>
+					<tr>
+						<td><i>International Code of Nomenclature for Cultivated Plants</i></td>
+						<td><i>ICNCP</i></td>
+						<td>cultivated plants</td>
+					</tr>
+				</table>
+				<p><i>Example.</i> Under <i>ICZN</i> rules, the name "<i>Tyrannosaurus rex</i>" refers to a taxon of the species rank typified by CM 9380 (formerly AMNH 973). Therefore, <i>Tyrannosaurus rex</i> must include the organism represented by that specimen. The name "<i>Tyrannosaurus</i>" refers to a taxon of genus rank typified by <i>Tyrannosaurus rex</i>, so it must be a supertaxon of that species (and, by extension, it must include the organism represented by CM 9380). The name "<i>Tyrannosauridae</i>" refers to a taxon of family rank typified by <i>Tyrannosaurus</i>, so it must be a supertaxon of <i>Tyrannosaurus</i>.</p>
+				<h4>Phylogeny</h4>
+				<p>Every organism has one or more <strong>ancestors</strong> and/or one or more <strong>descendants</strong>. An immediate ancestor is a <strong>parent</strong>, and an immediate descendant is a <strong>child</strong>. The pattern of ancestry and descent among organisms is <strong>phylogeny</strong>.</p>
+				<p>Although a fuller correlation wil be made further on, let us note that the biological term "ancestor" correlates to the mathematical term "proper predecessor", and the biological term "descendant" correlates to the mathematical term "proper successor". Therefore, we may say that a <strong>predecessor</strong> of an organism is any ancestor of that organism, or that organism itself. Conversely, a <strong>successor</strong> of an organism is any descendant of that organism, or that organism itself. Let us also note that the terms "maximal" and "minimal" may be applied to organisms with regard to taxa. The <strong>minimal</strong> members of a taxon are those which are not descended from any other member. The <strong>maximal</strong> members of a taxon are those which are not ancestral to any other member.</p>
+				<p>The <strong>common predecessors</strong> of a taxon are all organisms which are predecessors of all members of that taxon. The <strong>common successors</strong> of a taxon are all organisms which are successors of all members of that taxon.</p>
+				<p>The <strong>exclusive predecessors</strong> of a taxon, <i>A</i>, with regard to another taxon, <i>Z</i>, are all common predecessors of <i>A</i> except any which are predecessors of any member of <i>Z</i>.</p>
+				<p>The <strong>comember predecessors</strong> of a taxon, <i>A</i>, with regard to another (generally character-based) taxon, <i>M</i>, are all common predecessors of <i>A</i> which are also members of <i>M</i>. A <i>synapomorphic predecessor</i> of a taxon, <i>A</i>, with regard to taxon <i>M</i>, is a comember predecessor for which there is at least one lineage for every member of <i>A</i> satisfying the following conditions:</p>
+				<ol>
+					<li>The first member in the lineage is the synapomorphic predecessor.</li>
+					<li>The last member in the lineage is the member of <i>A</i>.</li>
+					<li>All members of the lineage are members of <i>M</i>.</li>
+				</ol>
+				<h4>Lineages</h4>
+				<p>A <strong>lineage</strong> is a sequence of organisms wherein each organism is followed by one of its children.</p>
+				<h4>Cladogens</h4>
+				<p>A taxon which fulfills the following requirements is here termed a <strong>cladogen</strong> (new term; previously "cladogenetic set" in Keesey [2007]):</p>
+				<ul>
+					<li>No member of a cladogen can be ancestral to any other member.</li>
+					<li>There must be at least one organism which is a common successor of all members of the cladogen.</li>
+				</ul>
+				<p>All singleton taxa are cladogens, but cladogens may have larger numbers of members as well.</p>
+				<p>A <strong>node-based cladogen</strong> consists of the maximal common predecessors of a taxon. That taxon is a <strong>specifying taxon</strong>.</p>
+				<p>A <strong>branch-based cladogen</strong> consists of the minimal exclusive predecessor of a taxon, the <strong>internal specifying taxon</strong>, with regard to another taxon, the <strong>external specifying taxon</strong>.</p>
+				<p>An <strong>apomorphy-based cladogen</strong> consists of the minimal synapomorphic predecessor of a taxon, the <strong>representative taxon</strong>, with regard to another taxon, the <strong>apomorphic taxon</strong>.</p>
+				<h4>Clades</h4>
+				<p>A <strong>clade</strong> is taxon including all members of a cladogen and all descendants of all of those members. Clades are <strong>monophyletic</strong>.</p>
+				<p>A <strong>node-based clade</strong> consist of a node-based cladogen and all descendants of all of its members. A <strong>branch-based clade</strong> consist of a branch-based cladogen and all descendants of all of its members. An <strong>apomorphy-based clade</strong> consist of an apomorphy-based cladogen and all descendants of all of its members.</p>
+				<h4>Non-Clades</h4>
+				<p>If a taxon includes all members of a cladogen, but not all descendants of those members, then it is <strong>paraphyletic</strong>. (Note that cladogens themselves are paraphyletic, with the exception of singleton cladogens wherein the single member has no descendants.)</p>
+				<p>If the maximal common predecessors (i.e., the members of the node-based cladogen) of a taxon are not included within that taxon, then that taxon is <strong>polyphyletic</strong>.</p>
+				<h4>Phylogeny-Based Nomenclature</h4>
+				<p>A taxon may be strictly defined according to phylogeny, using a <strong>phylogeny-based definition</strong>. Most commonly, the taxa defined are clades, but other types of taxa may also be phylogenetically defined.</p>
+				<p>A <strong>phylogeny-based code</strong> is one which governs phylogeny-based definitions. Currently there are no such codes in effect, but there is a draft of one called the <i>International Code of Phylogenetic Nomenclature</i> (the <i>ICPN</i> or the <i>PhyloCode</i> for short). This code is intended to go into effect in the next few years, exist alognside the rank-based codes, and govern phylogeny-based names for all types of organisms.</p>
+			</div>
+			<div class="section">
+				<h3>On the Correlation of Biological and Mathematical Terms</h3>
+				<h4>Taxa and Sets</h4>
+				<h4>Ancestry and Precedence</h4>
+				<h4>Phylogeny and Graphs</h4>
+				<table>
+					<tr>
+						<th>Biological Term</th>
+						<th>Mathematical Symbol, Term, or Phrase</th>
+					</tr>
+					<tr>
+						<td>taxon</td>
+						<td>nonempty set of organisms</td>
+					</tr>
+					<tr>
+						<td>parentage</td>
+						<td>~ (partially ordered relation)</td>
+					</tr>
+					<tr>
+						<td>ancestry</td>
+						<td>&#x227a; (transitive closure of ~)</td>
+					</tr>
+					<tr>
+						<td>descent</td>
+						<td>&#x227b; (inverse relation of &#x227a;)</td>
+					</tr>
+					<tr>
+						<td>ancestor</td>
+						<td>proper predecessor (in &#x227c;)</td>
+					</tr>
+					<tr>
+						<td>descendant</td>
+						<td>proper successor (in &#x227c;)</td>
+					</tr>
+					<tr>
+						<td>parent</td>
+						<td>immediate predecessor (in &#x227a;)</td>
+					</tr>
+					<tr>
+						<td>child</td>
+						<td>immediate successor (in &#x227a;)</td>
+					</tr>
+					<tr>
+						<td>phylogeny</td>
+						<td>(<i>U</i>, ~) (directed, acyclic graph/partially-ordered set)</td>
+					</tr>
+					<tr>
+						<td>lineage</td>
+						<td>chain (in phylogeny)</td>
+					</tr>
+					<tr>
+						<td>polysynthetic taxon</td>
+						<td>union</td>
+					</tr>
+					<tr>
+						<td>monosynthetic taxon</td>
+						<td>intersection</td>
+					</tr>
+					<tr>
+						<td>cladogen</td>
+						<td>nonempty antichain (in phylogeny) with at least one common successor</td>
+					</tr>
+					<tr>
+						<td>null definition</td>
+						<td>definition yielding &#x2205;</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="universalTaxon"></a>
+				<h3>Universal Taxon</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#universalTaxon</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td><i>U</i></td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Set</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p><i>U</i> is the set of all organisms, be they extinct, extant, or yet to be.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::UniversalSet</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>Although in many cases it is a clear-cut matter as to whether an entity is an organism or not, there are notable difficult cases. However, although the mathematical system used by <i>Names on Nodes</i> assumes that there are discrete entities called "organisms", it never deals with them directly. Rather it deals exclusively with taxa, that is, sets of organisms. Given this, the question of what constitutes an "organism", while interesting in its own right, is not directly relevant to this application. Taxa may be considered subsets of <i>U</i>, without a direct need to specify what the elements are.</p>
+							<p>Operationally, <i>Names on Nodes</i> treats the smallest discernible taxa in a given case as individuals.</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="predecessors"></a>
+				<h3>Predecessors</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#predecessors</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>&#x227c;[]</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								&#x227c; : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								&#x227c;[<i>S</i>] := {<i>x</i> &isin; <i>U</i> : for some <i>y</i> in <i>S</i>, <i>x</i> &#x227c; <i>y</i>}
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::Predecessors</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>&#x227c;[<i>S</i>] includes all members of <i>S</i> and all of each member's ancestors.</p>
+							<p>This is similar to the concept of "ancestors" except that <i>S</i> &#x2286; &#x227c;[<i>S</i>]. "Ancestors" may be thought of as "strict predecessors".</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="successors"></a>
+				<h3>Successors</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#successors</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>&#x227d;[]</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								&#x227d; : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								&#x227d;(<i>S</i>) := {<i>x</i> &isin; <i>U</i> : for some <i>y</i> in <i>S</i>, <i>x</i> &#x227d; <i>y</i>}
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::Successors</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>&#x227d;[<i>S</i>] includes all members of <i>S</i> and all of each member's descendants.</p>
+							<p>This is similar to the concept of "descendants" except that <i>S</i> &#x2286; &#x227d;[<i>S</i>]. "Descendants" may be thought of as "strict successors".</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="commonPredecessors"></a>
+				<h3>Common Predecessors</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#commonPredecessors</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>&#x227c;<sub>common</sub>[]</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								&#x227c;<sub>common</sub> : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								&#x227c;<sub>common</sub>(<i>S</i>) := {<i>x</i> &isin; <i>U</i> : for all <i>y</i> in <i>S</i>, <i>x</i> &#x227c; <i>y</i>}
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::CommonPredecessors</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>CP(<i>S</i>) includes all organisms ancestral to (or equal to) all members of <i>S</i>.</p>
+							<p>This is similar to the concept of "common ancestors" except that <i>S</i> may overlap CP(<i>S</i>). "Common ancestors" may be thought of as "strict common predecessors".</p>
+							<p>Note that for all <i>S</i> &#x2286; <i>U</i> such that |<i>S</i>| &le; 1, &#x227c;[<i>S</i>] = CP(<i>S</i>).</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="commonSuccessors"></a>
+				<h3>Common Successors</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#commonSuccessors</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>CS</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								CS : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								CS(<i>S</i>) := {<i>x</i> &isin; <i>U</i> : for all <i>y</i> in <i>S</i>, <i>x</i> &#x227d; <i>y</i>}
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::CommonSuccessors</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>CP(<i>S</i>) includes all organisms descended from (or equal to) all members of <i>S</i>.</p>
+							<p>This is similar to the concept of "common descendants" except that <i>S</i> may overlap CS(<i>S</i>). "Common descendants" may be thought of as "strict common successors".</p>
+							<p>Note that for all <i>S</i> &#x2286; <i>U</i> such that |<i>S</i>| &le; 1, &#x227d;[<i>S</i>] = CS(<i>S</i>).</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="max"></a>
+				<h3>Maximal</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#max</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>max</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								max : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								max(<i>S</i>) := {<i>x</i> &isin; <i>S</i> : for all <i>y</i> &isin; <i>S</i>, <i>x</i> <a class="symbol" href="#prec">&#x2280;</a> <i>y</i>}
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::Maximal</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>The maximal members of a set are all members which are not strictly ancestral to any other member.</p>
+							<p>The concept of "maximal" correlates to what some authors have termed "last", "latest", or "most recent", as in "most recent common ancestor". However, unlike those other terms, "maximal" is not tied to chronology; the maximal members of a set are not necessarily contemporaries.</p>
+							<p>Other potential synonyms of "maximal" are "final", "terminal", or "leafmost".</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="min"></a>
+				<h3>Minimal</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#min</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>min</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								min : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								min(<i>S</i>) := {<i>x</i> &isin; <i>S</i> : for all <i>y</i> &isin; <i>S</i>, <i>x</i> <a class="symbol" href="#succ">&#x2281;</a> <i>y</i>}
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::Minimal</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>The minimal members of a set are all members which are not strictly descended from any other member.</p>
+							<p>The concept of "minimal" correlates to what some authors have termed "earliest", "first", or "least recent", as in "least recent common ancestor". However, unlike those other terms, "minimal" is not tied to chronology; the minimal members of a set are not necessarily contemporaries.</p>
+							<p>Other potential synonyms of "minimal" are "initial" or "rootmost".</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="cladogens"></a>
+				<h3>Cladogens</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#cladogens</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>Cladogens</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Set (Finite)</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>Cladogens := {<i>S</i> &#x2286; <i>U</i> : CS(<i>S</i>) &ne; &#x2205; and for all <i>x</i>, <i>y</i> &isin; <i>S</i>, <i>x</i> &#x2280; <i>y</i>}</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::Cladogens</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>A cladogen is an independent taxon that has at least one common successor. By "independent", I mean that no member is comparable to (i.e., strictly ancestral to or descended from) any other member.</p>
+							<p>Note that all singleton sets are cladogens. The empty set is not a cladogen, because CS(&#x2205;) = &#x2205;.</p>
+							<p>If (and only if) <i>S</i> is a cladogen, then &#x227d;[<i>S</i>] is a clade.</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="nodePredecessors"></a>
+				<h3>Node-Based Predecessors</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#nodePredecessors</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>+</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								+ : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								+(<i>S</i>) := max(CP(<i>S</i>))
+								<br/>
+								<i>A</i> + <i>B</i> + ... + <i>Z</i> := +(<i>A</i> &#x222a; <i>B</i> &#x222a; ... &#x222a; <i>Z</i>)
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::NodePredecessors</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>The node-based predecessors of a set are its maximal common predecessors. This is a similar concept to "most recent common ancestors".</p>
+							<p>This operation has two forms of notation: 1) as a prefix; and 2) as an infix, which is shorthand for applying the function to a union of sets.</p>
+							<p>Unless <i>S</i> has no common predecessors, +(<i>S</i>) is a cladogen. Since all known organisms are theorized to descend from common ancestors, the node-based predecessors of all known taxa are cladogens, in theory.</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="branchPredecessors"></a>
+				<h3>Branch-Based Predecessors</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#branchPredecessors</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>&larr;</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								&larr; : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &times; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								<i>S</i><sub>1</sub> &larr; <i>S</i><sub>2</sub> := min(CP(<i>S</i><sub>1</sub>) &minus; &#x227c;[<i>S</i><sub>2</sub>])
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::BranchPredecessors</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							<p>Specifying branch-based predecessors requires two sets, one internal and one external. The exclusive common predecessors of the internal set are all of its common predecessors minus all predecessors of the external set. The branch-based predecessors are the minimal exclusive common ancestors of the internal set.</p>
+							<p>Unless <i>S</i><sub>1</sub> has no common predecessors, or all of those common predecessors are also predecessors of <i>S</i><sub>2</sub>, then <i>S</i><sub>1</sub> &larr; <i>S</i><sub>2</sub> is a cladogen.</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="section">
+				<a name="clade"></a>
+				<h3>Clade</h3>
+				<table>
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#clade</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td>Clade</td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p>
+								Clade : &#x2118;(<a class="symbol" href="#U"><i>U</i></a>) &#x27f6; &#x2118;(<a class="symbol" href="#U"><i>U</i></a>)
+								<br/>
+								Clade(<i>S</i>) := &#x227d;[<i>S</i>], if <i>S</i> &isin; Cladogens; &#x2205; otherwise.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::Clade</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							TBD
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>
