@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="org.namesonnodes.domain.entities.AbstractQualified"/>
+    <classEntry path="org.namesonnodes.domain.entities.Authority"/>
+    <classEntry path="org.namesonnodes.domain.entities.AuthorityIdentifier"/>
+    <classEntry path="org.namesonnodes.domain.entities.Authorized"/>
+    <classEntry path="org.namesonnodes.domain.entities.Dataset"/>
+    <classEntry path="org.namesonnodes.domain.entities.Definition"/>
+    <classEntry path="org.namesonnodes.domain.entities.Heredity"/>
+    <classEntry path="org.namesonnodes.domain.entities.Identified"/>
+    <classEntry path="org.namesonnodes.domain.entities.Inclusion"/>
+    <classEntry path="org.namesonnodes.domain.entities.Label"/>
+    <classEntry path="org.namesonnodes.domain.entities.Labelled"/>
+    <classEntry path="org.namesonnodes.domain.entities.PhyloDefinition"/>
+    <classEntry path="org.namesonnodes.domain.entities.RankDefinition"/>
+    <classEntry path="org.namesonnodes.domain.entities.SpecimenDefinition"/>
+    <classEntry path="org.namesonnodes.domain.entities.StateDefinition"/>
+    <classEntry path="org.namesonnodes.domain.entities.Synonymy"/>
+    <classEntry path="org.namesonnodes.domain.entities.Taxon"/>
+    <classEntry path="org.namesonnodes.domain.entities.TaxonIdentifier"/>
+    <classEntry path="org.namesonnodes.domain.files.WeightFactor"/>
+    <classEntry path="org.namesonnodes.domain.files.WeightType"/>
+    <classEntry path="org.namesonnodes.domain.summaries.Summarizeable"/>
+    <classEntry path="org.namesonnodes.domain.summaries.SummaryItem"/>
+    <classEntry path="org.namesonnodes.domain.summaries.summarize"/>
+    <classEntry path="org.namesonnodes.flare.DataPhylogenyFactory"/>
+    <classEntry path="org.namesonnodes.flare.PhylogenyVisualization"/>
+    <classEntry path="org.namesonnodes.flare.VertexSprite"/>
+    <classEntry path="org.namesonnodes.flare.events.EntityClickEvent"/>
+    <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
+    <classEntry path="org.namesonnodes.math.graphs.DatasetGraphImporter"/>
+    <classEntry path="org.namesonnodes.phylo.Phylogeny"/>
+    <classEntry path="org.namesonnodes.phylo.PhylogenyDatasetFactory"/>
+    <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
