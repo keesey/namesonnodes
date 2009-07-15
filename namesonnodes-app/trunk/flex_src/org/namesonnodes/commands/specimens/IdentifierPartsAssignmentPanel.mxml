@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands:AbstractCommandFlowPanel xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:commands="org.namesonnodes.commands.*" width="400" height="300">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.IList;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.ResultEvent;
+			import mx.controls.Button;
+			import mx.events.ItemClickEvent;
+			
+			private const options:IList = new ArrayCollection();
+
+			override public function get flowName() : String
+			{
+				return title;
+			}
+			override public function matches(input:Object) : Boolean
+			{
+				return input is Array && (input as Array).length > 2
+			}
+			protected function onItemClick(event:ItemClickEvent):void
+			{
+				commitResult(event.item);
+			}
+			override protected function readInput(input:Object) : void
+			{
+				options.removeAll();
+				if (matches(input))
+				{
+					const parts:Array = input as Array;
+					if (parts.length == 0)
+						commitResult(null);
+					else if (parts.length == 1)
+						commitResult([null, parts[0]]);
+					else
+					{
+						options.addItem([null, parts.join("-")]);
+						for (var i:uint = 0; i < parts.length - 1; ++i)
+						{
+							var catalogueLabel:String = parts.slice(0, i + 1).join("-").replace(/-+/g, "-");
+							var specimenIdentifier:String = parts.slice(i + 1).join("-").replace(/-+/g, "-");
+							options.addItem([catalogueLabel, specimenIdentifier]);
+						}
+					}
+				}
+				else throw new ArgumentError("Not an array of specimen identifier pieces: " + input);
+			}
+			protected static function itemLabel(item:Array):String
+			{
+				if (item.length == 2)
+					return "Catalogue: " + (item[0] == null ? "[Not Given]" : item[0])
+						+ "\nSpecimen: " + item[1];
+				throw new ArgumentError();
+			}
+		]]>
+	</fx:Script>
+	<commands:layout>
+		<s:VerticalLayout paddingTop="10" paddingLeft="10" paddingRight="10" paddingBottom="10"/>
+	</commands:layout>
+	<commands:title>Clarify specimen identifier.</commands:title>
+	<s:SimpleText
+		text="Please indicate which part of this identifier refers to a catalogue and which part refers to a specimen in that catalogue."
+		width="380"/>
+	<s:ButtonBar dataProvider="{options}" width="380"
+			itemClick="onItemClick(event)" labelFunction="{itemLabel}">
+		<s:layout>
+			<s:TileLayout columnAlign="justifyUsingGap" orientation="rows"/>
+		</s:layout>
+	</s:ButtonBar>
+	<s:Button label="Cancel." click="dispatchEvent(ResultEvent.createEvent(null))"/>
+</commands:AbstractCommandFlowPanel>

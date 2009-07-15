@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<fx:Declarations>
+		<s:RadioButtonGroup id="rankGroup"/>
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import org.namesonnodes.commands.Command;
+			
+			protected static const FAMILY_PATTERN:RegExp = /^[A-Z][a-z]+idae$/;
+			protected static const GENUS_PATTERN:RegExp = /^[A-Z][a-z]+$/;
+			protected static const SPECIES_PATTERN:RegExp = /^[A-Z][a-z]+ [a-z]{2,}$/;
+			protected static const SUBFAMILY_PATTERN:RegExp = /^[A-Z][a-z]+inae$/;
+			protected static const SUBGENUS_PATTERN:RegExp = /^[A-Z][a-z]+ \([A-Z][a-z]+\)$/;
+			protected static const SUBSPECIES_PATTERN:RegExp = /^[A-Z][a-z]+ [a-z]{2,} [a-z]{2,}$/;
+			protected static const SUBTRIBE_PATTERN:RegExp = /^[A-Z][a-z]+ina$/;
+			protected static const SUPERFAMILY_PATTERN:RegExp = /^[A-Z][a-z]+oidea$/;
+			protected static const SUPERSPECIES_PATTERN:RegExp = /^[A-Z][a-z]+ \([a-z]{2,}\)$/;
+			protected static const TRIBE_PATTERN:RegExp = /^[A-Z][a-z]+ini$/;
+			protected static const UNRANKED_PATTERN:RegExp = /^[A-Z][a-z]+$/;
+			
+			private var _command:Command;
+			
+			[Bindable]
+			public var labelName:String = "";
+			
+			public function get command():Command
+			{
+				return _command;
+			} 
+		]]>
+	</fx:Script>
+	<s:HGroup width="100%" height="100%">
+		<s:VGroup>
+			<mx:Label text="Rank:"/>
+			<s:RadioButton label="Superfamily" value="superfamily" enabled="{SUPERFAMILY_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Family" value="family" enabled="{FAMILY_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Subfamily" value="subfamily" enabled="{SUBFAMILY_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Tribe" value="tribe" enabled="{TRIBE_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Subtribe" value="subtribe" enabled="{SUBTRIBE_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Genus" value="genus" enabled="{GENUS_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Subgenus" value="subgenus" enabled="{SUBGENUS_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Superspecies" value="superspecies" enabled="{SUPERSPECIES_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Species" value="species" enabled="{SPECIES_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Subspecies" value="subspecies" enabled="{SUBSPECIES_PATTERN.test(labelName)}"/>
+			<s:RadioButton label="Other" value="unranked" enabled="{UNRANKED_PATTERN.test(labelName)}"/>
+		</s:VGroup>
+		<s:VGroup includeIn="familyGroup">
+			<s:TextGraphicElement text="Type Genus:"/>
+		</s:VGroup>
+		<s:VGroup includeIn="genusGroup">
+			<s:TextGraphicElement text="Type Species:"/>
+		</s:VGroup>
+		<s:VGroup includeIn="speciesGroup">
+			<s:TextGraphicElement text="Type Specimens:"/>
+		</s:VGroup>
+	</s:HGroup>
+	<s:states>
+		<s:State name="noGroup"/>
+		<s:State name="familyGroup"/>
+		<s:State name="genusGroup"/>
+		<s:State name="speciesGroup"/>
+	</s:states>
+</s:Group>

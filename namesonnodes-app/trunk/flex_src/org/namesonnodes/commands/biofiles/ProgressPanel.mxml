@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:mx="library://ns.adobe.com/flex/halo" width="200" height="100">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import mx.core.FlexGlobals;
+			import mx.managers.PopUpManager;
+			[Bindable]
+			protected var progressBarSource:IEventDispatcher;
+			
+			public function close():void
+			{
+				if (progressBar.source != null)
+				{
+					progressBar.source = null;
+					PopUpManager.removePopUp(this);
+				}
+			}
+			public function open(v:IEventDispatcher):void
+			{
+				progressBarSource = v;
+				PopUpManager.addPopUp(this, FlexGlobals.topLevelApplication as DisplayObject, true);
+				PopUpManager.centerPopUp(this);
+			}
+		]]>
+	</fx:Script>
+	<mx:ProgressBar id="progressBar" width="100%" source="{progressBarSource}"
+		mode="{progressBar.source ? 'event' : 'polled'}" indeterminate="{progressBar.source == null}"/>
+</s:Panel>

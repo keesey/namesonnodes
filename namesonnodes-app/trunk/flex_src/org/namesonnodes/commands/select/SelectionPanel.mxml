@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands:AbstractCommandFlowPanel xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" width="600" height="500" xmlns:services="org.namesonnodes.data.services.*" xmlns:commands="org.namesonnodes.commands.*">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.IList;
+			
+			private var _allowCreation:Boolean = true;
+			private var _cancelLabel:String = "Cancel.";
+			private var _createLabel:String = "Create a new entity.";
+			private var _items:IList;
+			
+			[Bindable(event = "allowCreationChanged")]
+			public function get allowCreation():Boolean
+			{
+				return _allowCreation;
+			}
+			public function set allowCreation(value:Boolean):void
+			{
+				if (_allowCreation != value)
+				{
+					_allowCreation = value;
+					dispatchEvent(new Event("allowCreationChanged"));
+				}
+			}
+			[Bindable(event = "cancelLabelChanged")]
+			public function get cancelLabel():String
+			{
+				return _cancelLabel;
+			}
+			public function set cancelLabel(value:String):void
+			{
+				if (_cancelLabel != value)
+				{
+					_cancelLabel = value;
+					dispatchEvent(new Event("cancelLabelChanged"));
+				}
+			}
+			[Bindable(event = "createLabelChanged")]
+			public function get createLabel():String
+			{
+				return _createLabel;
+			}
+			public function set createLabel(value:String):void
+			{
+				if (_createLabel != value)
+				{
+					_createLabel = value;
+					dispatchEvent(new Event("createLabelChanged"));
+				}
+			}
+			[Bindable(event = "itemsChanged")]
+			protected function get items():IList
+			{
+				return _items;
+			}
+			protected function set items(value:IList):void
+			{
+				if (_items != value)
+				{
+					_items = value;
+					dispatchEvent(new Event("itemsChanged"));
+				}
+			}
+			override public function get flowName() : String
+			{
+				return "Select an item.";
+			}
+			override protected function readInput(input:Object) : void
+			{
+				items = input as IList;
+				currentState = "input";
+			}
+			override public function matches(input:Object):Boolean
+			{
+				return input is IList;
+			}
+		]]>
+	</fx:Script>
+	<commands:layout>
+		<s:VerticalLayout paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10"/>
+	</commands:layout>
+	<s:ButtonBar id="selectionBar"
+		dataProvider="{items}"
+		clipAndEnableScrolling="true"
+		enabled.input="true"
+		enabled="false"
+		itemClick.input="commitResult(event.item)"
+		labelField="text" width="580">
+		<!--:TODO: enable use of textHTML -->
+		<s:layout>
+			<s:TileLayout columnAlign="justifyUsingGap"/>
+		</s:layout>
+	</s:ButtonBar>
+	<s:Group excludeFrom="complete" width="580">
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+		<s:Button label="{createLabel}" click="commitResult(NonSelection.CREATE)"
+			visible="{allowCreation}"/>
+		<s:Button label="{cancelLabel}" click="commitResult(null)"/>
+	</s:Group>
+	<commands:states>
+		<s:State name="input"/>
+		<s:State name="complete"/>
+	</commands:states>
+</commands:AbstractCommandFlowPanel>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:services="org.namesonnodes.data.services.*" xmlns:search="org.namesonnodes.commands.search.*" xmlns:data="org.namesonnodes.components.data.*">
+
+	<fx:Declarations>
+	
+		<services:CommandService id="searchService"
+			invoke="currentState = 'searching'"
+			fault="alertFault(event.fault); currentState = 'default'"
+			result="currentState = 'results'; grid.dataProvider = event.result"/>
+			
+		<search:TaxonSearch id="search" text="{nameInput.text}"/>
+		
+		<s:RadioButtonGroup id="kindGroup"/>
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import org.namesonnodes.domain.summaries.SummaryData;
+			import a3lbmonkeybrain.visualcortex.alerts.alertFault;
+			import org.namesonnodes.commands.summaries.SummarizeTaxonIdentifiers;
+
+			protected function invokeSearch():void
+			{
+				searchService.executeCommand(new SummarizeTaxonIdentifiers(search))
+			}
+
+		]]>
+	</fx:Script>
+	
+	<s:HGroup>
+		<s:TextInput id="nameInput" enabled.searching="false" widthInChars="32" valueCommit="invokeSearch()"/>
+		<s:VGroup excludeFrom="create">
+			<s:Button label="Search."
+				enabled.searching="false"
+				click="invokeSearch()"/>
+			<s:Button label="Create new taxon identifier."
+				enabled.searching="false"
+				/>
+		</s:VGroup>
+	</s:HGroup>
+	
+	<data:SummaryDataGrid id="grid" includeIn="results"/>
+	
+	<s:states>
+		<s:State name="default"/>
+		<s:State name="searching"/>
+		<s:State name="results"/>
+		<s:State name="create"/>
+	</s:states>
+	
+</s:Group>

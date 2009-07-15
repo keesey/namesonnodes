@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:nomenclature="org.namesonnodes.components.nomenclature.*">
+
+	<fx:Declarations>
+		<s:RadioButtonGroup id="typeGroup" selectedValue="@{currentState}"/>
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			[Bindable]
+			public var labelName:String = "";
+		]]>
+	</fx:Script>
+
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	
+	<s:Group width="100%">
+		<s:layout>
+			<s:TileLayout/>
+		</s:layout>
+		<s:RadioButton label="Bacteriological Name" value="bacterial" group="{typeGroup}"/>
+		<s:RadioButton label="Botanical Name" value="botanic" group="{typeGroup}"/>
+		<s:RadioButton label="PhyloCode Name" value="phylo" group="{typeGroup}" enabled="false"/>
+		<s:RadioButton label="Zoological Name" value="zoo" group="{typeGroup}"/>
+		<s:RadioButton label="Specimen Identifier" value="specimen" group="{typeGroup}"/>
+		<s:RadioButton label="Character Description" value="character" group="{typeGroup}"/>
+		<s:RadioButton label="Ungoverned Name" value="undefined" group="{typeGroup}"/>
+	</s:Group>
+	
+	<nomenclature:ZooNameCreator id="zooNameCreator" includeIn="zoo" labelName="{labelName}" width="100%" height="100%"/>
+	
+	<s:states>
+		<s:State name="undefined"/>
+		<s:State name="bacterial"/>
+		<s:State name="botanic"/>
+		<s:State name="character"/>
+		<s:State name="phylo"/>
+		<s:State name="specimen"/>
+		<s:State name="zoo"/>
+	</s:states>
+
+</s:Group>

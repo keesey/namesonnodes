@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands:AbstractCommandFlowPanel xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	width="400" height="300" xmlns:commands="org.namesonnodes.commands.*" height.required="120">
+	<fx:Script>
+		<![CDATA[
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.validators.Validator;
+			private var _required:Boolean = true;
+			private var _text:String = "";
+			[Bindable]
+			public var inputToolTip:String = null;
+			[Bindable]
+			public var maxChars:uint = 256;
+			[Bindable]
+			public var noMatchError:String = "Please check what you have entered.";
+			[Bindable]
+			public var requiredFieldError:String = "Please enter some text.";
+			[Bindable]
+			public var restrict:String = "";
+			[Bindable]
+			public var submitButtonLabel:String = "Use this.";
+			[Bindable]
+			public var validatorExpression:String = "";
+
+			override public function get flowName():String
+			{
+				return "Input text.";
+			}
+			[Bindable(event = "requiredChanged")]
+			public function get required():Boolean
+			{
+				return _required;
+			}
+			public function set required(v:Boolean):void
+			{
+				if (_required != v)
+				{
+					_required = v;
+					currentState = _required ? "required" : "notRequired";
+					dispatchEvent(new Event("requiredChanged"));
+				}
+			}
+			[Bindable(event = "textChanged")]
+			protected function get text():String
+			{
+				return _text;
+			}
+			protected function set text(v:String):void
+			{
+				if (_text != v)
+				{
+					_text = v;
+					dispatchEvent(new Event("textChanged"));
+				}
+			}
+			protected function cancel():void
+			{
+				dispatchEvent(ResultEvent.createEvent(null));
+			}
+			public static function create(title:String, restrict:String = null,
+				validatorExpression:String = null, maxChars:uint = 256, noMatchError:String = null,
+				requiredFieldError:String = null, resultHandler:Function = null,
+				faultHandler:Function = null):TextInputPanel
+			{
+				const panel:TextInputPanel = new TextInputPanel();
+				panel.title = title;
+				if (restrict != null)
+					panel.restrict = restrict;
+				if (validatorExpression != null)
+					panel.validatorExpression = validatorExpression;
+				panel.maxChars = maxChars;
+				if (noMatchError != null)
+					panel.noMatchError = noMatchError;
+				if (requiredFieldError != null)
+					panel.requiredFieldError = requiredFieldError;
+				if (resultHandler != null)
+					panel.addEventListener(ResultEvent.RESULT, resultHandler);
+				if (faultHandler != null)
+					panel.addEventListener(FaultEvent.FAULT, faultHandler);
+				return panel;
+			}
+			override protected function readInput(input:Object):void
+			{
+				if (input is String)
+					text = input as String;
+				else
+					text = "";
+			}
+			protected function submit():void
+			{
+				if (Validator.validateAll([validator]).length == 0)
+					dispatchEvent(ResultEvent.createEvent(textInput.text));
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<mx:RegExpValidator id="validator" source="{textInput}" property="text"
+			expression="{validatorExpression}" required="{required}"
+			noMatchError="{noMatchError}" requiredFieldError="{requiredFieldError}"/>
+	</fx:Declarations>
+	<commands:layout>
+		<s:VerticalLayout paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10"/>
+	</commands:layout>
+	<s:TextInput id="textInput" toolTip="{inputToolTip}" text="@{text}"
+		maxChars="{maxChars}" restrict="{restrict}" width="100%" enter="submit()"/>
+	<s:HGroup width="100%">
+		<s:Button label="{submitButtonLabel}" click="submit()"/>
+		<s:Button label="Cancel." click.notRequired="cancel()" includeIn="notRequired"/>
+	</s:HGroup>
+	<commands:states>
+		<s:State name="required"/>
+		<s:State name="notRequired"/>
+	</commands:states>
+</commands:AbstractCommandFlowPanel>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:services="org.namesonnodes.data.services.*">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<fx:Metadata>
+		[Event(name = "valueCommit", type = "mx.events.FlexEvent")]
+	</fx:Metadata>
+	<fx:Declarations>
+		<services:CommandService id="service"/>
+		<s:RadioButtonGroup id="typeGroup" selectedValue="@{currentState}"/>
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import org.namesonnodes.domain.entities.AuthorityIdentifier;
+			
+			private var _identifier:AuthorityIdentifier;
+			
+			[Bindable(event = "identifierChanged")]
+			public function get identifier():AuthorityIdentifier
+			{
+				return _identifier;
+			}
+			public function set identifier(value:AuthorityIdentifier):void`
+			{
+				if (_identifier != value)
+				{
+					_identifier = value;
+					dispatchEvent(new Event("identifierChanged"));
+				}
+			}
+		]]>
+	</fx:Script>
+	
+	<s:SimpleText text="Select a publication."/>
+	
+	<s:Group>
+		<s:layout>
+			<s:TileLayout/>
+		</s:layout>
+		<s:RadioButton label="Article in a Periodical" value="article"/>
+		<s:RadioButton label="Published Volume" value="volume"/>
+		<s:RadioButton label="Chapter in a Volume" value="chapter"/>
+		<s:RadioButton label="Personal Communication" value="person"/>
+		<s:RadioButton label="Website" value="website"/>
+		<s:RadioButton label="Other Medium" value="other"/>
+	</s:Group>
+	
+	<s:Group includeIn="website other input">
+		<s:layout>
+			<s:HorizontalLayout/>
+		</s:layout>
+		<s:SimpleText text="URI:"/>
+		<s:TextInput id="uriInput"/>
+		<s:Button label="Test."/>
+	</s:Group>
+	
+	<s:states>
+		<s:State name="input"/>
+		<s:State name="article"/>
+		<s:State name="chapter"/>
+		<s:State name="other"/>
+		<s:State name="person"/>
+		<s:State name="volume"/>
+		<s:State name="website"/>
+	</s:states>
+</s:Group>

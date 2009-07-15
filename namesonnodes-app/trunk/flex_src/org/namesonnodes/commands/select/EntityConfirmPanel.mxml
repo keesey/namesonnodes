@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands:AbstractCommandFlowPanel xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	width="400" height="200" xmlns:commands="org.namesonnodes.commands.*">
+	<fx:Script>
+		<![CDATA[
+			import a3lbmonkeybrain.brainstem.w3c.xml.extractText;
+			import a3lbmonkeybrain.hippocampus.domain.Persistent;
+			import flash.net.navigateToURL;
+			import flash.utils.getQualifiedClassName;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import org.namesonnodes.domain.summaries.*;
+			import org.namesonnodes.net.navigateToQName;
+			
+			private var _entity:Object;
+			
+			[Bindable(event = "entityChanged")]
+			protected function get entity():Object
+			{
+				return _entity;
+			}
+			protected function set entity(value:Object):void
+			{
+				if (_entity != value)
+				{
+					_entity = value;
+					dispatchEvent(new Event("entityChanged"));
+				}
+			}
+			override public function get flowName():String
+			{
+				return "Confirm selection.";
+			}
+			protected function cancel():void
+			{
+				commitResult(null);
+			}
+			override protected function readInput(input:Object):void
+			{
+				if (input is Summarizeable || input is SummaryItem)
+					entity = input;
+				else
+					throw new ArgumentError("Object must be summarizeable: " + input);
+			}
+			protected function submit():void
+			{
+				commitResult(entity);
+			}
+			protected function openLink():void
+			{
+				var localName:String;
+				if (entity is SummaryItem)
+				{
+					localName = SummaryItem(entity).className.toLowerCase();
+					localName += ":" + SummaryItem(entity).id;
+					navigateToQName(new QName("http://namesonnodes.org", localName));
+				}
+				else if (entity is Persistent)
+				{
+					localName = (getQualifiedClassName(entity).split("::")[1] as String).toLowerCase();
+					localName += ":" + Persistent(entity).id;
+				}
+				else return;
+				navigateToURL(new URLRequest("/namesonnodes/entity/" + localName), "_blank");
+			}
+		]]>
+	</fx:Script>
+	<commands:layout>
+		<s:VerticalLayout paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10"/>
+	</commands:layout>
+	<s:RichText id="summary" whiteSpaceCollapse="preserve" fontSize="14" content="{summarize(entity)}" width="100%"/>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout paddingTop="10" paddingBottom="10"/>
+		</s:layout>
+		<mx:Spacer width="100%"/>
+		<s:Button label="More information →" click="openLink()"/>
+	</s:Group>
+	<mx:Spacer height="100%"/>
+	<s:Group width="100%">
+		<s:layout>
+			<s:TileLayout columnAlign="justifyUsingGap"/>
+		</s:layout>
+		<s:Button label="Yes." click="submit()"/>
+		<s:Button label="No." click="cancel()"/>
+	</s:Group>
+</commands:AbstractCommandFlowPanel>

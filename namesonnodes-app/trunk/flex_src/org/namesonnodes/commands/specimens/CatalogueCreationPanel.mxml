@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands:AbstractCommandFlowPanel
+	width="480" height="240"
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	xmlns:commands="org.namesonnodes.commands.*"
+	xmlns:services="org.namesonnodes.data.services.*" height.input="180">
+	<fx:Script>
+		<![CDATA[
+			import mx.rpc.events.InvokeEvent;
+			import mx.rpc.events.FaultEvent;
+			import a3lbmonkeybrain.hippocampus.validate.ValidatorUtil;
+
+			import mx.rpc.events.ResultEvent;
+			import mx.validators.Validator;
+
+			import org.namesonnodes.net.URIUtil;
+			import org.namesonnodes.net.navigateToURI;
+
+			private var _createCatalogue:CreateCatalogue;
+
+			[Bindable(event = "createCatalogueChanged")]
+			public function get createCatalogue():CreateCatalogue
+			{
+				return _createCatalogue;
+			}
+			public function set createCatalogue(v:CreateCatalogue):void
+			{
+				if (_createCatalogue != v)
+				{
+					_createCatalogue = v;
+					dispatchEvent(new Event("createCatalogueChanged"));
+				}
+			}
+			override public function get flowName() : String
+			{
+				return "Create a new specimen catalogue.";
+			}
+			protected function cancel():void
+			{
+				currentState = "complete";
+				commitResult(null);
+			}
+			protected function submit():void
+			{
+				uriInput.text = URIUtil.fixURI(uriInput.text);
+				if (Validator.validateAll(validators).length == 0)
+					creationService.executeCommand(createCatalogue);
+			}
+			protected function testURI():void
+			{
+				uriInput.text = URIUtil.fixURI(uriInput.text);
+				if (Validator.validateAll([uriValidator]).length == 0)
+					navigateToURI(uriInput.text);
+			}
+			protected function nameInput_focusOutHandler(event:FocusEvent):void
+			{
+				if (abbrInput.text == "")
+					suggestAbbr();
+			}
+			protected function suggestAbbr():void
+			{
+				createCatalogue.abbr = nameInput.text.replace(/[^A-Za-z0-9 ]/g, "-").replace(/-{2,}/g, "-").replace(/[^A-Z-]/g, "");
+			}
+			protected function uriInput_focusOutHandler(event:FocusEvent):void
+			{
+				uriInput.text = URIUtil.fixURI(uriInput.text);
+			}
+			protected function creationService_invokeHandler(event:InvokeEvent):void
+			{
+				cursorManager.setBusyCursor();
+				currentState = 'busy';
+			}
+			protected function creationService_faultHandler(event:FaultEvent):void
+			{
+				cursorManager.removeBusyCursor()
+				onFault(event);
+			}
+			protected function creationService_resultHandler(event:ResultEvent):void
+			{
+				cursorManager.removeBusyCursor();
+				currentState = 'complete';
+				commitResult(event.result);
+			}
+			override protected function readInput(input:Object):void
+			{
+				const text:String = String(input);
+				createCatalogue = new CreateCatalogue();
+				if (text.indexOf(" ") >= 0)
+					createCatalogue.name = text;
+				else
+					createCatalogue.abbr = text;
+				currentState = 'input'
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<fx:Array id="validators">
+			<mx:RegExpValidator id="uriValidator"
+				expression="{URIUtil.REG_EXP_SOURCE}"
+				required="true" source="{uriInput}"
+				noMatchError="This is not a valid URI."
+				requiredFieldError="A URI is required."
+				property="text"/> 
+			<mx:StringValidator id="nameValidator" minLength="2"
+				required="true" requiredFieldError="A name is required."
+				source="{nameInput}" property="text"/>
+			<mx:StringValidator id="abbrValidator" minLength="2"
+				maxLength="{nameInput.text.length}"
+				required="false" requiredFieldError="An abbreviation is required."
+				source="{abbrInput}" property="text"/>
+		</fx:Array>
+		<services:CommandService id="creationService"
+			invoke="creationService_invokeHandler(event)"
+			fault="creationService_faultHandler(event)"
+			result="creationService_resultHandler(event)"/>
+	</fx:Declarations>
+	<commands:layout>
+		<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10" gap="10"/>
+	</commands:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle"/>
+			</s:layout>
+			<s:SimpleText text="URI:" width="75"/>
+			<s:TextInput id="uriInput" maxChars="256" text="@{createCatalogue.uri}"
+				enter.input="testURI()" width="100%" focusOut="uriInput_focusOutHandler(event)"
+				enabled.input="true" enabled="false">
+				<s:toolTip>Enter a URI, such as a web address, DOI, LSID, ISBN number, etc.</s:toolTip>
+			</s:TextInput>
+			<s:Button label="Test." click="testURI()"
+				enabled.input="true" enabled="false"/>
+		</s:Group>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle"/>
+			</s:layout>
+			<s:SimpleText text="Name:" width="75"/>
+			<s:TextInput id="nameInput" width="100%" maxChars="256" text="@{createCatalogue.name}"
+				enabled.input="true" enabled="false" focusOut="nameInput_focusOutHandler(event)"/>
+		</s:Group>
+		<s:Group>
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle"/>
+			</s:layout>
+			<s:SimpleText text="Abbreviation:" width="75"/>
+			<s:TextInput id="abbrInput" maxChars="32" text="@{createCatalogue.abbr}"
+				enabled.input="true" enabled="false" width="{nameInput.width / 2}"/>
+		</s:Group>
+	</s:Group>
+	<s:Group includeIn="input" width="100%">
+		<s:layout>
+			<s:HorizontalLayout variableColumnWidth="true"/>
+		</s:layout>
+		<s:Button label="Save new specimen catalogue." click="submit()"/>
+		<mx:Spacer width="100%"/>
+		<s:Button label="Cancel." click="cancel()"/>
+	</s:Group>
+	<commands:states>
+		<s:State name="input"/>
+		<s:State name="busy"/>
+		<s:State name="complete"/>
+	</commands:states>
+</commands:AbstractCommandFlowPanel>

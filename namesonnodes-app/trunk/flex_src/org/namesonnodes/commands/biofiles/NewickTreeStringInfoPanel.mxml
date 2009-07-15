@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands:AbstractCommandFlowPanel
+	width="480" height="240"
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	xmlns:commands="org.namesonnodes.commands.*"
+	xmlns:services="org.namesonnodes.data.services.*" height.input="380" xmlns:biofiles="org.namesonnodes.commands.biofiles.*">
+	<fx:Script>
+		<![CDATA[
+			override public function get flowName() : String
+			{
+				return "Upload a Newick tree string.";
+			}
+			protected function cancel():void
+			{
+				currentState = "complete";
+				commitResult(null);
+			}
+			protected function submit():void
+			{
+				creationService.executeCommand(command);
+			}
+			protected function nameInput_focusOutHandler(event:FocusEvent):void
+			{
+				if (abbrInput.text == "")
+					suggestAbbr();
+			}
+			protected function suggestAbbr():void
+			{
+				createCatalogue.abbr = nameInput.text.replace(/[^A-Za-z0-9 ]/g, "-").replace(/-{2,}/g, "-").replace(/[^A-Z-]/g, "");
+			}
+			protected function creationService_invokeHandler(event:InvokeEvent):void
+			{
+				cursorManager.setBusyCursor();
+				currentState = 'busy';
+			}
+			protected function creationService_faultHandler(event:FaultEvent):void
+			{
+				cursorManager.removeBusyCursor()
+				onFault(event);
+			}
+			protected function creationService_resultHandler(event:ResultEvent):void
+			{
+				cursorManager.removeBusyCursor();
+				currentState = 'complete';
+				commitResult(event.result);
+			}
+			override protected function readInput(input:Object):void
+			{
+				const text:String = String(input);
+				command.abbr = null;
+				command.name = "";
+				command.treeString = text;
+				command.weightPerGeneration = 0;
+				command.weightPerYear = 0;
+				currentState = 'input'
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<biofiles:CreateNewickTreeString id="command"
+			weightPerGeneration="{weightInput.currentState == 'generation' ? weightInput.weightPerGeneration : 0.0}"
+			weightPerYear="{weightInput.currentState == 'year' ? weightInput.weightPerYear : 0.0}"/>
+		<fx:Array id="validators">
+			<!-- :TODO: NewickValidator -->
+			<mx:RegExpValidator id="treeStringValidator" expression="^\(.+\)"
+				required="true" requiredFieldError="A name is required."
+				noMatchError="This does not appear to be a valid Newick tree string"
+				source="{treeStringInput}" property="text"/>
+			<mx:StringValidator id="nameValidator" minLength="2"
+				required="true" requiredFieldError="A name is required."
+				source="{nameInput}" property="text"/>
+			<mx:StringValidator id="abbrValidator" minLength="2"
+				maxLength="{nameInput.text.length}"
+				required="false"
+				source="{abbrInput}" property="text"/>
+		</fx:Array>
+		<services:CommandService id="creationService"
+			invoke="creationService_invokeHandler(event)"
+			fault="creationService_faultHandler(event)"
+			result="creationService_resultHandler(event)"/>
+	</fx:Declarations>
+	<commands:layout>
+		<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10" gap="10"/>
+	</commands:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle"/>
+			</s:layout>
+			<s:SimpleText text="Name:" width="75"/>
+			<s:TextInput id="nameInput" width="100%" maxChars="256" text="@{command.name}"
+				enabled.input="true" enabled="false" focusOut="nameInput_focusOutHandler(event)"/>
+		</s:Group>
+		<s:Group>
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle"/>
+			</s:layout>
+			<s:SimpleText text="Abbreviation:" width="75"/>
+			<s:TextInput id="abbrInput" maxChars="32" text="@{command.abbr}"
+				enabled.input="true" enabled="false" width="{nameInput.width / 2}"/>
+		</s:Group>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle"/>
+			</s:layout>
+			<s:SimpleText text="Tree String:" width="75"/>
+			<s:TextArea id="treeStringInput" width="100%" height="100%" text="@{command.treeString}"
+				enabled.input="true" enabled="false"/>
+		</s:Group>
+		<biofiles:WeightInput id="weightInput" width="100%"/>
+	</s:Group>
+	<s:Group includeIn="input" width="100%">
+		<s:layout>
+			<s:HorizontalLayout variableColumnWidth="true"/>
+		</s:layout>
+		<s:Button label="Upload Newick tree string." click="submit()"/>
+		<mx:Spacer width="100%"/>
+		<s:Button label="Cancel." click="cancel()"/>
+	</s:Group>
+	<commands:states>
+		<s:State name="input"/>
+		<s:State name="busy"/>
+		<s:State name="complete"/>
+	</commands:states>
+</commands:AbstractCommandFlowPanel>
