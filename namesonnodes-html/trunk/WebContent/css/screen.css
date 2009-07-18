@@ -104,11 +104,13 @@ table.layout { margin:0; border-collapse: collapse}
 table.layout td { padding:0; background-color:transparent; border:0; vertical-align:top; }
 table.math {margin: 0; border-collapse: collapse;}
 table.math td {padding: 2px; background-color:transparent; border:0; vertical-align:middle; text-align: center;}
-table.qname-def th
+table.definition
 {
-	border: none;
-	text-align: right;
-	font-weight: bold;
+	width: 100%;
+}
+table.definition th
+{
+	width: 10em;
 }
 
 h1, h2, h3, h4, h5, h6 { font-family: Georgia, serif; color: #333333; }
