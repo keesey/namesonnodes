@@ -43,10 +43,17 @@ cite
 	font-style: italic;
 }
 div#abstract { margin: 15px 0; }
-dic#container {margin 0 auto; position: relative;}
+div#container {margin 0 auto; position: relative;}
 div#content { margin: 30px 4px 50px 50px; line-height: 1.8em; font-size: .9em; max-width: 60em; padding-bottom: 3em; }
 div#title h1 { font-size: 200%; font-weight: bold; font-variant: small-caps; font-style: normal; }
 div#title h2 { font-size: 125%; font-variant: small-caps; font-style: normal; }
+div.warning
+{
+	background-color: #E0D0FF;
+	padding: 0.5em;
+}
+div.warning h2 { color: #13001D; font-size: 125%; font-weight: bold; font-variant: small-caps; font-style: normal; border-bottom: 1px solid #F0E0FF;}
+div.warning a {color: #800040;}
 em
 {
 	font-style: italic;

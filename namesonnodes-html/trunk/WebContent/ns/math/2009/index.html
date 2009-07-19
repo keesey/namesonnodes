@@ -34,6 +34,35 @@
 						These definitions are implemented in the application <a href="/" class="title">Names on Nodes</a>.
 					</p>
 				</div>
+				<script type="text/javascript">
+					//<![CDATA[
+						if (navigator.appName == "Netscape")
+							document.write('<div class="warning"><h2>Warning</h2><p>Your browser may erroneously switch the characters "&#x22B2;" and "&#x22B3;". If "&#x22B2;" and "&#x22B4;" do not face the same way, <a href=\"javascript:fixParenthoodRelations(document.body)">click here</a>.</p></div>');
+						function fixParenthoodRelations(element)
+						{
+							var n = element.childNodes.length;
+							for (var i = 0; i < n; ++i)
+							{
+								var node = element.childNodes[i];
+								if (node.nodeType == 3)
+								{
+									var text = node.nodeValue;
+									text = text.replace(/\u22B2/g, String.fromCharCode(0x22B1));
+									text = text.replace(/\u22B3/g, String.fromCharCode(0x22B2));
+									text = text.replace(/\u22B1/g, String.fromCharCode(0x22B3));
+									text = text.replace(/&#x22B2;/gi, "&#x22B1;");
+									text = text.replace(/&#x22B3;/gi, "&#x22B2;");
+									text = text.replace(/&#x22B1;/gi, "&#x22B3;");
+									node.nodeValue = text;
+								}
+								else if (node.nodeType == 1 && node.nodeName.toLowerCase() != "script")
+								{
+									fixParenthoodRelations(node);
+								}
+							}
+						}
+					//]]>
+				</script>
 				<h2>Introduction</h2>
 				<h3>A General Review of Mathematical Concepts, Terms, and Notation</h3>
 				<p>
@@ -420,10 +449,10 @@
 				<h3>Ancestry and Precedence</h3>
 				<p>
 					Parenthood may be defined as an antisymmetric, nontransitive relation. 
-					Let the relation <span class="math">&#x22B3; := {[<i>x</i>, <i>y</i>] | <i>x</i></span> is a parent of <span class="math"><i>y</i>}</span>.
-					The expression <span class="math"><i>x</i> &#x22B3; <i>y</i></span> means that <span class="math"><i>x</i></span> is a parent, or immediate predecessor, of <span class="math"><i>y</i></span>.
-					The inverse relation, <span class="math">&#x22B2;</span>, is childhood.
-					The symmetric relation, <span class="math">&#x22C8;</span>, may be used thusly: <span class="math"><i>x</i> &#x22C8; <i>y</i></span> if and only if <span class="math"><i>x</i> &#x22B3; <i>y</i></span> or <span class="math"><i>x</i> &#x22B2; <i>y</i></span>.
+					Let the relation <span class="math">&#x22B2; := {[<i>x</i>, <i>y</i>] | <i>x</i></span> is a parent of <span class="math"><i>y</i>}</span>.
+					The expression <span class="math"><i>x</i> &#x22B2; <i>y</i></span> means that <span class="math"><i>x</i></span> is a parent, or immediate predecessor, of <span class="math"><i>y</i></span>.
+					The inverse relation, <span class="math">&#x22B3;</span>, is childhood.
+					The symmetric relation, <span class="math">&#x22C8;</span>, may be used thusly: <span class="math"><i>x</i> &#x22C8; <i>y</i></span> if and only if <span class="math"><i>x</i> &#x22B2; <i>y</i></span> or <span class="math"><i>x</i> &#x22B3; <i>y</i></span>.
 					The expression <span class="math"><i>x</i> &#x22B4; <i>y</i></span> means that <span class="math"><i>x</i></span> is a parent of or equal to <span class="math"><i>y</i></span>, that is, <span class="math"><i>x</i></span> either immediately precedes or equals <span class="math"><i>y</i></span>.
 					The expression <span class="math">&#x22B4;[<i>x</i>]</span> represents the set of <span class="math"><i>x</i></span> and all of its children (immediate successors).
 				</p>
@@ -438,30 +467,30 @@
 				</p>
 				<h3>Phylogeny and Graphs</h3>
 				<p>
-					Phylogeny may be represented as a directed, acyclic graph (which may also be considered a partially ordered set), <span class="math"><i>D</i><sub><i>U</i></sub> := [<i>U</i>, &#x22B3;]</span>.
+					Phylogeny may be represented as a directed, acyclic graph (which may also be considered a partially ordered set), <span class="math"><i>G</i><sub>&#x22B2;</sub> := [<i>U</i>, &#x22B2;]</span>.
 					In this graph, organisms are the vertices.
 					The arcs (directed edges) point from parents to their children, so that the head of each arc is a parent and the tail of each arc is a child.
 				</p>
 				<p>
-					A path in <span class="math"><i>D</i><sub><i>U</i></sub></span> represents a lineage from ancestor to descendant.
-					An <span class="math"><i>x</i>&ndash;<i>y</i></span> path in <span class="math"><i>D</i><sub><i>U</i></sub></span> is a sequence of vertices (organisms), <span class="math"><i>p</i></span>, of length <span class="math"><i>n</i></span> such that <span class="math"><i>x</i> = <i>p</i><sub>1</sub></span> and <span class="math"><i>y</i> = <i>p</i><sub><i>n</i></sub></span> and <span class="math"><i>p</i><sub>1</sub> &#x22B3; <i>p</i><sub>2</sub> &#x22B3; &#x2026; &#x22B3; <i>p</i><sub><i>n</i></sub></span>.
+					A path in <span class="math"><i>G</i><sub>&#x22B2;</sub></span> represents a lineage from ancestor to descendant.
+					An <span class="math"><i>x</i>&ndash;<i>y</i></span> path in <span class="math"><i>G</i><sub>&#x22B2;</sub></span> is a sequence of vertices (organisms), <span class="math"><i>p</i></span>, of length <span class="math"><i>n</i></span> such that <span class="math"><i>x</i> = <i>p</i><sub>1</sub></span> and <span class="math"><i>y</i> = <i>p</i><sub><i>n</i></sub></span> and <span class="math"><i>p</i><sub>1</sub> &#x22B2; <i>p</i><sub>2</sub> &#x22B2; &#x2026; &#x22B2; <i>p</i><sub><i>n</i></sub></span>.
 				</p>
 				<p>
-					A cladogen is an antichain in <span class="math"><i>D</i><sub><i>U</i></sub></span> wherein all members share common successors.
+					A cladogen is an antichain in <span class="math"><i>G</i><sub>&#x22B2;</sub></span> wherein all members share common successors.
 					As noted earlier, all singleton subsets of <span class="math"><i>U</i></span> are cladogens.
 				</p>
 				<p>
-					Relatedness may be represented as an undirected graph, <span class="math"><i>G</i><sub><i>U</i></sub> := [<i>U</i>, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</span>.
+					Relatedness may be represented as an undirected graph, <span class="math"><i>G</i><sub>&#x22C8;</sub> := [<i>U</i>, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</span>.
 					If two organisms (vertices) in this graph are connected, then they are in some way related.
 					(Note that all known organisms are generally considered to be related.)
 				</p>
 				<h2>Definitions of Mathematical Entities</h2>
-				<a name="csymbol-UniversalTaxon"></a>
+				<a name="def-UniversalTaxon"></a>
 				<h3>Universal Taxon</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-UniversalTaxon</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -492,16 +521,16 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-GraphRelatedness"></a>
+				<a name="def-GraphRelatedness"></a>
 				<h3>Graph of Relatedness</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-GraphRelatedness</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-GraphRelatedness</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
-						<td><span class="math"><i>G</i><sub><i>U</i></sub></span></td>
+						<td><span class="math"><i>G</i><sub>&#x22C8;</sub></span></td>
 					</tr>
 					<tr>
 						<th>Class</th>
@@ -510,7 +539,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math"><i>G</i><sub><i>U</i></sub> := [<i>U</i>, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</p>
+							<p class="math"><i>G</i><sub>&#x22C8;</sub> := [<i>U</i>, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</p>
 						</td>
 					</tr>
 					<tr>
@@ -523,16 +552,16 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-DigraphParenthood"></a>
+				<a name="def-DigraphParenthood"></a>
 				<h3>Digraph of Parenthood</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-DigraphParenthood</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-DigraphParenthood</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
-						<td><span class="math"><i>D</i><sub><i>U</i></sub></span></td>
+						<td><span class="math"><i>G</i><sub>&#x22B2;</sub></span></td>
 					</tr>
 					<tr>
 						<th>Class</th>
@@ -541,7 +570,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math"><i>D</i><sub><i>U</i></sub> := [<i>U</i>, &#x22B3;]</p>
+							<p class="math"><i>G</i><sub>&#x22B2;</sub> := [<i>U</i>, &#x22B2;]</p>
 						</td>
 					</tr>
 					<tr>
@@ -554,12 +583,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-Maximal"></a>
+				<a name="def-Maximal"></a>
 				<h3>Maximal</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-Maximal</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-Maximal</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -575,13 +604,23 @@
 							<p>
 								<span class="math">max : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
 								<br/>
-								<span class="math">max(<i>A</i>) := {<i>x</i> &isin; <i>A</i> : for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x2280; <i>y</i>}</span>
+								<span class="math">max(<i>A</i>) := {<i>x</i> &isin; <i>A</i> | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x2280; <i>y</i>}</span>
 							</p>
 						</td>
 					</tr>
 					<tr>
 						<th>Implementation</th>
 						<td><code>org.namesonnodes.math::Maximal</code></td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Maximal"/&gt;
+	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
+&lt;/apply&gt;</pre>
+(This evaluates to the set of all organisms with no descendants.)
+						</td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -593,12 +632,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-Minimal"></a>
+				<a name="def-Minimal"></a>
 				<h3>Minimal</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-Minimal</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-Minimal</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -614,13 +653,23 @@
 							<p>
 								<span class="math">min : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
 								<br/>
-								<span class="math">min(<i>A</i>) := {<i>x</i> &isin; <i>A</i> : for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x2281; <i>y</i>}</span>
+								<span class="math">min(<i>A</i>) := {<i>x</i> &isin; <i>A</i> | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x2281; <i>y</i>}</span>
 							</p>
 						</td>
 					</tr>
 					<tr>
 						<th>Implementation</th>
 						<td><code>org.namesonnodes.math::Minimal</code></td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Minimal"/&gt;
+	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
+&lt;/apply&gt;</pre>
+(This evaluates to the set of all organisms with no ancestors, i.e., the original organism[s].)
+						</td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -632,12 +681,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-PredecessorUnion"></a>
+				<a name="def-PredecessorUnion"></a>
 				<h3>Predecessor Union</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-PredecessorUnion</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-PredecessorUnion</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -679,12 +728,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-SuccessorUnion"></a>
+				<a name="def-SuccessorUnion"></a>
 				<h3>Successor Union</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-SuccessorUnion</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-SuccessorUnion</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -726,12 +775,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-PredecessorIntersection"></a>
+				<a name="def-PredecessorIntersection"></a>
 				<h3>Predecessor Intersection</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-PredecessorIntersection</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-PredecessorIntersection</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -773,12 +822,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-SuccessorIntersection"></a>
+				<a name="def-SuccessorIntersection"></a>
 				<h3>Successor Intersection</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-SuccessorIntersection</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-SuccessorIntersection</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -820,12 +869,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-SynapomorphicPredecessors"></a>
+				<a name="def-SynapomorphicPredecessors"></a>
 				<h3>Synapomorphic Predecessors</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-SynapomorphicPredecessors</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -842,7 +891,7 @@
 								<span class="math">synprc : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
 							</p>
 							<p>
-								<span class="math">synprc(<i>M</i>, <i>A</i>) := {<i>x</i> &isin; prc<sub>&#x2229;</sub>(<i>A</i>) | for all <i>y</i> &isin; <i>A</i>, there exists some <i>x</i>&ndash;<i>y</i> path, <i>p</i>, in <i>D</i><sub><i>U</i></sub> where for all <i>p</i><sub><i>n</i></sub> &isin; <i>p</i>, <i>p</i><sub><i>n</i></sub> &isin; <i>M</i>}</span>
+								<span class="math">synprc(<i>M</i>, <i>A</i>) := {<i>x</i> &isin; prc<sub>&#x2229;</sub>(<i>A</i>) | for all <i>y</i> &isin; <i>A</i>, there exists some <i>x</i>&ndash;<i>y</i> path, <i>p</i>, in <i>G</i><sub>&#x22B2;</sub> where for all <i>p</i><sub><i>n</i></sub> &isin; <i>p</i>, <i>p</i><sub><i>n</i></sub> &isin; <i>M</i>}</span>
 							</p>
 						</td>
 					</tr>
@@ -856,12 +905,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-NodeBasedCladogen"></a>
+				<a name="def-NodeBasedCladogen"></a>
 				<h3>Node-Based Cladogen</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-NodeBasedCladogen</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-NodeBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -900,12 +949,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-BranchBasedCladogen"></a>
+				<a name="def-BranchBasedCladogen"></a>
 				<h3>Branch-Based Cladogen</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-BranchBasedCladogen</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-BranchBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -940,12 +989,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-ApomorphyBasedCladogen"></a>
+				<a name="def-ApomorphyBasedCladogen"></a>
 				<h3>Apomorphy-Based Cladogen</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-ApomorphyBasedCladogen</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-ApomorphyBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -982,12 +1031,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-Clade"></a>
+				<a name="def-Clade"></a>
 				<h3>Clade</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-Clade</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-Clade</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1024,12 +1073,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-NodeBasedClade"></a>
+				<a name="def-NodeBasedClade"></a>
 				<h3>Node-Based Clade</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-NodeBasedClade</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-NodeBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1057,12 +1106,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-BranchBasedClade"></a>
+				<a name="def-BranchBasedClade"></a>
 				<h3>Branch-Based Clade</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-BranchBasedClade</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-BranchBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1091,12 +1140,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-ApomorphyBasedClade"></a>
+				<a name="def-ApomorphyBasedClade"></a>
 				<h3>Apomorphy-Based Clade</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-ApomorphyBasedClade</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-ApomorphyBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1124,12 +1173,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-Crown"></a>
+				<a name="def-Crown"></a>
 				<h3>Crown Group</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-Crown</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-CrownGroup</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1148,7 +1197,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::Crown</code></td>
+						<td><code>org.namesonnodes.math::CrownGroup</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1157,12 +1206,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-Total"></a>
+				<a name="def-Total"></a>
 				<h3>Total Group</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-Total</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-TotalGroup</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1176,12 +1225,13 @@
 						<th>Definition</th>
 						<td>
 							<p class="math">Total : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
-							<p class="math">Total(<i>A</i>, <i>E</i>) := Clade(<i>A</i> &larr; <i>E</i> &#x2229; (<i>U</i> &minus; Crown(<i>A</i>)))</p>
+							<p class="math">Let <i>C</i> = Crown(<i>A</i>, <i>E</i>)</p>
+							<p class="math">Total(<i>A</i>, <i>E</i>) := Clade(<i>C</i> &larr; <i>E</i> &#x2229; <span class="set-complement"><i>C</i></span>)</p>
 						</td>
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::Total</code></td>
+						<td><code>org.namesonnodes.math::TotalGroup</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1190,12 +1240,12 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-NodeBranchTriple"></a>
+				<a name="def-NodeBranchTriple"></a>
 				<h3>Node-Branch Triple</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-NodeBranchTriple</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-NodeBranchTriple</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1223,16 +1273,16 @@
 						</td>
 					</tr>
 				</table>
-				<a name="csymbol-MeanPhylogeneticDistance"></a>
+				<a name="def-MeanPhylogeneticDistance"></a>
 				<h3>Mean Phylogenetic Distance</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#csymbol-MeanPhylogeneticDistance</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-MeanPhylogeneticDistance</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
-						<td class="math">D</td>
+						<td class="math">D<sub>&#x22C8;</sub></td>
 					</tr>
 					<tr>
 						<th>Class</th>
@@ -1241,12 +1291,12 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">D : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; &#x211A;<sup>0</sup><sub>+</sub></p>
+							<p class="math">D<sub>&#x22C8;</sub> : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; &#x211A;<sup>0</sup><sub>+</sub></p>
 							<table class="math">
 								<tr>
-									<td rowspan="3">D(<i>A</i>, <i>B</i>) :=</td>
+									<td rowspan="3">D<sub>&#x22C8;</sub>(<i>A</i>, <i>B</i>) :=</td>
 									<td><span class="large">&#x2211;</span></td>
-									<td>d<sub><i>G</i><sub><i>U</i></sub></sub>(<i>x</i>, <i>y</i>)</td>
+									<td>d<sub>&#x22C8;</sub>(<i>x</i>, <i>y</i>)</td>
 								</tr>
 								<tr>
 									<td style="border-bottom: 1px solid"><span class="small"><i>x</i> &isin; <i>A</i>, <i>y</i> &isin; <i>B</i></span></td>
