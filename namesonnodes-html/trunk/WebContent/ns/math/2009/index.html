@@ -36,8 +36,8 @@
 				</div>
 				<script type="text/javascript">
 					//<![CDATA[
-						if (navigator.appName == "Netscape")
-							document.write('<div class="warning"><h2>Warning</h2><p>Your browser may erroneously switch the characters "&#x22B2;" and "&#x22B3;". If "&#x22B2;" and "&#x22B4;" do not face the same way, <a href=\"javascript:fixParenthoodRelations(document.body)">click here</a>.</p></div>');
+						if (navigator.appName != "Microsoft Internet Explorer")
+							document.write('<div id="warning-parenthoodRelation" class="warning"><h2>Warning</h2><p>Your browser\'s font may erroneously switch the characters "&#x22B2;" and "&#x22B3;". If "&#x22B2;" and "&#x22B4;" do not face the same way, <a href=\"javascript:fixParenthoodRelations(document.body)">click here</a>.</p><p>To remove this warning, <a href="javascript:document.getElementById(\'warning-parenthoodRelation\').style.display = \'none\'">click here</a>.</p></div>');
 						function fixParenthoodRelations(element)
 						{
 							var n = element.childNodes.length;
@@ -55,7 +55,7 @@
 									text = text.replace(/&#x22B1;/gi, "&#x22B3;");
 									node.nodeValue = text;
 								}
-								else if (node.nodeType == 1 && node.nodeName.toLowerCase() != "script")
+								else if (node.nodeType == 1 && node.tagName.toLowerCase() != "script")
 								{
 									fixParenthoodRelations(node);
 								}
@@ -63,6 +63,88 @@
 						}
 					//]]>
 				</script>
+				<h2>Table of Contents</h2>
+				<table>
+					<tr>
+						<th colspan="3"><a href="#h2-Abstract">Abstract</a></th>
+					</tr>
+					<tr>
+						<th colspan="3"><a href="#h2-TOC">Table of Contents</a></th>
+					</tr>
+					<tr>
+						<th rowspan="3"><a href="#h2-Introduction">Introduction</a></th>
+						<th style="min-width: 16em"><a href="#h3-ReviewMath">A General Review of Mathematical Concepts, Terms, and Notation</a></th>
+						<td>
+							<a href="#h4-Collections">Collections</a> &#x2022; 
+							<a href="#h4-Sets">Sets</a> &#x2022;
+							<a href="#h4-Lists">Lists</a> &#x2022;
+							<a href="#h4-Relations">Relations</a> &#x2022;
+							<a href="#h4-Graphs">Graphs</a> &#x2022;
+							<a href="#h4-Functions">Functions</a>
+						</td>
+					</tr>
+					<tr>
+						<th><a href="#h3-ReviewBio">A General Review of Biological Concepts and Terms</a></th>
+						<td>
+							<a href="#h4-Collections">Organisms</a> &#x2022; 
+							<a href="#h4-Sets">Taxonomy</a> &#x2022;
+							<a href="#h4-Lists">Specimens</a> &#x2022;
+							<a href="#h4-Relations">Character States</a> &#x2022;
+							<a href="#h4-Graphs">Rank-Based Nomenclature</a> &#x2022;
+							<a href="#h4-Graphs">Phylogeny</a> &#x2022;
+							<a href="#h4-Graphs">Lineages</a> &#x2022;
+							<a href="#h4-Graphs">Cladogens</a> &#x2022;
+							<a href="#h4-Graphs">Clades</a> &#x2022;
+							<a href="#h4-Graphs">Non-Clades</a> &#x2022;
+							<a href="#h4-Functions">Phylogeny-Based Nomenclature</a>
+						</td>
+					</tr>
+					<tr>
+						<th><a href="#h3-ReviewBio">A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</a></th>
+						<td>
+							<a href="#h4-Collections">Strings</a> &#x2022; 
+							<a href="#h4-Sets">URIs</a> &#x2022;
+							<a href="#h4-Lists">Namespaces</a> &#x2022;
+							<a href="#h4-Relations" class="langname">XML</a> &#x2022;
+							<a href="#h4-Graphs" class="langname">MathML</a>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2"><a href="#h2-CorrelateBioMath">On the Correlation of Biological and Mathematical Terms</a></th>
+						<td>
+							<a href="#h4-Collections">Taxa and Sets</a> &#x2022; 
+							<a href="#h4-Sets">Ancestry and Precedence</a> &#x2022;
+							<a href="#h4-Lists">Phylogeny and Graphs</a>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2"><a href="#h2-DefinitionsMath">Definitions of Mathematical Entities</a></th>
+						<td>
+							<a href="#def-">Universal Taxon</a> &#x2022; 
+							<a href="#def-">Graph of Relatedness</a> &#x2022;
+							<a href="#def-">Digraph of Phylogeny</a> &#x2022;
+							<a href="#def-">Maximal</a> &#x2022;
+							<a href="#def-">Minimal</a> &#x2022;
+							<a href="#def-">Predecessor Union</a> &#x2022;
+							<a href="#def-">Successor Union</a> &#x2022;
+							<a href="#def-">Predecessor Intersection</a> &#x2022;
+							<a href="#def-">Successor Intersection</a> &#x2022;
+							<a href="#def-">Synapomorphic Predecessors</a> &#x2022;
+							<a href="#def-">Node-Based Cladogen</a> &#x2022;
+							<a href="#def-">Branch-Based Cladogen</a> &#x2022;
+							<a href="#def-">Apomorphy-Based Cladogen</a> &#x2022;
+							<a href="#def-">Clade</a> &#x2022;
+							<a href="#def-">Node-Based Clade</a> &#x2022;
+							<a href="#def-">Branch-Based Clade</a> &#x2022;
+							<a href="#def-">Apomorphy-Based Clade</a> &#x2022;
+							<a href="#def-">Crown Group</a> &#x2022;
+							<a href="#def-">Total Group</a> &#x2022;
+							<a href="#def-">Node-Branch Triple</a> &#x2022;
+							<a href="#def-">Mean Phylogenetic Distance</a>
+							<a href="#def-">Taxon Ball</a>
+						</td>
+					</tr>
+				</table>
 				<h2>Introduction</h2>
 				<h3>A General Review of Mathematical Concepts, Terms, and Notation</h3>
 				<p>
@@ -430,6 +512,160 @@
 					A <strong>phylogeny-based code</strong> is one which governs phylogeny-based definitions. Currently there are no such codes in effect, but there is a draft of one called the <i>International Code of Phylogenetic Nomenclature</i> (or the <i>PhyloCode</i>, for short).
 					This code is intended to go into effect in the next few years, exist alongside the rank-based codes, and govern phylogeny-based names for all types of organisms.
 				</p>
+				<h3>A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</h3>
+				<h4>Strings</h4>
+					<p>
+						A <strong>string</strong> is a sequence of characters.
+						Strings which are meant to be interpreted by a computer are referred to as <strong>code</strong>.
+						Literal strings are referred to as <strong>text</strong>.
+						A string which identifies an object is a <strong>name</strong>.
+					</p>
+				<h4>URIs</h4>
+				<p>
+					A <strong>Uniform Resource Identifier</strong>, or <strong>URI</strong>, is a string identifying a resource on the Internet.
+				</p>
+				<p>
+					One of the most common types of URI is the <strong>Uniform Resource Locator</strong>, or <strong>URL</strong>, which specifies an address and a mechanism for retrieval.
+					For example, a URL identifying this document is <code>http://namesonnodes.org/ns/math/2009/</code> (<code>http</code> is the retrieval mechanism, i.e., Bypertext Transfer Protocol, and <code>namesonnodes.org/ns/math/2009</code> is the address).
+				</p>
+				<p>
+					Another type of URL is the <strong>Uniform Resource Name</strong>, or <strong>URN</strong>, which functions as a location-independent name.
+					Many types of identification can be expressed as URNs. For example:
+				</p>
+				<ul>
+					<li>
+						<span class="header">International Standard Book Numbers.</span>
+						<code>urn:isbn:00800694</code>
+					</li>
+					<li>
+						<span class="header">Digital Object Identifiers.</span>
+						<code>urn:doi:10.1080/10635150500431221</code>
+					</li>
+					<li>
+						<span class="header">Life Science Identifiers.</span>
+						<code>urn:lsid:ubio.org:namebank:109086</code>
+					</li>
+					<li>
+						<span class="header">SHA-1 keys formed from raw data.</span>
+						<code>urn:sha1:7ba04f9b4289bf102e17854388108f9f6553ce5b</code>
+						<br />
+						(Note: this usage is strictly informal, but widespread.)
+					</li>
+				</ul>
+				<p>
+					A <strong>URN resolver</strong> translates URNs (i.e., names) into URLs (i.e., locations).
+				</p>
+				<p>
+					For more on URIs, see these official specifications:
+				</p>
+				<ul>
+					<li><a href="http://www.ietf.org/rfc/rfc2396" class="title">Uniform Resource Identifiers (URI): Generic Syntax</a></li>
+					<li><a href="http://www.ietf.org/rfc/rfc1738" class="title">Uniform Resource Locators (URL)</a></li>
+					<li><a href="http://www.ietf.org/rfc/rfc2141" class="title">URN Syntax</a></li>
+				</ul>
+				<h4>Namespaces</h4>
+				<p>
+					Generally, a <strong>namespace</strong> is a set of names, called <strong>local names</strong>, each of which has a single meaning in the context of the namespace.
+					Namespaces are commonly identified using URIs, which then function as <strong>namespace identifiers</strong>.
+					For example, this document is associated with the <span class="title">Name on Nodes</span> mathematical namespace, which may be identified using the URI <code>http://namesonnodes.org/ns/math/2009</code>.
+					In some contexts, a shorter identifier may be equated with a URI.
+				</p>
+				<p>
+					A <strong>qualified name</strong> is an expression joining a namespace identifier with a local name.
+					Different languages have different methods of joining these.
+					One convention is to use one or two colons ("<code>:</code>").
+					For example, the qualified name <code>urn:isbn:00800694::Pinus</code> may be used informally to refer to the entity identified as "<span class="nomen">Pinus</span>" by the <span class="title">International Code of Botanical Nomenclature</span> (ISBN 0080-0694).
+				</p>
+				<h4 class="langname">XML</h4>
+				<p>
+					<span class="langname"><strong>Extensible Markup Language</strong></span>, or <span class="langname"><strong>XML</strong></span> for short, is a specification for creating markup languages.
+					Text in <span class="langname">XML</span> may be surrounded with <strong>tags</strong>: an <strong>opening tag</strong>, of the form <code>&lt;<i>tagName</i>&gt;</code>, and a <strong>closing tag</strong>, of the form <code>&lt;/<i>tagName</i>&gt;</code>, where <code><i>tagName</i></code> is the name of the tag.
+					For example, in the <span class="langname">XML</span> expression <code>&lt;sentence&gt;Hello, world!&lt;/sentence&gt;</code>, the text "<code>Hello, world!</code>" has been marked up by <code>sentence</code> tags.
+					<span class="langname">XML</span> tags may also included nested tags, for example: <code>&lt;sentence&gt;&lt;word&gt;Hello&lt;/word&gt;, &lt;word&gt;world&lt;/word&gt;!&lt;/sentence&gt;</code>.
+					The entire stucture consisting of an opening tag, content, and a closing tag is an <strong>element</strong>.
+					Any elements within an element's content are <strong>child elements</strong>.
+					An element with no content, i.e., an <strong>empty element</strong>, may be written as a <strong>self-closing tag</strong>: <code>&lt;<i>tagName</i>/&gt;</code>.
+				</p>
+				<p>
+					<span class="langname">XML</span> tags may be augmented with <strong>attributes</strong>, each of which pairs a name to a value: <code>&lt;<i>tagName</i> <i>attrName</i>="<i>attrValue</i>"/&gt;</code>.
+					An <span class="langname">XML</span> tag may have any number of attributes, as long as they all have different names.
+				</p>
+				<p>
+					Tag and attribute names may be qualified names. Consider the following <span class="langname">XML</span> code:
+				</p>
+				<pre>&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://www.w3.org/1998/Math/MathML"&gt;
+    &lt;head&gt;
+        &lt;title&gt;XML Namespaces Example&lt;title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;This is XHTML.&lt;div&gt;
+        &lt;div&gt;The following is MathML:&lt;div&gt;
+        &lt;m:math&gt;
+	        &lt;m:apply&gt;
+		        &lt;m:sin/&gt;
+		        &lt;m:ci&gt;x&lt;/m:ci&gt;
+	        &lt;/m:apply&gt;
+        &lt;/m:math&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+				<p>
+					In this example, the default namespace identified by <code>http://www.w3.org/1999/xhtml</code> (which identifies the <span class="langname">XHTML</span> namespace), and a namespace identifier, <code>m</code>, is synonymized with <code>http://www.w3.org/1998/Math/MathML</code> (which identifies the <span class="langname">MathML</span> namespace).
+					Therefore, if a tag or attribute's name is unqualified, then it is interpreted as an <span class="langname">XHTML</span> name.
+					If a tag or attribute's name is qualified by the prefix "<code>m:</code>", then it is interpreted as a <span class="langname">MathML</span> name.
+				</p>
+				<p>
+					For more on <span class="langname">XML</span> and <span class="langname">XML</span> namespaces, see these official specifications:
+				</p>
+				<ul>
+					<li class="title"><a href="http://www.w3.org/TR/2008/REC-xml-20081126/">Extensible Markup Language (XML) 1.0 (Fifth Edition)</a></li>
+					<li class="title"><a href="http://www.w3.org/TR/2006/REC-xml-names-20060816/">Namespaces in XML 1.0 (Second Edition)</a></li>
+				</ul>
+				<h4 class="langname">MathML</h4>
+				<p>
+					<strong><span class="langname">Mathematical Markup Language</span></strong>, or <strong><span class="langname">MathML</span></strong>, is an <span class="langname">XML</span> language for expressing mathematical concepts.
+					Elements in <span class="langname">MathML</span> are divided into two major groups: <span class="langname">MathML-Presentation</span>, which contains information on how to render expressions visually, and <span class="langname">MathML-Content</span>, which models mathematical entities.
+					<span class="title">Name on Nodes</span> uses a relevant subset of <span class="langname">MathML-Content</span>.
+				</p>
+				<p>
+					An important element in <span class="langname">MathML</span> is the <code>apply</code> element.
+					This indicates that the first child element is to be interpreted as an <strong>operation</strong> (i.e., a function, relation, etc.), and the subsequent child elements are to be used as arguments.
+				</p>
+				<p>
+					<span class="header">Example.</span>
+					The <span class="langname">MathML</span> element <code>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;sin/&gt;&lt;cn&gt;0&lt;/cn&gt;&lt;/apply&gt;</code> indicates that the sine function (<span class="math">sin</span>) is to be applied to the constant number, <span class="math">0</span> (zero).
+				</p>
+				<p>
+					Another important element is the <code>csymbol</code> element, which allows the creation of custom-defined mathematical entities.
+					This is commonly achieved through use of the <code>csymbol</code> element's <code>definitionURL</code> attribute.
+					In <span class="title">Names on Nodes</span>, the value of the <code>definitionURL</code> attribute may be:
+				</p>
+				<ul>
+					<li>
+						A qualified name identifying a taxonomic name, e.g., "<code>urn:isbn:00800694::Pinus</code>".
+						If the taxonomic name's definition has a type, the symbol is interpreted as indicating that type.
+						Otherwise, it is interpreted as indicating the corresponding taxon.
+					</li>
+					<li>
+						A qualified name identifying a dataset, e.g., "<code>urn:sha1:7ba04f9b4289bf102e17854388108f9f6553ce5b::DISTANCES:0</code>".
+						If used as an operation, this is interprted as the metric function corresponding to the distance matrix in the dataset, if any.
+					</li>
+					<li>A URL identifying a definition in this document, e.g., "<code>http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</code>".</li>
+				</ul>
+				<p>
+					<span class="header">Example.</span>
+					The following <span class="langname">MathML</span> element indicates a node-based clade consisting of all successors of the maximal common predecessors of the types of botanical species <span class="nomen">Lycopodium clavatum</span>, <span class="nomen">Huperzia selago</span>, <span class="nomen">Iso&euml;tes lacustris</span>, and <span class="nomen">Selaginella apoda</span>.
+					(This is Cantino et al.'s [2007] definition of the clade name "<span class="nomen">Lycopodiophyta</span>".)
+				</p>
+				<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"/&gt;
+    &lt;apply&gt;
+        &lt;union/&gt;
+        &lt;csymbol definitionURL="urn:isbn:00800694::Lycopodium+clavatum"/&gt;
+        &lt;csymbol definitionURL="urn:isbn:00800694::Huperzia+selago"/&gt;
+        &lt;csymbol definitionURL="urn:isbn:00800694::Isoetes+lacustris"/&gt;
+        &lt;csymbol definitionURL="urn:isbn:00800694::Selaginella+apoda"/&gt;
+    &lt;/apply&gt;
+&lt;/apply&gt;</pre>
 				<h2>On the Correlation of Biological and Mathematical Terms</h2>
 				<h3>Taxa and Sets</h3>
 				<p>
@@ -467,7 +703,7 @@
 				</p>
 				<h3>Phylogeny and Graphs</h3>
 				<p>
-					Phylogeny may be represented as a directed, acyclic graph (which may also be considered a partially ordered set), <span class="math"><i>G</i><sub>&#x22B2;</sub> := [<i>U</i>, &#x22B2;]</span>.
+					Phylogeny may be represented as a directed, acyclic graph (which correlates to a partially ordered set), <span class="math"><i>G</i><sub>&#x22B2;</sub> := [<i>U</i>, &#x22B2;]</span>.
 					In this graph, organisms are the vertices.
 					The arcs (directed edges) point from parents to their children, so that the head of each arc is a parent and the tail of each arc is a child.
 				</p>
