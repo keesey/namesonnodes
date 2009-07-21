@@ -10,27 +10,28 @@
 		<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://vancouver-webpages.com/VWP1.0/&quot; l gen true comment &quot;VWP1.0&quot; by &quot;keesey@gmail.com&quot; on &quot;2009.06.12T11:31-0700&quot; for &quot;http://namesonnodes.org/&quot; r (Gam -1 V 0 Env 0 SF 0 Com 1 Can 0 Edu -1 S 0 P 0 Tol 0 MC 0 ))" />
 		<meta name="Author" content="T. Michael Keesey" />
 		<meta name="Description" content="Documentation of the Names on Nodes: Mathematics namespace (Definition URL: http://namesonnodes.org/ns/math/2009)." />
-		<meta name="Keywords" content="names,nodes,Keesey,Mike,Michael,biological,biology,hierarchy,nomenclature,code,phylogeny,phylogenetic,rank,based,mathemetics,mathematical,graph,digraph,network,arc,edge,vertex,weight,predecessor,successor,ancestor,descendant,parent,child,set,list,triple,triplet,ordered,partial,order" />
+		<meta name="Keywords" content="names,nodes,Keesey,Mike,Michael,biological,biology,hierarchy,nomenclature,code,phylogeny,phylogenetic,rank,based,mathemetics,mathematical,graph,digraph,network,arc,edge,vertex,weight,predecessor,successor,ancestor,descendant,parent,child,set,theory,list,triple,triplet,ordered,partial,order,ordering" />
 		<link href="../../../css/screen.css" type="text/css" rel="stylesheet"/>
 	</head>
 	<body>
 		<div id="container">
 			<div id="content">
+				<a name="h1" id="h1"></a>
 				<h1><span class="title">Names on Nodes</span>: <span class="langname">MathML</span> Definitions (Draft)</h1>
 				<p class="authors">T. Michael Keesey<sup><a href="#aff1">1</a></sup></p>
 				<p class="affiliations"><a name="aff1" id="aff1"></a><strong>1</strong> P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes%3AMathML+Definitions"><code>keesey@gmail.com</code></a></p>
 				<p class="publication-date">First Published Online 2009 OOO XX</p>
 				<p class="publication-date">Last Updated 2009 OOO XX</p>
 				<div id="abstract">
-					<a name="abstract" id="abstract"></a>
+					<a name="section-abstract" id="section-abstract"></a>
 					<h2>Abstract</h2>
 					<p>
-						<a href="http://www.w3.org/TR/MathML2/" class="langname">Mathematical Markup Language 2.0</a>, or <span class="langname">MathML 2.0</span>, is an <a href="http://www.w3.org/XML/" class="langname">XML</a> language which may be used to model mathematical concepts.
-						<a href="http://dx.doi.org/10.1111/j.1463-6409.2007.00302.x">Keesey (2007)</a> explored how <span class="langname">MathML</span> could be used to model phylogenetic definitions, that is, definitions of taxonomic names which rely on phylogeny (patterns of ancestry and descent), such as those specified in the <a href="http://phylocode.org" class="title">International Code of Phylogenetic Nomenclature</a> (for short, <span class="title">PhyloCode</span>).
-						This method involves the use of certain mathematical collections, relations, and operations which relate to phylogeny.
-						In <span class="langname">MathML</span>, these mathematical entities may be referenced using a <code>csymbol</code> element which indicates the <a href="http://www.w3.org/Addressing/URL/url-spec.txt">URL</a> of a definition.
-						For example, the set of all organisms may be referenced as <code>&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#universalTaxon" xmlns="http://www.w3.org/1998/Math/MathML"/&gt;</code>.
-						This document contains the mathematical definitions needed to model phylogenetic definitions in <span class="langname">MathML</span>.
+						<a href="#section-MathML" class="term langname">Mathematical Markup Language 2.0</a>, or <span class="langname">MathML 2.0</span>, is an <a href="#section-xml" class="term langname">XML</a> language which may be used to model mathematical concepts.
+						<a href="http://dx.doi.org/10.1111/j.1463-6409.2007.00302.x">Keesey (2007)</a> explored how <span class="langname">MathML</span> could be used to model <a href="#section-phylogeny-based-nomenclature" class="term">phylogeny-based definitions</a>, that is, definitions of <a href="#section-TaxonomicNames" class="term">taxonomic names</a> which rely on <a href="#section-Phylogeny" class="term">phylogeny</a> (patterns of ancestry and descent), using methods such as those described in the <a href="http://phylocode.org" class="title">International Code of Phylogenetic Nomenclature</a> (for short, <span class="title">PhyloCode</span>), <a href="http://www.ohio.edu/phylocode/art9.html#art9.4">Article 9.4</a>.
+						Relating these methods to mathematics involves the use of certain mathematical <a href="#section-Collections" class="term">collections</a>, <a href="#section-Relations" class="term">relations</a>, and <a href="#section-Functions" class="term">functions</a> which relate to <a href="#section-Phylogeny" class="term">phylogeny</a>.
+						In <a href="#section-MathML" class="term langname">MathML</a>, these mathematical entities may be referenced using a <code>csymbol</code> element which indicates the <a href="#section-URI" class="term">URL</a> of a definition.
+						For example, the <a href="#section-Sets" class="term">set</a> of all <a href="#section-Organisms" class="term">organisms</a> may be referenced as <code>&lt;csymbol definitionURL="<a href="#def-UniversalTaxon" class="term">http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</a>" xmlns="<a href="http://www.w3.org/1998/Math/MathML"class="term">http://www.w3.org/1998/Math/MathML</a>"/&gt;</code>.
+						This document contains the mathematical definitions needed to model <a href="#section-phylogeny-based-nomenclature" class="term">phylogeny-based definitions</a> in <a href="#section-MathML" class="term langname">MathML</a>.
 						These definitions are implemented in the application <a href="/" class="title">Names on Nodes</a>.
 					</p>
 				</div>
@@ -63,134 +64,154 @@
 						}
 					//]]>
 				</script>
+				<a id="section-TOC" name="section-TOC"></a>
 				<h2>Table of Contents</h2>
 				<table>
 					<tr>
-						<th colspan="3"><a href="#h2-Abstract">Abstract</a></th>
+						<th colspan="3"><a href="#section-Abstract">Abstract</a></th>
 					</tr>
 					<tr>
-						<th colspan="3"><a href="#h2-TOC">Table of Contents</a></th>
+						<th colspan="3"><a href="#section-TOC">Table of Contents</a></th>
 					</tr>
 					<tr>
-						<th rowspan="3"><a href="#h2-Introduction">Introduction</a></th>
-						<th style="min-width: 16em"><a href="#h3-ReviewMath">A General Review of Mathematical Concepts, Terms, and Notation</a></th>
+						<th rowspan="3"><a href="#section-Introduction">Introduction</a></th>
+						<th style="min-width: 16em"><a href="#section-ReviewMath">A General Review of Mathematical Concepts, Terms, and Notation</a></th>
 						<td>
-							<a href="#h4-Collections">Collections</a> &#x2022; 
-							<a href="#h4-Sets">Sets</a> &#x2022;
-							<a href="#h4-Lists">Lists</a> &#x2022;
-							<a href="#h4-Relations">Relations</a> &#x2022;
-							<a href="#h4-Graphs">Graphs</a> &#x2022;
-							<a href="#h4-Functions">Functions</a>
+							<a href="#section-Collections">Collections</a> &#x2022; 
+							<a href="#section-Sets">Sets</a> &#x2022;
+							<a href="#section-Lists">Lists</a> &#x2022;
+							<a href="#section-Relations">Relations</a> &#x2022;
+							<a href="#section-Graphs">Graphs</a> &#x2022;
+							<a href="#section-Functions">Functions</a>
 						</td>
 					</tr>
 					<tr>
-						<th><a href="#h3-ReviewBio">A General Review of Biological Concepts and Terms</a></th>
+						<th><a href="#section-ReviewBio">A General Review of Biological Concepts and Terms</a></th>
 						<td>
-							<a href="#h4-Collections">Organisms</a> &#x2022; 
-							<a href="#h4-Sets">Taxonomy</a> &#x2022;
-							<a href="#h4-Lists">Specimens</a> &#x2022;
-							<a href="#h4-Relations">Character States</a> &#x2022;
-							<a href="#h4-Graphs">Rank-Based Nomenclature</a> &#x2022;
-							<a href="#h4-Graphs">Phylogeny</a> &#x2022;
-							<a href="#h4-Graphs">Lineages</a> &#x2022;
-							<a href="#h4-Graphs">Cladogens</a> &#x2022;
-							<a href="#h4-Graphs">Clades</a> &#x2022;
-							<a href="#h4-Graphs">Non-Clades</a> &#x2022;
-							<a href="#h4-Functions">Phylogeny-Based Nomenclature</a>
+							<a href="#section-Organisms">Organisms</a> &#x2022; 
+							<a href="#section-Taxonomy">Taxonomy</a> &#x2022;
+							<a href="#section-Specimens">Specimens</a> &#x2022;
+							<a href="#section-CharacterStates">Character States</a> &#x2022;
+							<a href="#section-RankBasedNomenclature">Rank-Based Nomenclature</a> &#x2022;
+							<a href="#section-Phylogeny">Phylogeny</a> &#x2022;
+							<a href="#section-Lineages">Lineages</a> &#x2022;
+							<a href="#section-Cladogens">Cladogens</a> &#x2022;
+							<a href="#section-Clades">Clades</a> &#x2022;
+							<a href="#section-NonClades">Non-Clades</a> &#x2022;
+							<a href="#section-PhylogenyBasedNomenclature">Phylogeny-Based Nomenclature</a>
 						</td>
 					</tr>
 					<tr>
-						<th><a href="#h3-ReviewBio">A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</a></th>
+						<th><a href="#section-ReviewMathML">A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</a></th>
 						<td>
-							<a href="#h4-Collections">Strings</a> &#x2022; 
-							<a href="#h4-Sets">URIs</a> &#x2022;
-							<a href="#h4-Lists">Namespaces</a> &#x2022;
-							<a href="#h4-Relations" class="langname">XML</a> &#x2022;
-							<a href="#h4-Graphs" class="langname">MathML</a>
+							<a href="#section-Strings">Strings</a> &#x2022; 
+							<a href="#section-URIs">URIs</a> &#x2022;
+							<a href="#section-Namespaces">Namespaces</a> &#x2022;
+							<a href="#section-XML" class="langname">XML</a> &#x2022;
+							<a href="#section-MathML" class="langname">MathML</a>
 						</td>
 					</tr>
 					<tr>
-						<th colspan="2"><a href="#h2-CorrelateBioMath">On the Correlation of Biological and Mathematical Terms</a></th>
+						<th colspan="2"><a href="#section-CorrelateBioMath">On the Correlation of Biological and Mathematical Terms</a></th>
 						<td>
-							<a href="#h4-Collections">Taxa and Sets</a> &#x2022; 
-							<a href="#h4-Sets">Ancestry and Precedence</a> &#x2022;
-							<a href="#h4-Lists">Phylogeny and Graphs</a>
+							<a href="#section-TaxaSets">Taxa and Sets</a> &#x2022; 
+							<a href="#section-AncestryPrecedence">Ancestry and Precedence</a> &#x2022;
+							<a href="#section-PhylogenyGraphs">Phylogeny and Graphs</a>
 						</td>
 					</tr>
 					<tr>
-						<th colspan="2"><a href="#h2-DefinitionsMath">Definitions of Mathematical Entities</a></th>
+						<th colspan="2"><a href="#section-DefinitionsMath">Definitions of Mathematical Entities</a></th>
 						<td>
-							<a href="#def-">Universal Taxon</a> &#x2022; 
-							<a href="#def-">Graph of Relatedness</a> &#x2022;
-							<a href="#def-">Digraph of Phylogeny</a> &#x2022;
-							<a href="#def-">Maximal</a> &#x2022;
-							<a href="#def-">Minimal</a> &#x2022;
-							<a href="#def-">Predecessor Union</a> &#x2022;
-							<a href="#def-">Successor Union</a> &#x2022;
-							<a href="#def-">Predecessor Intersection</a> &#x2022;
-							<a href="#def-">Successor Intersection</a> &#x2022;
-							<a href="#def-">Synapomorphic Predecessors</a> &#x2022;
-							<a href="#def-">Node-Based Cladogen</a> &#x2022;
-							<a href="#def-">Branch-Based Cladogen</a> &#x2022;
-							<a href="#def-">Apomorphy-Based Cladogen</a> &#x2022;
-							<a href="#def-">Clade</a> &#x2022;
-							<a href="#def-">Node-Based Clade</a> &#x2022;
-							<a href="#def-">Branch-Based Clade</a> &#x2022;
-							<a href="#def-">Apomorphy-Based Clade</a> &#x2022;
-							<a href="#def-">Crown Group</a> &#x2022;
-							<a href="#def-">Total Group</a> &#x2022;
-							<a href="#def-">Node-Branch Triple</a> &#x2022;
-							<a href="#def-">Mean Phylogenetic Distance</a>
-							<a href="#def-">Taxon Ball</a>
+							<a href="#def-UniversalTaxon">Universal Taxon</a> &#x2022; 
+							<a href="#def-GraphRelatedness">Graph of Relatedness</a> &#x2022;
+							<a href="#def-DigraphPhylogeny">Digraph of Phylogeny</a> &#x2022;
+							<a href="#def-Maximal">Maximal</a> &#x2022;
+							<a href="#def-Minimal">Minimal</a> &#x2022;
+							<a href="#def-PredecessorUnion">Predecessor Union</a> &#x2022;
+							<a href="#def-SuccessorUnion">Successor Union</a> &#x2022;
+							<a href="#def-PredecessorInteresection">Predecessor Intersection</a> &#x2022;
+							<a href="#def-SuccessorIntersection">Successor Intersection</a> &#x2022;
+							<a href="#def-SynapomorphicPredecessors">Synapomorphic Predecessors</a> &#x2022;
+							<a href="#def-NodeBasedCladogen">Node-Based Cladogen</a> &#x2022;
+							<a href="#def-BranchBasedCladogen">Branch-Based Cladogen</a> &#x2022;
+							<a href="#def-ApomorphyBasedCladogen">Apomorphy-Based Cladogen</a> &#x2022;
+							<a href="#def-Clade">Clade</a> &#x2022;
+							<a href="#def-NodeBasedClade">Node-Based Clade</a> &#x2022;
+							<a href="#def-BranchBasedClade">Branch-Based Clade</a> &#x2022;
+							<a href="#def-ApomorphyBasedClade">Apomorphy-Based Clade</a> &#x2022;
+							<a href="#def-CrownGroup">Crown Group</a> &#x2022;
+							<a href="#def-TotalGroup">Total Group</a> &#x2022;
+							<a href="#def-NodeBranchTriple">Node-Branch Triple</a> &#x2022;
+							<a href="#def-MeanPhylogeneticDistance">Mean Phylogenetic Distance</a>
+							<a href="#def-TaxonBall">Taxon Ball</a>
 						</td>
 					</tr>
 				</table>
+				<a id="section-Introduction" name="section-Introduction"></a>
 				<h2>Introduction</h2>
+				<a id="section-ReviewMath" name="section-ReviewMath"></a>
 				<h3>A General Review of Mathematical Concepts, Terms, and Notation</h3>
 				<p>
 					Some terminology and notation varies across different contexts.
 					Where possible, I have followed <span class="langname">MathML</span>'s terminology and default notation.
-					Some exceptions have been made for certain logical symbols which are more easily read as words than as symbols, e.g., <span class="math">and</span>  instead of <span class="math">&and;</span>.
+					Some exceptions have been made for certain logical symbols which are more easily read as words than as symbols, e.g., <span class="math">and</span> instead of <span class="math">&and;</span>, <span class="math">for all</span> instead of <span class="math">&forall;</span>, etc.
 				</p>
+				<a id="term-:=" name="term-:="></a>
 				<p>
-					The symbol <span class="math">:=</span> means "is defined as".
+					The symbol <span class="math"><strong>:=</strong></span> means "is defined as".
 				</p>
+				<a id="section-Collections" name="section-Collections"></a>
 				<h4>Collections</h4>
+				<a id="term-collection" name="term-collection"></a>
+				<a id="term-member" name="term-member"></a>
+				<a id="term-singleton" name="term-singleton"></a>
 				<p>
 					A <strong>collection</strong> is an entity which consists of zero or more distinct objects.
 					Objects in a collection are <strong>members</strong> of the collection.
 					A collection with one member is a <strong>singleton</strong>.
 				</p>
+				<a id="section-Sets" name="section-Sets"></a>
 				<h4>Sets</h4>
+				<a id="term-set" name="term-set"></a>
+				<a id="term-isin" name="term-isin"></a>
 				<p>
 					A <strong>set</strong> is an unordered collection.
-					When an element, <span class="math"><i>x</i></span>, is a member of a set, <span class="math"><i>S</i></span>, this is denoted <span class="math"><i>x</i> &isin; <i>S</i></span>.
-					Sets may themselves be members of other sets.
-					Sets may be denoted in the following ways:
+					When an object, <span class="math"><i>x</i></span>, is a member of a set, <span class="math"><i>S</i></span>, this is denoted <span class="math"><i>x</i> &isin; <i>S</i></span>.
+					sets may themselves be members of other sets.
+					sets may be denoted in the following ways:
 				</p>
 				<ul>
-					<li>Extensionally, as a list of elements: <span class="math">{<i>x</i>, <i>y</i>, <i>z</i>}</span></li>
-					<li>Intensionally, with a rule that determines membership: <span class="math">{<i>x</i> | <i>x</i> &gt; 1}</span>, <span class="math">{<i>x</i> | <i>x</i> has a cellular nucleus}</span></li>
-					<li>Using a defined symbol, name, or phrase: <span class="math">&#x2205;</span>, <span class="math"><i>U</i></span>, <span class="math nomen">Mammalia</span>, <span class="math">YPM-VP 1450</span></li>
+					<li>Extensionally, as a list of objects: <span class="math">{<i>x</i>, <i>y</i>, <i>z</i>}</span></li>
+					<li>Intensionally, with a rule that determines membership: <span class="math">{<i>x</i> | <i>x</i> &gt; 1}</span>, <span class="math">{<i>x</i> | <i>x</i> exhibits a cellular nucleus}</span></li>
+					<li>Using a defined symbol, name, or phrase: <span class="math">&#x2205;</span>, <span class="math">U</span>, <span class="math nomen">Mammalia</span>, <span class="math">YPM-VP 1450</span></li>
 				</ul>
+				<a id="term-empty-set" name="term-empty-set"></a>
 				<p>
 					The <strong>empty set</strong> is the set which includes no members, denoted as <span class="math">&#x2205;</span>.
 				</p>
+				<a id="term-cardinality" name="term-cardinality"></a>
 				<p>
-					The <strong>cardinality</strong> of a set is the number of elements in that set, denoted by surrounding the set with vertical bars, e.g., <span class="math">|<i>S</i>|</span>.
+					The <strong>cardinality</strong> of a set is the number of members in that set, denoted with enclosing vertical bars: <span class="math">|<i>S</i>|</span>.
 				</p>
 				<p>
 					<span class="header">Examples.</span>
 					<span class="math">|&#x2205;| = 0</span>.
 					<span class="math">|{1, 2, 3}| = 3</span>.
 				</p>
+				<a id="term-subset" name="term-subset"></a>
+				<a id="term-superset" name="term-superset"></a>
+				<a id="term-proper-subset" name="term-proper-subset"></a>
+				<a id="term-proper-superset" name="term-superset"></a>
 				<p>
-					If all elements of a set, <span class="math"><i>A</i></span> are members of a set, <span class="math"><i>B</i></span>, then <span class="math"><i>A</i></span> is a <strong>subset</strong> of <span class="math"><i>B</i></span>, denoted <span class="math"><i>A</i> &#x2286; <i>B</i></span>.
+					If all members of a set, <span class="math"><i>A</i></span>, are members of a set, <span class="math"><i>B</i></span>, then <span class="math"><i>A</i></span> is a <strong>subset</strong> of <span class="math"><i>B</i></span>, denoted <span class="math"><i>A</i> &#x2286; <i>B</i></span>.
 					<span class="math"><i>B</i></span> is a <strong>superset</strong> of <span class="math"><i>A</i></span>.
 					Note that all sets are subsets and supersets of themselves.
 					If <span class="math"><i>A</i> &#x2286; <i>B</i></span> and <span class="math"><i>A</i> &#x2260; <i>B</i></span>, then <span class="math"><i>A</i></span> is a <strong>proper subset</strong> of <span class="math"><i>B</i></span>, denoted <span class="math"><i>A</i> &#x2282; <i>B</i></span>, and <span class="math"><i>B</i></span> is a <strong>proper superset</strong> of <span class="math"><i>A</i></span>.
-					Note that <span class="math">&#x2205;</span> is a subset of all sets.
+					Note that &#x2205; is a subset of all sets.
 				</p>
+				<a id="term-union" name="term-subset"></a>
+				<a id="term-intersection" name="term-subset"></a>
+				<a id="term-subset" name="term-subset"></a>
 				<p>
 					The operations of <strong>union</strong>, <strong>intersection</strong>, and <strong>difference</strong> may be applied to sets:
 				</p>
@@ -209,6 +230,10 @@
 					</li>
 				</ul>
 				<p>
+					<span class="header">Examples.</span>
+					If <span class="math"><i>A</i> = {1, 2}</span> and <span class="math"><i>B</i> = {2, 3}</span>, then <span class="math"><i>A</i> &#x222A; <i>B</i> = {1, 2, 3}</span>, <span class="math"><i>A</i> &#x2229; <i>B</i> = {2}</span>, and <span class="math"><i>A</i> &minus; <i>B</i> = {1}</span>.
+				</p>
+				<p>
 					A <strong>partition</strong> of a set, <span class="math"><i>S</i></span>, is a set of subsets of <span class="math"><i>S</i></span>, so that no sets in the partition overlap and all members of <span class="math"><i>S</i></span> are members of some set in the partition.
 					A partition, <span class="math"><i>P</i><sub>1</sub></span>, is a <strong>refinement</strong> of another partition, <span class="math"><i>P</i><sub>2</sub></span>, if every member of <span class="math"><i>P</i><sub>1</sub></span> is a subset of some member of <span class="math"><i>P</i><sub>2</sub></span>.
 					<span class="math"><i>P</i><sub>1</sub></span> is <strong>finer</strong> than <span class="math"><i>P</i><sub>2</sub></span>, and <span class="math"><i>P</i><sub>2</sub></span> is <strong>coarser</strong> than <span class="math"><i>P</i><sub>1</sub></span>.
@@ -220,12 +245,11 @@
 					The partition <span class="math">{&#x2205;, {1}, {2}, {3}}</span> is a refinement of <span class="math">{&#x2205;, {1}, {2, 3}}</span>, which is a refinement of <span class="math">{&#x2205;, <i>S</i>}</span>.
 				</p>
 				<p>
-					The set consisting of all (relevant) objects is called the <strong>universal set</strong>, denoted <span class="math"><i>U</i></span>.
-					The difference of <span class="math"><i>U</i></span> and a set, <span class="math"><i>S</i></span>, is the <strong>complement</strong> of <span class="math"><i>S</i></span>, denoted <span class="math set-complement"><i>S</i></span>.
+					The set consisting of all (relevant) objects is called the <strong>universal set</strong>.
+					The difference of the universal set and a set, <span class="math"><i>S</i></span>, is the <strong>complement</strong> of <span class="math"><i>S</i></span>, denoted <span class="math set-complement"><i>S</i></span>.
 				</p>
 				<p>
-					A <strong>power set</strong> of a set, <span class="math"><i>S</i></span>, is the set of all subsets of <span class="math"><i>S</i></span>.
-					The power set of <span class="math"><i>S</i></span> is denoted as <span class="math">2<sup><i>S</i></sup></span>.
+					A <strong>power set</strong> of a set, <span class="math"><i>S</i></span>, is the set of all subsets of <span class="math"><i>S</i></span>, denoted <span class="math">2<sup><i>S</i></sup></span>.
 				</p>
 				<p>
 					<span class="header">Example.</span>
@@ -265,6 +289,7 @@
 				</p>
 				<p>
 					The expression <span class="math"><i>R</i>[<i>x</i>]</span> denotes the set <span class="math">{<i>y</i> | <i>x</i> <i>R</i> <i>y</i>}</span>.
+					For example, <span class="math">&gt;[0]</span> indicates the set of all negative numbers.
 				</p>
 				<p>
 					A <strong>partial order</strong> is a relation with the properties of <strong>reflexivity</strong>, <strong>antisymmetry</strong>, and <strong>transitivity</strong>:
@@ -296,7 +321,7 @@
 					A <strong>graph</strong> is an entity containing a set of objects, called <strong>vertices</strong>, and connections of the vertices, called <strong>edges</strong>.
 					A graph may be defined as a type of ordered pair, in which the first element is the <strong>vertex set</strong> and the second element is the <strong>edge set</strong>: <span class="math">[<i>V</i>, <i>E</i>]</span>.
 					In an <strong>undirected graph</strong>, each edge is a set of two vertices, indicating that those vertices are connected, or <strong>incident</strong>.
-					In a <strong>directed graph</strong>, each edge is an ordered pair of vertices, indicating that the first element, or <strong>head</strong>, connects to the second element, or <strong>tail</strong>.
+					In a <strong>directed graph</strong>, or <strong>digraph</strong>, each edge is an ordered pair of vertices, indicating that the first element, or <strong>head</strong>, connects to the second element, or <strong>tail</strong>.
 					Edges in directed graphs may also be called <strong>arcs</strong>.
 				</p>
 				<p>
@@ -312,7 +337,8 @@
 					The final set, <span class="math"><i>F</i></span>, is a set of ordered pairs, wherein the first element is the argument and the second element is the value.
 					There may be only one ordered pair per argument.
 					If an ordered pair, <span class="math">[<i>x</i>, <i>y</i>]</span>, is a member of <span class="math"><i>F</i></span>, this may be denoted as <span class="math"><i>f</i>(<i>x</i>) = <i>y</i></span>.
-					Sometimes it may be written <span class="math"><i>x</i> <i>f</i> <i>y</i></span> (infix notation).
+					If the argument is a list, instead of <span class="math"><i>f</i>([<i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, &#x2026; <i>a</i><sub><i>n</i></sub>])</span>, it is customary to simply write <span class="math"><i>f</i>(<i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, &#x2026; <i>a</i><sub><i>n</i></sub>)</span>.
+					Sometimes this may be written <span class="math"><i>a</i><sub>1</sub> <i>f</i> <i>a</i><sub>2</sub> <i>f</i> &#x2026; <i>a</i><sub><i>n</i></sub></span> (infix notation).
 				</p>
 				<p>
 					The set including all of a function's arguments is the <strong>domain</strong>.
@@ -321,15 +347,15 @@
 					If a function, <span class="math"><i>f</i></span>, has domain <span class="math"><i>X</i></span> and codomain <span class="math"><i>Y</i></span>, this is denoted as <span class="math"><i>f</i>: <i>X</i> &rarr; <i>Y</i></span>.
 				</p>
 				<p>
-					The <b>composition</b> of two functions, <span class="math"><i>f</i></span> and <span class="math"><i>g</i></span>, is a function which uses the value of <span class="math"><i>g</i></span> as an argument for <span class="math"><i>f</i></span>.
-					Composition is written <span class="math"><i>f</i> &#x2218; <i>g</i></span>, so that <span class="math">(<i>f</i> &#x2218; <i>g</i>)(<i>x</i>) = <i>f</i>(<i>g</i>(<i>x</i>))</span>.
-					Note that the codomain of <span class="math"><i>g</i></span> must be a subset of the domain of <span class="math"><i>f</i></span>.
-					If <span class="math"><i>g</i> : <i>X</i> &rarr; <i>Y</i></span> and <span class="math"><i>f</i> : <i>Y</i> &rarr; <i>Z</i></span>, then <span class="math">(<i>f</i> &#x2218; <i>g</i>) : <i>X</i> &rarr; <i>Z</i></span>.
+					The <b>composite</b> of two functions, <span class="math"><i>f</i></span> and <span class="math">G</span>, is a function which uses the value of <span class="math">G</span> as an argument for <span class="math"><i>f</i></span>.
+					Composition is written <span class="math"><i>f</i> &#x2218; G</span>, so that <span class="math">(<i>f</i> &#x2218; G)(<i>x</i>) = <i>f</i>(G(<i>x</i>))</span>.
+					Note that the codomain of <span class="math">G</span> must be a subset of the domain of <span class="math"><i>f</i></span>.
+					If <span class="math">G : <i>X</i> &rarr; <i>Y</i></span> and <span class="math"><i>f</i> : <i>Y</i> &rarr; <i>Z</i></span>, then <span class="math">(<i>f</i> &#x2218; G) : <i>X</i> &rarr; <i>Z</i></span>.
 				</p>
 				<p>
 					A <b>metric</b> on a set, <span class="math"><i>X</i></span>, is a function with <span class="math"><i>X</i><sup>2</sup></span> as its domain and the set of nonnegative real numbers as its codomain.
 					It defines a <strong>metric distance</strong> between any two members of <span class="math"><i>X</i></span>.
-					A <strong>metric ball</strong> is a set including a focal member, <span class="math"><i>x</i></span>, and all elements less than a certain distance, <span class="math"><i>&#x3B5;</i></span>, from <span class="math"><i>x</i></span>.
+					The <strong><span class="math"><i>&#x3B5;</i></span>-ball</strong> of <span class="math"><i>x</i></span> is the set of all elements less than a certain distance, <span class="math"><i>&#x3B5;</i></span>, from <span class="math"><i>x</i></span>.
 				</p>
 				<h3>A General Review of Biological Concepts and Terms</h3>
 				<h4>Organisms</h4>
@@ -341,7 +367,7 @@
 				</p>
 				<h4>Taxonomy</h4>
 				<p>
-					A nonempty set of organisms is a <strong>taxon</strong>.
+					A nonempty set of organisms is a <strong>taxon</strong> (plural: <strong>taxa</strong>).
 					A taxon whose members are all within another taxon is a <strong>subtaxon</strong> of that other taxon.
 					A taxon which includes all members of another taxon is a <strong>supertaxon</strong> of that taxon.
 					The most inclusive taxon is the <strong>universal taxon</strong>, which includes all organisms.
@@ -354,7 +380,7 @@
 				<h4>Specimens</h4>
 				<p>
 					In addition to taxonomic names, taxa may also be referenced using <strong>specimens</strong>.
-					A specimen is an object which has been catalogued as part of a specimen collection.
+					A specimen is an object which has been catalogued as part of a <strong>specimen collection</strong>.
 					A specimen collection is often indicated by an abbreviation of its name, specified within the context, e.g., "Yale Peabody Museum: Vertebrate Paleontology Collection" may be abbreviated as "YPM-VP".
 					A specimen within a collection may be indicated by the collection's name or abbreviation followed by an <strong>identifier</strong> that is unique within the collection, e.g., <span class="math">YPM-VP 1450</span>.
 					A specimen may have multiple identifiers if it has been transferred from one collection to another. For example, <span class="math">AMNH 973</span> and <span class="math">CM 9380</span> are the same specimen.
@@ -367,8 +393,8 @@
 				</p>
 				<p>
 					<span class="header">Examples.</span>
-					<span class="math">Cellular nucleus present</span> is a valid state, assuming "cellular nucleus" has been defined in such a way that it is either present or not, never partially present.
-					<span class="math">Large leaf size</span> is not a valid state, since it is relative, not absolute.
+					"<span class="math">Cellular nucleus present</span>" is a valid state, assuming that "cellular nucleus" has been defined in such a way that it is either present or not, never partially present.
+					"<span class="math">Large leaf size</span>" is not a valid state, since it is relative, not absolute.
 				</p>
 				<p>
 					Taxa may be defined using a collection of character states.
@@ -388,6 +414,9 @@
 				</p>
 				<p>
 					Note that rank-based definitions do not dictate any criteria for membership, apart from the requirement that the type (specimens or subtaxon) must represent included organisms.
+				</p>
+				<p>
+					If a taxonomic name, "<span class="nomen">X</span>", is defined as having a taxon with name "<span class="nomen">Y</span>" as its type, and "<span class="nomen">Y</span>" is defined as having specimen <span class="math"><i>Z</i></span> as its type, then <span class="math"><i>Z</i></span> may be called the <strong>finest type</strong> of "<span class="nomen">X</span>".
 				</p>
 				<p>
 					A <strong>rank-based code</strong> is a nomenclatural code which governs rank-based definitions.
@@ -446,19 +475,21 @@
 				</p>
 				<p>
 					The <strong>exclusive predecessors</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to another taxon, <span class="math"><i>Z</i></span>, are all common predecessors of <span class="math"><i>A</i></span> except any which are predecessors of any member of <span class="math"><i>Z</i></span>.
+					<span class="math"><i>A</i></span> may be termed the <strong>internal taxon</strong> and <span class="math"><i>B</i></span> may be termed the <strong>external taxon</strong>
 				</p>
 				<p>
 					The <strong>apomorphic predecessors</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to another (generally character-based) taxon, <span class="math"><i>M</i></span>, are all common predecessors of <span class="math"><i>A</i></span> which are also members of <span class="math"><i>M</i></span>.
+					<span class="math"><i>A</i></span> may be termed the <strong>representative taxon</strong> and <span class="math"><i>M</i></span> may be termed the <strong>apomorphic taxon</strong>
 				</p>
 				<h4>Lineages</h4>
 				<p>
 					A <strong>lineage</strong> is a sequence of organisms wherein each organism is followed by one of its children.
 				</p>
 				<p>
-					A <strong>synapomorphic predecessor</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to taxon <span class="math"><i>M</i></span>, is a comember predecessor for which there is at least one lineage for every member of <span class="math"><i>A</i></span> satisfying the following conditions:
+					A <strong>synapomorphic predecessor</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to taxon <span class="math"><i>M</i></span>, is an apomorphic predecessor for which there is at least one lineage for every member of <span class="math"><i>A</i></span> satisfying the following conditions:
 				</p>
 				<ol>
-					<li>The first member of the lineage (i.e., the ancestor of all other members) is the synapomorphic predecessor.</li>
+					<li>The first member of the lineage (i.e., the ancestor of all other members) is the apomorphic predecessor.</li>
 					<li>The last member of the lineage (i.e., the descendant of all other members) is the member of <span class="math"><i>A</i></span>.</li>
 					<li>All members of the lineage are members of <span class="math"><i>M</i></span>.</li>
 				</ol>
@@ -475,13 +506,12 @@
 				</p>
 				<p>
 					A <strong>node-based cladogen</strong> consists of the maximal common predecessors of a taxon.
-					That taxon is a <strong>specified taxon</strong>.
 				</p>
 				<p>
-					A <strong>branch-based cladogen</strong> consists of the minimal exclusive predecessors of a taxon, the <strong>internal specified taxon</strong>, with regard to another taxon, the <strong>external specified taxon</strong>.
+					A <strong>branch-based cladogen</strong> consists of the minimal exclusive predecessors of an internal taxon with regard to an external taxon.
 				</p>
 				<p>
-					An <strong>apomorphy-based cladogen</strong> consists of the minimal synapomorphic predecessors of a taxon, the <strong>representative taxon</strong>, with regard to another taxon, the <strong>apomorphic taxon</strong>.
+					An <strong>apomorphy-based cladogen</strong> consists of the minimal synapomorphic predecessors of a representative taxon with regard to an apomorphic taxon.
 				</p>
 				<h4>Clades</h4>
 				<p>
@@ -497,7 +527,7 @@
 				<p>
 					If a taxon's minimal members form a cladogen, but the taxon does not include not all descendants of that cladogen, then it is <strong>paraphyletic</strong>.
 					(Note that cladogens themselves are paraphyletic, with the exception of singleton cladogens wherein the single member has no descendants.
-					For singleton cladogens, the clade and cladogen are identical.)
+					For such singleton cladogens, the clade and cladogen are identical.)
 				</p>
 				<p>
 					If the maximal common predecessors (i.e., the members of the node-based cladogen) of a taxon are not included within that taxon,
@@ -510,7 +540,7 @@
 				</p>
 				<p>
 					A <strong>phylogeny-based code</strong> is one which governs phylogeny-based definitions. Currently there are no such codes in effect, but there is a draft of one called the <i>International Code of Phylogenetic Nomenclature</i> (or the <i>PhyloCode</i>, for short).
-					This code is intended to go into effect in the next few years, exist alongside the rank-based codes, and govern phylogeny-based names for all types of organisms.
+					This code is intended to go into effect in the next few years, exist alongside the rank-based codes, and govern clade names for all types of organisms.
 				</p>
 				<h3>A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</h3>
 				<h4>Strings</h4>
@@ -526,7 +556,7 @@
 				</p>
 				<p>
 					One of the most common types of URI is the <strong>Uniform Resource Locator</strong>, or <strong>URL</strong>, which specifies an address and a mechanism for retrieval.
-					For example, a URL identifying this document is <code>http://namesonnodes.org/ns/math/2009/</code> (<code>http</code> is the retrieval mechanism, i.e., Bypertext Transfer Protocol, and <code>namesonnodes.org/ns/math/2009</code> is the address).
+					For example, a URL identifying this document is <code>http://namesonnodes.org/ns/math/2009/</code> (<code>http</code> is the retrieval mechanism, i.e., Hypertext Transfer Protocol, and <code>namesonnodes.org/ns/math/2009</code> is the address).
 				</p>
 				<p>
 					Another type of URL is the <strong>Uniform Resource Name</strong>, or <strong>URN</strong>, which functions as a location-independent name.
@@ -571,8 +601,11 @@
 					In some contexts, a shorter identifier may be equated with a URI.
 				</p>
 				<p>
+					Note that taxonomic publications (including nomenclatural codes) and specimen collections may be considered types of namespaces, wherein taxonomic names and specimen identifiers, respectively, function as local names.
+				</p>
+				<p>
 					A <strong>qualified name</strong> is an expression joining a namespace identifier with a local name.
-					Different languages have different methods of joining these.
+					Different computer languages have different methods of joining these.
 					One convention is to use one or two colons ("<code>:</code>").
 					For example, the qualified name <code>urn:isbn:00800694::Pinus</code> may be used informally to refer to the entity identified as "<span class="nomen">Pinus</span>" by the <span class="title">International Code of Botanical Nomenclature</span> (ISBN 0080-0694).
 				</p>
@@ -587,7 +620,7 @@
 					An element with no content, i.e., an <strong>empty element</strong>, may be written as a <strong>self-closing tag</strong>: <code>&lt;<i>tagName</i>/&gt;</code>.
 				</p>
 				<p>
-					<span class="langname">XML</span> tags may be augmented with <strong>attributes</strong>, each of which pairs a name to a value: <code>&lt;<i>tagName</i> <i>attrName</i>="<i>attrValue</i>"/&gt;</code>.
+					Both opening and self-closing <span class="langname">XML</span> tags may be augmented with <strong>attributes</strong>, each of which pairs a name to a value: <code>&lt;<i>tagName</i> <i>attrName</i>="<i>attrValue</i>"/&gt;</code>.
 					An <span class="langname">XML</span> tag may have any number of attributes, as long as they all have different names.
 				</p>
 				<p>
@@ -609,7 +642,7 @@
     &lt;/body&gt;
 &lt;/html&gt;</pre>
 				<p>
-					In this example, the default namespace identified by <code>http://www.w3.org/1999/xhtml</code> (which identifies the <span class="langname">XHTML</span> namespace), and a namespace identifier, <code>m</code>, is synonymized with <code>http://www.w3.org/1998/Math/MathML</code> (which identifies the <span class="langname">MathML</span> namespace).
+					In this example, the default namespace is identified by <code>http://www.w3.org/1999/xhtml</code> (which identifies the <span class="langname">XHTML</span> namespace), and a namespace identifier, <code>m</code>, is synonymized with <code>http://www.w3.org/1998/Math/MathML</code> (which identifies the <span class="langname">MathML</span> namespace).
 					Therefore, if a tag or attribute's name is unqualified, then it is interpreted as an <span class="langname">XHTML</span> name.
 					If a tag or attribute's name is qualified by the prefix "<code>m:</code>", then it is interpreted as a <span class="langname">MathML</span> name.
 				</p>
@@ -642,14 +675,14 @@
 				<ul>
 					<li>
 						A qualified name identifying a taxonomic name, e.g., "<code>urn:isbn:00800694::Pinus</code>".
-						If the taxonomic name's definition has a type, the symbol is interpreted as indicating that type.
+						If the taxonomic name's definition has a type, the symbol is interpreted as indicating the finest type of the name.
 						Otherwise, it is interpreted as indicating the corresponding taxon.
 					</li>
 					<li>
 						A qualified name identifying a dataset, e.g., "<code>urn:sha1:7ba04f9b4289bf102e17854388108f9f6553ce5b::DISTANCES:0</code>".
-						If used as an operation, this is interprted as the metric function corresponding to the distance matrix in the dataset, if any.
+						If used as an operation, this is interpreted as the metric function corresponding to the distance matrix in the dataset, if any.
 					</li>
-					<li>A URL identifying a definition in this document, e.g., "<code>http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</code>".</li>
+					<li>A URL identifying a definition in this document, e.g., "<a href="#def-UniversalTaxon" class="term"><code>http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</code></a>".</li>
 				</ul>
 				<p>
 					<span class="header">Example.</span>
@@ -671,8 +704,8 @@
 				<p>
 					As mentioned, taxa are a type of set.
 					Thus, the operations defined for sets may be employed with taxa.
-					Let <span class="math"><i>U</i></span> be the universal taxon, the set that includes all organisms.
-					To be a taxon, a set must be a nonempty subset of <span class="math"><i>U</i></span>.
+					Let <span class="math">U</span> be the universal taxon, the set that includes all organisms.
+					To be a taxon, a set must be a nonempty subset of <span class="math">U</span>.
 				</p>
 				<p>
 					A union of taxa, <span class="math"><i>T</i><sub>1</sub> &#x222A; <i>T</i><sub>2</sub> &#x222A; &#x2026; &#x222A; <i>T</i><sub><i>n</i></sub></span>, constitutes a polythetic set.
@@ -703,25 +736,57 @@
 				</p>
 				<h3>Phylogeny and Graphs</h3>
 				<p>
-					Phylogeny may be represented as a directed, acyclic graph (which correlates to a partially ordered set), <span class="math"><i>G</i><sub>&#x22B2;</sub> := [<i>U</i>, &#x22B2;]</span>.
-					In this graph, organisms are the vertices.
+					Phylogeny may be represented as a directed, acyclic graph (which correlates to a partially ordered set), <span class="math">G<sub>&#x22B2;</sub> := [U, &#x22B2;]</span>.
+					In this digraph, organisms are the vertices.
 					The arcs (directed edges) point from parents to their children, so that the head of each arc is a parent and the tail of each arc is a child.
 				</p>
 				<p>
-					A path in <span class="math"><i>G</i><sub>&#x22B2;</sub></span> represents a lineage from ancestor to descendant.
-					An <span class="math"><i>x</i>&ndash;<i>y</i></span> path in <span class="math"><i>G</i><sub>&#x22B2;</sub></span> is a sequence of vertices (organisms), <span class="math"><i>p</i></span>, of length <span class="math"><i>n</i></span> such that <span class="math"><i>x</i> = <i>p</i><sub>1</sub></span> and <span class="math"><i>y</i> = <i>p</i><sub><i>n</i></sub></span> and <span class="math"><i>p</i><sub>1</sub> &#x22B2; <i>p</i><sub>2</sub> &#x22B2; &#x2026; &#x22B2; <i>p</i><sub><i>n</i></sub></span>.
+					A path in <span class="math">G<sub>&#x22B2;</sub></span> represents a lineage from ancestor to descendant.
+					An <span class="math"><i>x</i>&ndash;<i>y</i></span> path in <span class="math">G<sub>&#x22B2;</sub></span> is a sequence of vertices (organisms), <span class="math"><i>p</i></span>, of length <span class="math"><i>n</i></span> such that <span class="math"><i>x</i> = <i>p</i><sub>1</sub></span> and <span class="math"><i>y</i> = <i>p</i><sub><i>n</i></sub></span> and <span class="math"><i>p</i><sub>1</sub> &#x22B2; <i>p</i><sub>2</sub> &#x22B2; &#x2026; &#x22B2; <i>p</i><sub><i>n</i></sub></span>.
 				</p>
 				<p>
-					A cladogen is an antichain in <span class="math"><i>G</i><sub>&#x22B2;</sub></span> wherein all members share common successors.
-					As noted earlier, all singleton subsets of <span class="math"><i>U</i></span> are cladogens.
+					A cladogen is an antichain in <span class="math">G<sub>&#x22B2;</sub></span> wherein all members share at least one common successor.
+					As noted earlier, all singleton subsets of <span class="math">U</span> are cladogens.
 				</p>
 				<p>
-					Relatedness may be represented as an undirected graph, <span class="math"><i>G</i><sub>&#x22C8;</sub> := [<i>U</i>, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</span>.
+					Relatedness may be represented as an undirected graph, <span class="math">G<sub>&#x22C8;</sub> := [U, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</span>.
 					If two organisms (vertices) in this graph are connected, then they are in some way related.
-					(Note that all known organisms are generally considered to be related.)
+					(Note that all known organisms are considered to be related.)
 				</p>
 				<h2>Definitions of Mathematical Entities</h2>
-				<a name="def-UniversalTaxon"></a>
+				<p>The following information is given for each mathematical/biological entity defined in this document:</p>
+				<ul>
+					<li>
+						<span class="header">Definition URL.</span>
+						The full, canonical location of the definition.
+						This is to be used as the <code>definitionURL</code> attribute's value in <code>csymbol</code> elements.
+					</li>
+					<li>
+						<span class="header">Symbol.</span>
+						The symbol used for the entity in <a href="/" class="title">Names on Nodes</a>.
+					</li>
+					<li>
+						<span class="header">Class.</span>
+						The general class which this entity belongs to (set, graph, function).
+					</li>
+					<li>
+						<span class="header">Definition.</span>
+						The definition (generally mathematical) of the entity.
+					</li>
+					<li>
+						<span class="header">Implementation.</span>
+						A qualified name identifying the ActionScript class which implements the entity in <a href="/" class="title">Names on Nodes</a>.
+					</li>
+					<li>
+						<span class="header">Discussion.</span>
+						Further discussion of the entity.
+					</li>
+					<li>
+						<span class="header">Example(s).</span>
+						Examples of how the entity may be used in <span class="langname">MathML</span> code.
+					</li>
+				</ul>
+				<a id="def-UniversalTaxon" name="def-UniversalTaxon"></a>
 				<h3>Universal Taxon</h3>
 				<table class="definition">
 					<tr>
@@ -730,7 +795,7 @@
 					</tr>
 					<tr>
 						<th>Symbol</th>
-						<td><span class="math"><i>U</i></span></td>
+						<td><span class="math">U</span></td>
 					</tr>
 					<tr>
 						<th>Class</th>
@@ -739,7 +804,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p><span class="math"><i>U</i></span> is the set of all organisms, be they extinct, extant, or yet to be.</p>
+							<p><span class="math">U</span> is the set of all organisms, be they extinct, extant, or yet to be.</p>
 						</td>
 					</tr>
 					<tr>
@@ -749,15 +814,27 @@
 					<tr>
 						<th>Discussion</th>
 						<td>
-							<p>(See the definition of <strong>universal taxon</strong>, above.)</p>
+							<p>(See the discussion of <a href="#section-Taxonomy">universal taxon</a>, above.)</p>
 							<p>
 								Operationally, <i>Names on Nodes</i> treats the smallest discernible taxa in a given context as individuals.
-								The union of these least inclusive taxa is treated as the operational equivalent of <span class="math"><i>U</i></span>.
+								The union of these least inclusive taxa is treated as the operational equivalent of <span class="math">U</span>.
 							</p>
 						</td>
 					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+    &lt;card/&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
+&lt;/apply&gt;</pre>
+							This evaluates to the total number of organisms.
+							Obviously, this number is actually unknown.
+							Operationally, this expression evaluates to the total number of finest taxa being treated in the context.
+						</td>
+					</tr>
 				</table>
-				<a name="def-GraphRelatedness"></a>
+				<a id="def-GraphRelatedness" name="def-GraphRelatedness"></a>
 				<h3>Graph of Relatedness</h3>
 				<table class="definition">
 					<tr>
@@ -766,16 +843,16 @@
 					</tr>
 					<tr>
 						<th>Symbol</th>
-						<td><span class="math"><i>G</i><sub>&#x22C8;</sub></span></td>
+						<td><span class="math">G<sub>&#x22C8;</sub></span></td>
 					</tr>
 					<tr>
 						<th>Class</th>
-						<td>List (Graph)</td>
+						<td>Graph (Undirected)</td>
 					</tr>
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math"><i>G</i><sub>&#x22C8;</sub> := [<i>U</i>, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</p>
+							<p class="math">G<sub>&#x22C8;</sub> := [U, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</p>
 						</td>
 					</tr>
 					<tr>
@@ -785,10 +862,26 @@
 					<tr>
 						<th>Discussion</th>
 						<td>
+							<p>(See the discussion of <a href="#section-PhylogenyGraphs" class="math">G<sub>&#x22C8;</sub></a>, above)</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+    &lt;eq/&gt;
+    &lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+        &lt;selector/&gt;
+        &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-GraphRelatedness"/&gt;
+        &lt;cn&gt;1&lt;cn&gt;
+    &lt;/apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
+&lt;/apply&gt;</pre>
+							This evaluates to <span class="math">true</span>, since the first element of <span class="math">G<sub>&#x22C8;</sub></span> is <span class="math">U</span>.
 						</td>
 					</tr>
 				</table>
-				<a name="def-DigraphParenthood"></a>
+				<a id="def-DigraphParenthood" name="def-DigraphParenthood"></a>
 				<h3>Digraph of Parenthood</h3>
 				<table class="definition">
 					<tr>
@@ -797,16 +890,16 @@
 					</tr>
 					<tr>
 						<th>Symbol</th>
-						<td><span class="math"><i>G</i><sub>&#x22B2;</sub></span></td>
+						<td><span class="math">G<sub>&#x22B2;</sub></span></td>
 					</tr>
 					<tr>
 						<th>Class</th>
-						<td>List (Graph)</td>
+						<td>Graph (Directed)</td>
 					</tr>
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math"><i>G</i><sub>&#x22B2;</sub> := [<i>U</i>, &#x22B2;]</p>
+							<p class="math">G<sub>&#x22B2;</sub> := [U, &#x22B2;]</p>
 						</td>
 					</tr>
 					<tr>
@@ -816,10 +909,26 @@
 					<tr>
 						<th>Discussion</th>
 						<td>
+							<p>(See the discussion of <a href="#section-PhylogenyGraphs" class="math">G<sub>&#x22B2;</sub></a>, above)</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+    &lt;eq/&gt;
+    &lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+        &lt;selector/&gt;
+        &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-GraphPhylogeny"/&gt;
+        &lt;cn&gt;1&lt;cn&gt;
+    &lt;/apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
+&lt;/apply&gt;</pre>
+							This evaluates to <span class="math">true</span>, since the first element of <span class="math">G<sub>&#x22B2;</sub></span> is <span class="math">U</span>.
 						</td>
 					</tr>
 				</table>
-				<a name="def-Maximal"></a>
+				<a id="def-Maximal" name="def-Maximal"></a>
 				<h3>Maximal</h3>
 				<table class="definition">
 					<tr>
@@ -838,7 +947,7 @@
 						<th>Definition</th>
 						<td>
 							<p>
-								<span class="math">max : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
+								<span class="math">max : 2<sup>U</sup> &rarr; 2<sup>U</sup></span>
 								<br/>
 								<span class="math">max(<i>A</i>) := {<i>x</i> &isin; <i>A</i> | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x2280; <i>y</i>}</span>
 							</p>
@@ -868,7 +977,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-Minimal"></a>
+				<a id="def-Minimal" name="def-Minimal"></a>
 				<h3>Minimal</h3>
 				<table class="definition">
 					<tr>
@@ -887,7 +996,7 @@
 						<th>Definition</th>
 						<td>
 							<p>
-								<span class="math">min : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
+								<span class="math">min : 2<sup>U</sup> &rarr; 2<sup>U</sup></span>
 								<br/>
 								<span class="math">min(<i>A</i>) := {<i>x</i> &isin; <i>A</i> | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x2281; <i>y</i>}</span>
 							</p>
@@ -917,7 +1026,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-PredecessorUnion"></a>
+				<a id="def-PredecessorUnion" name="def-PredecessorUnion"></a>
 				<h3>Predecessor Union</h3>
 				<table class="definition">
 					<tr>
@@ -936,10 +1045,10 @@
 						<th>Definition</th>
 						<td>
 							<p>
-								<span class="math">prc<sub>&#x222A;</sub> : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
+								<span class="math">prc<sub>&#x222A;</sub> : 2<sup>U</sup> &rarr; 2<sup>U</sup></span>
 							</p>
 							<p>
-								<span class="math">prc<sub>&#x222A;</sub>(<i>A</i>) := {<i>x</i> &isin; <i>U</i> | for some <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227c; <i>y</i>}</span>
+								<span class="math">prc<sub>&#x222A;</sub>(<i>A</i>) := {<i>x</i> &isin; U | for some <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227c; <i>y</i>}</span>
 							</p>
 							or
 							<table class="math">
@@ -964,7 +1073,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-SuccessorUnion"></a>
+				<a id="def-SuccessorUnion" name="def-SuccessorUnion"></a>
 				<h3>Successor Union</h3>
 				<table class="definition">
 					<tr>
@@ -983,10 +1092,10 @@
 						<th>Definition</th>
 						<td>
 							<p>
-								<span class="math">suc<sub>&#x222A;</sub> : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
+								<span class="math">suc<sub>&#x222A;</sub> : 2<sup>U</sup> &rarr; 2<sup>U</sup></span>
 							</p>
 							<p>
-								<span class="math">suc<sub>&#x222A;</sub>(<i>A</i>) := {<i>x</i> &isin; <i>U</i> | for some <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227d; <i>y</i>}</span>
+								<span class="math">suc<sub>&#x222A;</sub>(<i>A</i>) := {<i>x</i> &isin; U | for some <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227d; <i>y</i>}</span>
 							</p>
 							or
 							<table class="math">
@@ -1011,7 +1120,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-PredecessorIntersection"></a>
+				<a id="def-PredecessorIntersection" name="def-PredecessorIntersection"></a>
 				<h3>Predecessor Intersection</h3>
 				<table class="definition">
 					<tr>
@@ -1030,10 +1139,10 @@
 						<th>Definition</th>
 						<td>
 							<p>
-								<span class="math">prc<sub>&#x2229;</sub> : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
+								<span class="math">prc<sub>&#x2229;</sub> : 2<sup>U</sup> &rarr; 2<sup>U</sup></span>
 							</p>
 							<p>
-								<span class="math">prc<sub>&#x2229;</sub>(<i>A</i>) := {<i>x</i> &isin; <i>U</i> | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227c; <i>y</i>}</span>
+								<span class="math">prc<sub>&#x2229;</sub>(<i>A</i>) := {<i>x</i> &isin; U | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227c; <i>y</i>}</span>
 							</p>
 							or
 							<table class="math">
@@ -1058,7 +1167,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-SuccessorIntersection"></a>
+				<a id="def-SuccessorIntersection" name="def-SuccessorIntersection"></a>
 				<h3>Successor Intersection</h3>
 				<table class="definition">
 					<tr>
@@ -1077,10 +1186,10 @@
 						<th>Definition</th>
 						<td>
 							<p>
-								<span class="math">suc<sub>&#x2229;</sub> : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
+								<span class="math">suc<sub>&#x2229;</sub> : 2<sup>U</sup> &rarr; 2<sup>U</sup></span>
 							</p>
 							<p>
-								<span class="math">suc<sub>&#x2229;</sub>(<i>A</i>) := {<i>x</i> &isin; <i>U</i> | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227d; <i>y</i>}</span>
+								<span class="math">suc<sub>&#x2229;</sub>(<i>A</i>) := {<i>x</i> &isin; U | for all <i>y</i> &isin; <i>A</i>, <i>x</i> &#x227d; <i>y</i>}</span>
 							</p>
 							or
 							<table class="math">
@@ -1105,7 +1214,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-SynapomorphicPredecessors"></a>
+				<a id="def-SynapomorphicPredecessors" name="def-SynapomorphicPredecessors"></a>
 				<h3>Synapomorphic Predecessors</h3>
 				<table class="definition">
 					<tr>
@@ -1124,10 +1233,10 @@
 						<th>Definition</th>
 						<td>
 							<p>
-								<span class="math">synprc : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></span>
+								<span class="math">synprc : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></span>
 							</p>
 							<p>
-								<span class="math">synprc(<i>M</i>, <i>A</i>) := {<i>x</i> &isin; prc<sub>&#x2229;</sub>(<i>A</i>) | for all <i>y</i> &isin; <i>A</i>, there exists some <i>x</i>&ndash;<i>y</i> path, <i>p</i>, in <i>G</i><sub>&#x22B2;</sub> where for all <i>p</i><sub><i>n</i></sub> &isin; <i>p</i>, <i>p</i><sub><i>n</i></sub> &isin; <i>M</i>}</span>
+								<span class="math">synprc(<i>M</i>, <i>A</i>) := {<i>x</i> &isin; prc<sub>&#x2229;</sub>(<i>A</i>) | for all <i>y</i> &isin; <i>A</i>, there exists some <i>x</i>&ndash;<i>y</i> path, <i>p</i>, in G<sub>&#x22B2;</sub> where for all <i>p</i><sub><i>n</i></sub> &isin; <i>p</i>, <i>p</i><sub><i>n</i></sub> &isin; <i>M</i>}</span>
 							</p>
 						</td>
 					</tr>
@@ -1141,7 +1250,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-NodeBasedCladogen"></a>
+				<a id="def-NodeBasedCladogen" name="def-NodeBasedCladogen"></a>
 				<h3>Node-Based Cladogen</h3>
 				<table class="definition">
 					<tr>
@@ -1159,7 +1268,7 @@
 					<tr>
 						<th>Definition</th>
 						<td class="math">
-							<p>+ : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p>+ : 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p>+ := max &#x2218; prc<sub>&#x2229;</sub></p>
 							<p><i>A</i> + <i>B</i> + ... + <i>Z</i> := (max &#x2218; prc<sub>&#x2229;</sub>)(<i>A</i> &#x222a; <i>B</i> &#x222a; ... &#x222a; <i>Z</i>)</p>
 						</td>
@@ -1185,7 +1294,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-BranchBasedCladogen"></a>
+				<a id="def-BranchBasedCladogen" name="def-BranchBasedCladogen"></a>
 				<h3>Branch-Based Cladogen</h3>
 				<table class="definition">
 					<tr>
@@ -1203,7 +1312,7 @@
 					<tr>
 						<th>Definition</th>
 						<td class="math">
-							<p>&larr; : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p>&larr; : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p><i>A</i> &larr; <i>Z</i> := min(prc<sub>&#x2229;</sub>(<i>A</i>) &minus; prc<sub>&#x222A;</sub>(<i>Z</i>))</p>
 						</td>
 					</tr>
@@ -1225,7 +1334,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-ApomorphyBasedCladogen"></a>
+				<a id="def-ApomorphyBasedCladogen" name="def-ApomorphyBasedCladogen"></a>
 				<h3>Apomorphy-Based Cladogen</h3>
 				<table class="definition">
 					<tr>
@@ -1243,7 +1352,7 @@
 					<tr>
 						<th>Definition</th>
 						<td class="math">
-							<p>in : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p>in : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p>in := min &#x2218; synprc</p>
 							<p><i>M</i> in <i>A</i> := (min &#x2218; synprc)(<i>M</i>, <i>A</i>)</p>
 						</td>
@@ -1267,7 +1376,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-Clade"></a>
+				<a id="def-Clade" name="def-Clade"></a>
 				<h3>Clade</h3>
 				<table class="definition">
 					<tr>
@@ -1285,7 +1394,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">Clade : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p class="math">Clade : 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<table class="math">
 								<tr>
 									<td rowspan="2">Clade(<i>A</i>) := </td>
@@ -1309,7 +1418,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-NodeBasedClade"></a>
+				<a id="def-NodeBasedClade" name="def-NodeBasedClade"></a>
 				<h3>Node-Based Clade</h3>
 				<table class="definition">
 					<tr>
@@ -1327,7 +1436,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">Clade<sub>+</sub> : 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p class="math">Clade<sub>+</sub> : 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p class="math">Clade<sub>+</sub> := Clade &#x2218; +<br />= suc<sub>&#x222A;</sub> &#x2218; max &#x2218; prc<sub>&#x2229;</sub></p>
 						</td>
 					</tr>
@@ -1342,7 +1451,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-BranchBasedClade"></a>
+				<a id="def-BranchBasedClade" name="def-BranchBasedClade"></a>
 				<h3>Branch-Based Clade</h3>
 				<table class="definition">
 					<tr>
@@ -1360,7 +1469,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">Clade<sub>&larr;</sub> : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p class="math">Clade<sub>&larr;</sub> : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p class="math">Clade<sub>&larr;</sub> := Clade &#x2218; &larr;</p>
 							<p class="math">Clade<sub>&larr;</sub>(<i>A</i>, <i>Z</i>) = suc<sub>&#x222A;</sub>(prc<sub>&#x2229;</sub>(<i>A</i>) &minus; prc<sub>&#x222A;</sub>(<i>Z</i>))</p>
 						</td>
@@ -1376,7 +1485,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-ApomorphyBasedClade"></a>
+				<a id="def-ApomorphyBasedClade" name="def-ApomorphyBasedClade"></a>
 				<h3>Apomorphy-Based Clade</h3>
 				<table class="definition">
 					<tr>
@@ -1394,7 +1503,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">Clade<sub>in</sub> : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p class="math">Clade<sub>in</sub> : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p class="math">Clade<sub>in</sub> := Clade &#x2218; in<br />= suc<sub>&#x222a;</sub> &#x2218; synprc</p>
 						</td>
 					</tr>
@@ -1409,7 +1518,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-Crown"></a>
+				<a id="def-Crown" name="def-Crown"></a>
 				<h3>Crown Group</h3>
 				<table class="definition">
 					<tr>
@@ -1427,7 +1536,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">Crown : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p class="math">Crown : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p class="math">Crown(<i>A</i>, <i>E</i>) := Clade<sub>+</sub>(<i>A</i> &#x2229; <i>E</i>)</p>
 						</td>
 					</tr>
@@ -1442,7 +1551,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-Total"></a>
+				<a id="def-Total" name="def-Total"></a>
 				<h3>Total Group</h3>
 				<table class="definition">
 					<tr>
@@ -1460,7 +1569,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">Total : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup></p>
+							<p class="math">Total : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p class="math">Let <i>C</i> = Crown(<i>A</i>, <i>E</i>)</p>
 							<p class="math">Total(<i>A</i>, <i>E</i>) := Clade(<i>C</i> &larr; <i>E</i> &#x2229; <span class="set-complement"><i>C</i></span>)</p>
 						</td>
@@ -1476,7 +1585,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-NodeBranchTriple"></a>
+				<a id="def-NodeBranchTriple" name="def-NodeBranchTriple"></a>
 				<h3>Node-Branch Triple</h3>
 				<table class="definition">
 					<tr>
@@ -1494,7 +1603,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">NBT : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup></p>
+							<p class="math">NBT : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup> &times; 2<sup>U</sup> &times; 2<sup>U</sup></p>
 							<p class="math">NBT(<i>A</i>, <i>B</i>) := [Clade(<i>A</i> + <i>B</i>), Clade(<i>A</i> &larr; <i>B</i>), Clade(<i>B</i> &larr; <i>A</i>)]</p>
 						</td>
 					</tr>
@@ -1509,7 +1618,7 @@
 						</td>
 					</tr>
 				</table>
-				<a name="def-MeanPhylogeneticDistance"></a>
+				<a id="def-MeanPhylogeneticDistance" name="def-MeanPhylogeneticDistance"></a>
 				<h3>Mean Phylogenetic Distance</h3>
 				<table class="definition">
 					<tr>
@@ -1527,7 +1636,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">D<sub>&#x22C8;</sub> : 2<sup><i>U</i></sup> &times; 2<sup><i>U</i></sup> &rarr; &#x211A;<sup>0</sup><sub>+</sub></p>
+							<p class="math">D<sub>&#x22C8;</sub> : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; &#x211A;<sup>0</sup><sub>+</sub></p>
 							<table class="math">
 								<tr>
 									<td rowspan="3">D<sub>&#x22C8;</sub>(<i>A</i>, <i>B</i>) :=</td>

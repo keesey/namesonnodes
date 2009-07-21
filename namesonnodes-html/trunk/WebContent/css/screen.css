@@ -19,6 +19,19 @@ a:visited
 {
 	color: #004466;
 }
+a.term
+{
+	border-bottom: 1px solid #E0F4FF;
+	color: #00131D;
+	text-decoration: none;
+}
+a.term:hover
+{
+	background-color: #ACF1FF;
+	border-bottom: none;
+	color: #40A0FF;
+	text-decoration: none;
+}
 html
 {
 	margin: 0 0 1px 0; 
