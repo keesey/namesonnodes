@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties version="1">
   <includeClasses>
+    <classEntry path="org.namesonnodes.commands.AbstractCommandFlow"/>
+    <classEntry path="org.namesonnodes.commands.AbstractCommandFlowPanel"/>
+    <classEntry path="org.namesonnodes.commands.Command"/>
+    <classEntry path="org.namesonnodes.commands.CommandFlow"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.AbstractBioFileFormat"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.BioFileError"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.BioFileFormat"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.InclusionInference"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.ParseResult"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.newick.NewickFormat"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.AbstractLineReader"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.AbstractNexusBlock"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.CharactersBlock"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.CharactersFormat"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.DataBlock"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.NexusBlock"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.NexusBlockFactory"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.NexusFormat"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.TaxaBlock"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.TaxonIdentifierLibrary"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.TreesBlock"/>
     <classEntry path="org.namesonnodes.domain.entities.AbstractQualified"/>
     <classEntry path="org.namesonnodes.domain.entities.Authority"/>
     <classEntry path="org.namesonnodes.domain.entities.AuthorityIdentifier"/>
@@ -28,6 +49,7 @@
     <classEntry path="org.namesonnodes.flare.PhylogenyVisualization"/>
     <classEntry path="org.namesonnodes.flare.VertexSprite"/>
     <classEntry path="org.namesonnodes.flare.events.EntityClickEvent"/>
+    <classEntry path="org.namesonnodes.flare.test.FlareTest"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphImporter"/>
     <classEntry path="org.namesonnodes.phylo.Phylogeny"/>
