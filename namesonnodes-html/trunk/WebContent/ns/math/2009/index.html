@@ -189,6 +189,11 @@
 				<p>
 					The <strong>empty set</strong> is the set which includes no members, denoted as <span class="math">&#x2205;</span>.
 				</p>
+				<a id="term-real-numbers" name="term-real-numbers"></a>
+				<p>
+					The symbol <span class="math">&#x211D;</span> indicates the set of all <strong>real numbers</strong>.
+					The nonnegative real numbers are indicated as <span class="math">&#x211D;<sub>0</sub><sup>+</sup></span>
+				</p>
 				<a id="term-cardinality" name="term-cardinality"></a>
 				<p>
 					The <strong>cardinality</strong> of a set is the number of members in that set, denoted with enclosing vertical bars: <span class="math">|<i>S</i>|</span>.
@@ -1636,7 +1641,7 @@
 					<tr>
 						<th>Definition</th>
 						<td>
-							<p class="math">D<sub>&#x22C8;</sub> : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; &#x211A;<sup>0</sup><sub>+</sub></p>
+							<p class="math">D<sub>&#x22C8;</sub> : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; &#x211D;<sup>0</sup><sub>+</sub></p>
 							<table class="math">
 								<tr>
 									<td rowspan="3">D<sub>&#x22C8;</sub>(<i>A</i>, <i>B</i>) :=</td>
@@ -1655,6 +1660,48 @@
 					<tr>
 						<th>Implementation</th>
 						<td><code>org.namesonnodes.math::MeanPhylogeneticDistance</code></td>
+					</tr>
+					<tr>
+						<th>Discussion</th>
+						<td>
+							TBD
+						</td>
+					</tr>
+				</table>
+				<a id="def-TaxonBall" name="def-TaxonBall"></a>
+				<h3>Taxon Ball</h3>
+				<table class="definition">
+					<tr>
+						<th>Definition URL</th>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-TaxonBall</code></td>
+					</tr>
+					<tr>
+						<th>Symbol</th>
+						<td class="math">B<sub>&#x22C8;</sub></td>
+					</tr>
+					<tr>
+						<th>Class</th>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<th>Definition</th>
+						<td>
+							<p class="math">B<sub>&#x22C8;</sub> : 4<sup>U</sup> &times; 2<sup>U</sup> &times; &#x211D; &rarr; 2<sup>U</sup></p>
+							<table class="math">
+								<tr>
+									<td rowspan="2">B<sub>&#x22C8;</sub>(<i><b>P</b></i>, <i>T</i>, <i>d</i>) := </td>
+									<td><span class="large">&#x222A;</span></td>
+									<td style="text-align: left"><i>T</i>&#x2009;&#x2032;</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="small"><i>T</i>&#x2009;&#x2032; &isin; <i><b>P</b></i> | D<sub>&#x22C8;</sub>(<i>T</i>, <i>T</i>&#x2009;&#x2032;) &lt; <i>d</i></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<th>Implementation</th>
+						<td><code>org.namesonnodes.math::TaxonBall</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
