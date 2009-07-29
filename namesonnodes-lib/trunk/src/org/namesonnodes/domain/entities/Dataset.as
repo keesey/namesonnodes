@@ -6,15 +6,24 @@ package org.namesonnodes.domain.entities
 	[RemoteClass(alias = "org.namesonnodes.domain.entities.Dataset")]
 	public final dynamic class Dataset extends AbstractQualified
 	{
+		private const _distanceRows:ArrayCollection = createEntityCollection(DistanceRow);
 		private const _heredities:ArrayCollection = createEntityCollection(Heredity);
 		private const _inclusions:ArrayCollection = createEntityCollection(Inclusion);
 		private const _synonymies:ArrayCollection = createEntityCollection(Synonymy);
 		private var _label:Label;
 		private var _weightPerGeneration:Number;
-		private var _weightPerYear:Number;
 		public function Dataset()
 		{
 			super();
+		}
+		public function get distanceRows():ArrayCollection
+		{
+			return _distanceRows;
+		}
+		public function set distanceRows(value:ArrayCollection):void
+		{
+			_distanceRows.source = value ? value.source : [];
+			_distanceRows.refresh();
 		}
 		public function get heredities():ArrayCollection
 		{
@@ -50,15 +59,6 @@ package org.namesonnodes.domain.entities
 		public function set weightPerGeneration(value:Number):void
 		{
 			_weightPerGeneration = assessPropertyValue("weightPerGeneration", value) as Number;
-			flushPendingPropertyEvents();
-		}
-		public function get weightPerYear():Number
-		{
-			return _weightPerYear;
-		}
-		public function set weightPerYear(value:Number):void
-		{
-			_weightPerYear = assessPropertyValue("weightPerYear", value) as Number;
 			flushPendingPropertyEvents();
 		}
 		public function hasRelations():Boolean
