@@ -92,6 +92,14 @@ package org.namesonnodes.domain.entities
 		{
 			// Do nothing.
 		}
+		public static function create(name:String, abbr:String = null, italics:Boolean = false):Label
+		{
+			const v:Label = new Label();
+			v.abbr = abbr;
+			v.italics = italics;
+			v.name = name;
+			return v;
+		}
 		private function onAbbrChange(event:PropertyChangeEvent):void
 		{
 			if (event.property == "abbr")

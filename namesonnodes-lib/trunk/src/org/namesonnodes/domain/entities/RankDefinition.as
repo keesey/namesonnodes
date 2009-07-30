@@ -45,6 +45,16 @@ package org.namesonnodes.domain.entities
 			_types.source = value ? value.source : [];
 			_types.refresh();
 		}
+		public static function create(rank:String, level:Number, types:Object = null):RankDefinition
+		{
+			const v:RankDefinition = new RankDefinition();
+			v.rank = rank;
+			v.level = level;
+			if (types)
+				for each (var type:TaxonIdentifier in types)
+					v.types.addItem(type);
+			return v;
+		}
 		public function toSummaryHTML():XML
 		{
 			const xml:XML = <span>{_rank}(</span>;

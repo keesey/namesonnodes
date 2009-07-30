@@ -44,6 +44,15 @@ package org.namesonnodes.domain.entities
 			_specifiers.source = value ? value.source : [];
 			_specifiers.refresh();
 		}
+		public static function create(prose:XML, formula:XML, specifiers:Object):PhyloDefinition
+		{
+			const v:PhyloDefinition = new PhyloDefinition();
+			v.prose = prose;
+			v.formula = formula;
+			for each (var specifier:TaxonIdentifier in specifiers)
+				v.specifiers.addItem(specifier);
+			return v;
+		}
 		public function toSummaryHTML():XML
 		{
 			return prose;

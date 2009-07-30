@@ -40,5 +40,13 @@ package org.namesonnodes.domain.entities
 			_distance = assessPropertyValue("distance", v) as Number;
 			flushPendingPropertyEvents();
 		}
+		public static function create(a:TaxonIdentifier, b:TaxonIdentifier, distance:Number):DistanceRow
+		{
+			const v:DistanceRow = new DistanceRow();
+			v.a = a;
+			v.b = b;
+			v.distance = distance;
+			return v;
+		}
 	}
 }

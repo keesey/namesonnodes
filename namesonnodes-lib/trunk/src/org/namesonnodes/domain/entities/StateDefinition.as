@@ -14,7 +14,7 @@ package org.namesonnodes.domain.entities
 			const xml:XML = <span/>;
 			xml.appendChild(":= {");
 			xml.appendChild(<i>x</i>);
-			xml.appendChild(": ");
+			xml.appendChild("| ");
 			xml.appendChild(<i>x</i>);
 			xml.appendChild(" exhibits character state #" + id + "}");
 			return xml.n

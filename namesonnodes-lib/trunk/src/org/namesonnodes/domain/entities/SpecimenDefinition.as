@@ -14,7 +14,7 @@ package org.namesonnodes.domain.entities
 			const xml:XML = <span/>;
 			xml.appendChild(":= {");
 			xml.appendChild(<i>x</i>);
-			xml.appendChild(": ");
+			xml.appendChild("| ");
 			xml.appendChild(<i>x</i>);
 			xml.appendChild(" is represented by catalogued specimen #" + id + "}");
 			return xml.n

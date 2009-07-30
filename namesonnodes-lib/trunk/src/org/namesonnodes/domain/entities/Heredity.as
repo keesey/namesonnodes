@@ -44,6 +44,14 @@ package org.namesonnodes.domain.entities
 			_weight = assessPropertyValue("weight", value) as Number;
 			flushPendingPropertyEvents();
 		}
+		public static function create(predecessor:TaxonIdentifier, successor:TaxonIdentifier, weight:Number = NaN):Heredity
+		{
+			const v:Heredity = new Heredity();
+			v.predecessor = predecessor;
+			v.successor = successor;
+			v.weight = weight;
+			return v;
+		}
 		public function toSummaryHTML():XML
 		{
 			const xml:XML = <span/>;

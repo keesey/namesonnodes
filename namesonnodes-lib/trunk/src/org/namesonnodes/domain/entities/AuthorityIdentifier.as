@@ -48,6 +48,13 @@ package org.namesonnodes.domain.entities
 			_uri = assessPropertyValue("uri", value == null ? null : clean(value)) as String;
 			flushPendingPropertyEvents();
 		}
+		public static function create(entity:Authority, uri:String):AuthorityIdentifier
+		{
+			const v:AuthorityIdentifier = new AuthorityIdentifier();
+			v.entity = entity;
+			v.uri = uri;
+			return v;
+		}
 		private function onURIChange(event:PropertyChangeEvent):void
 		{
 			if (event.property == "uri")

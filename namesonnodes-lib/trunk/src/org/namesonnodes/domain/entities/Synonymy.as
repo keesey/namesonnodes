@@ -22,6 +22,13 @@ package org.namesonnodes.domain.entities
 			_synonyms.source = value ? value.source : [];
 			_synonyms.refresh();
 		}
+		public static function create(synonyms:Object):Synonymy
+		{
+			const v:Synonymy = new Synonymy();
+			for each (var id:TaxonIdentifier in synonyms)
+				v._synonyms.addItem(id);
+			return v;
+		}
 		public function toSummaryHTML():XML
 		{
 			const xml:XML = <span/>;

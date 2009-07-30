@@ -1,13 +1,6 @@
 package org.namesonnodes.domain.entities
 {
-	import a3lbmonkeybrain.brainstem.filter.isNonEmptyString;
-	import a3lbmonkeybrain.brainstem.strings.clean;
-	import a3lbmonkeybrain.hippocampus.domain.AbstractPersistent;
 	
-	import flash.events.IEventDispatcher;
-	
-	import mx.collections.ArrayCollection;
-	import mx.events.PropertyChangeEvent;
 	
 	[Bindable]
 	[RemoteClass(alias = "org.namesonnodes.domain.entities.TaxonIdentifier")]
@@ -27,6 +20,16 @@ package org.namesonnodes.domain.entities
 		{
 			_entity = assessPropertyValue("entity", value) as Taxon;
 			flushPendingPropertyEvents();
+		}
+		public static function create(authority:AuthorityIdentifier, label:Label, localName:String, entity:Taxon):TaxonIdentifier
+		{
+			const v:TaxonIdentifier = new TaxonIdentifier();
+			v.authority = authority;
+			v.entity = entity;
+			v.label = label;
+			v.localName = localName;
+			v.updateQName();
+			return v;
 		}
 	}
 }

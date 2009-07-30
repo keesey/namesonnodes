@@ -89,7 +89,7 @@ package org.namesonnodes.domain.entities
 		{
 			return _label ? _label.toHTML() : <span>[Unlabelled]</span>;
 		}
-		private function updateQName():void
+		protected final function updateQName():void
 		{
 			_qName = assessPropertyValue("qName", new QName(_authority ? _authority.uri : null, _localName)) as QName;
 			flushPendingPropertyEvents(); 

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities xmlns="http://namesonnodes.org/ns/2009/entities">
+	<AuthorityIdentifier uri="org.namesonnodes.domain.collections.test.DatasetCollection">
+		<authority>
+			<Authority>
+				<label>
+					<Label>
+						<name>DatasetCollection Test</name>
+						<italics/>
+					</Label>
+				</label>
+			</Authority>
+		</authority>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://uppsaladomkyrka.se">
+		<authority>
+			<Authority>
+				<label>
+					<Label>
+						<name>Uppsala domkyrka</name>
+					</Label>
+				</label>
+			</Authority>
+		</authority>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="urn:isbn:0853010064">
+		<authority>
+			<Authority>
+				<label>
+					<Label>
+						<name>International Code of Zoological Nomenclature</name>
+						<abbr>ICZN</abbr>
+						<italics/>
+					</Label>
+				</label>
+			</Authority>
+		</authority>
+	</AuthorityIdentifier>
+	<TaxonIdentifier localName="Carolus+Linnaeus">
+		<authority ref="http://uppsaladomkyrka.se"/>
+		<label>
+			<Label>
+				<name>Carolus Linnaeus</name>
+				<abbr>C. Linnaeus</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition id="1"/>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+sapiens">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo sapiens</name>
+				<abbr>H. sapiens</abbr>
+				<italics/>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>species</rank>
+						<level>1.0</level>
+						<types>
+							<ref>http://uppsaladomkyrka.se::Carolus+Linnaeus</ref>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Simia+troglodytes">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Simia troglodytes</name>
+				<abbr>S. troglodytes</abbr>
+				<italics/>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>species</rank>
+						<level>1.0</level>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pan+troglodytes">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Pan troglodytes</name>
+				<abbr>P. troglodytes</abbr>
+				<italics/>
+			</Label>
+		</label>
+		<entity>
+			<ref>urn:isbn:0853010064::Simia+troglodytes</ref>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo</name>
+				<italics/>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>genus</rank>
+						<level>2.0</level>
+						<types>
+							<ref>urn:isbn:0853010064::Homo+sapiens</ref>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pan">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Pan</name>
+				<italics/>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>genus</rank>
+						<level>2.0</level>
+						<types>
+							<ref>urn:isbn:0853010064::Pan+troglodytes</ref>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Hominini">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Hominini</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>tribe</rank>
+						<level>2.9</level>
+						<types>
+							<ref>urn:isbn:0853010064::Homo</ref>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Panini">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Panini</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>tribe</rank>
+						<level>2.9</level>
+						<types>
+							<ref>urn:isbn:0853010064::Pan</ref>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Hominidae">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Hominidae</name>
+				<italics/>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>family</rank>
+						<level>3.0</level>
+						<types>
+							<ref>urn:isbn:0853010064::Homo</ref>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Panidae">
+		<authority>
+			<ref>urn:isbn:0853010064</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Panidae</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<rank>family</rank>
+						<level>3.0</level>
+						<types>
+							<ref>urn:isbn:0853010064::Pan</ref>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<Dataset localName="datasets:taxonomic+opinions">
+		<authority>
+			<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+		</authority>
+		<label>
+			<Label>
+				<name>Taxonomic Opinions</name>
+			</Label>
+		</label>
+		<synonymies>
+			<Synonymy>
+				<ref>urn:isbn:0853010064::Panini</ref>
+				<ref>urn:isbn:0853010064::Hominini</ref>
+			</Synonymy>
+			<Synonymy>
+				<ref>urn:isbn:0853010064::Panidae</ref>
+				<ref>urn:isbn:0853010064::Hominidae</ref>
+			</Synonymy>
+		</synonymies>
+	</Dataset>
+	<Dataset localName="datasets:species+phylogeny">
+		<authority>
+			<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+		</authority>
+		<weightPerGeneration>1.0</weightPerGeneration>
+		<label>
+			<Label>
+				<name>Species-Level Phylogeny</name>
+			</Label>
+		</label>
+		<heredities>
+			<Heredity>
+				<predecessor>
+					<TaxonIdentifier localName="htu:0">
+						<authority>
+							<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+						</authority>
+					</TaxonIdentifier>
+				</predecessor>
+				<successor>
+					<TaxonIdentifier localName="otu:trog">
+						<authority>
+							<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+						</authority>
+						<label>
+							<Label>
+								<name>trog</name>
+								<italics/>
+							</Label>
+						</label>
+						<entity>
+							<ref>urn:isbn:0853010064::Pan+troglodytes</ref>
+						</entity>
+					</TaxonIdentifier>
+				</successor>
+				<weight>550000</weight>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:0</ref>
+				</predecessor>
+				<successor>
+					<TaxonIdentifier localName="otu:sapi">
+						<authority>
+							<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+						</authority>
+						<label>
+							<Label>
+								<name>sapi</name>
+								<italics/>
+							</Label>
+						</label>
+						<entity>
+							<ref>urn:isbn:0853010064::Homo+sapiens</ref>
+						</entity>
+					</TaxonIdentifier>
+				</successor>
+				<weight>300000</weight>
+			</Heredity>
+		</heredities>
+	</Dataset>
+</entities>

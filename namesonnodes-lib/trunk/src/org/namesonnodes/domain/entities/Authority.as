@@ -31,6 +31,12 @@ package org.namesonnodes.domain.entities
 			_label = assessPropertyValue("label", value) as Label;
 			flushPendingPropertyEvents();
 		}
+		public static function create(name:String, abbr:String = null, italics:Boolean = false):Authority
+		{
+			const v:Authority = new Authority();
+			v.label = Label.create(name, abbr, italics);
+			return v;
+		}
 		public function toSummaryHTML():XML
 		{
 			return _label ? _label.toHTML() : <span>[Unlabelled]</span>;

@@ -34,6 +34,13 @@ package org.namesonnodes.domain.entities
 			_superset = assessPropertyValue("superset", value) as TaxonIdentifier;
 			flushPendingPropertyEvents();
 		}
+		public static function create(superset:TaxonIdentifier, subset:TaxonIdentifier):Inclusion
+		{
+			const v:Inclusion = new Inclusion();
+			v.superset = superset;
+			v.subset = subset;
+			return v;
+		}
 		public function toSummaryHTML():XML
 		{
 			const xml:XML = <span/>;

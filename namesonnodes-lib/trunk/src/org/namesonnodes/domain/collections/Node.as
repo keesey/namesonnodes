@@ -25,7 +25,7 @@ package org.namesonnodes.domain.collections
 		internal function addIdentifier(id:TaxonIdentifier):void
 		{
 			_identifiers.add(id);
-			_taxa.add(id);
+			_taxa.add(id.entity);
 		}
 	}
 }

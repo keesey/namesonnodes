@@ -11,7 +11,9 @@ package org.namesonnodes.domain.collections
 	import org.namesonnodes.domain.entities.DistanceRow;
 	import org.namesonnodes.domain.entities.Heredity;
 	import org.namesonnodes.domain.entities.Inclusion;
+	import org.namesonnodes.domain.entities.RankDefinition;
 	import org.namesonnodes.domain.entities.Synonymy;
+	import org.namesonnodes.domain.entities.Taxon;
 	import org.namesonnodes.domain.entities.TaxonIdentifier;
 
 	public final class DatasetCollection
@@ -36,6 +38,7 @@ package org.namesonnodes.domain.collections
 		}
 		private function addIdentifier(id:TaxonIdentifier):void
 		{
+			trace(id.qName.toString());
 			identifiers[id.qName.toString()] = id;
 		}
 		private function initIdentifiers():void
@@ -244,6 +247,8 @@ package org.namesonnodes.domain.collections
 		}
 		private function finestNodes(node:Node):FiniteSet /* .<Node> */
 		{
+			if (node == null)
+				return EmptySet.INSTANCE;
 			var r:* = finest[node];
 			if (r is FiniteSet) return r as FiniteSet;
 			const f:MutableSet = new HashSet();
@@ -251,6 +256,10 @@ package org.namesonnodes.domain.collections
 				for each (var inclusion:Inclusion in dataset.inclusions)
 					if (node.taxa.has(inclusion.superset.entity))
 						f.addMembers(finestNodes(findNode(inclusion.subset)));
+			for each (var taxon:Taxon in node.taxa)
+				if (taxon.definition is RankDefinition)
+					for each (var type:TaxonIdentifier in RankDefinition(taxon.definition).types)
+						f.addMembers(finestNodes(findNode(type)));
 			if (f.empty)
 				f.add(node);
 			finest[node] = f;

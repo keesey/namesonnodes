@@ -61,6 +61,16 @@ package org.namesonnodes.domain.entities
 			_weightPerGeneration = assessPropertyValue("weightPerGeneration", value) as Number;
 			flushPendingPropertyEvents();
 		}
+		public static function create(authority:AuthorityIdentifier, label:Label, localName:String, weightPerGeneration:Number = NaN):Dataset
+		{
+			const v:Dataset = new Dataset();
+			v.authority = authority;
+			v.label = label;
+			v.localName = localName;
+			v.weightPerGeneration = weightPerGeneration;
+			v.updateQName();
+			return v;
+		}
 		public function hasRelations():Boolean
 		{
 			return _heredities.length != 0 || _inclusions.length != 0 || _synonymies.length != 0;
