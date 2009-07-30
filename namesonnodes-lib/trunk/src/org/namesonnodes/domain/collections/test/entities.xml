@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<entities xmlns="http://namesonnodes.org/ns/2009/entities">
+<entities
+	xmlns="http://namesonnodes.org/ns/entities/2009" lang="en" xml:lang="en"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd">
 	<AuthorityIdentifier uri="org.namesonnodes.domain.collections.test.DatasetCollection">
-		<authority>
+		<entity>
 			<Authority>
 				<label>
 					<Label>
@@ -10,10 +13,10 @@
 					</Label>
 				</label>
 			</Authority>
-		</authority>
+		</entity>
 	</AuthorityIdentifier>
 	<AuthorityIdentifier uri="http://uppsaladomkyrka.se">
-		<authority>
+		<entity>
 			<Authority>
 				<label>
 					<Label>
@@ -21,10 +24,10 @@
 					</Label>
 				</label>
 			</Authority>
-		</authority>
+		</entity>
 	</AuthorityIdentifier>
 	<AuthorityIdentifier uri="urn:isbn:0853010064">
-		<authority>
+		<entity>
 			<Authority>
 				<label>
 					<Label>
@@ -34,16 +37,12 @@
 					</Label>
 				</label>
 			</Authority>
-		</authority>
+		</entity>
 	</AuthorityIdentifier>
 	<TaxonIdentifier localName="Carolus+Linnaeus">
-		<authority ref="http://uppsaladomkyrka.se"/>
-		<label>
-			<Label>
-				<name>Carolus Linnaeus</name>
-				<abbr>C. Linnaeus</abbr>
-			</Label>
-		</label>
+		<authority>
+			<refAuthority>http://uppsaladomkyrka.se</refAuthority>
+		</authority>
 		<entity>
 			<Taxon>
 				<definition>
@@ -51,10 +50,16 @@
 				</definition>
 			</Taxon>
 		</entity>
+		<label>
+			<Label>
+				<name>Carolus Linnaeus</name>
+				<abbr>C. Linnaeus</abbr>
+			</Label>
+		</label>
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Homo+sapiens">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -70,7 +75,7 @@
 						<rank>species</rank>
 						<level>1.0</level>
 						<types>
-							<ref>http://uppsaladomkyrka.se::Carolus+Linnaeus</ref>
+							<refTaxon>http://uppsaladomkyrka.se::Carolus+Linnaeus</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -79,7 +84,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Simia+troglodytes">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -101,7 +106,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Pan+troglodytes">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -111,12 +116,12 @@
 			</Label>
 		</label>
 		<entity>
-			<ref>urn:isbn:0853010064::Simia+troglodytes</ref>
+			<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
 		</entity>
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Homo">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -131,7 +136,7 @@
 						<rank>genus</rank>
 						<level>2.0</level>
 						<types>
-							<ref>urn:isbn:0853010064::Homo+sapiens</ref>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -140,7 +145,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Pan">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -155,7 +160,7 @@
 						<rank>genus</rank>
 						<level>2.0</level>
 						<types>
-							<ref>urn:isbn:0853010064::Pan+troglodytes</ref>
+							<refTaxon>urn:isbn:0853010064::Pan+troglodytes</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -164,7 +169,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Hominini">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -178,7 +183,7 @@
 						<rank>tribe</rank>
 						<level>2.9</level>
 						<types>
-							<ref>urn:isbn:0853010064::Homo</ref>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -187,7 +192,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Panini">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -201,7 +206,7 @@
 						<rank>tribe</rank>
 						<level>2.9</level>
 						<types>
-							<ref>urn:isbn:0853010064::Pan</ref>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -210,7 +215,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Hominidae">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -225,7 +230,7 @@
 						<rank>family</rank>
 						<level>3.0</level>
 						<types>
-							<ref>urn:isbn:0853010064::Homo</ref>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -234,7 +239,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Panidae">
 		<authority>
-			<ref>urn:isbn:0853010064</ref>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -248,7 +253,7 @@
 						<rank>family</rank>
 						<level>3.0</level>
 						<types>
-							<ref>urn:isbn:0853010064::Pan</ref>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -257,7 +262,7 @@
 	</TaxonIdentifier>
 	<Dataset localName="datasets:taxonomic+opinions">
 		<authority>
-			<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -266,18 +271,18 @@
 		</label>
 		<synonymies>
 			<Synonymy>
-				<ref>urn:isbn:0853010064::Panini</ref>
-				<ref>urn:isbn:0853010064::Hominini</ref>
+				<refTaxon>urn:isbn:0853010064::Panini</refTaxon>
+				<refTaxon>urn:isbn:0853010064::Hominini</refTaxon>
 			</Synonymy>
 			<Synonymy>
-				<ref>urn:isbn:0853010064::Panidae</ref>
-				<ref>urn:isbn:0853010064::Hominidae</ref>
+				<refTaxon>urn:isbn:0853010064::Panidae</refTaxon>
+				<refTaxon>urn:isbn:0853010064::Hominidae</refTaxon>
 			</Synonymy>
 		</synonymies>
 	</Dataset>
 	<Dataset localName="datasets:species+phylogeny">
 		<authority>
-			<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 		</authority>
 		<weightPerGeneration>1.0</weightPerGeneration>
 		<label>
@@ -290,14 +295,14 @@
 				<predecessor>
 					<TaxonIdentifier localName="htu:0">
 						<authority>
-							<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 					</TaxonIdentifier>
 				</predecessor>
 				<successor>
 					<TaxonIdentifier localName="otu:trog">
 						<authority>
-							<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 						<label>
 							<Label>
@@ -306,7 +311,7 @@
 							</Label>
 						</label>
 						<entity>
-							<ref>urn:isbn:0853010064::Pan+troglodytes</ref>
+							<refTaxon>urn:isbn:0853010064::Pan+troglodytes</refTaxon>
 						</entity>
 					</TaxonIdentifier>
 				</successor>
@@ -314,12 +319,12 @@
 			</Heredity>
 			<Heredity>
 				<predecessor>
-					<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:0</ref>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:0</refTaxon>
 				</predecessor>
 				<successor>
 					<TaxonIdentifier localName="otu:sapi">
 						<authority>
-							<ref>org.namesonnodes.domain.collections.test.DatasetCollectionTest</ref>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 						<label>
 							<Label>
@@ -328,12 +333,91 @@
 							</Label>
 						</label>
 						<entity>
-							<ref>urn:isbn:0853010064::Homo+sapiens</ref>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
 						</entity>
 					</TaxonIdentifier>
 				</successor>
 				<weight>300000</weight>
 			</Heredity>
 		</heredities>
+	</Dataset>
+	<Dataset localName="datasets:genus+phylogeny">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Genus-Level Phylogeny</name>
+			</Label>
+		</label>
+		<heredities>
+			<Heredity>
+				<predecessor>
+					<TaxonIdentifier localName="htu:1">
+						<authority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+						</authority>
+					</TaxonIdentifier>
+				</predecessor>
+				<successor>
+					<TaxonIdentifier localName="otu:Pan">
+						<authority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+						</authority>
+						<label>
+							<Label>
+								<name>Pan</name>
+								<italics/>
+							</Label>
+						</label>
+						<entity>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
+						</entity>
+					</TaxonIdentifier>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:1</refTaxon>
+				</predecessor>
+				<successor>
+					<TaxonIdentifier localName="otu:Homo">
+						<authority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+						</authority>
+						<label>
+							<Label>
+								<name>Homo</name>
+								<italics/>
+							</Label>
+						</label>
+						<entity>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+						</entity>
+					</TaxonIdentifier>
+				</successor>
+			</Heredity>
+		</heredities>
+	</Dataset>
+	<Dataset localName="datasets:distances">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Distances</name>
+			</Label>
+		</label>
+		<distanceRows>
+			<DistanceRow>
+				<a>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:trog</refTaxon>
+				</a>
+				<b>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:sapi</refTaxon>
+				</b>
+				<distance>80</distance>
+			</DistanceRow>
+		</distanceRows>
 	</Dataset>
 </entities>
