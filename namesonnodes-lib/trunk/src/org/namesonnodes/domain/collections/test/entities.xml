@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entities
-	xmlns="http://namesonnodes.org/ns/entities/2009" lang="en" xml:lang="en"
+	xmlns="http://namesonnodes.org/ns/entities/2009"
  	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd">
+	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd"
+	xmlns:math="http://www.w3.org/1998/Math/MathML"
+	xmlns:html="http://www.w3.org/1999/xhtml">
 	<AuthorityIdentifier uri="org.namesonnodes.domain.collections.test.DatasetCollection">
 		<entity>
 			<Authority>
 				<label>
 					<Label>
 						<name>DatasetCollection Test</name>
-						<italics/>
+						<italics>true</italics>
 					</Label>
 				</label>
 			</Authority>
@@ -33,7 +35,7 @@
 					<Label>
 						<name>International Code of Zoological Nomenclature</name>
 						<abbr>ICZN</abbr>
-						<italics/>
+						<italics>true</italics>
 					</Label>
 				</label>
 			</Authority>
@@ -65,7 +67,7 @@
 			<Label>
 				<name>Homo sapiens</name>
 				<abbr>H. sapiens</abbr>
-				<italics/>
+				<italics>true</italics>
 			</Label>
 		</label>
 		<entity>
@@ -82,6 +84,43 @@
 			</Taxon>
 		</entity>
 	</TaxonIdentifier>
+	<TaxonIdentifier localName="Hominini">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollection</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Hominini</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<PhyloDefinition>
+						<prose>
+							<html:div xmlns="http://www.w3.org/1999/xhtml"><i>Hominini</i> Gray 1825 is here defined as all successors of the maximal common predecessors of <i>Homo sapiens</i> Linnaeus 1758 and <i>Simia troglodytes</i> Blumenbach 1775 (= <i>Pan troglodytes</i>).</html:div>
+						</prose>
+						<formula>
+							<math:math xmlns="http://www.w3.org/1998/Math/MathML">
+								<apply>
+									<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"/>
+									<union>
+										<csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/>
+										<csymbol definitionURL="urn:isbn:0853010064::Simia+troglodytes"/>
+									</union>
+								</apply>
+							</math:math>
+						</formula>
+						<specifiers>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
+						</specifiers>
+					</PhyloDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
 	<TaxonIdentifier localName="Simia+troglodytes">
 		<authority>
 			<refAuthority>urn:isbn:0853010064</refAuthority>
@@ -90,7 +129,7 @@
 			<Label>
 				<name>Simia troglodytes</name>
 				<abbr>S. troglodytes</abbr>
-				<italics/>
+				<italics>true</italics>
 			</Label>
 		</label>
 		<entity>
@@ -112,7 +151,7 @@
 			<Label>
 				<name>Pan troglodytes</name>
 				<abbr>P. troglodytes</abbr>
-				<italics/>
+				<italics>true</italics>
 			</Label>
 		</label>
 		<entity>
@@ -126,7 +165,7 @@
 		<label>
 			<Label>
 				<name>Homo</name>
-				<italics/>
+				<italics>true</italics>
 			</Label>
 		</label>
 		<entity>
@@ -150,7 +189,7 @@
 		<label>
 			<Label>
 				<name>Pan</name>
-				<italics/>
+				<italics>true</italics>
 			</Label>
 		</label>
 		<entity>
@@ -220,7 +259,7 @@
 		<label>
 			<Label>
 				<name>Hominidae</name>
-				<italics/>
+				<italics>true</italics>
 			</Label>
 		</label>
 		<entity>
@@ -271,12 +310,16 @@
 		</label>
 		<synonymies>
 			<Synonymy>
-				<refTaxon>urn:isbn:0853010064::Panini</refTaxon>
-				<refTaxon>urn:isbn:0853010064::Hominini</refTaxon>
+				<synonyms>
+					<refTaxon>urn:isbn:0853010064::Panini</refTaxon>
+					<refTaxon>urn:isbn:0853010064::Hominini</refTaxon>
+				</synonyms>
 			</Synonymy>
 			<Synonymy>
-				<refTaxon>urn:isbn:0853010064::Panidae</refTaxon>
-				<refTaxon>urn:isbn:0853010064::Hominidae</refTaxon>
+				<synonyms>
+					<refTaxon>urn:isbn:0853010064::Panidae</refTaxon>
+					<refTaxon>urn:isbn:0853010064::Hominidae</refTaxon>
+				</synonyms>
 			</Synonymy>
 		</synonymies>
 	</Dataset>
@@ -307,7 +350,7 @@
 						<label>
 							<Label>
 								<name>trog</name>
-								<italics/>
+								<italics>true</italics>
 							</Label>
 						</label>
 						<entity>
@@ -329,7 +372,7 @@
 						<label>
 							<Label>
 								<name>sapi</name>
-								<italics/>
+								<italics>true</italics>
 							</Label>
 						</label>
 						<entity>
@@ -367,7 +410,7 @@
 						<label>
 							<Label>
 								<name>Pan</name>
-								<italics/>
+								<italics>true</italics>
 							</Label>
 						</label>
 						<entity>
@@ -388,7 +431,7 @@
 						<label>
 							<Label>
 								<name>Homo</name>
-								<italics/>
+								<italics>true</italics>
 							</Label>
 						</label>
 						<entity>
