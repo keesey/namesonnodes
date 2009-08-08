@@ -105,10 +105,11 @@
 							<math:math xmlns="http://www.w3.org/1998/Math/MathML">
 								<apply>
 									<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"/>
-									<union>
+									<apply>
+										<union/>
 										<csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/>
 										<csymbol definitionURL="urn:isbn:0853010064::Simia+troglodytes"/>
-									</union>
+									</apply>
 								</apply>
 							</math:math>
 						</formula>
@@ -300,14 +301,14 @@
 		</entity>
 	</TaxonIdentifier>
 	<Dataset localName="datasets:taxonomic+opinions">
-		<authority>
-			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
-		</authority>
 		<label>
 			<Label>
 				<name>Taxonomic Opinions</name>
 			</Label>
 		</label>
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
 		<synonymies>
 			<Synonymy>
 				<synonyms>
