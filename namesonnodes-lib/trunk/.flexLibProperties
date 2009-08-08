@@ -60,6 +60,7 @@
     <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReader"/>
     <classEntry path="org.namesonnodes.domain.entities.Entities"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.PhyloDefinitionReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.test.EntityFactoryTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

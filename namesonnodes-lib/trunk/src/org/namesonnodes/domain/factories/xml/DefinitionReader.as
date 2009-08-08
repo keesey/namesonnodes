@@ -6,7 +6,7 @@ package org.namesonnodes.domain.factories.xml
 	
 	import org.namesonnodes.domain.entities.Entities;
 
-	public final class DefinitionReader implements EntityReader
+	internal final class DefinitionReader implements EntityReader
 	{
 		private const readers:Dictionary = new Dictionary();
 		public function DefinitionReader(factory:EntityFactory, taxonIdentifierReader:EntityReader)
@@ -20,12 +20,17 @@ package org.namesonnodes.domain.factories.xml
 		public function readEntity(source:XML):Persistent
 		{
 			default xml namespace = Entities.URI;
-			if (source.name().uri != Entities.URI)
-				throw new ArgumentError("Unrecognized namespace: <" + source.name().uri + ">.");
-			const reader:EntityReader = readers[source.localName()] as EntityReader;
+			if (source.children().length() == 0)
+				throw new ArgumentError("No definition specified.");
+			if (source.children().length() != 1)
+				throw new ArgumentError("More than one definition specified.");
+			const defSource:XML = source.children()[0];
+			if (defSource.name().uri != Entities.URI)
+				throw new ArgumentError("Unrecognized namespace: <" + defSource.name().uri + ">.");
+			const reader:EntityReader = readers[defSource.localName()] as EntityReader;
 			if (reader == null)
-				throw new ArgumentError("Unrecognized element: <" + source.name() + ">.");
-			return reader.readEntity(source);
+				throw new ArgumentError("Unrecognized element: <" + defSource.name() + ">.");
+			return reader.readEntity(defSource);
 		}
 	}
 }

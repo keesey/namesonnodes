@@ -13,7 +13,8 @@ package org.namesonnodes.domain.factories.xml
 	{
 		internal const dictionary:Dictionary = new Dictionary();
 		private const readers:Dictionary = new Dictionary();
-		internal const references:Vector.<IdentifierReference> = new Vector.<IdentifierReference>();
+		internal const authorityReferences:Vector.<AuthorityReference> = new Vector.<AuthorityReference>();
+		internal const taxonReferences:Vector.<TaxonReference> = new Vector.<TaxonReference>();
 		[Bindable]
 		public var source:XML;
 		public function EntityFactory(source:XML = null)
@@ -27,7 +28,7 @@ package org.namesonnodes.domain.factories.xml
 			const authorityIdentifierReader:EntityReader = new AuthorityIdentifierReader(this);
 			const taxonIdentifierReader:EntityReader = new TaxonIdentifierReader(this, authorityIdentifierReader);
 			readers["AuthorityIdentifier"] = authorityIdentifierReader;
-			readers["Dataset"] = new DatasetReader(this, taxonIdentifierReader, authorityIdentifierReader);
+			readers["Dataset"] = new DatasetReader(this, authorityIdentifierReader, taxonIdentifierReader);
 			readers["TaxonIdentifier"] = taxonIdentifierReader;
 		}
 		public function newInstance():*
@@ -51,11 +52,13 @@ package org.namesonnodes.domain.factories.xml
 				this.source = source;
 			if (this.source == null)
 				return null;
-			const entities:Vector.<Persistent> = new Vector.<Persistent>(source.children().length());
+			const entities:Vector.<Persistent> = new Vector.<Persistent>(this.source.children().length());
 			for each (var entitySource:XML in this.source.children())
 				entities.push(readEntity(entitySource));
-			while (references.length != 0)
-				references.pop().useDictionary(dictionary);
+			while (authorityReferences.length != 0)
+				authorityReferences.pop().useDictionary(dictionary);
+			while (taxonReferences.length != 0)
+				taxonReferences.pop().useDictionary(dictionary);
 			return entities;
 		}
 	}

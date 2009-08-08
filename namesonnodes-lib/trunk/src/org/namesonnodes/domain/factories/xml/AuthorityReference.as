@@ -7,7 +7,7 @@ package org.namesonnodes.domain.factories.xml
 	internal final class AuthorityReference extends IdentifierReference
 	{
 		private var _uri:String;
-		public function AuthorityReference(uri:String, source:Object, property:String, useEntity:Boolean = false)
+		public function AuthorityReference(uri:String, source:Object, property:*, useEntity:Boolean = false)
 		{
 			super(source, property, useEntity);
 			if (uri == null)

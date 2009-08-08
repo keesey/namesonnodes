@@ -4,7 +4,7 @@ package org.namesonnodes.domain.factories.xml
 	
 	import org.namesonnodes.domain.entities.StateDefinition;
 
-	public final class StateDefinitionReader implements EntityReader
+	internal final class StateDefinitionReader implements EntityReader
 	{
 		public function StateDefinitionReader()
 		{

@@ -4,7 +4,7 @@ package org.namesonnodes.domain.factories.xml
 	
 	import org.namesonnodes.domain.entities.SpecimenDefinition;
 
-	public final class SpecimenDefinitionReader implements EntityReader
+	internal final class SpecimenDefinitionReader implements EntityReader
 	{
 		public function SpecimenDefinitionReader()
 		{

@@ -4,9 +4,12 @@ package org.namesonnodes.domain.factories.xml
 	
 	import org.namesonnodes.domain.entities.Entities;
 	import org.namesonnodes.domain.entities.RankDefinition;
+	import org.namesonnodes.domain.entities.non_entities;
 	import org.namesonnodes.utils.parseQName;
 
-	public final class RankDefinitionReader implements EntityReader
+	use namespace non_entities;
+
+	internal final class RankDefinitionReader implements EntityReader
 	{
 		private var factory:EntityFactory;
 		private var taxonIdentifierReader:EntityReader;
@@ -23,7 +26,7 @@ package org.namesonnodes.domain.factories.xml
 			readPersistent(source, def);
 			def.level = parseInt(source.level);
 			def.rank = source.rank;
-			for each (var typeSource:XML in source.types)
+			for each (var typeSource:XML in source.types.children())
 			{
 				if (typeSource.name().uri != Entities.URI)
 					throw new ArgumentError("Unrecognized namespace: " + typeSource.name().uri);
@@ -31,8 +34,8 @@ package org.namesonnodes.domain.factories.xml
 					def.types.addItem(taxonIdentifierReader.readEntity(typeSource));
 				else if (typeSource.localName() == "refTaxon")
 				{
-					factory.references.push(new TaxonReference(parseQName(typeSource.text()),
-						def.types, String(def.types.length)));
+					factory.taxonReferences.push(new TaxonReference(parseQName(typeSource.text()),
+						def.types, def.types.length));
 					def.types.addItem(null);
 				}
 				else
