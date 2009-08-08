@@ -6,6 +6,8 @@ package org.namesonnodes.domain.factories.xml.test
 	
 	import flexunit.framework.TestCase;
 	
+	import org.namesonnodes.domain.entities.AbstractQualified;
+	import org.namesonnodes.domain.entities.AuthorityIdentifier;
 	import org.namesonnodes.domain.factories.xml.EntityFactory;
 
 	public class EntityFactoryTest extends TestCase
@@ -26,6 +28,15 @@ package org.namesonnodes.domain.factories.xml.test
 			assertEquals(18, xml.children().length());
 			const factory:EntityFactory = new EntityFactory(xml);
 			const entities:Vector.<Persistent> = factory.readEntities();
+			for each (var entity:Persistent in entities)
+			{
+				if (entity is AbstractQualified)
+					trace(AbstractQualified(entity).qName);
+				else if (entity is AuthorityIdentifier)
+					trace(AuthorityIdentifier(entity).uri);
+				else
+					trace("WARNING: Unknown entity type: " + entity);
+			}
 			assertEquals(18, entities.length);
 		}
 	}

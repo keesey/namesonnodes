@@ -12,6 +12,7 @@ package org.namesonnodes.domain.factories.xml
 			super(source, property, useEntity);
 			if (uri == null)
 				throw new ArgumentError("Null URI.");
+			_uri = uri;
 		}
 		override public function useDictionary(d:Dictionary) : void
 		{

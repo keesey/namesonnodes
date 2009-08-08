@@ -1,5 +1,6 @@
 package org.namesonnodes.domain.factories.xml
 {
+	import a3lbmonkeybrain.brainstem.w3c.xml.XMLNodeKind;
 	import a3lbmonkeybrain.hippocampus.domain.Persistent;
 	
 	import org.namesonnodes.domain.entities.Entities;
@@ -28,6 +29,8 @@ package org.namesonnodes.domain.factories.xml
 			def.rank = source.rank;
 			for each (var typeSource:XML in source.types.children())
 			{
+				if (typeSource.nodeKind() != XMLNodeKind.ELEMENT)
+					continue;
 				if (typeSource.name().uri != Entities.URI)
 					throw new ArgumentError("Unrecognized namespace: " + typeSource.name().uri);
 				if (typeSource.localName() == "TaxonIdentifier")

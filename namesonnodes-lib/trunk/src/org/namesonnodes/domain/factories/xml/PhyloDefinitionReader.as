@@ -2,6 +2,7 @@ package org.namesonnodes.domain.factories.xml
 {
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
 	import a3lbmonkeybrain.brainstem.w3c.xhtml.XHTML;
+	import a3lbmonkeybrain.brainstem.w3c.xml.XMLNodeKind;
 	import a3lbmonkeybrain.hippocampus.domain.Persistent;
 	
 	import org.namesonnodes.domain.entities.Entities;
@@ -46,6 +47,8 @@ package org.namesonnodes.domain.factories.xml
 			def.prose = source.prose.children()[0] as XML;
 			for each (var specifierSource:XML in source.specifiers.children())
 			{
+				if (specifierSource.nodeKind() != XMLNodeKind.ELEMENT)
+					continue;
 				if (specifierSource.name().uri != Entities.URI)
 					throw new ArgumentError("Unrecognized namespace: " + specifierSource.name().uri);
 				if (specifierSource.localName() == "TaxonIdentifier")

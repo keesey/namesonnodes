@@ -1,5 +1,6 @@
 package org.namesonnodes.domain.factories.xml
 {
+	import a3lbmonkeybrain.brainstem.filter.isNonEmptyString;
 	import a3lbmonkeybrain.hippocampus.domain.Persistent;
 	
 	import org.namesonnodes.domain.entities.Authority;
@@ -23,13 +24,20 @@ package org.namesonnodes.domain.factories.xml
 			default xml namespace = Entities.URI;
 			const identifier:AuthorityIdentifier = new AuthorityIdentifier();
 			readPersistent(source, identifier);
-			identifier.uri = source.uri;
+			identifier.uri = source.@uri;
+			if (!isNonEmptyString(identifier.uri))
+				throw new ArgumentError("No URI for authority:\n" + source);
 			if (source.entity.length() != 1)
 				throw new ArgumentError("No entity specified:\n" + source.toXMLString());
-			if (source.entity.refAuthority.length() == 1)
-				factory.authorityReferences.push(new AuthorityReference(source.entity.refAuthority[0].text(), identifier, "entity", true));
-			else if (source.entity.Authority.length() == 1)
-				identifier.entity = entityReader.readEntity(source.entity.Authority[0]) as Authority;
+			if (source.entity[0].refAuthority.length() == 1)
+			{
+				const uri:String = source.entity[0].refAuthority[0];
+				if (uri == null)
+					throw new ArgumentError("No URI for authority: " + source.entity[0]);
+				factory.authorityReferences.push(new AuthorityReference(uri, identifier, "entity", true));
+			}
+			else if (source.entity[0].Authority.length() == 1)
+				identifier.entity = entityReader.readEntity(source.entity[0].Authority[0]) as Authority;
 			else
 				throw new ArgumentError("No authority specified or referenced:\n" + source.toXMLString());
 			factory.dictionary[identifier.uri] = identifier;

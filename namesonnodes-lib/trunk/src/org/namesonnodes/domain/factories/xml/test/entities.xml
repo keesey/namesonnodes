@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd"
 	xmlns:math="http://www.w3.org/1998/Math/MathML"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	<AuthorityIdentifier uri="org.namesonnodes.domain.factories.xml.test.EntityFactory">
+	<AuthorityIdentifier uri="org.namesonnodes.domain.factories.xml.test.EntityFactoryTest">
 		<entity>
 			<Authority>
 				<label>
@@ -86,7 +86,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Hominini">
 		<authority>
-			<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactory</refAuthority>
+			<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
 		</authority>
 		<label>
 			<Label>

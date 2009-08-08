@@ -1,5 +1,6 @@
 package org.namesonnodes.domain.factories.xml
 {
+	import a3lbmonkeybrain.brainstem.w3c.xml.XMLNodeKind;
 	import a3lbmonkeybrain.hippocampus.domain.Persistent;
 	
 	import flash.events.EventDispatcher;
@@ -53,8 +54,10 @@ package org.namesonnodes.domain.factories.xml
 			if (this.source == null)
 				return null;
 			const entities:Vector.<Persistent> = new Vector.<Persistent>(this.source.children().length());
+			var i:uint = 0;
 			for each (var entitySource:XML in this.source.children())
-				entities.push(readEntity(entitySource));
+				if (entitySource.nodeKind() == XMLNodeKind.ELEMENT)
+					entities[i++] = readEntity(entitySource);
 			while (authorityReferences.length != 0)
 				authorityReferences.pop().useDictionary(dictionary);
 			while (taxonReferences.length != 0)

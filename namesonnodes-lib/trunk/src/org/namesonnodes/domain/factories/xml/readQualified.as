@@ -20,9 +20,11 @@ package org.namesonnodes.domain.factories.xml
 		if (source.@localName.length() != 1)
 			throw new ArgumentError("No local name specified:\n" + source.toXMLString());
 		entity.localName = source.@localName;
-		if (source.authority.refAuthority.length() == 1)
+		if (source.authority[0].refAuthority.length() == 1)
 		{
-			const uri:String = source.entity.refAuthority.text();
+			const uri:String = source.authority[0].refAuthority[0];
+			if (uri == null)
+				throw new ArgumentError("No URI for authority:\n" + source.authority[0]);
 			if (references != null)
 				references.push(new AuthorityReference(uri, entity, "authority"));
 			if (qNameDictionary != null)
@@ -30,7 +32,7 @@ package org.namesonnodes.domain.factories.xml
 		}
 		else if (source.authority.AuthorityIdentifier.length() == 1)
 		{
-			entity.authority = authorityIdentifierReader.readEntity(source.entity.AuthorityIdentifier) as AuthorityIdentifier;
+			entity.authority = authorityIdentifierReader.readEntity(source.authority[0].AuthorityIdentifier[0]) as AuthorityIdentifier;
 			if (qNameDictionary != null)
 				qNameDictionary[entity.qName.toString()] = entity;
 		}

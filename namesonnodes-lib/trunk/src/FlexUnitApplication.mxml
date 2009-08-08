@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768" xmlns:flexunit="flexunit.flexui.*" creationComplete="onCreationComplete()">	
+<fx:Script>
+	<![CDATA[
+
+			import flexunit.framework.TestSuite;
+			import org.namesonnodes.domain.collections.test.DatasetCollectionTest;
+
+			public function currentRunTestSuite():TestSuite
+			{
+				var testsToRun:TestSuite = new TestSuite();
+				testsToRun.addTest(new org.namesonnodes.domain.collections.test.DatasetCollectionTest("testImmediateSuccessors"));
+				testsToRun.addTest(new org.namesonnodes.domain.collections.test.DatasetCollectionTest("testInterpretQName"));
+				testsToRun.addTest(new org.namesonnodes.domain.collections.test.DatasetCollectionTest("testDatasetDistance"));
+				testsToRun.addTest(new org.namesonnodes.domain.collections.test.DatasetCollectionTest("testGenerationDistance"));
+				testsToRun.addTest(new org.namesonnodes.domain.collections.test.DatasetCollectionTest("testImmediatePredecessors"));
+				testsToRun.addTest(new org.namesonnodes.domain.collections.test.DatasetCollectionTest("testDatasetCollection"));
+				return testsToRun;
+			}
+			private function onCreationComplete():void
+			{
+				testRunner.run(currentRunTestSuite(), "namesonnodes_lib");
+			}
+	]]>
+</fx:Script>
+<flexunit:FlexUnitTestRunnerUI id="testRunner"/>
+	
+</s:Application>

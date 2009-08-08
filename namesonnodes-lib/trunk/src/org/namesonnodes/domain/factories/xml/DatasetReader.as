@@ -1,5 +1,6 @@
 package org.namesonnodes.domain.factories.xml
 {
+	import a3lbmonkeybrain.brainstem.w3c.xml.XMLNodeKind;
 	import a3lbmonkeybrain.hippocampus.domain.Persistent;
 	
 	import org.namesonnodes.domain.entities.Dataset;
@@ -79,6 +80,8 @@ package org.namesonnodes.domain.factories.xml
 				throw new ArgumentError("Invalid number of synonyms.");
 			for each (var synonymSource:XML in source.synonyms.children())
 			{
+				if (synonymSource.nodeKind() != XMLNodeKind.ELEMENT)
+					continue;
 				if (synonymSource.name().uri != Entities.URI)
 					throw new ArgumentError("Unrecognized namespace: <" + synonymSource.name().uri + ">.");
 				if (synonymSource.localName() == "TaxonIdentifier")
