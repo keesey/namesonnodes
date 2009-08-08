@@ -32,7 +32,7 @@ package org.namesonnodes.domain.factories.xml
 			default xml namespace = Entities.URI;
 			const dataset:Dataset = new Dataset();
 			readPersistent(source, dataset);
-			readQualified(source, dataset, null, null, authorityIdentifierReader);
+			readQualified(source, dataset, null, factory.authorityReferences, authorityIdentifierReader);
 			if (source.weightPerGeneration.length() == 1)
 				dataset.weightPerGeneration = parseFloat(source.weightPerGeneration);
 			readDistanceRows(source, dataset);

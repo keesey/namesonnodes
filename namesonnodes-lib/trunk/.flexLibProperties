@@ -22,12 +22,16 @@
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TaxaBlock"/>
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TaxonIdentifierLibrary"/>
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TreesBlock"/>
+    <classEntry path="org.namesonnodes.domain.collections.DatasetCollection"/>
+    <classEntry path="org.namesonnodes.domain.collections.Node"/>
     <classEntry path="org.namesonnodes.domain.entities.AbstractQualified"/>
     <classEntry path="org.namesonnodes.domain.entities.Authority"/>
     <classEntry path="org.namesonnodes.domain.entities.AuthorityIdentifier"/>
     <classEntry path="org.namesonnodes.domain.entities.Authorized"/>
     <classEntry path="org.namesonnodes.domain.entities.Dataset"/>
     <classEntry path="org.namesonnodes.domain.entities.Definition"/>
+    <classEntry path="org.namesonnodes.domain.entities.DistanceRow"/>
+    <classEntry path="org.namesonnodes.domain.entities.Entities"/>
     <classEntry path="org.namesonnodes.domain.entities.Heredity"/>
     <classEntry path="org.namesonnodes.domain.entities.Identified"/>
     <classEntry path="org.namesonnodes.domain.entities.Inclusion"/>
@@ -40,6 +44,25 @@
     <classEntry path="org.namesonnodes.domain.entities.Synonymy"/>
     <classEntry path="org.namesonnodes.domain.entities.Taxon"/>
     <classEntry path="org.namesonnodes.domain.entities.TaxonIdentifier"/>
+    <classEntry path="org.namesonnodes.domain.entities.non_entities"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityIdentifierReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReference"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.DatasetReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.DefinitionReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.EntityFactory"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.EntityReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.IdentifierReference"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.PhyloDefinitionReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.RankDefinitionReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.SpecimenDefinitionReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.StateDefinitionReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.TaxonIdentifierReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.TaxonReader"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.TaxonReference"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.readLabelled"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.readPersistent"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.readQualified"/>
     <classEntry path="org.namesonnodes.domain.files.WeightFactor"/>
     <classEntry path="org.namesonnodes.domain.files.WeightType"/>
     <classEntry path="org.namesonnodes.domain.summaries.Summarizeable"/>
@@ -49,18 +72,12 @@
     <classEntry path="org.namesonnodes.flare.PhylogenyVisualization"/>
     <classEntry path="org.namesonnodes.flare.VertexSprite"/>
     <classEntry path="org.namesonnodes.flare.events.EntityClickEvent"/>
-    <classEntry path="org.namesonnodes.flare.test.FlareTest"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphImporter"/>
     <classEntry path="org.namesonnodes.phylo.Phylogeny"/>
     <classEntry path="org.namesonnodes.phylo.PhylogenyDatasetFactory"/>
+    <classEntry path="org.namesonnodes.utils.parseQName"/>
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
-    <classEntry path="org.namesonnodes.domain.factories.xml.EntityFactory"/>
-    <classEntry path="org.namesonnodes.domain.factories.xml.IdentifierReference"/>
-    <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReader"/>
-    <classEntry path="org.namesonnodes.domain.entities.Entities"/>
-    <classEntry path="org.namesonnodes.domain.factories.xml.PhyloDefinitionReader"/>
-    <classEntry path="org.namesonnodes.domain.factories.xml.test.EntityFactoryTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

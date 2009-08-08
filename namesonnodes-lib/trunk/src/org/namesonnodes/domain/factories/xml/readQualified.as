@@ -25,8 +25,7 @@ package org.namesonnodes.domain.factories.xml
 			const uri:String = source.authority[0].refAuthority[0];
 			if (uri == null)
 				throw new ArgumentError("No URI for authority:\n" + source.authority[0]);
-			if (references != null)
-				references.push(new AuthorityReference(uri, entity, "authority"));
+			references.push(new AuthorityReference(uri, entity, "authority"));
 			if (qNameDictionary != null)
 				qNameDictionary[uri + "::" + entity.localName] = entity;
 		}

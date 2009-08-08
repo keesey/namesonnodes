@@ -91,10 +91,10 @@ package org.namesonnodes.domain.collections
 		{
 			if (datasetDistances[datasetQName] is Dictionary)
 			{
+				if (a == b) return 0;
 				const matrix:Dictionary = datasetDistances[datasetQName];
 				if (matrix[a] is Dictionary)
-					if (matrix[a][b] is Number)
-						return matrix[a][b] as Number;
+					return matrix[a][b] as Number;
 			}
 			return NaN;
 		}
