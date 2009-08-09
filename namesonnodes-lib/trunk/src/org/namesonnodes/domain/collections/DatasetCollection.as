@@ -41,7 +41,6 @@ package org.namesonnodes.domain.collections
 		}
 		public function addIdentifier(id:TaxonIdentifier):void
 		{
-			trace("[TAXON]", id.qName);
 			identifiers[id.qName.toString()] = id;
 		}
 		private function initIdentifiers():void
@@ -87,7 +86,6 @@ package org.namesonnodes.domain.collections
 									matrix[b] = new Dictionary();
 								matrix[a][b] = row.distance;
 								matrix[b][a] = row.distance;
-								trace("d(" + a + ", " + b + ") = " + row.distance);
 							}
 			}
 		}
@@ -98,12 +96,7 @@ package org.namesonnodes.domain.collections
 				if (a == b) return 0;
 				const matrix:Dictionary = datasetDistances[datasetQName];
 				if (matrix[a] is Dictionary)
-				{
-					trace("d_" + datasetQName + "(" + a + ", " + b + ") = " + matrix[a][b]);
 					return matrix[a][b] as Number;
-				}
-				else
-					trace(a + " is not in the matrix.");
 			}
 			return NaN;
 		}
@@ -122,9 +115,9 @@ package org.namesonnodes.domain.collections
 			{
 				if (traversed.has(a2))
 					continue;
-				d = generationDistance(a2 as Node, b) + generationDistances[a][a2];
+				d = generationDistance(a2 as Node, b);
 				if (d >= 0)
-					distances.push(d);
+					distances.push(d + generationDistances[a][a2]);
 			}
 			traversed.remove(a);
 			const n:uint = distances.length;

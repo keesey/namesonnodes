@@ -5,13 +5,12 @@
 	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd"
 	xmlns:math="http://www.w3.org/1998/Math/MathML"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	<AuthorityIdentifier uri="org.namesonnodes.domain.factories.xml.test.EntityFactoryTest">
+	<AuthorityIdentifier uri="org.namesonnodes.domain.collections.test.DatasetCollectionTest">
 		<entity>
 			<Authority>
 				<label>
 					<Label>
-						<name>EntityFactory Test</name>
-						<italics>true</italics>
+						<name>DatasetCollection Test</name>
 					</Label>
 				</label>
 			</Authority>
@@ -86,7 +85,7 @@
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Hominini">
 		<authority>
-			<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -307,7 +306,7 @@
 			</Label>
 		</label>
 		<authority>
-			<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 		</authority>
 		<synonymies>
 			<Synonymy>
@@ -326,7 +325,7 @@
 	</Dataset>
 	<Dataset localName="datasets:species+phylogeny">
 		<authority>
-			<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 		</authority>
 		<weightPerGeneration>1.0</weightPerGeneration>
 		<label>
@@ -339,14 +338,14 @@
 				<predecessor>
 					<TaxonIdentifier localName="htu:0">
 						<authority>
-							<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 					</TaxonIdentifier>
 				</predecessor>
 				<successor>
 					<TaxonIdentifier localName="otu:trog">
 						<authority>
-							<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 						<label>
 							<Label>
@@ -363,12 +362,12 @@
 			</Heredity>
 			<Heredity>
 				<predecessor>
-					<refTaxon>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::htu:0</refTaxon>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:0</refTaxon>
 				</predecessor>
 				<successor>
 					<TaxonIdentifier localName="otu:sapi">
 						<authority>
-							<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 						<label>
 							<Label>
@@ -387,7 +386,7 @@
 	</Dataset>
 	<Dataset localName="datasets:genus+phylogeny">
 		<authority>
-			<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -399,14 +398,14 @@
 				<predecessor>
 					<TaxonIdentifier localName="htu:1">
 						<authority>
-							<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 					</TaxonIdentifier>
 				</predecessor>
 				<successor>
 					<TaxonIdentifier localName="otu:Pan">
 						<authority>
-							<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 						<label>
 							<Label>
@@ -422,12 +421,12 @@
 			</Heredity>
 			<Heredity>
 				<predecessor>
-					<refTaxon>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::htu:1</refTaxon>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:1</refTaxon>
 				</predecessor>
 				<successor>
 					<TaxonIdentifier localName="otu:Homo">
 						<authority>
-							<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+							<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 						</authority>
 						<label>
 							<Label>
@@ -445,7 +444,7 @@
 	</Dataset>
 	<Dataset localName="datasets:distances">
 		<authority>
-			<refAuthority>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest</refAuthority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
 		</authority>
 		<label>
 			<Label>
@@ -455,10 +454,10 @@
 		<distanceRows>
 			<DistanceRow>
 				<a>
-					<refTaxon>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:trog</refTaxon>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:trog</refTaxon>
 				</a>
 				<b>
-					<refTaxon>org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:sapi</refTaxon>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:sapi</refTaxon>
 				</b>
 				<distance>80</distance>
 			</DistanceRow>

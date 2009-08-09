@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities
+	xmlns="http://namesonnodes.org/ns/entities/2009"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd"
+	xmlns:math="http://www.w3.org/1998/Math/MathML"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<AuthorityIdentifier uri="org.namesonnodes.domain.collections.test.DatasetCollectionTest">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>DatasetCollection Test</name>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="urn:isbn:0853010064">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>International Code of Zoological Nomenclature</name>
+						<abbr>ICZN</abbr>
+						<italics>true</italics>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<TaxonIdentifier localName="Hexactinellida">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Hexactinellida</name>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Calcarea">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Calcarea</name>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Demospongiae">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Demospongiae</name>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Leucosolenia">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Leucosolenia+botryoides</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Leucosolenia</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Leucosolenia+botryoides">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Spongia+botryoides</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Leucosolenia botryoides</name>
+				<abbr>L. botryoides</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Homo</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+sapiens">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Homo sapiens</name>
+				<abbr>H. sapiens</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Oopsacas">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Oopsacas+minuta</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Oopsacas</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Oopsacas+minuta">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Oopsacas minuta</name>
+				<abbr>O. minuta</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Eumetazoa">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Eumetazoa</name>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Metazoa">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<PhyloDefinition>
+						<formula>
+							<math:math>
+								<math:apply>
+									<math:csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"/>
+									<math:apply>
+										<math:union/>
+										<math:csymbol definitionURL="urn:isbn:0853010064::Spongia+botryoides"/>
+										<math:csymbol definitionURL="urn:isbn:0853010064::Oopsacas+minuta"/>
+										<math:csymbol definitionURL="urn:isbn:0853010064::Spongia+officinalis"/>
+										<math:csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/>
+									</math:apply>
+								</math:apply>
+							</math:math>
+						</formula>
+						<prose>
+							<html:div>All successors of the maximal common predecessors of <html:i>Oppsacas minuta</html:i> Topsent 1927, <html:i>Spongia botryoides</html:i> Ellis &amp; Solander 1786 (=<html:i>Leucosolenia botryoides</html:i>), <html:i>Spongia officinalis</html:i> Linnaeus 1758, and <html:i>Homo sapiens</html:i> Linnaeus 1758.</html:div>
+						</prose>
+						<specifiers>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Oopsacas+minuta</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Spongia+botryoides</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Spongia+officinalis</refTaxon>
+						</specifiers>
+					</PhyloDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Metazoa</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Porifera">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<PhyloDefinition>
+						<formula>
+							<math:math>
+								<math:apply>
+									<math:csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownGroup"/>
+									<math:apply>
+										<math:csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedClade"/>
+										<math:apply>
+											<math:union/>
+											<math:csymbol definitionURL="urn:isbn:0853010064::Spongia+botryoides"/>
+											<math:csymbol definitionURL="urn:isbn:0853010064::Oopsacas+minuta"/>
+											<math:csymbol definitionURL="urn:isbn:0853010064::Spongia+officinalis"/>
+										</math:apply>
+										<math:csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/>
+									</math:apply>
+								</math:apply>
+							</math:math>
+						</formula>
+						<prose>
+							<html:div>All successors of the maximal common predecessors of all extant organisms sharing closer ancestry with <html:i>Oppsacas minuta</html:i> Topsent 1927, <html:i>Spongia botryoides</html:i> Ellis &amp; Solander 1786 (=<html:i>Leucosolenia botryoides</html:i>), and <html:i>Spongia officinalis</html:i> Linnaeus 1758 than with <html:i>Homo sapiens</html:i> Linnaeus 1758.</html:div>
+						</prose>
+						<specifiers>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Oopsacas+minuta</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Spongia+botryoides</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Spongia+officinalis</refTaxon>
+						</specifiers>
+					</PhyloDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Metazoa</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Spongia">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Spongia+officinalis</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Spongia</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Spongia+botryoides">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Spongia botryoides</name>
+				<abbr>S. botryoides</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Spongia+officinalis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Spongia officinalis</name>
+				<abbr>S. officinalis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:1">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:2">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:3">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:4">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:Cal">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Calcarea</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Cal</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:Dem">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Demospongiae</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Dem</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:Eum">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Eumetazoa</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Eum</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:Hex">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Hexactinellida</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>Hex</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<Dataset localName="phylogenyA">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Phylogeny A</name>
+			</Label>
+		</label>
+		<heredities>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:1</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:2</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:1</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Eum</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:2</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Cal</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:2</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Dem</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:2</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Hex</refTaxon>
+				</successor>
+			</Heredity>
+		</heredities>
+	</Dataset>
+	<Dataset localName="phylogenyB">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Phylogeny B</name>
+			</Label>
+		</label>
+		<heredities>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:1</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Cal</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:1</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:3</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:3</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Hex</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:3</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:4</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:4</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Dem</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:4</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>org.namesonnodes.domain.collections.test.DatasetCollectionTest::otu:Eum</refTaxon>
+				</successor>
+			</Heredity>
+		</heredities>
+	</Dataset>
+	<Dataset localName="taxonomy">
+		<authority>
+			<refAuthority>org.namesonnodes.domain.collections.test.DatasetCollectionTest</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Taxonomy</name>
+			</Label>
+		</label>
+		<inclusions>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:isbn:0853010064::Eumetazoa</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+				</subset>
+			</Inclusion>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:isbn:0853010064::Hexactinellida</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Oopsacas</refTaxon>
+				</subset>
+			</Inclusion>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:isbn:0853010064::Calcarea</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Leucosolenia</refTaxon>
+				</subset>
+			</Inclusion>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:isbn:0853010064::Demospongiae</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Spongia</refTaxon>
+				</subset>
+			</Inclusion>
+		</inclusions>
+	</Dataset>
+</entities>

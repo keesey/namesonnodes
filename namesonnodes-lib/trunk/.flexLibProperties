@@ -22,6 +22,7 @@
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TaxaBlock"/>
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TaxonIdentifierLibrary"/>
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TreesBlock"/>
+    <classEntry path="org.namesonnodes.commands.biofiles.nexus.test.NexusFormatTest"/>
     <classEntry path="org.namesonnodes.domain.collections.DatasetCollection"/>
     <classEntry path="org.namesonnodes.domain.collections.Node"/>
     <classEntry path="org.namesonnodes.domain.collections.test.DatasetCollectionTest"/>
@@ -64,6 +65,7 @@
     <classEntry path="org.namesonnodes.domain.factories.xml.readLabelled"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.readPersistent"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.readQualified"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.test.EntityFactoryTest"/>
     <classEntry path="org.namesonnodes.domain.files.WeightFactor"/>
     <classEntry path="org.namesonnodes.domain.files.WeightType"/>
     <classEntry path="org.namesonnodes.domain.summaries.Summarizeable"/>
@@ -73,6 +75,8 @@
     <classEntry path="org.namesonnodes.flare.PhylogenyVisualization"/>
     <classEntry path="org.namesonnodes.flare.VertexSprite"/>
     <classEntry path="org.namesonnodes.flare.events.EntityClickEvent"/>
+    <classEntry path="org.namesonnodes.flare.test.FlareTest"/>
+    <classEntry path="org.namesonnodes.flare.test.PhylogenyVisualizationTest"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphImporter"/>
     <classEntry path="org.namesonnodes.phylo.Phylogeny"/>
