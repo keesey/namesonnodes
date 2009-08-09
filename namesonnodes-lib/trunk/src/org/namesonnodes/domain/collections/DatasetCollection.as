@@ -27,18 +27,21 @@ package org.namesonnodes.domain.collections
 		private const predecessors:Dictionary = new Dictionary();
 		private const successors:Dictionary = new Dictionary();
 		private const traversed:MutableSet = new HashSet();
-		public function DatasetCollection(datasets:Object)
+		public function DatasetCollection(entities:Object)
 		{
 			super();
-			for each (var dataset:Dataset in datasets)
-				this.datasets.add(dataset);
+			for each (var entity:Object in entities)
+				if (entity is Dataset)
+					this.datasets.add(entity as Dataset);
+				else if (entity is TaxonIdentifier)
+					addIdentifier(entity as TaxonIdentifier);
 			initIdentifiers();
 			initPhylogeny();
 			initDistances();
 		}
-		private function addIdentifier(id:TaxonIdentifier):void
+		public function addIdentifier(id:TaxonIdentifier):void
 		{
-			trace(id.qName.toString());
+			trace("[TAXON]", id.qName);
 			identifiers[id.qName.toString()] = id;
 		}
 		private function initIdentifiers():void
@@ -71,8 +74,8 @@ package org.namesonnodes.domain.collections
 			{
 				if (dataset.distanceRows.length == 0)
 					continue;
-				datasetDistances[dataset.qName.toString()] = new Dictionary();
-				var matrix:Dictionary = datasetDistances[dataset.qName.toString()]; 
+				var matrix:Dictionary = datasetDistances[dataset.qName.toString()]
+					= new Dictionary(); 
 				for each (var row:DistanceRow in dataset.distanceRows)
 					for each (var a:Node in interpretIdentifier(row.a))
 						for each (var b:Node in interpretIdentifier(row.b))
@@ -84,6 +87,7 @@ package org.namesonnodes.domain.collections
 									matrix[b] = new Dictionary();
 								matrix[a][b] = row.distance;
 								matrix[b][a] = row.distance;
+								trace("d(" + a + ", " + b + ") = " + row.distance);
 							}
 			}
 		}
@@ -94,7 +98,12 @@ package org.namesonnodes.domain.collections
 				if (a == b) return 0;
 				const matrix:Dictionary = datasetDistances[datasetQName];
 				if (matrix[a] is Dictionary)
+				{
+					trace("d_" + datasetQName + "(" + a + ", " + b + ") = " + matrix[a][b]);
 					return matrix[a][b] as Number;
+				}
+				else
+					trace(a + " is not in the matrix.");
 			}
 			return NaN;
 		}
@@ -113,7 +122,7 @@ package org.namesonnodes.domain.collections
 			{
 				if (traversed.has(a2))
 					continue;
-				d = generationDistance(a2 as Node, b);
+				d = generationDistance(a2 as Node, b) + generationDistances[a][a2];
 				if (d >= 0)
 					distances.push(d);
 			}
@@ -189,6 +198,9 @@ package org.namesonnodes.domain.collections
 							}
 							break;
 						}
+			for each (var id:TaxonIdentifier in identifiers)
+				if (!n.identifiers.has(id) && n.taxa.has(id.entity))
+					n.addIdentifier(id);
 			return n;
 		}
 		public function interpretQName(qName:String):FiniteSet /* .<Node> */

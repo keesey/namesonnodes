@@ -30,7 +30,7 @@ package org.namesonnodes.domain.factories.xml
 		{
 			return _useEntity;
 		}
-		public function useDictionary(d:Dictionary):void
+		public function useDictionary(d:Dictionary):Boolean
 		{
 			throw new AbstractMethodError();
 		}

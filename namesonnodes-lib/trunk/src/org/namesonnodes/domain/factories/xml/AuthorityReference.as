@@ -14,12 +14,15 @@ package org.namesonnodes.domain.factories.xml
 				throw new ArgumentError("Null URI.");
 			_uri = uri;
 		}
-		override public function useDictionary(d:Dictionary) : void
+		override public function useDictionary(d:Dictionary) : Boolean
 		{
 			const i:AuthorityIdentifier = d[_uri] as AuthorityIdentifier;
 			if (i == null)
 				throw new Error("No authority found for URI <" + _uri + ">.");
+			if (useEntity && i.entity == null)
+				return false;
 			source[property] = useEntity ? i.entity : i;
+			return true;
 		}
 	}
 }

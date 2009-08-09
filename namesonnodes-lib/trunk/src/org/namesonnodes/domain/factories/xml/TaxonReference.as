@@ -14,12 +14,15 @@ package org.namesonnodes.domain.factories.xml
 				throw new ArgumentError("Null qualified name.");
 			_qName = qName.toString();
 		}
-		override public function useDictionary(d:Dictionary) : void
+		override public function useDictionary(d:Dictionary) : Boolean
 		{
 			const i:TaxonIdentifier = d[_qName] as TaxonIdentifier;
 			if (i == null)
 				throw new Error("No taxon found for qualified name <" + _qName + ">.");
+			if (useEntity && i.entity == null)
+				return false;
 			source[property] = useEntity ? i.entity : i;
+			return true;
 		}
 	}
 }

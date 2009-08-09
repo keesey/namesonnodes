@@ -24,6 +24,7 @@
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TreesBlock"/>
     <classEntry path="org.namesonnodes.domain.collections.DatasetCollection"/>
     <classEntry path="org.namesonnodes.domain.collections.Node"/>
+    <classEntry path="org.namesonnodes.domain.collections.test.DatasetCollectionTest"/>
     <classEntry path="org.namesonnodes.domain.entities.AbstractQualified"/>
     <classEntry path="org.namesonnodes.domain.entities.Authority"/>
     <classEntry path="org.namesonnodes.domain.entities.AuthorityIdentifier"/>

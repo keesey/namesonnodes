@@ -9,7 +9,6 @@ package org.namesonnodes.domain.collections.test
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
 	import org.namesonnodes.domain.collections.Node;
-	import org.namesonnodes.domain.entities.Dataset;
 	import org.namesonnodes.domain.entities.TaxonIdentifier;
 	import org.namesonnodes.domain.factories.xml.EntityFactory;
 
@@ -17,41 +16,35 @@ package org.namesonnodes.domain.collections.test
 	{
 		[Embed(source="entities.xml",mimeType="application/octet-stream")]
 		public static var source:Class;
-		private var datasets:Vector.<Dataset>;
+		private var entities:Vector.<Persistent>;
 		public function DatasetCollectionTest(methodName:String=null)
 		{
 			super(methodName);
 		}
-		private static function createDatasets():Vector.<Dataset>
+		private static function createEntities():Vector.<Persistent>
 		{
-			const datasets:Vector.<Dataset> = new Vector.<Dataset>();
-			const entities:Vector.<Persistent> = new EntityFactory(readXMLBytes(new source() as ByteArray)).readEntities();
-			for each (var entity:Persistent in entities)
-				if (entity is Dataset)
-					datasets.push(entity as Dataset);
-			return datasets;
-		}
-		private static function readXMLBytes(bytes:ByteArray):XML
-		{
-			return new XML(bytes.readUTFBytes(bytes.length));
+			const bytes:ByteArray = new source() as ByteArray;
+			const xml:XML = new XML(bytes.readUTFBytes(bytes.length));
+			const factory:EntityFactory = new EntityFactory(xml);
+			return factory.readEntities();
 		}
 		override public function setUp() : void
 		{
 			super.setUp();
-			datasets = createDatasets();
+			entities = createEntities();
 		}
 		override public function tearDown() : void
 		{
 			super.tearDown();
-			datasets = null;
+			entities = null;
 		}
 		public function testDatasetCollection():void
 		{
-			new DatasetCollection(datasets);
+			new DatasetCollection(entities);
 		}
 		public function testDatasetDistance():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(datasets);
+			const collection:DatasetCollection = new DatasetCollection(entities);
 			const Homo:Node = collection.interpretQName("org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:Homo").singleMember as Node; 
 			assertNotNull(Homo);
 			const Pan:Node = collection.interpretQName("org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:Pan").singleMember as Node; 
@@ -65,7 +58,7 @@ package org.namesonnodes.domain.collections.test
 		
 		public function testGenerationDistance():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(datasets);
+			const collection:DatasetCollection = new DatasetCollection(entities);
 			const Homo:Node = collection.interpretQName("org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:Homo").singleMember as Node; 
 			assertNotNull(Homo);
 			const Pan:Node = collection.interpretQName("org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:Pan").singleMember as Node; 
@@ -78,7 +71,7 @@ package org.namesonnodes.domain.collections.test
 		
 		public function testImmediatePredecessors():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(datasets);
+			const collection:DatasetCollection = new DatasetCollection(entities);
 			const Homo:FiniteSet = collection.interpretQName("org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:Homo"); 
 			assertEquals(1, Homo.size);
 			const prc:FiniteSet = collection.immediatePredecessors(Homo.singleMember as Node);
@@ -87,7 +80,7 @@ package org.namesonnodes.domain.collections.test
 		
 		public function testImmediateSuccessors():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(datasets);
+			const collection:DatasetCollection = new DatasetCollection(entities);
 			const anc:FiniteSet = collection.interpretQName("org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::htu:0"); 
 			assertEquals(1, anc.size);
 			const suc:FiniteSet = collection.immediateSuccessors(anc.singleMember as Node);
@@ -96,7 +89,7 @@ package org.namesonnodes.domain.collections.test
 		}
 		public function testInterpretQName():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(datasets);
+			const collection:DatasetCollection = new DatasetCollection(entities);
 			const Homo:FiniteSet = collection.interpretQName("org.namesonnodes.domain.factories.xml.test.EntityFactoryTest::otu:Homo"); 
 			assertNotNull(Homo);
 			assertEquals(Homo.size, 1);

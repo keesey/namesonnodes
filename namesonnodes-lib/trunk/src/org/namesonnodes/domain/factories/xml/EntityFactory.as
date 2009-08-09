@@ -14,8 +14,8 @@ package org.namesonnodes.domain.factories.xml
 	{
 		internal const dictionary:Dictionary = new Dictionary();
 		private const readers:Dictionary = new Dictionary();
-		internal const authorityReferences:Vector.<AuthorityReference> = new Vector.<AuthorityReference>();
-		internal const taxonReferences:Vector.<TaxonReference> = new Vector.<TaxonReference>();
+		internal const authorityReferences:Vector.<IdentifierReference> = new Vector.<IdentifierReference>();
+		internal const taxonReferences:Vector.<IdentifierReference> = new Vector.<IdentifierReference>();
 		[Bindable]
 		public var source:XML;
 		public function EntityFactory(source:XML = null)
@@ -58,11 +58,24 @@ package org.namesonnodes.domain.factories.xml
 			for each (var entitySource:XML in this.source.children())
 				if (entitySource.nodeKind() == XMLNodeKind.ELEMENT)
 					entities[i++] = readEntity(entitySource);
-			while (authorityReferences.length != 0)
-				authorityReferences.pop().useDictionary(dictionary);
-			while (taxonReferences.length != 0)
-				taxonReferences.pop().useDictionary(dictionary);
+			resolveReferences(authorityReferences);
+			resolveReferences(taxonReferences);
 			return entities;
+		}
+		private function resolveReferences(refs:Vector.<IdentifierReference>):void
+		{
+			const l:uint = refs.length;
+			if (l == 0)
+				return;
+			const remainingRefs:Vector.<IdentifierReference> = new Vector.<IdentifierReference>();
+			for each (var ref:IdentifierReference in refs)
+			{
+				if (!ref.useDictionary(dictionary))
+					remainingRefs.push(ref);
+			}
+			if (remainingRefs.length == l)
+				throw new Error("Circular reference detected in entity data.");
+			resolveReferences(remainingRefs);
 		}
 	}
 }

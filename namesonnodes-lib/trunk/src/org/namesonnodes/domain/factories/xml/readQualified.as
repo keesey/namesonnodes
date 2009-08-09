@@ -10,7 +10,7 @@ package org.namesonnodes.domain.factories.xml
 	use namespace non_entities;
 
 	internal function readQualified(source:XML, entity:AbstractQualified,
-		qNameDictionary:Dictionary, references:Vector.<AuthorityReference>,
+		qNameDictionary:Dictionary, references:Vector.<IdentifierReference>,
 		authorityIdentifierReader:EntityReader):void
 	{
 		default xml namespace = Entities.URI;

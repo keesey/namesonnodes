@@ -200,7 +200,7 @@
 						<rank>genus</rank>
 						<level>2.0</level>
 						<types>
-							<refTaxon>urn:isbn:0853010064::Pan+troglodytes</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
 						</types>
 					</RankDefinition>
 				</definition>
@@ -355,7 +355,7 @@
 							</Label>
 						</label>
 						<entity>
-							<refTaxon>urn:isbn:0853010064::Pan+troglodytes</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
 						</entity>
 					</TaxonIdentifier>
 				</successor>
