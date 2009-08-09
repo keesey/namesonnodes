@@ -24,30 +24,7 @@ package org.namesonnodes.domain.factories.xml
 			initReaders();
 			this.source = source;
 		}
-		private function initReaders():void
-		{
-			const authorityIdentifierReader:EntityReader = new AuthorityIdentifierReader(this);
-			const taxonIdentifierReader:EntityReader = new TaxonIdentifierReader(this, authorityIdentifierReader);
-			readers["AuthorityIdentifier"] = authorityIdentifierReader;
-			readers["Dataset"] = new DatasetReader(this, authorityIdentifierReader, taxonIdentifierReader);
-			readers["TaxonIdentifier"] = taxonIdentifierReader;
-		}
-		public function newInstance():*
-		{
-			return readEntities();
-		}
-		protected function readEntity(source:XML):Persistent
-		{
-			if (source == null || source.name() == null)
-				return null;
-			if (QName(source.name()).uri != Entities.URI)
-				throw new ArgumentError("Unrecognized namespace: <" + QName(source.name()).uri + ">.");
-			const reader:EntityReader = readers[source.localName()] as EntityReader;
-			if (reader == null)
-				throw new ArgumentError("Unrecognized node name: <" + source.name() + ">.");
-			return reader.readEntity(source);
-		}
-		public function readEntities(source:XML = null):Vector.<Persistent>
+		public function createEntities(source:XML = null):Vector.<Persistent>
 		{
 			if (source != null)
 				this.source = source;
@@ -61,6 +38,29 @@ package org.namesonnodes.domain.factories.xml
 			resolveReferences(authorityReferences);
 			resolveReferences(taxonReferences);
 			return entities;
+		}
+		private function initReaders():void
+		{
+			const authorityIdentifierReader:EntityReader = new AuthorityIdentifierReader(this);
+			const taxonIdentifierReader:EntityReader = new TaxonIdentifierReader(this, authorityIdentifierReader);
+			readers["AuthorityIdentifier"] = authorityIdentifierReader;
+			readers["Dataset"] = new DatasetReader(this, authorityIdentifierReader, taxonIdentifierReader);
+			readers["TaxonIdentifier"] = taxonIdentifierReader;
+		}
+		public function newInstance():*
+		{
+			return createEntities();
+		}
+		protected function readEntity(source:XML):Persistent
+		{
+			if (source == null || source.name() == null)
+				return null;
+			if (QName(source.name()).uri != Entities.URI)
+				throw new ArgumentError("Unrecognized namespace: <" + QName(source.name()).uri + ">.");
+			const reader:EntityReader = readers[source.localName()] as EntityReader;
+			if (reader == null)
+				throw new ArgumentError("Unrecognized node name: <" + source.name() + ">.");
+			return reader.readEntity(source);
 		}
 		private function resolveReferences(refs:Vector.<IdentifierReference>):void
 		{

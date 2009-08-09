@@ -14,11 +14,11 @@ package org.namesonnodes.domain.collections.test
 
 	public class DatasetCollectionTest extends TestCase
 	{
-		[Embed(source="entities.xml",mimeType="application/octet-stream")]
-		public static var source:Class;
+		[Embed(source="entities1.xml",mimeType="application/octet-stream")]
+		public static var source1:Class;
 		[Embed(source="entities2.xml",mimeType="application/octet-stream")]
 		public static var source2:Class;
-		private var entities:Vector.<Persistent>;
+		private var entities1:Vector.<Persistent>;
 		private var entities2:Vector.<Persistent>;
 		public function DatasetCollectionTest(methodName:String=null)
 		{
@@ -26,37 +26,37 @@ package org.namesonnodes.domain.collections.test
 		}
 		private static function createEntities():Vector.<Persistent>
 		{
-			const bytes:ByteArray = new source() as ByteArray;
+			const bytes:ByteArray = new source1() as ByteArray;
 			const xml:XML = new XML(bytes.readUTFBytes(bytes.length));
 			const factory:EntityFactory = new EntityFactory(xml);
-			return factory.readEntities();
+			return factory.createEntities();
 		}
 		private static function createEntities2():Vector.<Persistent>
 		{
 			const bytes:ByteArray = new source2() as ByteArray;
 			const xml:XML = new XML(bytes.readUTFBytes(bytes.length));
 			const factory:EntityFactory = new EntityFactory(xml);
-			return factory.readEntities();
+			return factory.createEntities();
 		}
 		override public function setUp() : void
 		{
 			super.setUp();
-			entities = createEntities();
+			entities1 = createEntities();
 			entities2 = createEntities2();
 		}
 		override public function tearDown() : void
 		{
 			super.tearDown();
-			entities = null;
+			entities1 = null;
 			entities2 = null;
 		}
 		public function testDatasetCollection():void
 		{
-			new DatasetCollection(entities);
+			new DatasetCollection(entities1);
 		}
 		public function testDatasetDistance():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(entities);
+			const collection:DatasetCollection = new DatasetCollection(entities1);
 			const Homo:Node = collection.interpretQName("urn:isbn:0853010064::Homo").singleMember as Node; 
 			assertNotNull(Homo);
 			const Pan:Node = collection.interpretQName("urn:isbn:0853010064::Pan").singleMember as Node; 
@@ -70,7 +70,7 @@ package org.namesonnodes.domain.collections.test
 		
 		public function testGenerationDistance():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(entities);
+			const collection:DatasetCollection = new DatasetCollection(entities1);
 			const Homo:Node = collection.interpretQName("urn:isbn:0853010064::Homo").singleMember as Node; 
 			assertNotNull(Homo);
 			const Pan:Node = collection.interpretQName("urn:isbn:0853010064::Pan").singleMember as Node; 
@@ -82,7 +82,7 @@ package org.namesonnodes.domain.collections.test
 		}
 		public function testImmediatePredecessors():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(entities);
+			const collection:DatasetCollection = new DatasetCollection(entities1);
 			const Homo:FiniteSet = collection.interpretQName("urn:isbn:0853010064::Homo");
 			assertEquals(1, Homo.size);
 			const prc:FiniteSet = collection.immediatePredecessors(Homo.singleMember as Node);
@@ -97,7 +97,7 @@ package org.namesonnodes.domain.collections.test
 		}
 		public function testImmediateSuccessors():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(entities);
+			const collection:DatasetCollection = new DatasetCollection(entities1);
 			const anc:FiniteSet = collection.interpretQName("org.namesonnodes.domain.collections.test.DatasetCollectionTest::htu:0"); 
 			assertEquals(1, anc.size);
 			const suc:FiniteSet = collection.immediateSuccessors(anc.singleMember as Node);
@@ -105,7 +105,7 @@ package org.namesonnodes.domain.collections.test
 		}
 		public function testInterpretQName():void
 		{
-			const collection:DatasetCollection = new DatasetCollection(entities);
+			const collection:DatasetCollection = new DatasetCollection(entities1);
 			const Homo:FiniteSet = collection.interpretQName("urn:isbn:0853010064::Homo");
 			assertNotNull(Homo);
 			assertEquals(Homo.size, 1);

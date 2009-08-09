@@ -27,7 +27,7 @@ package org.namesonnodes.domain.factories.xml.test
 			const xml:XML = readXMLBytes(new source() as ByteArray);
 			assertEquals(18, xml.children().length());
 			const factory:EntityFactory = new EntityFactory(xml);
-			const entities:Vector.<Persistent> = factory.readEntities();
+			const entities:Vector.<Persistent> = factory.createEntities();
 			for each (var entity:Persistent in entities)
 			{
 				if (entity is AbstractQualified)

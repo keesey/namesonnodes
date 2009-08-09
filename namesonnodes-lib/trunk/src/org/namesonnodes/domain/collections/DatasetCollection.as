@@ -23,9 +23,12 @@ package org.namesonnodes.domain.collections
 		private const finest:Dictionary = new Dictionary();
 		private const generationDistances:Dictionary = new Dictionary();
 		private const identifiers:Dictionary = new Dictionary();
+		private const immediatePredecessorsTable:Dictionary = new Dictionary();
+		private const immediateSuccessorsTable:Dictionary = new Dictionary();
 		private const nodes:Dictionary = new Dictionary();
-		private const predecessors:Dictionary = new Dictionary();
-		private const successors:Dictionary = new Dictionary();
+		private const precedence:Dictionary = new Dictionary();
+		private const predecessorsTable:Dictionary = new Dictionary();
+		private const successorsTable:Dictionary = new Dictionary();
 		private const traversed:MutableSet = new HashSet();
 		public function DatasetCollection(entities:Object)
 		{
@@ -137,14 +140,14 @@ package org.namesonnodes.domain.collections
 		}
 		public function immediatePredecessors(n:Node):FiniteSet
 		{
-			const r:* = predecessors[n];
+			const r:* = immediatePredecessorsTable[n];
 			if (r is FiniteSet)
 				return r as FiniteSet;
 			return EmptySet.INSTANCE;
 		}
 		public function immediateSuccessors(n:Node):FiniteSet
 		{
-			const r:* = successors[n];
+			const r:* = immediateSuccessorsTable[n];
 			if (r is FiniteSet)
 				return r as FiniteSet;
 			return EmptySet.INSTANCE;
@@ -223,18 +226,33 @@ package org.namesonnodes.domain.collections
 					for each (var prcNode:Node in prc)
 						for each (var sucNode:Node in suc)
 						{
-							var s:* = predecessors[sucNode];
+							if (prcNode == sucNode)
+								throw new ArgumentError("Phylogeny contains a loop.");
+							var t:* = precedence[sucNode];
+							if (!(t is Dictionary))
+								t = precedence[sucNode] = new Dictionary();
+							t[prcNode] = true;
+							t = precedence[prcNode];
+							if (t is Dictionary)
+							{
+								if (t[sucNode] === true)
+									throw new ArgumentError("Phylogeny contains a cycle.");
+							}
+							else
+								t = precedence[prcNode] = new Dictionary();
+							t[sucNode] = false;
+							var s:* = immediatePredecessorsTable[sucNode];
 							if (!(s is MutableSet))
 							{
 								s = new HashSet();
-								predecessors[sucNode] = s;
+								immediatePredecessorsTable[sucNode] = s;
 							}
 							MutableSet(s).add(prcNode)
-							s = successors[prcNode];
+							s = immediateSuccessorsTable[prcNode];
 							if (!(s is MutableSet))
 							{
 								s = new HashSet();
-								successors[prcNode] = s;
+								immediateSuccessorsTable[prcNode] = s;
 							}
 							MutableSet(s).add(sucNode);
 							if (useDistances)
@@ -269,6 +287,88 @@ package org.namesonnodes.domain.collections
 				f.add(node);
 			finest[node] = f;
 			return f;
+		}
+		public function precedes(a:Node, b:Node):Boolean
+		{
+			if (a == b || a == null || b == null)
+				return false;
+			var t:* = precedence[b];
+			var v:*;
+			if (t is Dictionary)
+			{
+				v = t[a];
+				if (v === true)
+					return true;
+				if (v === false)
+					return false;
+			}
+			const parents:FiniteSet = immediatePredecessors(b);
+			if (parents.empty)
+				v = false;
+			else
+			{
+				for each (var parent:Node in parents)
+					if (precedes(a, parent))
+					{
+						v = true;
+						break;
+					}
+				v = false;
+			}
+			t[a] = v;
+			if (v)
+			{
+				t = precedence[a];
+				if (t is Dictionary)
+				{
+					if (t[b] === true)
+						throw new ArgumentError("Phylogeny contains a cycle.");
+				}
+				else
+					t = precedence[a] = new Dictionary();
+				t[b] = false;
+			}
+			return v;
+		}
+		public function precedesOrEquals(a:Node, b:Node):Boolean
+		{
+			if (a == b)
+				return true;
+			return precedes(a, b);
+		}
+		public function predecessors(x:Node):FiniteSet /*.<Node>*/
+		{
+			const r:* = predecessorsTable[x];
+			if (r is FiniteSet)
+				return r as FiniteSet;
+			const result:MutableSet = HashSet.createSingleton(x);
+			for each (var parent:Node in immediatePredecessors(x))
+			{
+				result.addMembers(predecessors(parent));
+			}
+			predecessorsTable[x] = result;
+			return result;
+		}
+		public function succeeds(a:Node, b:Node):Boolean
+		{
+			return precedes(b, a);
+		}
+		public function succeedsOrEquals(a:Node, b:Node):Boolean
+		{
+			if (a == b)
+				return true;
+			return precedes(b, a);
+		}
+		public function successors(x:Node):FiniteSet /*.<Node>*/
+		{
+			const r:* = successorsTable[x];
+			if (r is FiniteSet)
+				return r as FiniteSet;
+			const result:MutableSet = HashSet.createSingleton(x);
+			for each (var child:Node in immediateSuccessors(x))
+				result.addMembers(successors(child));
+			predecessorsTable[x] = result;
+			return result;
 		}
 	}
 }
