@@ -12,11 +12,11 @@ package org.namesonnodes.math.operations
 	import org.namesonnodes.domain.collections.DatasetCollection;
 	import org.namesonnodes.domain.collections.Node;
 
-	public final class PredecessorUnion extends AbstractOperation
+	public final class SuccessorUnion extends AbstractOperation
 	{
 		internal var datasetCollection:DatasetCollection;
 		private const calcTable:CalcTable = new CalcTable();
-		public function PredecessorUnion(datasetCollection:DatasetCollection)
+		public function SuccessorUnion(datasetCollection:DatasetCollection)
 		{
 			super();
 			assertNotNull(datasetCollection);
@@ -25,19 +25,19 @@ package org.namesonnodes.math.operations
 		override public function apply(args:Array) : Object
 		{
 			if (!checkArguments(args, FiniteSet, 1, 1))
-				throw new MathMLError("Invalid arguments for 'PredecessorUnion' operation.");
+				throw new MathMLError("Invalid arguments for 'SuccessorUnion' operation.");
 			const s:FiniteSet = args[0] as FiniteSet;
 			if (s.empty)
 				return EmptySet.INSTANCE;
 			if (s.size == 1)
-				return datasetCollection.predecessors(s.singleMember as Node);
+				return datasetCollection.successors(s.singleMember as Node);
 			const a:Array = [CalcTable.argumentsToToken(s.toArray())];
 			const r:* = calcTable.getResult(this, a);
 			if (r is FiniteSet)
 				return r;
 			const result:MutableSet = new HashSet();
 			for each (var x:Node in s)
-				result.addMembers(datasetCollection.predecessors(x));
+				result.addMembers(datasetCollection.successors(x));
 			calcTable.setResult(this, a, result);
 			return result;
 		}

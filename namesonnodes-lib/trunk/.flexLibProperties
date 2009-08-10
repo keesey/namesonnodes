@@ -85,6 +85,7 @@
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.DatasetCollectionFactory"/>
     <classEntry path="org.namesonnodes.math.operations.Maximal"/>
+    <classEntry path="org.namesonnodes.math.operations.NodeBasedCladogen"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

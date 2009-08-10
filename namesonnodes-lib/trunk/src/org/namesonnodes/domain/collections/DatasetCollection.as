@@ -1,9 +1,11 @@
 package org.namesonnodes.domain.collections
 {
 	import a3lbmonkeybrain.brainstem.collections.EmptySet;
+	import a3lbmonkeybrain.brainstem.collections.FiniteList;
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.collections.HashSet;
 	import a3lbmonkeybrain.brainstem.collections.MutableSet;
+	import a3lbmonkeybrain.brainstem.collections.VectorList;
 	
 	import flash.utils.Dictionary;
 	
@@ -26,6 +28,7 @@ package org.namesonnodes.domain.collections
 		private const immediatePredecessorsTable:Dictionary = new Dictionary();
 		private const immediateSuccessorsTable:Dictionary = new Dictionary();
 		private const nodes:Dictionary = new Dictionary();
+		private const pathsTable:Dictionary = new Dictionary();
 		private const precedence:Dictionary = new Dictionary();
 		private const predecessorsTable:Dictionary = new Dictionary();
 		private const successorsTable:Dictionary = new Dictionary();
@@ -287,6 +290,29 @@ package org.namesonnodes.domain.collections
 				f.add(node);
 			finest[node] = f;
 			return f;
+		}
+		public function paths(prc:Node, suc:Node):FiniteSet /* .<FiniteList.<Node>> */
+		{
+			if (pathsTable[prc] is Dictionary)
+			{
+				const r:* = pathsTable[prc][suc];
+				if (r is FiniteSet)
+					return r as FiniteSet;
+			}
+			else
+				pathsTable[prc] = new Dictionary();
+			if (prc == suc)
+				return HashSet.createSingleton(VectorList.fromObject([prc]));
+			const result:MutableSet = new HashSet();
+			for each (var prc2:Node in immediatePredecessors(suc))
+			{
+				for each (var subpath:FiniteList in paths(prc, prc2))
+				{
+					subpath = VectorList.fromObject(subpath.toVector().concat(suc));
+					result.add(subpath);
+				}
+			}
+			return (pathsTable[prc][suc] = result.empty ? EmptySet.INSTANCE : result) as FiniteSet;
 		}
 		public function precedes(a:Node, b:Node):Boolean
 		{

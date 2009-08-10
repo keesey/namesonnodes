@@ -14,7 +14,7 @@ package org.namesonnodes.math.operations
 
 	public final class Minimal extends AbstractOperation
 	{
-		private var datasetCollection:DatasetCollection;
+		internal var datasetCollection:DatasetCollection;
 		private const calcTable:CalcTable = new CalcTable();
 		public function Minimal(datasetCollection:DatasetCollection)
 		{
