@@ -4,6 +4,8 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
+	
+	import org.namesonnodes.domain.collections.DatasetCollection;
 
 	public final class CrownGroup extends AbstractOperation
 	{
@@ -14,6 +16,10 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(nodeBasedClade);
 			this.nodeBasedClade = nodeBasedClade;
+		}
+		internal function get datasetCollection():DatasetCollection
+		{
+			return nodeBasedClade.datasetCollection;
 		}
 		override public function apply(args:Array) : Object
 		{

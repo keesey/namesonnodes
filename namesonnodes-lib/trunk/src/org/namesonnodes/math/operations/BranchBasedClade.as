@@ -5,6 +5,8 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
+	
+	import org.namesonnodes.domain.collections.DatasetCollection;
 
 	public final class BranchBasedClade extends AbstractOperation
 	{
@@ -12,7 +14,7 @@ package org.namesonnodes.math.operations
 		private var predecessorIntersection:PredecessorIntersection;
 		private var predecessorUnion:PredecessorUnion;
 		private var successorUnion:SuccessorUnion;
-		public function BranchBasedCladogen(successorUnion:SuccessorUnion, predecessorUnion:PredecessorUnion, predecessorIntersection:PredecessorIntersection)
+		public function BranchBasedClade(successorUnion:SuccessorUnion, predecessorUnion:PredecessorUnion, predecessorIntersection:PredecessorIntersection)
 		{
 			super();
 			assertNotNull(successorUnion);
@@ -23,6 +25,10 @@ package org.namesonnodes.math.operations
 			this.successorUnion = successorUnion;
 			this.predecessorUnion = predecessorUnion;
 			this.predecessorIntersection = predecessorIntersection;
+		}
+		internal function get datasetCollection():DatasetCollection
+		{
+			return successorUnion.datasetCollection;
 		}
 		override public function apply(args:Array) : Object
 		{

@@ -90,6 +90,10 @@
     <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedCladogen"/>
     <classEntry path="org.namesonnodes.math.operations.Clade"/>
     <classEntry path="org.namesonnodes.math.operations.CrownGroup"/>
+    <classEntry path="org.namesonnodes.math.operations.NamesOnNodesOperationResolver"/>
+    <classEntry path="org.namesonnodes.math.operations.NodeBranchTriple"/>
+    <classEntry path="org.namesonnodes.math.resolve.NamesOnNodesEntityResolver"/>
+    <classEntry path="org.namesonnodes.math.resolve.NamesOnNodesResolver"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

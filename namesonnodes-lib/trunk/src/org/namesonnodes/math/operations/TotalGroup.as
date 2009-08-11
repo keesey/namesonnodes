@@ -1,4 +1,4 @@
-package org.namesonbranchs.math.operations
+package org.namesonnodes.math.operations
 {
 	import a3lbmonkeybrain.brainstem.assert.assertNotNull;
 	import a3lbmonkeybrain.brainstem.collections.EmptySet;
@@ -33,23 +33,25 @@ package org.namesonbranchs.math.operations
 				return getUnresolvableArgument(args);
 			const specifiers:FiniteSet = args[0] as FiniteSet;
 			const extant:FiniteSet = args[1] as FiniteSet;
-			const a:Array = [CalcTable.argumentsToToken(specifiers.toArray()), CalcTable.argumentsToToken(extant.toArray())];
+			const a:Array = [CalcTable.argumentsToToken(specifiers.toArray()),
+				CalcTable.argumentsToToken(extant.toArray())];
 			const r:* = calcTable.getResult(this, a);
 			if (r is FiniteSet)
 				return r as FiniteSet;
-			const crown:FiniteSet = crownGroup.apply(args);
+			const crown:FiniteSet = crownGroup.apply(args) as FiniteSet;
 			var result:FiniteSet;
 			if (crown.empty)
 				result = EmptySet.INSTANCE;
 			else
 				result = branchBasedClade.apply([crown,
-					extant.intersect(datasetCollection.universalTaxon.diff(crown))]);
+					extant.intersect(datasetCollection.universalTaxon.diff(crown))])
+					as FiniteSet;
 			calcTable.setResult(this, a, result);
 			return result;
 		}
 		public function toString():String 
 		{
-			return "total group"
+			return "total group";
 		}
 	}
 }
