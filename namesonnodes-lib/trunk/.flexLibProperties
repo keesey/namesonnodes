@@ -86,6 +86,10 @@
     <classEntry path="org.namesonnodes.domain.factories.xml.DatasetCollectionFactory"/>
     <classEntry path="org.namesonnodes.math.operations.Maximal"/>
     <classEntry path="org.namesonnodes.math.operations.NodeBasedCladogen"/>
+    <classEntry path="org.namesonnodes.math.operations.BranchBasedCladogen"/>
+    <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedCladogen"/>
+    <classEntry path="org.namesonnodes.math.operations.Clade"/>
+    <classEntry path="org.namesonnodes.math.operations.CrownGroup"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

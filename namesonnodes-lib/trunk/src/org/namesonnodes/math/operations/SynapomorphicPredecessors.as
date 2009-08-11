@@ -6,10 +6,11 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.collections.HashSet;
 	import a3lbmonkeybrain.brainstem.collections.MutableCollection;
-	import a3lbmonkeybrain.brainstem.w3c.mathml.MathMLError;
+	import a3lbmonkeybrain.brainstem.collections.Set;
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
+	import org.namesonnodes.domain.collections.DatasetCollection;
 	import org.namesonnodes.domain.collections.Node;
 
 	public final class SynapomorphicPredecessors extends AbstractOperation
@@ -21,6 +22,10 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(predecessorIntersection);
 			this.predecessorIntersection = predecessorIntersection;
+		}
+		internal function get datasetCollection():DatasetCollection
+		{
+			return predecessorIntersection.datasetCollection;
 		}
 		private function isCommonSynapomorphicPredecessor(prc:Node,
 			representative:FiniteSet, apomorphic:FiniteSet):Boolean
@@ -45,11 +50,16 @@ package org.namesonnodes.math.operations
 		override public function apply(args:Array) : Object
 		{
 			if (!checkArguments(args, FiniteSet, 2, 2))
-				throw new MathMLError("Invalid arguments for 'SynapomorphicPredecessors' operation.");
+				return getUnresolvableArgument(args);
 			const apomorphic:FiniteSet = args[0] as FiniteSet;
 			const representative:FiniteSet = args[1] as FiniteSet;
 			if (apomorphic.empty || representative.empty)
 				return EmptySet.INSTANCE;
+			const a:Array = [CalcTable.argumentsToToken(apomorphic.toArray()),
+				CalcTable.argumentsToToken(representative.toArray())];
+			const r:* = calcTable.getResult(this, a);
+			if (r is FiniteSet)
+				return r as FiniteSet;
 			var result:FiniteSet;
 			if (!representative.subsetOf(apomorphic))
 				result = EmptySet.INSTANCE;
@@ -70,6 +80,10 @@ package org.namesonnodes.math.operations
 			}
 			calcTable.setResult(this, a, result);
 			return result;
+		}
+		public function toString():String
+		{
+			return "synapomorphic predecessors";
 		}
 	}
 }

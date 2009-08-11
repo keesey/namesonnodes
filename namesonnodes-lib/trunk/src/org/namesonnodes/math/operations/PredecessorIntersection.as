@@ -24,7 +24,7 @@ package org.namesonnodes.math.operations
 		override public function apply(args:Array) : Object
 		{
 			if (!checkArguments(args, FiniteSet, 1, 1))
-				throw new MathMLError("Invalid arguments for 'PredecessorIntersection' operation.");
+				return getUnresolvableArgument(args);
 			const s:FiniteSet = args[0] as FiniteSet;
 			if (s.empty)
 				return EmptySet.INSTANCE;
@@ -51,6 +51,10 @@ package org.namesonnodes.math.operations
 			}
 			calcTable.setResult(this, a, result);
 			return result;
+		}
+		public function toString():String
+		{
+			return "predecessor intersection";
 		}
 	}
 }

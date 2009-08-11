@@ -20,6 +20,7 @@ package org.namesonnodes.domain.collections
 
 	public final class DatasetCollection
 	{
+		private var allFinestNodes:FiniteSet;
 		private const datasetDistances:Dictionary = new Dictionary();
 		private const datasets:MutableSet = new HashSet();
 		private const finest:Dictionary = new Dictionary();
@@ -44,6 +45,16 @@ package org.namesonnodes.domain.collections
 			initIdentifiers();
 			initPhylogeny();
 			initDistances();
+		}
+		public function get universalTaxon():FiniteSet
+		{
+			if (allFinestNodes == null)
+			{
+				allFinestNodes = EmptySet.INSTANCE;
+				for each (var identifier:TaxonIdentifier in identifiers)
+					allFinestNodes = allFinestNodes.union(interpretIdentifier(identifier)) as FiniteSet;
+			}
+			return allFinestNodes;
 		}
 		public function addIdentifier(id:TaxonIdentifier):void
 		{

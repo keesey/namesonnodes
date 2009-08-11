@@ -4,7 +4,6 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.brainstem.collections.EmptySet;
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.collections.HashSet;
-	import a3lbmonkeybrain.brainstem.w3c.mathml.MathMLError;
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
@@ -24,7 +23,7 @@ package org.namesonnodes.math.operations
 		override public function apply(args:Array) : Object
 		{
 			if (!checkArguments(args, FiniteSet, 1, 1))
-				throw new MathMLError("Invalid arguments for 'SuccessorIntersection' operation.");
+				return getUnresolvableArgument(args);
 			const s:FiniteSet = args[0] as FiniteSet;
 			if (s.empty)
 				return EmptySet.INSTANCE;
@@ -41,7 +40,7 @@ package org.namesonnodes.math.operations
 					result = HashSet.fromObject(datasetCollection.successors(x));
 				else
 				{
-					result = result.intersect(datasetCollection.successors(x));
+					result = result.intersect(datasetCollection.successors(x)) as FiniteSet;
 					if (result.empty)
 					{
 						result = EmptySet.INSTANCE;
@@ -51,6 +50,10 @@ package org.namesonnodes.math.operations
 			}
 			calcTable.setResult(this, a, result);
 			return result;
+		}
+		public function toString():String
+		{
+			return "successor intersection";
 		}
 	}
 }
