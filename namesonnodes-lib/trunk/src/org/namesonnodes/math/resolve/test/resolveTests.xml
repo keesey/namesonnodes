@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd">
+	
+	<apply>
+		<eq/>
+		<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:0"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:1"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:2"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:3"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:4"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:5"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:6"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:7"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:8"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:9"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:10"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:11"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:12"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:13"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:14"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:15"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:16"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:17"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:18"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:19"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:20"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:21"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:22"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:23"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:24"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:25"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:26"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:27"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:28"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:29"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:aeth"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afar"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afri"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:erec"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:erga"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:flor"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:habi"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:heid"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:nean"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:pani"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:rami"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:tuge"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:trog"/>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Maximal"/>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/>
+		</apply>
+		<set>
+		</set>
+	</apply>
+	
+</math>

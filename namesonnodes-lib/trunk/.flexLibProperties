@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties version="1">
   <includeClasses>
     <classEntry path="org.namesonnodes.commands.AbstractCommandFlow"/>
@@ -90,10 +90,10 @@
     <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedCladogen"/>
     <classEntry path="org.namesonnodes.math.operations.Clade"/>
     <classEntry path="org.namesonnodes.math.operations.CrownGroup"/>
-    <classEntry path="org.namesonnodes.math.operations.NamesOnNodesOperationResolver"/>
+    <classEntry path="org.namesonnodes.math.operations.NoNOperationResolver"/>
     <classEntry path="org.namesonnodes.math.operations.NodeBranchTriple"/>
-    <classEntry path="org.namesonnodes.math.resolve.NamesOnNodesEntityResolver"/>
-    <classEntry path="org.namesonnodes.math.resolve.NamesOnNodesResolver"/>
+    <classEntry path="org.namesonnodes.math.resolve.NoNEntityResolver"/>
+    <classEntry path="org.namesonnodes.math.resolve.NoNResolver"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

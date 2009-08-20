@@ -9,12 +9,12 @@ package org.namesonnodes.math.operations
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
 
-	public final class NamesOnNodesOperationResolver extends AbstractOperationResolver
+	public final class NoNOperationResolver extends AbstractOperationResolver
 	{
 		private static const DEFINITION_URL_PATTERN:RegExp = /^http:\/\/namesonnodes.org\/ns\/math\/2009#def-/;
 		private static const DEFINITION_HEADER:String = "http://namesonnodes.org/ns/math/2009#def-";
 		private const operations:Dictionary = new Dictionary();
-		public function NamesOnNodesOperationResolver(datasetCollection:DatasetCollection)
+		public function NoNOperationResolver(datasetCollection:DatasetCollection)
 		{
 			super();
 			initOperations(datasetCollection);

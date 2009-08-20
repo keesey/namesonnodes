@@ -1,0 +1,3614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities xmlns="http://namesonnodes.org/ns/entities/2009"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd">
+
+	<!--  BEGIN AUTHORITIES -->
+
+	<AuthorityIdentifier uri="org.namesonnodes.math.resolve.test">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Names on Nodes Resolver Test</name>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="urn:isbn:0853010064">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>International Code of Zoological Nomenclature, Fourth Edition</name>
+						<abbr>ICZN 4</abbr>
+						<italics>true</italics>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://museums.or.ke">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>National Museums of Kenya</name>
+						<abbr>NMK</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="tel:+0112510111117150">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Ethiopian National Museum</name>
+						<abbr>ENM</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://houseofculture.or.tz">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>National Museum and House of Culture of Tanzania</name>
+						<abbr>TNMHC</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://web.wits.ac.za">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>University of the Witswatersrand, Johannesburg</name>
+						<abbr>Wits</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="tel:+27123227632">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Transvaal Museum</name>
+						<abbr>TM</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier id="902" uri="http://namesonnodes.org/entities/authorityidentifier/902">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Mahja Gada University, Jogjakarta</name>
+						<abbr>Mahja Gada</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://naturalis.nl">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>National Museum of Natural History, Netherlands</name>
+						<abbr>Naturalis</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://www.uni-heidelberg.de">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Universität Heidelberg</name>
+						<abbr>Heidelberg</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://www.rlmb.lvr.de">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Rheinisches Landsmuseum, Bonn</name>
+						<abbr>RLMB</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://www.uppsaladomkyrka.se">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Uppsala domkyrka</name>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+
+	<!-- END AUTHORITIES -->
+
+	<!--  BEGIN Taxa -->
+
+	<!--  BEGIN Taxonomic Units -->
+
+	<!--  BEGIN Hypothetical Taxonomic Units -->
+
+	<TaxonIdentifier localName="htu:0">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:1">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:2">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:3">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:4">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:5">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:6">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:7">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:8">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:9">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:10">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:11">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:12">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:13">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:14">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:15">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:0</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:16">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:2</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:17">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:18">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:19">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:6</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:20">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:21">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:22">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:9</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:23">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:10</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:24">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:25">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:13</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:26">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:27">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:28">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:2</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="htu:29">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>org.namesonnodes.math.resolve.test::htu:6</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+
+	<!--  END Hypothetical Taxonomic Units -->
+
+	<!--  BEGIN Operational Taxonomic Units -->
+
+	<TaxonIdentifier localName="otu:tuge">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Orrorin+tugenensis</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>tugenensis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:trog">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>troglodytes</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:pani">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Pan+paniscus</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>paniscus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:rami">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+ramidus</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>ramidus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:afar">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+afarensis</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>afarensis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:afri">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+africanus</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>africanus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:robu">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Paranthropus+robustus</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>robustus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:aeth">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+aethiopicus</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>aethiopicus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:bois">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>boisei</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:habi">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+habilis</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>habilis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:flor">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+floresiensis</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>floresiensis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:erga">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+ergaster</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>ergaster</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:erec">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Pithecanthropus+erectus</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>erectus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:heid">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+heidelbergensis</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>heidelbergensis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:nean">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+neanderthalensis</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>neanderthalensis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:sapi">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>sapiens</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+
+	<!--  END Operational Taxonomic Units -->
+
+	<!--  END Taxonomic Units -->
+
+	<!--  BEGIN Specimens -->
+
+	<TaxonIdentifier localName="BAR+1000%B400">
+		<authority>
+			<refAuthority>http://museums.or.ke</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Baringo 1000´00</name>
+				<abbr>BAR 1000´00</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="ARA-VP+6%2F1">
+		<authority>
+			<refAuthority>tel:+0112510111117150</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Aramis Vertebrate Paleontology 6/1</name>
+				<abbr>ARA-VP 6/1</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="LH+4">
+		<authority>
+			<refAuthority>http://houseofculture.or.tz</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Laetoli Hominid 4</name>
+				<abbr>LH 4</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Taung+1">
+		<authority>
+			<refAuthority>http://web.wits.ac.za</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Taung 1</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Omo+18">
+		<authority>
+			<refAuthority>tel:+0112510111117150</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Omo 18</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="1517">
+		<authority>
+			<refAuthority>tel:+27123227632</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>1517</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="OH+5">
+		<authority>
+			<refAuthority>http://houseofculture.or.tz</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Olduvai Hominid 5</name>
+				<abbr>OH 5</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="OH+7">
+		<authority>
+			<refAuthority>http://houseofculture.or.tz</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Olduvai Hominid 7</name>
+				<abbr>OH 7</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="LB+1">
+		<authority>
+			<refAuthority>http://namesonnodes.org/entities/authorityidentifier/902</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Liang Bua 1</name>
+				<abbr>LB 1</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="ER+992">
+		<authority>
+			<refAuthority>http://museums.or.ke</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>East Rudolf 992</name>
+				<abbr>ER 992</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Dubois+Collectie:Trinil+2">
+		<authority>
+			<refAuthority>http://naturalis.nl</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Dubois Collectie: Trinil 2</name>
+				<abbr>Trinil 2</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Mauer+1">
+		<authority>
+			<refAuthority>http://www.uni-heidelberg.de</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Mauer 1</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Neandertal+1">
+		<authority>
+			<refAuthority>http://www.rlmb.lvr.de</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Neandertal 1</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Caroli+Linne">
+		<authority>
+			<refAuthority>http://www.uppsaladomkyrka.se</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Caroli Linne</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+
+	<!--  END Specimens -->
+
+	<!--  BEGIN ICZN Taxa -->
+
+	<!--  BEGIN ICZN Subspecies -->
+
+	<TaxonIdentifier localName="Orrorin+tugenensis+tugenensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Orrorin tugenensis tugenensis</name>
+				<abbr>O. t. tugenensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://museums.or.ke::BAR+1000%B400</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Simia+troglodytes+troglodytes">
+	  	<authority>
+	  		<refAuthority>urn:isbn:0853010064</refAuthority>
+	  	</authority>
+	  	<label>
+	  		<Label>
+	  			<name>Simia troglodytes troglodytes</name>
+	  			<abbr>S. t. troglodytes</abbr>
+	  			<italics>true</italics>
+	  		</Label>
+	  	</label>
+	  	<entity>
+	  		<Taxon>
+	  			<definition>
+	  				<RankDefinition>
+	  					<level>0.95</level>
+	  					<rank>subspecies</rank>
+	  				</RankDefinition>
+	  			</definition>
+	  		</Taxon>
+		</entity>
+  </TaxonIdentifier>
+  <TaxonIdentifier localName="Pan+troglodytes+troglodytes">
+  	<authority>
+  		<refAuthority>urn:isbn:0853010064</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Pan troglodytes troglodytes</name>
+  			<abbr>P. t. troglodytes</abbr>
+  			<italics>true</italics>
+  		</Label>
+  	</label>
+  	<entity>
+  		<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
+  	</entity>
+  </TaxonIdentifier>
+  <TaxonIdentifier localName="Pan+paniscus+paniscus">
+  	<authority>
+  		<refAuthority>urn:isbn:0853010064</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Pan paniscus paniscus</name>
+  			<abbr>P. p. paniscus</abbr>
+  			<italics>true</italics>
+  		</Label>
+  	</label>
+  	<entity>
+  		<Taxon>
+  			<definition>
+  				<RankDefinition>
+  					<level>0.95</level>
+  					<rank>subspecies</rank>
+  				</RankDefinition>
+  			</definition>
+  		</Taxon>
+  	</entity>
+  </TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+ramidus+ramidus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus ramidus ramidus</name>
+				<abbr>A. r. ramidus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::ARA-VP+6%2F1</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Ardipithecus+ramidus+ramidus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ardipithecus ramidus ramidus</name>
+				<abbr>A. r. ramidus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+ramidus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+afarensis+afarensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus afarensis afarensis</name>
+				<abbr>A. a. afarensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://houseofculture.or.tz::LH+4</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus+afarensis+afarensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus afarensis afarensis</name>
+				<abbr>P. a. afarensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+afarensis</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+africanus+africanus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus africanus africanus</name>
+				<abbr>A. a. africanus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://web.wits.ac.za::Taung+1</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+aethiopicus+aethiopicus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus aethiopicus aethiopicus</name>
+				<abbr>A. a. aethiopicus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::Omo+18</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+aethiopicus+aethiopicus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus aethiopicus aethiopicus</name>
+				<abbr>P. a. aethiopicus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+aethiopicus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus+aethiopicus+aethiopicus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus aethiopicus aethiopicus</name>
+				<abbr>Z. a. aethiopicus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+aethiopicus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+robustus+robustus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus robustus robustus</name>
+				<abbr>A. r. robustus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>tel:+27123227632::1517</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+robustus+robustus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus robustus robustus</name>
+				<abbr>P. r. robustus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+robustus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus+boisei+boisei">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus boisei boisei</name>
+				<abbr>A. b. boisei</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+boisei+boisei">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus boisei boisei</name>
+				<abbr>A. b. boisei</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+boisei+boisei">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus boisei boisei</name>
+				<abbr>P. b. boisei</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+habilis+habilis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo habilis habilis</name>
+				<abbr>H. h. habilis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>http://houseofculture.or.tz::OH+7</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+habilis+habilis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus habilis habilis</name>
+				<abbr>A. h. habilis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+habilis</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+floresiensis+floresiensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo floresiensis floresiensis</name>
+				<abbr>H. f. floresiensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://namesonnodes.org/entities/authorityidentifier/902::LB+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+ergaster+ergaster">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo ergaster ergaster</name>
+				<abbr>H. e. ergaster</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://museums.or.ke::ER+992</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pithecanthropus+erectus+erectus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Pithecanthropus erectus erectus</name>
+				<abbr>P. e. erectus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://naturalis.nl::Dubois+Collectie:Trinil+2</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+erectus+erectus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo erectus erectus</name>
+				<abbr>H. e. erectus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Pithecanthropus+erectus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+heidelbergensis+heidelbergensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo heidelbergensis heidelbergensis</name>
+				<abbr>H. h. heidelbergensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://www.uni-heidelberg.de::Mauer+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+neanderthalensis+neanderthalensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo neanderthalensis neanderthalensis</name>
+				<abbr>H. n. neanderthalensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://www.rlmb.lvr.de::Neandertal+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+sapiens+sapiens">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo sapiens sapiens</name>
+				<abbr>H. s. sapiens</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://www.uppsaladomkyrka.se::Caroli+Linne</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+  
+  <!--  END ICZN Subspecies -->
+  
+	<!--  BEGIN ICZN Species -->
+
+	<TaxonIdentifier localName="Orrorin+tugenensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Orrorin tugenensis</name>
+				<abbr>O. tugenensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://museums.or.ke::BAR+1000%B400</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Simia+troglodytes">
+	  	<authority>
+	  		<refAuthority>urn:isbn:0853010064</refAuthority>
+	  	</authority>
+	  	<label>
+	  		<Label>
+	  			<name>Simia troglodytes</name>
+	  			<abbr>S. troglodytes</abbr>
+	  			<italics>true</italics>
+	  		</Label>
+	  	</label>
+	  	<entity>
+	  		<Taxon>
+	  			<definition>
+	  				<RankDefinition>
+	  					<level>1</level>
+	  					<rank>species</rank>
+	  				</RankDefinition>
+	  			</definition>
+	  		</Taxon>
+		</entity>
+  </TaxonIdentifier>
+  <TaxonIdentifier localName="Pan+troglodytes">
+  	<authority>
+  		<refAuthority>urn:isbn:0853010064</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Pan troglodytes</name>
+  			<abbr>P. troglodytes</abbr>
+  			<italics>true</italics>
+  		</Label>
+  	</label>
+  	<entity>
+  		<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
+  	</entity>
+  </TaxonIdentifier>
+  <TaxonIdentifier localName="Pan+paniscus">
+  	<authority>
+  		<refAuthority>urn:isbn:0853010064</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Pan paniscus</name>
+  			<abbr>P. paniscus</abbr>
+  			<italics>true</italics>
+  		</Label>
+  	</label>
+  	<entity>
+  		<Taxon>
+  			<definition>
+  				<RankDefinition>
+  					<level>1</level>
+  					<rank>species</rank>
+  				</RankDefinition>
+  			</definition>
+  		</Taxon>
+  	</entity>
+  </TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+ramidus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus ramidus</name>
+				<abbr>A. ramidus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::ARA-VP+6%2F1</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Ardipithecus+ramidus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ardipithecus ramidus</name>
+				<abbr>A. ramidus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+ramidus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+afarensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus afarensis</name>
+				<abbr>A. afarensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://houseofculture.or.tz::LH+4</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus+afarensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus afarensis</name>
+				<abbr>P. afarensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+afarensis</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+africanus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus africanus</name>
+				<abbr>A. africanus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://web.wits.ac.za::Taung+1</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+aethiopicus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus aethiopicus</name>
+				<abbr>A. aethiopicus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::Omo+18</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+aethiopicus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus aethiopicus</name>
+				<abbr>P. aethiopicus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+aethiopicus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus+aethiopicus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus aethiopicus</name>
+				<abbr>Z. aethiopicus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+aethiopicus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+robustus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus robustus</name>
+				<abbr>A. robustus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>tel:+27123227632::1517</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+robustus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus robustus</name>
+				<abbr>P. robustus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+robustus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus+boisei">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus boisei</name>
+				<abbr>A. boisei</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+boisei">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus boisei</name>
+				<abbr>A. boisei</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+boisei">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus boisei</name>
+				<abbr>P. boisei</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+habilis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo habilis</name>
+				<abbr>H. habilis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>http://houseofculture.or.tz::OH+7</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+habilis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus habilis</name>
+				<abbr>A. habilis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+habilis</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+floresiensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo floresiensis</name>
+				<abbr>H. floresiensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://namesonnodes.org/entities/authorityidentifier/902::LB+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+ergaster">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo ergaster</name>
+				<abbr>H. ergaster</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://museums.or.ke::ER+992</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pithecanthropus+erectus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Pithecanthropus erectus</name>
+				<abbr>P. erectus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://naturalis.nl::Dubois+Collectie:Trinil+2</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+erectus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo erectus</name>
+				<abbr>H. erectus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Pithecanthropus+erectus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+heidelbergensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo heidelbergensis</name>
+				<abbr>H. heidelbergensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://www.uni-heidelberg.de::Mauer+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+neanderthalensis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo neanderthalensis</name>
+				<abbr>H. neanderthalensis</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://www.rlmb.lvr.de::Neandertal+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+sapiens">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo sapiens</name>
+				<abbr>H. sapiens</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://www.uppsaladomkyrka.se::Caroli+Linne</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+  
+  <!--  END ICZN Species -->
+  
+	<!--  BEGIN ICZN Superspecies -->
+
+	<TaxonIdentifier localName="Orrorin+%28tugenensis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Orrorin (tugenensis)</name>
+				<abbr>O. (tugenensis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://museums.or.ke::BAR+1000%B400</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Simia+%28troglodytes%29">
+	  	<authority>
+	  		<refAuthority>urn:isbn:0853010064</refAuthority>
+	  	</authority>
+	  	<label>
+	  		<Label>
+	  			<name>Simia (troglodytes)</name>
+	  			<abbr>S. (troglodytes)</abbr>
+	  			<italics>true</italics>
+	  		</Label>
+	  	</label>
+	  	<entity>
+	  		<Taxon>
+	  			<definition>
+	  				<RankDefinition>
+	  					<level>1.05</level>
+	  					<rank>superspecies</rank>
+	  				</RankDefinition>
+	  			</definition>
+	  		</Taxon>
+		</entity>
+  </TaxonIdentifier>
+  <TaxonIdentifier localName="Pan+%28troglodytes%29">
+  	<authority>
+  		<refAuthority>urn:isbn:0853010064</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Pan (troglodytes)</name>
+  			<abbr>P. (troglodytes)</abbr>
+  			<italics>true</italics>
+  		</Label>
+  	</label>
+  	<entity>
+  		<refTaxon>urn:isbn:0853010064::Simia+troglodytes</refTaxon>
+  	</entity>
+  </TaxonIdentifier>
+  <TaxonIdentifier localName="Pan+%28paniscus%29">
+  	<authority>
+  		<refAuthority>urn:isbn:0853010064</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Pan (paniscus)</name>
+  			<abbr>P. (paniscus)</abbr>
+  			<italics>true</italics>
+  		</Label>
+  	</label>
+  	<entity>
+  		<Taxon>
+  			<definition>
+  				<RankDefinition>
+  					<level>1.05</level>
+  					<rank>superspecies</rank>
+  				</RankDefinition>
+  			</definition>
+  		</Taxon>
+  	</entity>
+  </TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28ramidus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (ramidus)</name>
+				<abbr>A. (ramidus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::ARA-VP+6%2F1</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Ardipithecus+%28ramidus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ardipithecus (ramidus)</name>
+				<abbr>A. (ramidus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+ramidus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28afarensis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (afarensis)</name>
+				<abbr>A. (afarensis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://houseofculture.or.tz::LH+4</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus+%28afarensis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus (afarensis)</name>
+				<abbr>P. (afarensis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+afarensis</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28africanus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (africanus)</name>
+				<abbr>A. (africanus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://web.wits.ac.za::Taung+1</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28aethiopicus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (aethiopicus)</name>
+				<abbr>A. (aethiopicus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::Omo+18</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+%28aethiopicus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus (aethiopicus)</name>
+				<abbr>P. (aethiopicus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+aethiopicus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus+%28aethiopicus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus (aethiopicus)</name>
+				<abbr>Z. (aethiopicus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+aethiopicus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28robustus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (robustus)</name>
+				<abbr>A. (robustus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>tel:+27123227632::1517</refTaxon>
+	  					</types>
+					</RankDefinition>
+	  			</definition>
+  			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+%28robustus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus (robustus)</name>
+				<abbr>P. (robustus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+robustus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus+%28boisei%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus (boisei)</name>
+				<abbr>A. (boisei)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28boisei%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (boisei)</name>
+				<abbr>A. (boisei)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+%28boisei%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus (boisei)</name>
+				<abbr>P. (boisei)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28habilis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (habilis)</name>
+				<abbr>H. (habilis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>http://houseofculture.or.tz::OH+7</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28habilis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (habilis)</name>
+				<abbr>A. (habilis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Homo+habilis</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28floresiensis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (floresiensis)</name>
+				<abbr>H. (floresiensis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://namesonnodes.org/entities/authorityidentifier/902::LB+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28ergaster%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (ergaster)</name>
+				<abbr>H. (ergaster)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://museums.or.ke::ER+992</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pithecanthropus+%28erectus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Pithecanthropus (erectus)</name>
+				<abbr>P. (erectus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://naturalis.nl::Dubois+Collectie:Trinil+2</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28erectus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (erectus)</name>
+				<abbr>H. (erectus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Pithecanthropus+erectus</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28heidelbergensis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (heidelbergensis)</name>
+				<abbr>H. (heidelbergensis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://www.uni-heidelberg.de::Mauer+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28neanderthalensis%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (neanderthalensis)</name>
+				<abbr>H. (neanderthalensis)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://www.rlmb.lvr.de::Neandertal+1</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28sapiens%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (sapiens)</name>
+				<abbr>H. (sapiens)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://www.uppsaladomkyrka.se::Caroli+Linne</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+  
+  <!--  END ICZN Superspecies -->
+  
+    <!--  BEGIN ICZN Subgenera -->
+  
+	<TaxonIdentifier localName="Orrorin+%28Orrorin%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Orrorin (Orrorin)</name>
+				<abbr>O. (Orrorin)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Orrorin+tugenensis</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pan+%28Pan%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Pan (Pan)</name>
+				<abbr>P. (Pan)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pan+troglodytes</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Ardipithecus+%28Ardipithecus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ardipithecus (Ardipithecus)</name>
+				<abbr>A. (Ardipithecus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Ardipithecus+ramidus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus+%28Praeanthropus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus (Praeanthropus)</name>
+				<abbr>P. (Praeanthropus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Praeanthropus+afarensis</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28Australopithecus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (Australopithecus)</name>
+				<abbr>A. (Australopithecus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Australopithecus+africanus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus+%28Paranthropus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus (Paranthropus)</name>
+				<abbr>P. (Paranthropus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Paranthropus+robustus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus+%28Zinjanthropus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus (Zinjanthropus)</name>
+				<abbr>Z. (Zinjanthropus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28Homo%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (Homo)</name>
+				<abbr>H. (Homo)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pithecanthropus+%28Pithecanthropus%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Pithecanthropus (Pithecanthropus)</name>
+				<abbr>P. (Pithecanthropus)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.95</level>
+						<rank>subgenus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pithecanthropus+erectus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+  
+  <!--  END ICZN Subgenera -->
+  
+  <!--  BEGIN ICZN Genera -->
+  
+	<TaxonIdentifier localName="Orrorin">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Orrorin</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Orrorin+tugenensis</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pan">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Pan</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pan+troglodytes</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Ardipithecus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ardipithecus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Ardipithecus+ramidus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Praeanthropus+afarensis</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Australopithecus+africanus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Paranthropus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paranthropus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Paranthropus+robustus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Zinjanthropus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Zinjanthropus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Zinjanthropus+boisei</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo+sapiens</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Pithecanthropus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Pithecanthropus</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pithecanthropus+erectus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+  
+  <!--  END ICZN Genera -->
+  
+  <!--  BEGIN ICZN Subtribes -->
+  
+	<TaxonIdentifier localName="Panina">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Panina</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.85</level>
+						<rank>subtribe</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecina">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecina</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.85</level>
+						<rank>subtribe</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Australopithecus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Hominina">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Hominina</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.85</level>
+						<rank>subtribe</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	
+  <!--  END ICZN Subtribes -->
+  
+  <!--  BEGIN ICZN Tribes -->
+  
+	<TaxonIdentifier localName="Panini">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Panini</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.9</level>
+						<rank>tribe</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecini">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecini</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.9</level>
+						<rank>tribe</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Australopithecus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Hominini">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Hominini</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.9</level>
+						<rank>tribe</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	
+  <!--  END ICZN Tribes -->
+  
+  <!--  BEGIN ICZN Subfamilies -->
+  
+	<TaxonIdentifier localName="Paninae">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Paninae</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.95</level>
+						<rank>subfamily</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecinae">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecinae</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.95</level>
+						<rank>subfamily</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Australopithecus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homininae">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homininae</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2.95</level>
+						<rank>subfamily</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	
+  <!--  END ICZN Subfamilies -->
+  
+  <!--  BEGIN ICZN Families -->
+  
+	<TaxonIdentifier localName="Panidae">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Panidae</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>3</level>
+						<rank>family</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecidae">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecidae</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>3</level>
+						<rank>family</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Australopithecus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Hominidae">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Hominidae</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>3</level>
+						<rank>family</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	
+  <!--  END ICZN Families -->
+  
+  <!--  BEGIN ICZN Superfamilies -->
+  
+	<TaxonIdentifier localName="Panoidea">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Panoidea</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>3.05</level>
+						<rank>superfamily</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Pan</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecoidea">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecoidea</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>3.05</level>
+						<rank>superfamily</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Australopithecus</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Hominoidea">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Hominoidea</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>3.05</level>
+						<rank>superfamily</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	
+  <!--  END ICZN Superfamilies -->
+  
+  <!--  END ICZN Taxa -->
+  
+  <!--  END Taxa -->
+  
+  <!--  BEGIN Datasets -->
+  
+  <Dataset localName="taxonomy">
+  	<authority>
+  		<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Taxonomic Opinions</name>
+  		</Label>
+  	</label>
+  	<synonymies>
+  		<Synonymy>
+  			<synonyms>
+  				<refTaxon>urn:isbn:0853010064::Homo</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Pithecanthropus</refTaxon>
+  			</synonyms>
+  		</Synonymy>
+  		<Synonymy>
+  			<synonyms>
+  				<refTaxon>urn:isbn:0853010064::Australopithecus</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Paranthropus</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Zinjanthropus</refTaxon>
+  			</synonyms>
+  		</Synonymy>
+  		<Synonymy>
+  			<synonyms>
+  				<refTaxon>urn:isbn:0853010064::Hominini</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Australopithecini</refTaxon>
+  			</synonyms>
+  		</Synonymy>
+  		<Synonymy>
+  			<synonyms>
+  				<refTaxon>urn:isbn:0853010064::Homininae</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Australopithecinae</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Paninae</refTaxon>
+  			</synonyms>
+  		</Synonymy>
+  		<Synonymy>
+  			<synonyms>
+  				<refTaxon>urn:isbn:0853010064::Hominidae</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Australopithecidae</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Panidae</refTaxon>
+  			</synonyms>
+  		</Synonymy>
+  		<Synonymy>
+  			<synonyms>
+  				<refTaxon>urn:isbn:0853010064::Hominoidea</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Australopithecoidea</refTaxon>
+  				<refTaxon>urn:isbn:0853010064::Panoidea</refTaxon>
+  			</synonyms>
+  		</Synonymy>
+  	</synonymies>
+  </Dataset>
+  <Dataset localName="phylogeny:late+split">
+  	<authority>
+  		<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>&quot;Late Split&quot; Phylogeny</name>
+  		</Label>
+  	</label>
+  	<heredities>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:0</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:tuge</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:0</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:1</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:1</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:2</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:1</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:3</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:2</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:trog</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:2</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:pani</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:3</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:rami</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:3</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:4</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:4</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:4</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:5</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:5</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:6</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:5</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:9</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:6</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:7</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:6</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:8</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:7</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:afri</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:7</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:robu</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:8</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:aeth</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:8</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:bois</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:9</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:habi</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:9</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:10</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:10</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:flor</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:10</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:11</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:11</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:erga</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:11</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:12</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:12</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:erec</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:12</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:13</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:13</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:heid</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:13</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:14</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:14</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:nean</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:14</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:sapi</refTaxon></successor>
+  		</Heredity>
+  	</heredities>
+  </Dataset>
+  <Dataset localName="phylogeny:early+split">
+  	<authority>
+  		<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>&quot;Early Split&quot; Phylogeny</name>
+  		</Label>
+  	</label>
+  	<heredities>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:15</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:16</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:15</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:17</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:16</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:pani</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:16</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:trog</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:17</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:tuge</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:17</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:18</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:17</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:22</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:18</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:18</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:19</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:19</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:afri</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:19</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:20</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:20</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:aeth</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:20</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:21</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:21</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:bois</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:21</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:robu</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:22</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:habi</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:22</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:23</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:23</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:erga</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:23</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:24</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:23</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:25</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:24</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:flor</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:24</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:erec</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:25</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:sapi</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:25</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:26</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:26</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:heid</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:26</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:nean</refTaxon></successor>
+  		</Heredity>
+  	</heredities>
+  </Dataset>
+  <!--Dataset localName="phylogeny:max+ancestry">
+  	<authority>
+  		<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>&quot;Maximal Ancestry&quot; Phylogeny</name>
+  		</Label>
+  	</label>
+  	<heredities>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:tuge</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:27</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:27</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:28</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:27</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:rami</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:rami</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:29</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:habi</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:29</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:aeth</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:29</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:afri</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:aeth</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:bois</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:afri</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:robu</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:habi</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:flor</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:habi</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:erga</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:erga</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:erec</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:erga</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:heid</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:heid</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:nean</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:heid</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:sapi</refTaxon></successor>
+  		</Heredity>
+  	</heredities>
+  </Dataset-->
+  
+  <!--  END Datasets -->
+  
+</entities>

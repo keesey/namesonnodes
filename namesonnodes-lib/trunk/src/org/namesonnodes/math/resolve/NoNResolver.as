@@ -7,18 +7,18 @@ package org.namesonnodes.math.resolve
 	import a3lbmonkeybrain.calculia.mathml.MathMLResolver;
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.math.operations.NamesOnNodesOperationResolver;
+	import org.namesonnodes.math.operations.NoNOperationResolver;
 
-	public final class NamesOnNodesResolver implements XMLResolver
+	public final class NoNResolver implements XMLResolver
 	{
 		private var mathMLResolver:XMLResolver;
-		public function NamesOnNodesResolver(datasetCollection:DatasetCollection)
+		public function NoNResolver(datasetCollection:DatasetCollection)
 		{
 			super();
 			mathMLResolver = new MathMLResolver(new MathMLIdentifierResolver(),
 				new CompositeOperationResolver([new MathMLOperationResolver(),
-				new NamesOnNodesOperationResolver(datasetCollection)]),
-				new NamesOnNodesEntityResolver(datasetCollection));
+				new NoNOperationResolver(datasetCollection)]),
+				new NoNEntityResolver(datasetCollection));
 		}
 		public function resolveXML(xml:XML):Object
 		{

@@ -9,10 +9,10 @@ package org.namesonnodes.math.resolve
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
 
-	public final class NamesOnNodesEntityResolver implements XMLResolver
+	public final class NoNEntityResolver implements XMLResolver
 	{
 		private var datasetCollection:DatasetCollection;
-		public function NamesOnNodesEntityResolver(datasetCollection:DatasetCollection)
+		public function NoNEntityResolver(datasetCollection:DatasetCollection)
 		{
 			super();
 			assertNotNull(datasetCollection);
