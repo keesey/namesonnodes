@@ -165,6 +165,21 @@
 
 	<!--  BEGIN Taxa -->
 
+	<!--  BEGIN Characters -->
+	
+	<TaxonIdentifier localName="char:cran700%2B">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>cranial capacity over 700 cc</name>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+
+	<!--  END Characters -->
+	
 	<!--  BEGIN Taxonomic Units -->
 
 	<!--  BEGIN Hypothetical Taxonomic Units -->
@@ -3351,6 +3366,114 @@
   			</synonyms>
   		</Synonymy>
   	</synonymies>
+  </Dataset>
+  <Dataset localName="character+matrix">
+  	<authority>
+  		<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+  	</authority>
+  	<label>
+  		<Label>
+  			<name>Character Matrix</name>
+  		</Label>
+  	</label>
+  	<inclusions>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:10</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:11</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:12</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:14</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:13</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:26</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:14</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:erec</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:erga</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:heid</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:nean</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:sapi</refTaxon>
+  			</subset>
+  		</Inclusion>
+  	</inclusions>
   </Dataset>
   <Dataset localName="phylogeny:late+split">
   	<authority>
