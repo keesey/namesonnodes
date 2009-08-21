@@ -74,7 +74,7 @@ package org.namesonnodes.domain.factories.xml
 					remainingRefs.push(ref);
 			}
 			if (remainingRefs.length == l)
-				throw new Error("Circular reference detected in entity data.");
+				throw new Error("Circular reference detected in entity data:\n\t" + refs.join("\n\t"));
 			resolveReferences(remainingRefs);
 		}
 	}

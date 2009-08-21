@@ -34,5 +34,34 @@ package org.namesonnodes.domain.factories.xml
 		{
 			throw new AbstractMethodError();
 		}
+		private static function stringOrError(v:*):String
+		{
+			var s:String;
+			try
+			{
+				s = String(v);
+			}
+			catch (e:Error)
+			{
+				s = "<" + e.name + ": " + e.message + ">";
+			}
+			return s;
+		}
+		protected function targetString():String
+		{
+			throw new AbstractMethodError();
+		}
+		public final function toString():String
+		{
+			var s:String = stringOrError(source);
+			if (isNaN(property))
+				s += "." + stringOrError(property);
+			else
+				s += "[" + property + "]";
+			s += " = <" + targetString() + ">";
+			if (useEntity)
+				s += ".entity";
+			return s;
+		}
 	}
 }

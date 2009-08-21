@@ -14,6 +14,10 @@ package org.namesonnodes.domain.factories.xml
 				throw new ArgumentError("Null URI.");
 			_uri = uri;
 		}
+		override protected function targetString() : String
+		{
+			return _uri;
+		}
 		override public function useDictionary(d:Dictionary) : Boolean
 		{
 			const i:AuthorityIdentifier = d[_uri] as AuthorityIdentifier;

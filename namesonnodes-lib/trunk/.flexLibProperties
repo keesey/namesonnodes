@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <flexLibProperties version="1">
   <includeClasses>
     <classEntry path="org.namesonnodes.commands.AbstractCommandFlow"/>
@@ -50,6 +50,7 @@
     <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityIdentifierReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReference"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.DatasetCollectionFactory"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.DatasetReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.DefinitionReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.EntityFactory"/>
@@ -79,21 +80,31 @@
     <classEntry path="org.namesonnodes.flare.test.PhylogenyVisualizationTest"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphImporter"/>
+    <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedClade"/>
+    <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedCladogen"/>
+    <classEntry path="org.namesonnodes.math.operations.BranchBasedClade"/>
+    <classEntry path="org.namesonnodes.math.operations.BranchBasedCladogen"/>
+    <classEntry path="org.namesonnodes.math.operations.Clade"/>
+    <classEntry path="org.namesonnodes.math.operations.CrownGroup"/>
+    <classEntry path="org.namesonnodes.math.operations.Maximal"/>
+    <classEntry path="org.namesonnodes.math.operations.Minimal"/>
+    <classEntry path="org.namesonnodes.math.operations.NoNOperationResolver"/>
+    <classEntry path="org.namesonnodes.math.operations.NodeBasedClade"/>
+    <classEntry path="org.namesonnodes.math.operations.NodeBasedCladogen"/>
+    <classEntry path="org.namesonnodes.math.operations.NodeBranchTriple"/>
+    <classEntry path="org.namesonnodes.math.operations.PredecessorIntersection"/>
+    <classEntry path="org.namesonnodes.math.operations.PredecessorUnion"/>
+    <classEntry path="org.namesonnodes.math.operations.SuccessorIntersection"/>
+    <classEntry path="org.namesonnodes.math.operations.SuccessorUnion"/>
+    <classEntry path="org.namesonnodes.math.operations.SynapomorphicPredecessors"/>
+    <classEntry path="org.namesonnodes.math.operations.TotalGroup"/>
+    <classEntry path="org.namesonnodes.math.resolve.NoNEntityResolver"/>
+    <classEntry path="org.namesonnodes.math.resolve.NoNResolver"/>
+    <classEntry path="org.namesonnodes.math.resolve.test.NoNResolverTest"/>
     <classEntry path="org.namesonnodes.phylo.Phylogeny"/>
     <classEntry path="org.namesonnodes.phylo.PhylogenyDatasetFactory"/>
     <classEntry path="org.namesonnodes.utils.parseQName"/>
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
-    <classEntry path="org.namesonnodes.domain.factories.xml.DatasetCollectionFactory"/>
-    <classEntry path="org.namesonnodes.math.operations.Maximal"/>
-    <classEntry path="org.namesonnodes.math.operations.NodeBasedCladogen"/>
-    <classEntry path="org.namesonnodes.math.operations.BranchBasedCladogen"/>
-    <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedCladogen"/>
-    <classEntry path="org.namesonnodes.math.operations.Clade"/>
-    <classEntry path="org.namesonnodes.math.operations.CrownGroup"/>
-    <classEntry path="org.namesonnodes.math.operations.NoNOperationResolver"/>
-    <classEntry path="org.namesonnodes.math.operations.NodeBranchTriple"/>
-    <classEntry path="org.namesonnodes.math.resolve.NoNEntityResolver"/>
-    <classEntry path="org.namesonnodes.math.resolve.NoNResolver"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -14,6 +14,10 @@ package org.namesonnodes.domain.factories.xml
 				throw new ArgumentError("Null qualified name.");
 			_qName = qName.toString();
 		}
+		override protected function targetString() : String
+		{
+			return _qName;
+		}
 		override public function useDictionary(d:Dictionary) : Boolean
 		{
 			const i:TaxonIdentifier = d[_qName] as TaxonIdentifier;

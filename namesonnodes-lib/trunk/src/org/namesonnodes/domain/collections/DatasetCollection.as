@@ -339,6 +339,8 @@ package org.namesonnodes.domain.collections
 				if (v === false)
 					return false;
 			}
+			else
+				precedence[b] = t = new Dictionary();
 			const parents:FiniteSet = immediatePredecessors(b);
 			if (parents.empty)
 				v = false;

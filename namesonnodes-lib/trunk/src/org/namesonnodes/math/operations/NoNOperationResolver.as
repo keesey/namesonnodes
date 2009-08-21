@@ -28,12 +28,15 @@ package org.namesonnodes.math.operations
 				if (definitionURL != null && DEFINITION_URL_PATTERN.test(definitionURL))
 				{
 					const operationName:String = definitionURL.substr(DEFINITION_HEADER.length);
-					const op:* = operationName[operationName];
+					const op:* = operations[operationName];
 					if (op is Operation)
 						return op as Operation;
 				}
 			}
 			return new UnresolvableOperation(mathML);
+		}
+		override protected function initOperationMap() : void
+		{
 		}
 		private function initOperations(datasetCollection:DatasetCollection):void
 		{

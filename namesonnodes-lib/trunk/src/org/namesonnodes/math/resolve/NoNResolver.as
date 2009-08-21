@@ -1,5 +1,7 @@
 package org.namesonnodes.math.resolve
 {
+	import a3lbmonkeybrain.brainstem.resolve.CompositeXMLResolver;
+	import a3lbmonkeybrain.brainstem.resolve.Unresolvable;
 	import a3lbmonkeybrain.brainstem.resolve.XMLResolver;
 	import a3lbmonkeybrain.calculia.mathml.CompositeOperationResolver;
 	import a3lbmonkeybrain.calculia.mathml.MathMLIdentifierResolver;
@@ -11,18 +13,26 @@ package org.namesonnodes.math.resolve
 
 	public final class NoNResolver implements XMLResolver
 	{
-		private var mathMLResolver:XMLResolver;
+		private var mathMLResolver:MathMLResolver;
+		private var entityResolver:XMLResolver;
 		public function NoNResolver(datasetCollection:DatasetCollection)
 		{
 			super();
 			mathMLResolver = new MathMLResolver(new MathMLIdentifierResolver(),
 				new CompositeOperationResolver([new MathMLOperationResolver(),
-				new NoNOperationResolver(datasetCollection)]),
-				new NoNEntityResolver(datasetCollection));
+				new NoNOperationResolver(datasetCollection)]));
+			entityResolver = new CompositeXMLResolver([mathMLResolver,
+				new NoNEntityResolver(datasetCollection)]);
+			mathMLResolver.entityResolver = entityResolver;
 		}
 		public function resolveXML(xml:XML):Object
 		{
-			return mathMLResolver.resolveXML(xml);
+			if (xml == null)
+				throw new ArgumentError("No XML to resolve.");
+			var o:Object = mathMLResolver.resolveXML(xml);
+			if (o is Unresolvable)
+				 o = entityResolver.resolveXML(xml);
+			return o;
 		}
 	}
 }
