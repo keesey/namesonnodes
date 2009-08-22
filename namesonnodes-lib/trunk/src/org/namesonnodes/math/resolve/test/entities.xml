@@ -178,6 +178,18 @@
 		</label>
 	</TaxonIdentifier>
 
+	<TaxonIdentifier localName="char:zoo-extant">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>extant (living) as of 1758 January 1</name>
+				<abbr>zoo-extant</abbr>
+			</Label>
+		</label>
+	</TaxonIdentifier>
+
 	<!--  END Characters -->
 	
 	<!--  BEGIN Taxonomic Units -->
@@ -1187,7 +1199,17 @@
 			</Label>
 		</label>
 		<entity>
-			<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
   		</entity>
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Australopithecus+boisei+boisei">
@@ -1722,7 +1744,17 @@
 			</Label>
 		</label>
 		<entity>
-			<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
   		</entity>
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Australopithecus+boisei">
@@ -2257,7 +2289,17 @@
 			</Label>
 		</label>
 		<entity>
-			<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>http://houseofculture.or.tz::OH+5</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
   		</entity>
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Australopithecus+%28boisei%29">
@@ -3379,6 +3421,30 @@
   	<inclusions>
   		<Inclusion>
   			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:zoo-extant</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:sapi</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:zoo-extant</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:trog</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::char:zoo-extant</refTaxon>
+  			</superset>
+  			<subset>
+  				<refTaxon>org.namesonnodes.math.resolve.test::otu:pani</refTaxon>
+  			</subset>
+  		</Inclusion>
+  		<Inclusion>
+  			<superset>
   				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
   			</superset>
   			<subset>
@@ -3422,7 +3488,7 @@
   				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
   			</superset>
   			<subset>
-  				<refTaxon>org.namesonnodes.math.resolve.test::htu:26</refTaxon>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:24</refTaxon>
   			</subset>
   		</Inclusion>
   		<Inclusion>
@@ -3430,7 +3496,7 @@
   				<refTaxon>org.namesonnodes.math.resolve.test::char:cran700%2B</refTaxon>
   			</superset>
   			<subset>
-  				<refTaxon>org.namesonnodes.math.resolve.test::htu:14</refTaxon>
+  				<refTaxon>org.namesonnodes.math.resolve.test::htu:26</refTaxon>
   			</subset>
   		</Inclusion>
   		<Inclusion>

@@ -43,17 +43,26 @@ package org.namesonnodes.math.operations
 			if (paths.empty)
 				return false;
 			for each (var path:FiniteList in paths)
-				if (path.every(apomorphic.has, apomorphic))
+				if (pathInSet(path, apomorphic))
 					return true;
 			return false;
+		}
+		private static function pathInSet(path:FiniteList, s:Set):Boolean
+		{
+			for each (var x:Object in path)
+				if (!s.has(x))
+					return false;
+			return true;
 		}
 		override public function apply(args:Array) : Object
 		{
 			if (!checkArguments(args, FiniteSet, 2, 2))
 				return getUnresolvableArgument(args);
 			const apomorphic:FiniteSet = args[0] as FiniteSet;
+			if (apomorphic.empty)
+				return EmptySet.INSTANCE;
 			const representative:FiniteSet = args[1] as FiniteSet;
-			if (apomorphic.empty || representative.empty)
+			if (representative.empty)
 				return EmptySet.INSTANCE;
 			const a:Array = [CalcTable.argumentsToToken(apomorphic.toArray()),
 				CalcTable.argumentsToToken(representative.toArray())];
@@ -65,17 +74,23 @@ package org.namesonnodes.math.operations
 				result = EmptySet.INSTANCE;
 			else
 			{
-				const apomorphicPredecessors:FiniteSet = Set(predecessorIntersection.apply([representative])).intersect(apomorphic) as FiniteSet;
-				if (apomorphicPredecessors.empty)
-					result = EmptySet.INSTANCE
+				const commonPredecessors:FiniteSet = predecessorIntersection.apply([representative]) as FiniteSet;
+				if (commonPredecessors.empty)
+					result = EmptySet.INSTANCE;
 				else
 				{
-					result = new HashSet();
-					for each (var prc:Node in apomorphicPredecessors)
-						if (isCommonSynapomorphicPredecessor(prc, representative, apomorphic))
-							MutableCollection(result).add(prc);
-					if (result.empty)
-						result = EmptySet.INSTANCE;
+					const apomorphicPredecessors:FiniteSet = commonPredecessors.intersect(apomorphic) as FiniteSet;
+					if (apomorphicPredecessors.empty)
+						result = EmptySet.INSTANCE
+					else
+					{
+						result = new HashSet();
+						for each (var prc:Node in apomorphicPredecessors)
+							if (isCommonSynapomorphicPredecessor(prc, representative, apomorphic))
+								MutableCollection(result).add(prc);
+						if (result.empty)
+							result = EmptySet.INSTANCE;
+					}
 				}
 			}
 			calcTable.setResult(this, a, result);

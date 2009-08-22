@@ -1,4 +1,4 @@
-package org.namesonnodes.math.operations
+package org.namesonnodes.math.resolve
 {
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
 	import a3lbmonkeybrain.calculia.collections.operations.Operation;
@@ -8,6 +8,7 @@ package org.namesonnodes.math.operations
 	import flash.utils.Dictionary;
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.math.operations.*;
 
 	public final class NoNOperationResolver extends AbstractOperationResolver
 	{
@@ -54,8 +55,8 @@ package org.namesonnodes.math.operations
 			operations["NodeBasedClade"] = new NodeBasedClade(operations["SuccessorUnion"] as SuccessorUnion, operations["NodeBasedCladogen"] as NodeBasedCladogen);
 			operations["BranchBasedClade"] = new BranchBasedClade(operations["SuccessorUnion"] as SuccessorUnion, operations["PredecessorUnion"] as PredecessorUnion, operations["PredecessorIntersection"] as PredecessorIntersection);
 			operations["ApomorphyBasedClade"] = new ApomorphyBasedClade(operations["SuccessorUnion"] as SuccessorUnion, operations["SynapomorphicPredecessors"] as SynapomorphicPredecessors);
-			operations["CrownGroup"] = new CrownGroup(operations["NodeBasedClade"] as NodeBasedClade);
-			operations["TotalGroup"] = new TotalGroup(operations["BranchBasedClade"] as BranchBasedClade, operations["CrownGroup"] as CrownGroup);
+			operations["CrownClade"] = new CrownClade(operations["NodeBasedClade"] as NodeBasedClade);
+			operations["TotalClade"] = new TotalClade(operations["BranchBasedClade"] as BranchBasedClade, operations["CrownClade"] as CrownClade);
 			operations["NodeBranchTriple"] = new NodeBranchTriple(operations["NodeBasedClade"] as NodeBasedClade, operations["BranchBasedClade"] as BranchBasedClade);
 			// :TODO: TaxonBall
 		}

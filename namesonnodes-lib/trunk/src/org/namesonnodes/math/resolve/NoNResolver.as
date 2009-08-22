@@ -1,5 +1,6 @@
 package org.namesonnodes.math.resolve
 {
+	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.resolve.CompositeXMLResolver;
 	import a3lbmonkeybrain.brainstem.resolve.Unresolvable;
 	import a3lbmonkeybrain.brainstem.resolve.XMLResolver;
@@ -9,7 +10,6 @@ package org.namesonnodes.math.resolve
 	import a3lbmonkeybrain.calculia.mathml.MathMLResolver;
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.math.operations.NoNOperationResolver;
 
 	public final class NoNResolver implements XMLResolver
 	{

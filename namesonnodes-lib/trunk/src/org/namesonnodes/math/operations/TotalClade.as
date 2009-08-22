@@ -8,20 +8,20 @@ package org.namesonnodes.math.operations
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
 
-	public final class TotalGroup extends AbstractOperation
+	public final class TotalClade extends AbstractOperation
 	{
 		private var calcTable:CalcTable = new CalcTable();
 		private var branchBasedClade:BranchBasedClade;
-		private var crownGroup:CrownGroup;
-		public function TotalGroup(branchBasedClade:BranchBasedClade, crownGroup:CrownGroup)
+		private var crownClade:CrownClade;
+		public function TotalClade(branchBasedClade:BranchBasedClade, crownClade:CrownClade)
 		{
 			super();
 			assertNotNull(branchBasedClade);
-			assertNotNull(crownGroup);
-			if (branchBasedClade.datasetCollection != crownGroup.datasetCollection)
+			assertNotNull(crownClade);
+			if (branchBasedClade.datasetCollection != crownClade.datasetCollection)
 				throw new ArgumentError("Conflicting dataset collections.");
 			this.branchBasedClade = branchBasedClade;
-			this.crownGroup = crownGroup;
+			this.crownClade = crownClade;
 		}
 		internal function get datasetCollection():DatasetCollection
 		{
@@ -38,14 +38,15 @@ package org.namesonnodes.math.operations
 			const r:* = calcTable.getResult(this, a);
 			if (r is FiniteSet)
 				return r as FiniteSet;
-			const crown:FiniteSet = crownGroup.apply(args) as FiniteSet;
+			const crown:FiniteSet = crownClade.apply(args) as FiniteSet;
 			var result:FiniteSet;
 			if (crown.empty)
 				result = EmptySet.INSTANCE;
 			else
-				result = branchBasedClade.apply([crown,
-					extant.intersect(datasetCollection.universalTaxon.diff(crown))])
-					as FiniteSet;
+			{
+				const out:FiniteSet = extant.diff(crown) as FiniteSet;
+				result = branchBasedClade.apply([crown, out]) as FiniteSet;
+			}
 			calcTable.setResult(this, a, result);
 			return result;
 		}

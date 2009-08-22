@@ -7,11 +7,11 @@ package org.namesonnodes.math.operations
 	
 	import org.namesonnodes.domain.collections.DatasetCollection;
 
-	public final class CrownGroup extends AbstractOperation
+	public final class CrownClade extends AbstractOperation
 	{
 		private var calcTable:CalcTable = new CalcTable();
 		private var nodeBasedClade:NodeBasedClade;
-		public function CrownGroup(nodeBasedClade:NodeBasedClade)
+		public function CrownClade(nodeBasedClade:NodeBasedClade)
 		{
 			super();
 			assertNotNull(nodeBasedClade);

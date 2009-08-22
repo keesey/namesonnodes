@@ -29,7 +29,7 @@ package org.namesonnodes.math.operations
 			if (!checkArguments(args, FiniteSet, 2, 2))
 				return getUnresolvableArgument(args);
 			const inSet:FiniteSet = args[0] as FiniteSet;
-			const outSet:FiniteSet = args[0] as FiniteSet;
+			const outSet:FiniteSet = args[1] as FiniteSet;
 			if (inSet.empty)	
 				return EmptySet.INSTANCE;
 			const a:Array = [CalcTable.argumentsToToken(inSet.toArray()), CalcTable.argumentsToToken(outSet.toArray())];

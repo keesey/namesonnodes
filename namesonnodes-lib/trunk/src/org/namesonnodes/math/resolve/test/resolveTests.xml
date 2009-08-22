@@ -140,14 +140,36 @@
 			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:17"/>
 		</apply>
 	</apply>
-	
+
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorUnion"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afar"/>
+		</apply>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorIntersection"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afar"/>
+		</apply>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afar"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:4"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:3"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:1"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:18"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:17"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:0"/>
+		</apply>
+	</apply>
+
 	<apply>
 		<eq/>
 		<apply>
 			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorUnion"/>
 			<apply>
 				<union/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:29"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:19"/>
 				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:26"/>
 			</apply>
 		</apply>
@@ -174,7 +196,7 @@
 			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorIntersection"/>
 			<apply>
 				<union/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:29"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:19"/>
 				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:26"/>
 			</apply>
 		</apply>
@@ -191,7 +213,99 @@
 				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:26"/>
 			</apply>
 		</apply>
-		<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:nean"/>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:26"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:heid"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:nean"/>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorUnion"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:13"/>
+		</apply>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorIntersection"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:13"/>
+		</apply>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:13"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:14"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:26"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:heid"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:nean"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+		</apply>
+	</apply>
+
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorUnion"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+		</apply>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:14"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:13"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:12"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:11"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:10"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:9"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:17"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:5"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:4"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:3"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:1"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:0"/>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorIntersection"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+		</apply>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:14"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:13"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:12"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:11"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:10"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:9"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:17"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:5"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:4"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:3"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:1"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:0"/>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::char:cran700%2B"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+		</apply>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:14"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:13"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:12"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:11"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:10"/>
+		</apply>
 	</apply>
 	
 	<apply>
@@ -300,6 +414,145 @@
 			<csymbol definitionURL="org.namesonnodes.math.resolve.test::char:cran700%2B"/>
 			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:flor"/>
 		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"/>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:trog"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+			</apply>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::char:zoo-extant"/>
+		</apply>
+		<apply>
+			<setdiff/>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:tuge"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:0"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:17"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:18"/>
+			</apply>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"/>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
+			</apply>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::char:zoo-extant"/>
+		</apply>
+		<emptyset/>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedClade"/>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:pani"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:trog"/>
+			</apply>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+		</apply>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:2"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:pani"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:trog"/>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade"/>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:pani"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:trog"/>
+			</apply>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::char:zoo-extant"/>
+		</apply>
+		<apply>
+			<union/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:2"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:pani"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:trog"/>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade"/>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:sapi"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:habi"/>
+			</apply>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::char:zoo-extant"/>
+		</apply>
+		<apply>
+			<setdiff/>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:0"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:1"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:2"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:pani"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:trog"/>
+			</apply>
+		</apply>
+	</apply>
+	
+	<apply>
+		<eq/>
+		<apply>
+			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBranchTriple"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afri"/>
+			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
+		</apply>
+		<list>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:6"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:7"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:8"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:20"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:21"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afri"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:aeth"/>
+			</apply>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:7"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afri"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
+			</apply>
+			<apply>
+				<union/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:8"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:20"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:21"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
+				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:aeth"/>
+			</apply>
+		</list>
 	</apply>
 	
 </math>

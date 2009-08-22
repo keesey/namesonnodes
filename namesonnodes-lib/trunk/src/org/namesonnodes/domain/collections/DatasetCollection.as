@@ -243,7 +243,12 @@ package org.namesonnodes.domain.collections
 							if (prcNode == sucNode)
 								throw new ArgumentError("Phylogeny contains a loop.");
 							var t:* = precedence[sucNode];
-							if (!(t is Dictionary))
+							if (t is Dictionary)
+							{
+								if (t[prcNode] === false)
+									throw new ArgumentError("Phylogeny contains a cycle.");
+							}
+							else
 								t = precedence[sucNode] = new Dictionary();
 							t[prcNode] = true;
 							t = precedence[prcNode];
@@ -257,17 +262,11 @@ package org.namesonnodes.domain.collections
 							t[sucNode] = false;
 							var s:* = immediatePredecessorsTable[sucNode];
 							if (!(s is MutableSet))
-							{
-								s = new HashSet();
-								immediatePredecessorsTable[sucNode] = s;
-							}
-							MutableSet(s).add(prcNode)
+								immediatePredecessorsTable[sucNode] = s = new HashSet();
+							MutableSet(s).add(prcNode);
 							s = immediateSuccessorsTable[prcNode];
 							if (!(s is MutableSet))
-							{
-								s = new HashSet();
-								immediateSuccessorsTable[prcNode] = s;
-							}
+								immediateSuccessorsTable[prcNode] = s = new HashSet();
 							MutableSet(s).add(sucNode);
 							if (useDistances)
 							{
@@ -281,6 +280,8 @@ package org.namesonnodes.domain.collections
 						}
 				}
 			}
+			//for (var n:* in immediateSuccessorsTable)
+			//	trace(n, "->", immediateSuccessorsTable[n]);
 		}
 		private function finestNodes(node:Node):FiniteSet /* .<Node> */
 		{
@@ -317,9 +318,12 @@ package org.namesonnodes.domain.collections
 			const result:MutableSet = new HashSet();
 			for each (var prc2:Node in immediatePredecessors(suc))
 			{
-				for each (var subpath:FiniteList in paths(prc, prc2))
+				var subpaths:FiniteSet /* .<FiniteList.<Node>> */ = paths(prc, prc2);
+				for each (var subpath:FiniteList in subpaths)
 				{
-					subpath = VectorList.fromObject(subpath.toVector().concat(suc));
+					var vector:Vector.<Object> = subpath.toVector();
+					vector.push(suc);
+					subpath = VectorList.fromObject(vector);
 					result.add(subpath);
 				}
 			}
@@ -377,15 +381,21 @@ package org.namesonnodes.domain.collections
 		}
 		public function predecessors(x:Node):FiniteSet /*.<Node>*/
 		{
+			//if (x.toString() == "[Node http://www.uppsaladomkyrka.se::Caroli+Linne]")
+			//	trace("predecessors(" + x + ")");
 			const r:* = predecessorsTable[x];
 			if (r is FiniteSet)
+			{
+				//if (x.toString() == "[Node http://www.uppsaladomkyrka.se::Caroli+Linne]")
+				//	trace("already determined: " + r);
 				return r as FiniteSet;
+			}
 			const result:MutableSet = HashSet.createSingleton(x);
 			for each (var parent:Node in immediatePredecessors(x))
-			{
 				result.addMembers(predecessors(parent));
-			}
 			predecessorsTable[x] = result;
+			//if (x.toString() == "[Node http://www.uppsaladomkyrka.se::Caroli+Linne]")
+			//	trace("newly determined: " + result);
 			return result;
 		}
 		public function succeeds(a:Node, b:Node):Boolean
@@ -406,7 +416,7 @@ package org.namesonnodes.domain.collections
 			const result:MutableSet = HashSet.createSingleton(x);
 			for each (var child:Node in immediateSuccessors(x))
 				result.addMembers(successors(child));
-			predecessorsTable[x] = result;
+			successorsTable[x] = result;
 			return result;
 		}
 	}

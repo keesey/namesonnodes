@@ -23,9 +23,13 @@ package org.namesonnodes.math.operations
 		{
 			if (!checkArguments(args, FiniteSet, 2, 2))
 				return getUnresolvableArgument(args);
-			return VectorList.fromObject([nodeBasedClade.apply(args),
+			//return VectorList.fromObject([nodeBasedClade.apply(args),
+			//	branchBasedClade.apply(args),
+			//	branchBasedClade.apply([args[1], args[0]])]);
+			// :TODO: Revert after fixing calculia
+			return [nodeBasedClade.apply(args),
 				branchBasedClade.apply(args),
-				branchBasedClade.apply([args[1], args[0]])]);
+				branchBasedClade.apply([args[1], args[0]])];
 		}
 		public function toString():String
 		{
