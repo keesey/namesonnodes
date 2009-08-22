@@ -136,8 +136,8 @@
 							<a href="#def-NodeBasedClade">Node-Based Clade</a> &#x2022;
 							<a href="#def-BranchBasedClade">Branch-Based Clade</a> &#x2022;
 							<a href="#def-ApomorphyBasedClade">Apomorphy-Based Clade</a> &#x2022;
-							<a href="#def-CrownGroup">Crown Group</a> &#x2022;
-							<a href="#def-TotalGroup">Total Group</a> &#x2022;
+							<a href="#def-CrownClade">Crown Clade</a> &#x2022;
+							<a href="#def-TotalClade">Total Clade</a> &#x2022;
 							<a href="#def-NodeBranchTriple">Node-Branch Triple</a> &#x2022;
 							<a href="#def-MeanPhylogeneticDistance">Mean Phylogenetic Distance</a> &#x2022;
 							<a href="#def-TaxonBall">Taxon Ball</a>
@@ -811,7 +811,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::UniversalTaxon</code></td>
+						<td><code>org.namesonnodes.domain.collections::DatasetCollection.universalTaxon</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -859,7 +859,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::GraphRelatedness</code></td>
+						<td><code>org.namesonnodes.domain.collections::DatasetCollection.graphRelatedness</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -906,7 +906,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::DigraphParenthood</code></td>
+						<td><code>org.namesonnodes.domain.collections::DatasetCollection.digraphParenthood</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -957,7 +957,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::Maximal</code></td>
+						<td><code>org.namesonnodes.math.operations::Maximal</code></td>
 					</tr>
 					<tr>
 						<th>Example</th>
@@ -1006,7 +1006,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::Minimal</code></td>
+						<td><code>org.namesonnodes.math.operations::Minimal</code></td>
 					</tr>
 					<tr>
 						<th>Example</th>
@@ -1067,7 +1067,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::PredecessorUnion</code></td>
+						<td><code>org.namesonnodes.math.operations::PredecessorUnion</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1114,7 +1114,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::SuccessorUnion</code></td>
+						<td><code>org.namesonnodes.math.operations::SuccessorUnion</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1161,7 +1161,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::PredecessorIntersection</code></td>
+						<td><code>org.namesonnodes.math.operations::PredecessorIntersection</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1208,7 +1208,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::SuccessorIntersection</code></td>
+						<td><code>org.namesonnodes.math.operations::SuccessorIntersection</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1244,7 +1244,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::SynapomorphicPredecessors</code></td>
+						<td><code>org.namesonnodes.math.operations::SynapomorphicPredecessors</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1277,7 +1277,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::NodeBasedCladogen</code></td>
+						<td><code>org.namesonnodes.math.operations::NodeBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1320,7 +1320,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::BranchBasedCladogen</code></td>
+						<td><code>org.namesonnodes.math.operations::BranchBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1361,7 +1361,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::ApomorphyBasedCladogen</code></td>
+						<td><code>org.namesonnodes.math.operations::ApomorphyBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1411,7 +1411,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::Clade</code></td>
+						<td><code>org.namesonnodes.math.operations::Clade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1444,7 +1444,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::NodeBasedClade</code></td>
+						<td><code>org.namesonnodes.math.operations::NodeBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1478,7 +1478,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::BranchBasedClade</code></td>
+						<td><code>org.namesonnodes.math.operations::BranchBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1511,7 +1511,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::ApomorphyBasedClade</code></td>
+						<td><code>org.namesonnodes.math.operations::ApomorphyBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1520,12 +1520,12 @@
 						</td>
 					</tr>
 				</table>
-				<a id="def-Crown" name="def-Crown"></a>
-				<h3>Crown Group</h3>
+				<a id="def-CrownClade" name="def-CrownClade"></a>
+				<h3>Crown Clade</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#def-CrownGroup</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-CrownClade</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1544,7 +1544,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::CrownGroup</code></td>
+						<td><code>org.namesonnodes.math.operations::CrownClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1553,12 +1553,12 @@
 						</td>
 					</tr>
 				</table>
-				<a id="def-Total" name="def-Total"></a>
-				<h3>Total Group</h3>
+				<a id="def-TotalClade" name="def-TotalClade"></a>
+				<h3>Total Clade</h3>
 				<table class="definition">
 					<tr>
 						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#def-TotalGroup</code></td>
+						<td><code>http://namesonnodes.org/ns/math/2009#def-TotalClade</code></td>
 					</tr>
 					<tr>
 						<th>Symbol</th>
@@ -1578,7 +1578,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::TotalGroup</code></td>
+						<td><code>org.namesonnodes.math.operations::TotalClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1611,7 +1611,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::NodeBranchTriple</code></td>
+						<td><code>org.namesonnodes.math.operations::NodeBranchTriple</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1656,7 +1656,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::MeanPhylogeneticDistance</code></td>
+						<td><code>org.namesonnodes.math.operations::MeanPhylogeneticDistance</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1698,7 +1698,7 @@
 					</tr>
 					<tr>
 						<th>Implementation</th>
-						<td><code>org.namesonnodes.math::TaxonBall</code></td>
+						<td><code>org.namesonnodes.math.operations::TaxonBall</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
