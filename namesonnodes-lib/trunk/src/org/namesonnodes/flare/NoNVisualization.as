@@ -1,7 +1,6 @@
 package org.namesonnodes.flare
 {
 	import a3lbmonkeybrain.brainstem.collections.EmptySet;
-	import a3lbmonkeybrain.brainstem.collections.FiniteCollection;
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.collections.HashSet;
 	import a3lbmonkeybrain.brainstem.collections.MutableCollection;
@@ -10,9 +9,10 @@ package org.namesonnodes.flare
 	import flare.animate.Transitioner;
 	import flare.flex.FlareVis;
 	import flare.vis.data.Data;
-	import flare.vis.data.EdgeSprite;
+	import flare.vis.data.NodeSprite;
 	import flare.vis.data.render.ArrowType;
 	import flare.vis.events.VisualizationEvent;
+	import flare.vis.operator.label.Labeler;
 	import flare.vis.operator.layout.Layout;
 	import flare.vis.operator.layout.NodeLinkTreeLayout;
 	
@@ -24,11 +24,10 @@ package org.namesonnodes.flare
 	import mx.events.FlexEvent;
 	
 	import org.namesonnodes.flare.events.EntityClickEvent;
-	import org.namesonnodes.phylo.Phylogeny;
 
 	[Event(name = "vertexClick", type = "org.namesonnodes.flare.events.EntityClickEvent")]
 	[Event(name = "arcClick", type = "org.namesonnodes.flare.events.EntityClickEvent")]
-	public final class PhylogenyVisualization extends FlareVis
+	public final class NoNVisualization extends FlareVis
 	{
 		public static const EDGE_PROPERTIES:Object = {lineColor: 0xFF330000, lineWidth: 1, fillColor: 0xFF330000,
 				arrowType: ArrowType.TRIANGLE, arrowHeight: 4, arrowWidth: 6, directed: true};
@@ -37,18 +36,25 @@ package org.namesonnodes.flare
 		public static const SELECTION_LINE_ALPHA:Number = 1.0;
 		public static const SELECTION_LINE_COLOR:uint = 0xFFFF00;
 		public static const TRANSITION_SECONDS:Number = 0.5;
-		private const dataFactory:DataPhylogenyFactory = new DataPhylogenyFactory();
 		private var _layout:Layout;
 		private var _selection:FiniteSet = new HashSet();
-		private var _phylogeny:Phylogeny;
 		private var transitioner:Transitioner;
-		public function PhylogenyVisualization()
+		public function NoNVisualization(data:Data = null)
 		{
-			super();
+			super(data);
 			addEventListener(FlexEvent.CREATION_COMPLETE, initVisualization, false, int.MAX_VALUE);
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(MouseEvent.CLICK, onClick);
 			visualization.addEventListener(VisualizationEvent.UPDATE, onVisualizationUpdate);
+			visualization.operators.add(new Labeler("data.label"));
+		}
+		override public function set data(v:Object):void
+		{
+			if (super.data != v)
+			{
+				super.data = v;
+				updateVisualization();
+			}		
 		}
 		public function get layout():Layout
 		{
@@ -71,12 +77,11 @@ package org.namesonnodes.flare
 		}
 		public function set selection(value:FiniteSet):void
 		{
-			value = _phylogeny.finest(value);
-			var node:VertexSprite;
+			var node:NodeSprite;
 			if (value.empty)
 			{
 				for each (node in visualization.data.nodes)
-					node.selected = false;
+					markNode(node, false);
 				_selection = EmptySet.INSTANCE;
 			}
 			else
@@ -84,8 +89,9 @@ package org.namesonnodes.flare
 				_selection = new HashSet();
 				for each (node in visualization.data.nodes)
 				{
-					node.selected = value.has(node.data);
-					if (node.selected)
+					var selected:Boolean = value.has(node.data);
+					markNode(node, selected);
+					if (selected)
 						MutableCollection(_selection).add(node.data);
 				}
 			}
@@ -123,22 +129,10 @@ package org.namesonnodes.flare
 				}
 			}
 		}
-		public function get phylogeny():Phylogeny
-		{
-			return _phylogeny;
-		}
-		public function set phylogeny(value:Phylogeny):void
-		{
-			if (_phylogeny == value)
-				return;
-			_phylogeny = value;
-			dataSet = dataFactory.createData(_phylogeny);
-			updateVisualization();
-		}
 		public function findDataByArea(area:Rectangle):FiniteSet
 		{
 			var result:HashSet = new HashSet();
-			for each (var node:VertexSprite in visualization.data.nodes)
+			for each (var node:NodeSprite in visualization.data.nodes)
 			{
 				if (area.intersects(node.getRect(this)))
 					result.add(node.data);
@@ -147,7 +141,6 @@ package org.namesonnodes.flare
 		}
 		private function initVisualization(event:* = null):void
 		{
-			visualization.data = new Data(true);
 			visualization.filters = [new DropShadowFilter(3, 45, 0x000066, 0.25, 4, 4, 1, 2)];
 			updateVisualization(true);
 		}
@@ -157,19 +150,31 @@ package org.namesonnodes.flare
 				removeEventListener(event.type, killContinuousUpdates);
 			visualization.continuousUpdates = false;
 		}
+		private static function markNode(node:NodeSprite, marked:Boolean):void
+		{
+			//:TODO:
+		}
 		private function onAddedToStage(event:Event):void
 		{
 			if (_layout == null)
-				layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
+			{
+				var layout:Layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
+				// :TODO: Remove
+				layout.layoutBounds = new Rectangle(0, 0, 1024, 768);
+				this.layout = layout;
+			}
 		}
 		private function onClick(event:MouseEvent):void
 		{
-			if (event.target is VertexSprite)
+			// :TODO: Rethink
+			/*
+			if (event.target is NodeSprite)
 				dispatchEvent(new EntityClickEvent(EntityClickEvent.VERTEX_CLICK, true, true,
-					VertexSprite(event.target).data as FiniteCollection, event));
+					NodeSprite(event.target).data as FiniteCollection, event));
 			else if (event.target is EdgeSprite)
 				dispatchEvent(new EntityClickEvent(EntityClickEvent.ARC_CLICK, true, true,
 					EdgeSprite(event.target).data as FiniteCollection, event));
+			*/
 		}
 		private function onTransitionEnd(event:TransitionEvent):void
 		{
@@ -194,8 +199,9 @@ package org.namesonnodes.flare
 				return;
 			if (transitioner != null)
 				transitioner.stop();
-			if (visualization.data.nodes.length > 0)
+			if (Data(data).nodes.length != 0)
 			{
+				_layout.layoutRoot = Data(data).root || Data(data).nodes.toDataArray()[0];
 				visualization.visible = true;
 				visualization.continuousUpdates = true;
 				transitioner = visualization.update(immediate ? 10 : TRANSITION_SECONDS);

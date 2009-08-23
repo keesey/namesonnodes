@@ -3,6 +3,7 @@ package org.namesonnodes.domain.collections
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.collections.HashSet;
 	import a3lbmonkeybrain.brainstem.collections.MutableSet;
+	import a3lbmonkeybrain.brainstem.filter.isNonEmptyString;
 	import a3lbmonkeybrain.brainstem.relate.Order;
 	import a3lbmonkeybrain.brainstem.relate.Ordered;
 	
@@ -15,9 +16,25 @@ package org.namesonnodes.domain.collections
 		private static const NAMESPACE_PREFIXES:Dictionary = new Dictionary();
 		private const _identifiers:MutableSet = new HashSet();
 		private const _taxa:MutableSet = new HashSet();
+		private var _label:String;
 		public function Node()
 		{
 			super();
+		}
+		public function get label():String
+		{
+			if (_label == null)
+			{
+				const labels:MutableSet = new HashSet();
+				for each (var id:TaxonIdentifier in identifiers)
+				{
+					var name:String = id.label.name;
+					if (isNonEmptyString(name))
+						labels.add(name);
+				}
+				_label = labels.toArray().sort(Array.CASEINSENSITIVE).join("/");
+			}
+			return _label;
 		}
 		public static function registerPrefix(ns:Namespace):void
 		{
@@ -33,6 +50,7 @@ package org.namesonnodes.domain.collections
 		}
 		internal function addIdentifier(id:TaxonIdentifier):void
 		{
+			_label = null;
 			_identifiers.add(id);
 			_taxa.add(id.entity);
 		}

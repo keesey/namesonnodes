@@ -73,11 +73,9 @@
     <classEntry path="org.namesonnodes.domain.summaries.SummaryItem"/>
     <classEntry path="org.namesonnodes.domain.summaries.summarize"/>
     <classEntry path="org.namesonnodes.flare.DataPhylogenyFactory"/>
-    <classEntry path="org.namesonnodes.flare.PhylogenyVisualization"/>
+    <classEntry path="org.namesonnodes.flare.NoNVisualization"/>
     <classEntry path="org.namesonnodes.flare.VertexSprite"/>
     <classEntry path="org.namesonnodes.flare.events.EntityClickEvent"/>
-    <classEntry path="org.namesonnodes.flare.test.FlareTest"/>
-    <classEntry path="org.namesonnodes.flare.test.PhylogenyVisualizationTest"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphImporter"/>
     <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedClade"/>
@@ -106,6 +104,8 @@
     <classEntry path="org.namesonnodes.utils.parseQName"/>
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
     <classEntry path="org.namesonnodes.math.resolve.UnresolvableTaxon"/>
+    <classEntry path="org.namesonnodes.flare.DatasetCollectionConverter"/>
+    <classEntry path="org.namesonnodes.flare.test.DatasetCollectionConverterTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
