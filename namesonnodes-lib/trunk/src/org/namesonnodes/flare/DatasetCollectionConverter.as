@@ -51,13 +51,10 @@ package org.namesonnodes.flare
 						{
 							var prcNodeSprite:NodeSprite = nodeSprites[prcNode] as NodeSprite;
 							var weight:int = Math.max(1, _datasetCollection.generationDistance(node, prcNode));
-							edgeSprite = new EdgeSprite(prcNodeSprite, nodeSprite, true);
+							edgeSprite = _data.addEdgeFor(prcNodeSprite, nodeSprite, true, {weight: weight});
 							edgeSprite.arrowType = ArrowType.TRIANGLE;
 							edgeSprite.arrowHeight = 5;
 							edgeSprite.arrowWidth = 5;
-							edgeSprite.data = weight;
-							_data.addEdge(edgeSprite);
-							//edgeSprite.render();
 						}
 				}
 				if (roots.size == 1)

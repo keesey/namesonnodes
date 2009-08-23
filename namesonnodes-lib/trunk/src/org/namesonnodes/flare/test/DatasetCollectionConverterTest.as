@@ -1,16 +1,13 @@
 package org.namesonnodes.flare.test
 {
+	import a3lbmonkeybrain.brainstem.core.nullEventHandler;
 	import a3lbmonkeybrain.brainstem.test.UITestUtil;
 	
 	import flare.flex.FlareVis;
-	import flare.vis.controls.DragControl;
 	import flare.vis.data.Data;
 	import flare.vis.operator.label.Labeler;
-	import flare.vis.operator.layout.Layout;
 	import flare.vis.operator.layout.NodeLinkTreeLayout;
 	
-	import flash.events.Event;
-	import flash.geom.Rectangle;
 	import flash.utils.ByteArray;
 	
 	import flexunit.framework.TestCase;
@@ -51,17 +48,9 @@ package org.namesonnodes.flare.test
 			const vis:FlareVis = new FlareVis(data);
 			vis.visHeight = 768;
 			vis.visWidth = 1024;
-			vis.controls = [new DragControl()];
-			const layout:Layout = new NodeLinkTreeLayout();
-			layout.layoutBounds = new Rectangle(0, 0, 1024, 768);
-			vis.operators = [layout, new Labeler("data.label")];
+			vis.operators = [new NodeLinkTreeLayout(), new Labeler("data.label")];
 			vis.visualization.continuousUpdates = true;
-			layout.operate();
-			UITestUtil.createTestWindow(vis, "DatasetCollectionConverter", addAsync(onCloseWindow, int.MAX_VALUE));
-		}
-		private function onCloseWindow(event:Event):void
-		{
-			// Do nothing.
+			UITestUtil.createTestWindow(vis, "DatasetCollectionConverter", addAsync(nullEventHandler, int.MAX_VALUE));
 		}
 	}
 }

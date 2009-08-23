@@ -28,7 +28,7 @@ package org.namesonnodes.domain.collections
 				const labels:MutableSet = new HashSet();
 				for each (var id:TaxonIdentifier in identifiers)
 				{
-					var name:String = id.label.name;
+					var name:String = id.label.abbrOrName;
 					if (isNonEmptyString(name))
 						labels.add(name);
 				}
