@@ -31,16 +31,17 @@ package org.namesonnodes.flare
 				var node:Node;
 				var nodeSprite:NodeSprite;
 				const nodeSprites:Dictionary = new Dictionary();
-				for each (node in _nodeGraph.universalTaxon)
+				for each (node in _nodeGraph.relatedNodes)
 				{
 					nodeSprite = new NodeSprite();
 					nodeSprite.data = node;
 					nodeSprites[node] = nodeSprite;
+					nodeSprite.renderer = new NodeRenderer();
 					_data.addNode(nodeSprite);
 				}
 				const roots:MutableSet = new HashSet();
 				var edgeSprite:EdgeSprite;
-				for each (node in _nodeGraph.universalTaxon)
+				for each (node in _nodeGraph.relatedNodes)
 				{
 					nodeSprite = nodeSprites[node] as NodeSprite;
 					var prcNodes:FiniteSet = nodeGraph.immediatePredecessors(node);

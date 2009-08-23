@@ -21,6 +21,7 @@ package org.namesonnodes.domain.nodes
 	public final class NodeGraph
 	{
 		private var allFinestNodes:FiniteSet;
+		private const connectedNodes:MutableSet = new HashSet();
 		private const datasetDistances:Dictionary = new Dictionary();
 		private const datasets:MutableSet = new HashSet();
 		private const finest:Dictionary = new Dictionary();
@@ -45,6 +46,10 @@ package org.namesonnodes.domain.nodes
 			initIdentifiers();
 			initPhylogeny();
 			initDistances();
+		}
+		public function get relatedNodes():FiniteSet
+		{
+			return connectedNodes;
 		}
 		public function get universalTaxon():FiniteSet
 		{
@@ -238,6 +243,7 @@ package org.namesonnodes.domain.nodes
 					if (useDistances)
 						distance = Math.max(0, Math.ceil(heredity.weight / dataset.weightPerGeneration));
 					for each (var prcNode:Node in prc)
+					{
 						for each (var sucNode:Node in suc)
 						{
 							if (prcNode == sucNode)
@@ -277,7 +283,10 @@ package org.namesonnodes.domain.nodes
 								generationDistances[prcNode][sucNode] = distance;
 								generationDistances[sucNode][prcNode] = distance;
 							}
+							connectedNodes.add(sucNode);
 						}
+						connectedNodes.add(prcNode);
+					}
 				}
 			}
 			//for (var n:* in immediateSuccessorsTable)

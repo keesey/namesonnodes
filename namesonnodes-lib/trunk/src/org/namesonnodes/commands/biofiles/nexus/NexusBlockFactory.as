@@ -8,6 +8,7 @@ package org.namesonnodes.commands.biofiles.nexus
 	{
 		private static const BLOCK_CHARACTERS:String = "CHARACTERS";
 		private static const BLOCK_DATA:String = "DATA";
+		private static const BLOCK_DISTANCES:String = "DISTANCES";
 		private static const BLOCK_TAXA:String = "TAXA";
 		private static const BLOCK_TREES:String = "TREES";
 		private static const END:String = "END";
@@ -42,7 +43,8 @@ package org.namesonnodes.commands.biofiles.nexus
 					block = new DataBlock("DATA:" + (dataIndex++));
 					taxaBlocks.push(DataBlock(block).taxaBlock);
 					break;
-				} 
+				}
+				// :TODO: Distance blocks
 				case BLOCK_TAXA :
 				{
 					block = new TaxaBlock("TAXA:" + (taxaIndex++));

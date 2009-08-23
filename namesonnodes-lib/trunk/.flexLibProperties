@@ -72,9 +72,8 @@
     <classEntry path="org.namesonnodes.domain.summaries.Summarizeable"/>
     <classEntry path="org.namesonnodes.domain.summaries.SummaryItem"/>
     <classEntry path="org.namesonnodes.domain.summaries.summarize"/>
-    <classEntry path="org.namesonnodes.flare.NoNVisualization"/>
+    <classEntry path="org.namesonnodes.flare.NodeGraphVis"/>
     <classEntry path="org.namesonnodes.flare.NodeGraphDataConverter"/>
-    <classEntry path="org.namesonnodes.flare.VertexSprite"/>
     <classEntry path="org.namesonnodes.flare.events.EntityClickEvent"/>
     <classEntry path="org.namesonnodes.flare.test.NodeGraphDataConverterTest"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
@@ -103,6 +102,8 @@
     <classEntry path="org.namesonnodes.math.resolve.test.NoNResolverTest"/>
     <classEntry path="org.namesonnodes.utils.parseQName"/>
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
+    <classEntry path="org.namesonnodes.flare.NodeRenderer"/>
+    <classEntry path="org.namesonnodes.flare.test.NodeGraphVisTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

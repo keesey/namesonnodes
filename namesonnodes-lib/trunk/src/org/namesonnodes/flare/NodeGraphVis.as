@@ -17,17 +17,12 @@ package org.namesonnodes.flare
 	import flare.vis.operator.layout.NodeLinkTreeLayout;
 	
 	import flash.events.Event;
-	import flash.events.MouseEvent;
 	import flash.filters.DropShadowFilter;
 	import flash.geom.Rectangle;
 	
 	import mx.events.FlexEvent;
-	
-	import org.namesonnodes.flare.events.EntityClickEvent;
 
-	[Event(name = "vertexClick", type = "org.namesonnodes.flare.events.EntityClickEvent")]
-	[Event(name = "arcClick", type = "org.namesonnodes.flare.events.EntityClickEvent")]
-	public final class NoNVisualization extends FlareVis
+	public final class NodeGraphVis extends FlareVis
 	{
 		public static const EDGE_PROPERTIES:Object = {lineColor: 0xFF330000, lineWidth: 1, fillColor: 0xFF330000,
 				arrowType: ArrowType.TRIANGLE, arrowHeight: 4, arrowWidth: 6, directed: true};
@@ -37,24 +32,24 @@ package org.namesonnodes.flare
 		public static const SELECTION_LINE_COLOR:uint = 0xFFFF00;
 		public static const TRANSITION_SECONDS:Number = 0.5;
 		private var _layout:Layout;
-		private var _selection:FiniteSet = new HashSet();
+		private var _selection:FiniteSet = EmptySet.INSTANCE;
 		private var transitioner:Transitioner;
-		public function NoNVisualization(data:Data = null)
+		public function NodeGraphVis(data:Data = null)
 		{
 			super(data);
 			addEventListener(FlexEvent.CREATION_COMPLETE, initVisualization, false, int.MAX_VALUE);
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			addEventListener(MouseEvent.CLICK, onClick);
 			visualization.addEventListener(VisualizationEvent.UPDATE, onVisualizationUpdate);
-			visualization.operators.add(new Labeler("data.label"));
 		}
 		override public function set data(v:Object):void
 		{
-			if (super.data != v)
-			{
-				super.data = v;
-				updateVisualization();
-			}		
+			super.data = v;
+			updateVisualization();
+		}
+		override public function set dataSet(d:*) : void
+		{
+			super.dataSet = d;
+			updateVisualization();
 		}
 		public function get layout():Layout
 		{
@@ -95,25 +90,6 @@ package org.namesonnodes.flare
 						MutableCollection(_selection).add(node.data);
 				}
 			}
-			/*
-			const partial:MutableSet = new HashSet();
-			for each (var element:Object in value)
-			{
-				if (element is TaxonSubUnit)
-				{
-					partial.add(TaxonSubUnit(element).taxonUnit);
-					_selection.add(element);
-				}
-			}
-			if (!partial.empty)
-			{
-				for each (node in visualization.data.nodes)
-				{
-					if (!node.selected && partial[node.data] != undefined)
-						node.selectPartially();
-				}
-			}
-			*/
 		}
 		public function set selectionArea(value:Rectangle):void
 		{
@@ -157,22 +133,7 @@ package org.namesonnodes.flare
 		private function onAddedToStage(event:Event):void
 		{
 			if (_layout == null)
-			{
-				var layout:Layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
-				this.layout = layout;
-			}
-		}
-		private function onClick(event:MouseEvent):void
-		{
-			// :TODO: Rethink
-			/*
-			if (event.target is NodeSprite)
-				dispatchEvent(new EntityClickEvent(EntityClickEvent.VERTEX_CLICK, true, true,
-					NodeSprite(event.target).data as FiniteCollection, event));
-			else if (event.target is EdgeSprite)
-				dispatchEvent(new EntityClickEvent(EntityClickEvent.ARC_CLICK, true, true,
-					EdgeSprite(event.target).data as FiniteCollection, event));
-			*/
+				layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
 		}
 		private function onTransitionEnd(event:TransitionEvent):void
 		{
@@ -193,21 +154,24 @@ package org.namesonnodes.flare
 		}
 		private function updateVisualization(immediate:Boolean = false):void
 		{
-			if (!stage)
+			if (!stage || !visualization || !visualization.data)
 				return;
 			if (transitioner != null)
-				transitioner.stop();
-			if (Data(data).nodes.length != 0)
 			{
-				_layout.layoutRoot = Data(data).root || Data(data).nodes.toDataArray()[0];
+				transitioner.removeEventListener(TransitionEvent.END, onTransitionEnd);
+				transitioner.stop();
+			}
+			if (visualization.data.nodes.length != 0)
+			{
 				visualization.visible = true;
 				visualization.continuousUpdates = true;
-				transitioner = visualization.update(immediate ? 10 : TRANSITION_SECONDS);
-				transitioner.play();
+				transitioner = visualization.update(immediate ? 0.1 : TRANSITION_SECONDS);
 				transitioner.addEventListener(TransitionEvent.END, onTransitionEnd, false, 0, true);
+				transitioner.play();
 			}
 			else
 			{
+				transitioner = null;
 				visualization.visible = false;
 				visualization.continuousUpdates = false;
 			}

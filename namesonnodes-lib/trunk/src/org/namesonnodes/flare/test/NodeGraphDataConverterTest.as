@@ -14,6 +14,7 @@ package org.namesonnodes.flare.test
 	
 	import org.namesonnodes.domain.factories.xml.XMLNodeGraphFactory;
 	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.flare.NodeGraphVis;
 	import org.namesonnodes.flare.NodeGraphDataConverter;
 	
 	public class NodeGraphDataConverterTest extends TestCase
@@ -45,11 +46,9 @@ package org.namesonnodes.flare.test
 		{
 			const converter:NodeGraphDataConverter = new NodeGraphDataConverter(nodeGraph);
 			const data:Data = converter.data;
-			const vis:FlareVis = new FlareVis(data);
+			const vis:FlareVis = new NodeGraphVis(data);
 			vis.visHeight = 768;
 			vis.visWidth = 1024;
-			vis.operators = [new NodeLinkTreeLayout(), new Labeler("data.label")];
-			vis.visualization.continuousUpdates = true;
 			UITestUtil.createTestWindow(vis, "NodeGraphDataConverterTest", addAsync(nullEventHandler, int.MAX_VALUE));
 		}
 	}
