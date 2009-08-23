@@ -66,23 +66,6 @@ package org.namesonnodes.commands.biofiles.nexus
 			const s:String = getChar(bytes, HEADER_LENGTH);
 			return s.toUpperCase() == HEADER;
 		}
-		/*
-		protected function parseBlocks(bytes:ByteArray):void
-		{
-			// :TODO: Make asynchronous
-			while (bytes.bytesAvailable != 0)
-			{
-				skipWhitespaceAndComments(bytes);
-				var block:NexusBlock = blockFactory.createBlock(bytes);
-				if (block)
-					for each (var dataset:Dataset in block.datasets)
-						if (dataset && dataset.hasRelations())
-							result.datasets.push(dataset);
-				skipWhitespaceAndComments(bytes);
-			}
-			blockFactory = null;
-		}
-		*/
 		override protected function parseBytes(bytes:ByteArray):void
 		{
 			blockFactory = null;

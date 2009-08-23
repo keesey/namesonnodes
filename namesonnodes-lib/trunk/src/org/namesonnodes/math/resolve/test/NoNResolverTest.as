@@ -60,13 +60,11 @@ package org.namesonnodes.math.resolve.test
 				trace("\t", args.join(" ?= "));
 				if (args[0] is FiniteSet)
 					for (i = 1; i < n - 1; ++i)
-					{
 						if (!Equality.equal(args[0], args[i]) && args[i] is FiniteSet)
 						{
 							trace("arg[0] − arg[" + i + "] =", Set(args[0]).diff(args[i]));
 							trace("arg[" + i + "] − arg[0] =", Set(args[i]).diff(args[0]));
 						}
-					}
 				else if (args[0] is FiniteList)
 					for (i = 1; i < n - 1; ++i)
 					{

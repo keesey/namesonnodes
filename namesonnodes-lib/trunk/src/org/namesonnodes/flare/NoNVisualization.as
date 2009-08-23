@@ -159,8 +159,6 @@ package org.namesonnodes.flare
 			if (_layout == null)
 			{
 				var layout:Layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
-				// :TODO: Remove
-				layout.layoutBounds = new Rectangle(0, 0, 1024, 768);
 				this.layout = layout;
 			}
 		}
