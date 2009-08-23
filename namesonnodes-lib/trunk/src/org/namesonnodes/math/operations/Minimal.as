@@ -9,18 +9,18 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.domain.collections.Node;
+	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.domain.nodes.Node;
 
 	public final class Minimal extends AbstractOperation
 	{
-		internal var datasetCollection:DatasetCollection;
+		internal var nodeGraph:NodeGraph;
 		private const calcTable:CalcTable = new CalcTable();
-		public function Minimal(datasetCollection:DatasetCollection)
+		public function Minimal(nodeGraph:NodeGraph)
 		{
 			super();
-			assertNotNull(datasetCollection);
-			this.datasetCollection = datasetCollection;
+			assertNotNull(nodeGraph);
+			this.nodeGraph = nodeGraph;
 		}
 		override public function apply(args:Array) : Object
 		{
@@ -39,7 +39,7 @@ package org.namesonnodes.math.operations
 			for each (var x:Node in s)
 				if (result.has(x))
 					for each (var y:Node in s)
-						if (datasetCollection.succeeds(x, y))
+						if (nodeGraph.succeeds(x, y))
 						{
 							result.remove(x);
 							break;

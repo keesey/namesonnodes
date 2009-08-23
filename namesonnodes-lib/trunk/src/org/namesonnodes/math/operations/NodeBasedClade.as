@@ -3,7 +3,7 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.brainstem.assert.assertNotNull;
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 
 	public final class NodeBasedClade extends AbstractOperation
 	{
@@ -15,14 +15,14 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(nodeBasedCladogen);
 			assertNotNull(successorUnion);
-			if (nodeBasedCladogen.datasetCollection != successorUnion.datasetCollection)
-				throw new ArgumentError("Conflicting dataset collections.");
+			if (nodeBasedCladogen.nodeGraph != successorUnion.nodeGraph)
+				throw new ArgumentError("Conflicting node graphs.");
 			this.nodeBasedCladogen = nodeBasedCladogen;
 			this.successorUnion = successorUnion;
 		}
-		internal function get datasetCollection():DatasetCollection
+		internal function get nodeGraph():NodeGraph
 		{
-			return nodeBasedCladogen.datasetCollection;
+			return nodeBasedCladogen.nodeGraph;
 		}
 		override public function apply(args:Array):Object
 		{

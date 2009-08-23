@@ -7,16 +7,16 @@ package org.namesonnodes.math.resolve
 	import a3lbmonkeybrain.brainstem.resolve.XMLResolver;
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 
 	public final class NoNEntityResolver implements XMLResolver
 	{
-		private var datasetCollection:DatasetCollection;
-		public function NoNEntityResolver(datasetCollection:DatasetCollection)
+		private var nodeGraph:NodeGraph;
+		public function NoNEntityResolver(nodeGraph:NodeGraph)
 		{
 			super();
-			assertNotNull(datasetCollection);
-			this.datasetCollection = datasetCollection;
+			assertNotNull(nodeGraph);
+			this.nodeGraph = nodeGraph;
 		}
 		public function resolveXML(xml:XML):Object
 		{
@@ -27,14 +27,14 @@ package org.namesonnodes.math.resolve
 				if (isNonEmptyString(definitionURL))
 				{
 					if (definitionURL == "http://namesonnodes.org/ns/math/2009#def-UniversalTaxon")
-						return datasetCollection.universalTaxon;
+						return nodeGraph.universalTaxon;
 					// :TODO:
 					// else if (definitionURL == "http://namesonnodes.org/ns/math/2009#def-GraphRelatedness")
 					// :TODO:
 					// else if (definitionURL == "http://namesonnodes.org/ns/math/2009#def-DigraphParenthood")
 					else
 					{
-						const taxon:FiniteSet = datasetCollection.interpretQName(definitionURL);
+						const taxon:FiniteSet = nodeGraph.interpretQName(definitionURL);
 						if (taxon != null && !taxon.empty)
 							return taxon;
 					}

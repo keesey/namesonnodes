@@ -11,9 +11,9 @@ package org.namesonnodes.math.resolve.test
 	
 	import flexunit.framework.TestCase;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.domain.collections.Node;
-	import org.namesonnodes.domain.factories.xml.DatasetCollectionFactory;
+	import org.namesonnodes.domain.factories.xml.XMLNodeGraphFactory;
+	import org.namesonnodes.domain.nodes.Node;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 	import org.namesonnodes.math.resolve.NoNResolver;
 
 	public class NoNResolverTest extends TestCase
@@ -24,11 +24,11 @@ package org.namesonnodes.math.resolve.test
 		private static var RESOLVE_TESTS:Class;
 		private var tests:XML;
 		private var resolver:NoNResolver;
-		private static function createEntities():DatasetCollection
+		private static function createEntities():NodeGraph
 		{
 			const bytes:ByteArray = new ENTITIES() as ByteArray;
 			const source:XML = new XML(bytes.readUTFBytes(bytes.length));
-			return new DatasetCollectionFactory(source).createDatasetCollection();
+			return new XMLNodeGraphFactory(source).createNodeGraph();
 		}
 		private static function createTests():XML
 		{

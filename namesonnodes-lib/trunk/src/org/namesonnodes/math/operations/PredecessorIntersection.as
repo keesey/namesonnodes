@@ -8,18 +8,18 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.domain.collections.Node;
+	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.domain.nodes.Node;
 
 	public final class PredecessorIntersection extends AbstractOperation
 	{
-		internal var datasetCollection:DatasetCollection;
+		internal var nodeGraph:NodeGraph;
 		private const calcTable:CalcTable = new CalcTable();
-		public function PredecessorIntersection(datasetCollection:DatasetCollection)
+		public function PredecessorIntersection(nodeGraph:NodeGraph)
 		{
 			super();
-			assertNotNull(datasetCollection);
-			this.datasetCollection = datasetCollection;
+			assertNotNull(nodeGraph);
+			this.nodeGraph = nodeGraph;
 		}
 		override public function apply(args:Array) : Object
 		{
@@ -29,7 +29,7 @@ package org.namesonnodes.math.operations
 			if (s.empty)
 				return EmptySet.INSTANCE;
 			if (s.size == 1)
-				return datasetCollection.predecessors(s.singleMember as Node);
+				return nodeGraph.predecessors(s.singleMember as Node);
 			const a:Array = [CalcTable.argumentsToToken(s.toArray())];
 			const r:* = calcTable.getResult(this, a);
 			if (r is FiniteSet)
@@ -38,10 +38,10 @@ package org.namesonnodes.math.operations
 			for each (var x:Node in s)
 			{
 				if (result == null)
-					result = HashSet.fromObject(datasetCollection.predecessors(x));
+					result = HashSet.fromObject(nodeGraph.predecessors(x));
 				else
 				{
-					result = result.intersect(datasetCollection.predecessors(x)) as FiniteSet;
+					result = result.intersect(nodeGraph.predecessors(x)) as FiniteSet;
 					if (result.empty)
 					{
 						result = EmptySet.INSTANCE;

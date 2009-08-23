@@ -13,8 +13,8 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(minimal);
 			assertNotNull(synapomorphicPredecessors);
-			if (minimal.datasetCollection != synapomorphicPredecessors.datasetCollection)
-				throw new ArgumentError("Conflicting dataset collections.");
+			if (minimal.nodeGraph != synapomorphicPredecessors.nodeGraph)
+				throw new ArgumentError("Conflicting node graphs.");
 			this.minimal = minimal;
 			this.synapomorphicPredecessors = synapomorphicPredecessors;
 		}

@@ -9,20 +9,20 @@ package org.namesonnodes.math.resolve
 	import a3lbmonkeybrain.calculia.mathml.MathMLOperationResolver;
 	import a3lbmonkeybrain.calculia.mathml.MathMLResolver;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 
 	public final class NoNResolver implements XMLResolver
 	{
 		private var mathMLResolver:MathMLResolver;
 		private var entityResolver:XMLResolver;
-		public function NoNResolver(datasetCollection:DatasetCollection)
+		public function NoNResolver(nodeGraph:NodeGraph)
 		{
 			super();
 			mathMLResolver = new MathMLResolver(new MathMLIdentifierResolver(),
 				new CompositeOperationResolver([new MathMLOperationResolver(),
-				new NoNOperationResolver(datasetCollection)]));
+				new NoNOperationResolver(nodeGraph)]));
 			entityResolver = new CompositeXMLResolver([mathMLResolver,
-				new NoNEntityResolver(datasetCollection)]);
+				new NoNEntityResolver(nodeGraph)]);
 			mathMLResolver.entityResolver = entityResolver;
 		}
 		public function resolveXML(xml:XML):Object

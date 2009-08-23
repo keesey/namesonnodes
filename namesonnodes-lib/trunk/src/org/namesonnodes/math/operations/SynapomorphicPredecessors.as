@@ -10,8 +10,8 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.domain.collections.Node;
+	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.domain.nodes.Node;
 
 	public final class SynapomorphicPredecessors extends AbstractOperation
 	{
@@ -23,9 +23,9 @@ package org.namesonnodes.math.operations
 			assertNotNull(predecessorIntersection);
 			this.predecessorIntersection = predecessorIntersection;
 		}
-		internal function get datasetCollection():DatasetCollection
+		internal function get nodeGraph():NodeGraph
 		{
-			return predecessorIntersection.datasetCollection;
+			return predecessorIntersection.nodeGraph;
 		}
 		private function isCommonSynapomorphicPredecessor(prc:Node,
 			representative:FiniteSet, apomorphic:FiniteSet):Boolean
@@ -39,7 +39,7 @@ package org.namesonnodes.math.operations
 			apomorphic:FiniteSet):Boolean
 		{
 			const paths:FiniteSet = predecessorIntersection
-				.datasetCollection.paths(prc, suc);
+				.nodeGraph.paths(prc, suc);
 			if (paths.empty)
 				return false;
 			for each (var path:FiniteList in paths)

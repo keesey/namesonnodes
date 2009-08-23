@@ -11,17 +11,17 @@ package org.namesonnodes.flare
 	
 	import flash.utils.Dictionary;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.domain.collections.Node;
-
-	public final class DatasetCollectionConverter
+	import org.namesonnodes.domain.nodes.Node;
+	import org.namesonnodes.domain.nodes.NodeGraph;
+	
+	public final class NodeGraphDataConverter
 	{
-		private var _datasetCollection:DatasetCollection;
+		private var _nodeGraph:NodeGraph;
 		private var _data:Data;
-		public function DatasetCollectionConverter(datasetCollection:DatasetCollection)
+		public function NodeGraphDataConverter(nodeGraph:NodeGraph)
 		{
 			super();
-			_datasetCollection = datasetCollection;
+			_nodeGraph = nodeGraph;
 		}
 		public function get data():Data
 		{
@@ -31,7 +31,7 @@ package org.namesonnodes.flare
 				var node:Node;
 				var nodeSprite:NodeSprite;
 				const nodeSprites:Dictionary = new Dictionary();
-				for each (node in _datasetCollection.universalTaxon)
+				for each (node in _nodeGraph.universalTaxon)
 				{
 					nodeSprite = new NodeSprite();
 					nodeSprite.data = node;
@@ -40,17 +40,17 @@ package org.namesonnodes.flare
 				}
 				const roots:MutableSet = new HashSet();
 				var edgeSprite:EdgeSprite;
-				for each (node in _datasetCollection.universalTaxon)
+				for each (node in _nodeGraph.universalTaxon)
 				{
 					nodeSprite = nodeSprites[node] as NodeSprite;
-					var prcNodes:FiniteSet = datasetCollection.immediatePredecessors(node);
+					var prcNodes:FiniteSet = nodeGraph.immediatePredecessors(node);
 					if (prcNodes.empty)
 						roots.add(nodeSprite);
 					else
 						for each (var prcNode:Node in prcNodes)
 						{
 							var prcNodeSprite:NodeSprite = nodeSprites[prcNode] as NodeSprite;
-							var weight:int = Math.max(1, _datasetCollection.generationDistance(node, prcNode));
+							var weight:int = Math.max(1, _nodeGraph.generationDistance(node, prcNode));
 							edgeSprite = _data.addEdgeFor(prcNodeSprite, nodeSprite, true, {weight: weight});
 							edgeSprite.arrowType = ArrowType.TRIANGLE;
 							edgeSprite.arrowHeight = 5;
@@ -74,9 +74,9 @@ package org.namesonnodes.flare
 			}
 			return _data;
 		}
-		public function get datasetCollection():DatasetCollection
+		public function get nodeGraph():NodeGraph
 		{
-			return _datasetCollection;
+			return _nodeGraph;
 		}
 	}
 }

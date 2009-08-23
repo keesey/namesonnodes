@@ -12,45 +12,45 @@ package org.namesonnodes.flare.test
 	
 	import flexunit.framework.TestCase;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.domain.factories.xml.DatasetCollectionFactory;
-	import org.namesonnodes.flare.DatasetCollectionConverter;
+	import org.namesonnodes.domain.factories.xml.XMLNodeGraphFactory;
+	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.flare.NodeGraphDataConverter;
 	
-	public class DatasetCollectionConverterTest extends TestCase
+	public class NodeGraphDataConverterTest extends TestCase
 	{
 		[Embed(source="entities.xml",mimeType="application/octet-stream")]
 		private static var ENTITIES:Class;
-		private var context:DatasetCollection;
-		public function DatasetCollectionConverterTest(methodName:String=null)
+		private var nodeGraph:NodeGraph;
+		public function NodeGraphDataConverterTest(methodName:String=null)
 		{
 			super(methodName);
 		}
-		private static function createEntities():DatasetCollection
+		private static function createNodeGraph():NodeGraph
 		{
 			const bytes:ByteArray = new ENTITIES() as ByteArray;
 			const source:XML = new XML(bytes.readUTFBytes(bytes.length));
-			return new DatasetCollectionFactory(source).createDatasetCollection();
+			return new XMLNodeGraphFactory(source).createNodeGraph();
 		}
 		override public function setUp():void
 		{
 			super.setUp();
-			context = createEntities();
+			nodeGraph = createNodeGraph();
 		}
 		override public function tearDown():void
 		{
 			super.tearDown();
-			context = null;
+			nodeGraph = null;
 		}
 		public function testData():void
 		{
-			const converter:DatasetCollectionConverter = new DatasetCollectionConverter(context);
+			const converter:NodeGraphDataConverter = new NodeGraphDataConverter(nodeGraph);
 			const data:Data = converter.data;
 			const vis:FlareVis = new FlareVis(data);
 			vis.visHeight = 768;
 			vis.visWidth = 1024;
 			vis.operators = [new NodeLinkTreeLayout(), new Labeler("data.label")];
 			vis.visualization.continuousUpdates = true;
-			UITestUtil.createTestWindow(vis, "DatasetCollectionConverter", addAsync(nullEventHandler, int.MAX_VALUE));
+			UITestUtil.createTestWindow(vis, "NodeGraphDataConverterTest", addAsync(nullEventHandler, int.MAX_VALUE));
 		}
 	}
 }

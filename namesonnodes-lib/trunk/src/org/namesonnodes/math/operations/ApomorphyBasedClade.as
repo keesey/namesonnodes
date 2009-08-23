@@ -13,8 +13,8 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(successorUnion);
 			assertNotNull(synapomorphicPredecessors);
-			if (successorUnion.datasetCollection != synapomorphicPredecessors.datasetCollection)
-				throw new ArgumentError("Conflicting dataset collections.");
+			if (successorUnion.nodeGraph != synapomorphicPredecessors.nodeGraph)
+				throw new ArgumentError("Conflicting node graphs.");
 			this.successorUnion = successorUnion;
 			this.synapomorphicPredecessors = synapomorphicPredecessors;
 		}

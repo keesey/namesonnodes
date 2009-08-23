@@ -6,7 +6,7 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 
 	public final class TotalClade extends AbstractOperation
 	{
@@ -18,14 +18,14 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(branchBasedClade);
 			assertNotNull(crownClade);
-			if (branchBasedClade.datasetCollection != crownClade.datasetCollection)
-				throw new ArgumentError("Conflicting dataset collections.");
+			if (branchBasedClade.nodeGraph != crownClade.nodeGraph)
+				throw new ArgumentError("Conflicting node graphs.");
 			this.branchBasedClade = branchBasedClade;
 			this.crownClade = crownClade;
 		}
-		internal function get datasetCollection():DatasetCollection
+		internal function get nodeGraph():NodeGraph
 		{
-			return branchBasedClade.datasetCollection;
+			return branchBasedClade.nodeGraph;
 		}
 		override public function apply(args:Array) : Object
 		{

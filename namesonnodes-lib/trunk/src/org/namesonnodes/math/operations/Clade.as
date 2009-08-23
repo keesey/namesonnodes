@@ -20,8 +20,8 @@ package org.namesonnodes.math.operations
 			assertNotNull(minimal);
 			assertNotNull(successorUnion);
 			assertNotNull(successorIntersection);
-			if (minimal.datasetCollection != successorUnion.datasetCollection || successorUnion.datasetCollection != successorIntersection.datasetCollection)
-				throw new ArgumentError("Conflicting dataset collections.");
+			if (minimal.nodeGraph != successorUnion.nodeGraph || successorUnion.nodeGraph != successorIntersection.nodeGraph)
+				throw new ArgumentError("Conflicting node graphs.");
 			this.minimal = minimal;
 			this.successorUnion = successorUnion;
 			this.successorIntersection = successorIntersection;

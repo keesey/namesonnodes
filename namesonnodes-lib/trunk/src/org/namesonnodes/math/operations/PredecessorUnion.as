@@ -9,18 +9,18 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
-	import org.namesonnodes.domain.collections.Node;
+	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.domain.nodes.Node;
 
 	public final class PredecessorUnion extends AbstractOperation
 	{
-		internal var datasetCollection:DatasetCollection;
+		internal var nodeGraph:NodeGraph;
 		private const calcTable:CalcTable = new CalcTable();
-		public function PredecessorUnion(datasetCollection:DatasetCollection)
+		public function PredecessorUnion(nodeGraph:NodeGraph)
 		{
 			super();
-			assertNotNull(datasetCollection);
-			this.datasetCollection = datasetCollection;
+			assertNotNull(nodeGraph);
+			this.nodeGraph = nodeGraph;
 		}
 		override public function apply(args:Array) : Object
 		{
@@ -30,14 +30,14 @@ package org.namesonnodes.math.operations
 			if (s.empty)
 				return EmptySet.INSTANCE;
 			if (s.size == 1)
-				return datasetCollection.predecessors(s.singleMember as Node);
+				return nodeGraph.predecessors(s.singleMember as Node);
 			const a:Array = [CalcTable.argumentsToToken(s.toArray())];
 			const r:* = calcTable.getResult(this, a);
 			if (r is FiniteSet)
 				return r;
 			const result:MutableSet = new HashSet();
 			for each (var x:Node in s)
-				result.addMembers(datasetCollection.predecessors(x));
+				result.addMembers(nodeGraph.predecessors(x));
 			calcTable.setResult(this, a, result);
 			return result;
 		}

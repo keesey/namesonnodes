@@ -5,7 +5,7 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 
 	public final class NodeBasedCladogen extends AbstractOperation
 	{
@@ -17,14 +17,14 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(maximal);
 			assertNotNull(predecessorIntersection);
-			if (maximal.datasetCollection != predecessorIntersection.datasetCollection)
-				throw new ArgumentError("Conflicting dataset collections.");
+			if (maximal.nodeGraph != predecessorIntersection.nodeGraph)
+				throw new ArgumentError("Conflicting node graphs.");
 			this.maximal = maximal;
 			this.predecessorIntersection = predecessorIntersection;
 		}
-		internal function get datasetCollection():DatasetCollection
+		internal function get nodeGraph():NodeGraph
 		{
-			return maximal.datasetCollection;
+			return maximal.nodeGraph;
 		}
 		override public function apply(args:Array):Object
 		{

@@ -1,4 +1,4 @@
-package org.namesonnodes.domain.collections
+package org.namesonnodes.domain.nodes
 {
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.collections.HashSet;

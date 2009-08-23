@@ -5,7 +5,7 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 
 	public final class CrownClade extends AbstractOperation
 	{
@@ -17,9 +17,9 @@ package org.namesonnodes.math.operations
 			assertNotNull(nodeBasedClade);
 			this.nodeBasedClade = nodeBasedClade;
 		}
-		internal function get datasetCollection():DatasetCollection
+		internal function get nodeGraph():NodeGraph
 		{
-			return nodeBasedClade.datasetCollection;
+			return nodeBasedClade.nodeGraph;
 		}
 		override public function apply(args:Array) : Object
 		{

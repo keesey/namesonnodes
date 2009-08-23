@@ -23,9 +23,6 @@
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TaxonIdentifierLibrary"/>
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.TreesBlock"/>
     <classEntry path="org.namesonnodes.commands.biofiles.nexus.test.NexusFormatTest"/>
-    <classEntry path="org.namesonnodes.domain.collections.DatasetCollection"/>
-    <classEntry path="org.namesonnodes.domain.collections.Node"/>
-    <classEntry path="org.namesonnodes.domain.collections.test.DatasetCollectionTest"/>
     <classEntry path="org.namesonnodes.domain.entities.AbstractQualified"/>
     <classEntry path="org.namesonnodes.domain.entities.Authority"/>
     <classEntry path="org.namesonnodes.domain.entities.AuthorityIdentifier"/>
@@ -50,7 +47,6 @@
     <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityIdentifierReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.AuthorityReference"/>
-    <classEntry path="org.namesonnodes.domain.factories.xml.DatasetCollectionFactory"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.DatasetReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.DefinitionReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.EntityFactory"/>
@@ -63,19 +59,25 @@
     <classEntry path="org.namesonnodes.domain.factories.xml.TaxonIdentifierReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.TaxonReader"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.TaxonReference"/>
+    <classEntry path="org.namesonnodes.domain.factories.xml.XMLNodeGraphFactory"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.readLabelled"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.readPersistent"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.readQualified"/>
     <classEntry path="org.namesonnodes.domain.factories.xml.test.EntityFactoryTest"/>
     <classEntry path="org.namesonnodes.domain.files.WeightFactor"/>
     <classEntry path="org.namesonnodes.domain.files.WeightType"/>
+    <classEntry path="org.namesonnodes.domain.nodes.Node"/>
+    <classEntry path="org.namesonnodes.domain.nodes.NodeGraph"/>
+    <classEntry path="org.namesonnodes.domain.nodes.test.NodeGraphTest"/>
     <classEntry path="org.namesonnodes.domain.summaries.Summarizeable"/>
     <classEntry path="org.namesonnodes.domain.summaries.SummaryItem"/>
     <classEntry path="org.namesonnodes.domain.summaries.summarize"/>
     <classEntry path="org.namesonnodes.flare.DataPhylogenyFactory"/>
     <classEntry path="org.namesonnodes.flare.NoNVisualization"/>
+    <classEntry path="org.namesonnodes.flare.NodeGraphDataConverter"/>
     <classEntry path="org.namesonnodes.flare.VertexSprite"/>
     <classEntry path="org.namesonnodes.flare.events.EntityClickEvent"/>
+    <classEntry path="org.namesonnodes.flare.test.NodeGraphDataConverterTest"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphExporter"/>
     <classEntry path="org.namesonnodes.math.graphs.DatasetGraphImporter"/>
     <classEntry path="org.namesonnodes.math.operations.ApomorphyBasedClade"/>
@@ -86,7 +88,6 @@
     <classEntry path="org.namesonnodes.math.operations.CrownClade"/>
     <classEntry path="org.namesonnodes.math.operations.Maximal"/>
     <classEntry path="org.namesonnodes.math.operations.Minimal"/>
-    <classEntry path="org.namesonnodes.math.resolve.NoNOperationResolver"/>
     <classEntry path="org.namesonnodes.math.operations.NodeBasedClade"/>
     <classEntry path="org.namesonnodes.math.operations.NodeBasedCladogen"/>
     <classEntry path="org.namesonnodes.math.operations.NodeBranchTriple"/>
@@ -97,15 +98,14 @@
     <classEntry path="org.namesonnodes.math.operations.SynapomorphicPredecessors"/>
     <classEntry path="org.namesonnodes.math.operations.TotalClade"/>
     <classEntry path="org.namesonnodes.math.resolve.NoNEntityResolver"/>
+    <classEntry path="org.namesonnodes.math.resolve.NoNOperationResolver"/>
     <classEntry path="org.namesonnodes.math.resolve.NoNResolver"/>
+    <classEntry path="org.namesonnodes.math.resolve.UnresolvableTaxon"/>
     <classEntry path="org.namesonnodes.math.resolve.test.NoNResolverTest"/>
     <classEntry path="org.namesonnodes.phylo.Phylogeny"/>
     <classEntry path="org.namesonnodes.phylo.PhylogenyDatasetFactory"/>
     <classEntry path="org.namesonnodes.utils.parseQName"/>
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
-    <classEntry path="org.namesonnodes.math.resolve.UnresolvableTaxon"/>
-    <classEntry path="org.namesonnodes.flare.DatasetCollectionConverter"/>
-    <classEntry path="org.namesonnodes.flare.test.DatasetCollectionConverterTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

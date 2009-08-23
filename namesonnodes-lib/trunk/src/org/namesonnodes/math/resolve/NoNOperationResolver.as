@@ -7,7 +7,7 @@ package org.namesonnodes.math.resolve
 	
 	import flash.utils.Dictionary;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 	import org.namesonnodes.math.operations.*;
 
 	public final class NoNOperationResolver extends AbstractOperationResolver
@@ -15,10 +15,10 @@ package org.namesonnodes.math.resolve
 		private static const DEFINITION_URL_PATTERN:RegExp = /^http:\/\/namesonnodes.org\/ns\/math\/2009#def-/;
 		private static const DEFINITION_HEADER:String = "http://namesonnodes.org/ns/math/2009#def-";
 		private const operations:Dictionary = new Dictionary();
-		public function NoNOperationResolver(datasetCollection:DatasetCollection)
+		public function NoNOperationResolver(nodeGraph:NodeGraph)
 		{
 			super();
-			initOperations(datasetCollection);
+			initOperations(nodeGraph);
 		}
 		override public function getOperation(mathML:XML) : Operation
 		{
@@ -39,14 +39,14 @@ package org.namesonnodes.math.resolve
 		override protected function initOperationMap() : void
 		{
 		}
-		private function initOperations(datasetCollection:DatasetCollection):void
+		private function initOperations(nodeGraph:NodeGraph):void
 		{
-			operations["Maximal"] = new Maximal(datasetCollection);
-			operations["Minimal"] = new Minimal(datasetCollection);
-			operations["PredecessorUnion"] = new PredecessorUnion(datasetCollection);
-			operations["SuccessorUnion"] = new SuccessorUnion(datasetCollection);
-			operations["PredecessorIntersection"] = new PredecessorIntersection(datasetCollection);
-			operations["SuccessorIntersection"] = new SuccessorIntersection(datasetCollection);
+			operations["Maximal"] = new Maximal(nodeGraph);
+			operations["Minimal"] = new Minimal(nodeGraph);
+			operations["PredecessorUnion"] = new PredecessorUnion(nodeGraph);
+			operations["SuccessorUnion"] = new SuccessorUnion(nodeGraph);
+			operations["PredecessorIntersection"] = new PredecessorIntersection(nodeGraph);
+			operations["SuccessorIntersection"] = new SuccessorIntersection(nodeGraph);
 			operations["SynapomorphicPredecessors"] = new SynapomorphicPredecessors(operations["PredecessorIntersection"] as PredecessorIntersection);
 			operations["NodeBasedCladogen"] = new NodeBasedCladogen(operations["Maximal"] as Maximal, operations["PredecessorIntersection"] as PredecessorIntersection);
 			operations["BranchBasedCladogen"] = new BranchBasedCladogen(operations["Minimal"] as Minimal, operations["PredecessorUnion"] as PredecessorUnion, operations["PredecessorIntersection"] as PredecessorIntersection);

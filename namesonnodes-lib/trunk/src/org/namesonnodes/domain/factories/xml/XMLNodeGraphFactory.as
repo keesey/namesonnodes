@@ -4,12 +4,13 @@ package org.namesonnodes.domain.factories.xml
 	
 	import mx.core.IFactory;
 	
-	import org.namesonnodes.domain.collections.DatasetCollection;
+	import org.namesonnodes.domain.*;
+	import org.namesonnodes.domain.nodes.NodeGraph;
 
-	public final class DatasetCollectionFactory implements IFactory
+	public final class XMLNodeGraphFactory implements IFactory
 	{
 		private var entityFactory:EntityFactory;
-		public function DatasetCollectionFactory(source:XML = null)
+		public function XMLNodeGraphFactory(source:XML = null)
 		{
 			super();
 			entityFactory = new EntityFactory(source);
@@ -22,10 +23,10 @@ package org.namesonnodes.domain.factories.xml
 		{
 			entityFactory.source = v;
 		}
-		public function createDatasetCollection(source:XML = null):DatasetCollection
+		public function createNodeGraph(source:XML = null):NodeGraph
 		{
 			const entities:Vector.<Persistent> = entityFactory.createEntities(source);
-			return new DatasetCollection(entities);
+			return new NodeGraph(entities);
 		}
 		public function newInstance():*
 		{

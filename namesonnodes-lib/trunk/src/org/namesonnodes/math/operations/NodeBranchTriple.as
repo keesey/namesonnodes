@@ -14,8 +14,8 @@ package org.namesonnodes.math.operations
 			super();
 			assertNotNull(nodeBasedClade);
 			assertNotNull(branchBasedClade);
-			if (nodeBasedClade.datasetCollection != branchBasedClade.datasetCollection)
-				throw new ArgumentError("Conflicting dataset collections.");
+			if (nodeBasedClade.nodeGraph != branchBasedClade.nodeGraph)
+				throw new ArgumentError("Conflicting node graphs.");
 			this.branchBasedClade = branchBasedClade;
 			this.nodeBasedClade = nodeBasedClade;
 		}

@@ -1,4 +1,4 @@
-package org.namesonnodes.domain.collections
+package org.namesonnodes.domain.nodes
 {
 	import a3lbmonkeybrain.brainstem.collections.EmptySet;
 	import a3lbmonkeybrain.brainstem.collections.FiniteList;
@@ -18,7 +18,7 @@ package org.namesonnodes.domain.collections
 	import org.namesonnodes.domain.entities.Taxon;
 	import org.namesonnodes.domain.entities.TaxonIdentifier;
 
-	public final class DatasetCollection
+	public final class NodeGraph
 	{
 		private var allFinestNodes:FiniteSet;
 		private const datasetDistances:Dictionary = new Dictionary();
@@ -34,7 +34,7 @@ package org.namesonnodes.domain.collections
 		private const predecessorsTable:Dictionary = new Dictionary();
 		private const successorsTable:Dictionary = new Dictionary();
 		private const traversed:MutableSet = new HashSet();
-		public function DatasetCollection(entities:Object)
+		public function NodeGraph(entities:Object)
 		{
 			super();
 			for each (var entity:Object in entities)
