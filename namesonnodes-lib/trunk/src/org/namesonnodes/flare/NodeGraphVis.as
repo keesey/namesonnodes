@@ -4,13 +4,18 @@ package org.namesonnodes.flare
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
 	import a3lbmonkeybrain.brainstem.collections.HashSet;
 	import a3lbmonkeybrain.brainstem.collections.MutableCollection;
+	import a3lbmonkeybrain.brainstem.filter.filterType;
+	import a3lbmonkeybrain.brainstem.filter.isNonEmptyString;
 	
 	import flare.animate.TransitionEvent;
 	import flare.animate.Transitioner;
+	import flare.display.TextSprite;
 	import flare.flex.FlareVis;
 	import flare.vis.controls.DragControl;
+	import flare.vis.controls.TooltipControl;
 	import flare.vis.data.Data;
 	import flare.vis.data.NodeSprite;
+	import flare.vis.events.TooltipEvent;
 	import flare.vis.events.VisualizationEvent;
 	import flare.vis.operator.layout.Layout;
 	
@@ -20,6 +25,8 @@ package org.namesonnodes.flare
 	import flash.geom.Rectangle;
 	
 	import mx.events.FlexEvent;
+	
+	import org.namesonnodes.domain.nodes.Node;
 
 	public final class NodeGraphVis extends FlareVis
 	{
@@ -28,7 +35,7 @@ package org.namesonnodes.flare
 		public static const SELECTION_LINE_ALPHA:Number = 1.0;
 		public static const SELECTION_LINE_COLOR:uint = 0xFFFF00;
 		public static const TRANSITION_SECONDS:Number = 0.5;
-		//private static const NODE_FILTER:Function = filterType(NodeSprite);
+		private static const NODE_FILTER:Function = filterType(NodeSprite);
 		//private const selectionControls:Array = [new SelectionControl(NODE_FILTER, onSelect, onDeselect), new ClickControl(NODE_FILTER, onSelect, onDeselect)];
 		//private const dragControls:Array = [new DragControl(NODE_FILTER)];
 		//private const panZoomControls:Array = [new PanZoomControl()];
@@ -119,6 +126,10 @@ package org.namesonnodes.flare
 				}
 			}
 		}
+		private static function filterLabelledNodes(o:*):Boolean
+		{
+			return o is NodeSprite && isNonEmptyString(NodeSprite(o).data.label);
+		}
 		public function findDataByArea(area:Rectangle):FiniteSet
 		{
 			var result:HashSet = new HashSet();
@@ -149,11 +160,11 @@ package org.namesonnodes.flare
 		private function onAddedToStage(event:Event):void
 		{
 			// :TODO: replace with constant
-			controls = [new DragControl()];
+			controls = [new DragControl(), new TooltipControl(filterLabelledNodes, null, onTooltipShow, onTooltipShow)];
 			//stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			//stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			if (_layout == null)
-				layout = new CompactTentLayout(20, 10);
+				layout = new CompactTentLayout(40, 20);
 				//layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
 		}
 		private function onKeyDown(event:KeyboardEvent):void
@@ -168,6 +179,14 @@ package org.namesonnodes.flare
 		{
 			//stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			//stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		}
+		private function onTooltipShow(event:TooltipEvent):void
+		{
+			if (event.node && event.tooltip is TextSprite)
+			{
+				const label:String = Node(event.node.data).htmlLabel;
+				TextSprite(event.tooltip).htmlText = label;
+			}
 		}
 		private function onTransitionEnd(event:TransitionEvent):void
 		{

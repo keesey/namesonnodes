@@ -15,7 +15,6 @@ package org.namesonnodes.flare
 	
 	public final class CompactTentLayout extends Layout
 	{
-		private const traversedNodes:MutableSet = new HashSet();
 		private var collapsed:MutableSet;
 		private var plots:Dictionary;
 		private var distances:Dictionary;
@@ -34,6 +33,21 @@ package org.namesonnodes.flare
 			super();
 			this.xSpacing = xSpacing;
 			this.ySpacing = ySpacing;
+		}
+		override public function get layoutRoot() : DataSprite
+		{
+			var root:DataSprite;
+			try
+			{
+				root = super.layoutRoot;	
+			}
+			catch (e:Error)
+			{
+				trace("[WARNING]", e.name + ": " + e.message);
+			}
+			if (root == null && visualization != null && visualization.data != null)
+				root = visualization.data.root;
+			return root;
 		}
 		override public function set layoutRoot(r:DataSprite) : void
 		{
@@ -119,18 +133,21 @@ package org.namesonnodes.flare
 				prcDistanceTable = new Dictionary();
 				nonLeaves = new HashSet();
 				collapsed = new HashSet();
-				leaves = findLeaves(layoutRoot as NodeSprite);
-				if (leaves.size < 2)
-					plotNoPoles();
-				else
+				if (layoutRoot != null)
 				{
-					const poles:Vector.<NodeSprite> = findPoles();
-					plotPoles(poles[0] as NodeSprite, poles[1] as NodeSprite);
+					leaves = findLeaves(layoutRoot as NodeSprite);
+					if (leaves.size < 2)
+						plotNoPoles();
+					else
+					{
+						const poles:Vector.<NodeSprite> = findPoles();
+						plotPoles(poles[0] as NodeSprite, poles[1] as NodeSprite);
+					}
+					left = 0;
+					plotTent(layoutRoot as NodeSprite);
+					collapseNode(layoutRoot as NodeSprite);
+					// :TODO: minimizeOverlap();
 				}
-				left = 0;
-				plotTent(layoutRoot as NodeSprite);
-				collapseNode(layoutRoot as NodeSprite);
-				// :TODO: minimizeOverlap();
 			}
 			for (var n:* in plots)
 			{

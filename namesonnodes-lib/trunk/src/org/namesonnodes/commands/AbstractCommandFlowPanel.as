@@ -33,7 +33,7 @@ package org.namesonnodes.commands
 			{
 				PopUpManager.removePopUp(this);
 			}
-			catch (e:Error)
+			catch (e:*)
 			{
 				alertError(e);
 			}

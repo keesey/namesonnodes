@@ -445,6 +445,20 @@
 			</Label>
 		</label>
 	</TaxonIdentifier>
+	<TaxonIdentifier localName="otu:garh">
+		<authority>
+			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
+		</authority>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+garhi</refTaxon>
+		</entity>
+		<label>
+			<Label>
+				<name>garhi</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+	</TaxonIdentifier>
 	<TaxonIdentifier localName="otu:afri">
 		<authority>
 			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
@@ -612,7 +626,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Baringo 1000´00</name>
+				<name>Baringo 1000´00 (Orrorin tugenensis holotype)</name>
 				<abbr>BAR 1000´00</abbr>
 			</Label>
 		</label>
@@ -649,7 +663,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>RG 9338</name>
+				<name>RG 9338 (Pan paniscus holotype)</name>
 			</Label>
 		</label>
 		<entity>
@@ -666,7 +680,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Aramis Vertebrate Paleontology 6/1</name>
+				<name>Aramis Vertebrate Paleontology 6/1 (Australopithecus ramidus holotype)</name>
 				<abbr>ARA-VP 6/1</abbr>
 			</Label>
 		</label>
@@ -684,8 +698,26 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Laetoli Hominid 4</name>
+				<name>Laetoli Hominid 4 (Australopithecus afarensis holotype)</name>
 				<abbr>LH 4</abbr>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition />
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="BOU-VP+12%2F30">
+		<authority>
+			<refAuthority>tel:+0112510111117150</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Bouri Vertebrate Paleontology locality 12, specimen 30 (Australopithecus garhi holotype)</name>
+				<abbr>BOU-VP 12/30</abbr>
 			</Label>
 		</label>
 		<entity>
@@ -702,7 +734,8 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Taung 1</name>
+				<name>Taung 1 (Australopithecus africanus holotype)</name>
+				<abbr>Taung 1</abbr>
 			</Label>
 		</label>
 		<entity>
@@ -719,7 +752,8 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Omo 18</name>
+				<name>Omo 18 (Australopithecus aethiopicus holotype)</name>
+				<abbr>Omo 18</abbr>
 			</Label>
 		</label>
 		<entity>
@@ -736,7 +770,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Transvaal Museum 1517</name>
+				<name>Transvaal Museum 1517 (Paranthropus robusts holotype)</name>
 				<abbr>TM 1517</abbr>
 			</Label>
 		</label>
@@ -754,7 +788,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Olduvai Hominid 5</name>
+				<name>Olduvai Hominid 5 (Zinjanthropus boisei holotype)</name>
 				<abbr>OH 5</abbr>
 			</Label>
 		</label>
@@ -772,7 +806,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Olduvai Hominid 7</name>
+				<name>Olduvai Hominid 7 (Homo habilis holotype)</name>
 				<abbr>OH 7</abbr>
 			</Label>
 		</label>
@@ -790,7 +824,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Liang Bua 1</name>
+				<name>Liang Bua 1 (Homo floresiensis holotype)</name>
 				<abbr>LB 1</abbr>
 			</Label>
 		</label>
@@ -808,7 +842,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Kenya National Museums, East Rudolf 992</name>
+				<name>Kenya National Museums, East Rudolf 992 (Homo ergaster holotype)</name>
 				<abbr>KNM ER 992</abbr>
 			</Label>
 		</label>
@@ -826,7 +860,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Dubois Collectie, Trinil 2</name>
+				<name>Dubois Collectie, Trinil 2 (Homo erectus holotype)</name>
 				<abbr>Trinil 2</abbr>
 			</Label>
 		</label>
@@ -844,7 +878,8 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Mauer 1</name>
+				<name>Mauer 1 (Homo heidelbergensis holotype)</name>
+				<abbr>Mauer 1</abbr>
 			</Label>
 		</label>
 		<entity>
@@ -861,7 +896,8 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Neandertal 1</name>
+				<name>Neandertal 1 (Homo neanderthalensis holotype)</name>
+				<abbr>Neandertal 1</abbr>
 			</Label>
 		</label>
 		<entity>
@@ -878,7 +914,7 @@
 		</authority>
 		<label>
 			<Label>
-				<name>Caroli Linne</name>
+				<name>Caroli Linne (Homo sapiens holotype)</name>
 				<abbr>C. Linne</abbr>
 			</Label>
 		</label>
@@ -1065,6 +1101,61 @@
 		</label>
 		<entity>
 			<refTaxon>urn:isbn:0853010064::Australopithecus+afarensis+afarensis</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+garhi+garhi">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus garhi garhi</name>
+				<abbr>A. g. garhi</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>0.95</level>
+						<rank>subspecies</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::BOU-VP+12%2F30</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+garhi+garhi">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo garhi garhi</name>
+				<abbr>H. g. garhi</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+garhi+garhi</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus+garhi+garhi">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus garhi garhi</name>
+				<abbr>P. g. garhi</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+garhi+garhi</refTaxon>
   		</entity>
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Australopithecus+africanus+africanus">
@@ -1622,6 +1713,61 @@
 			<refTaxon>urn:isbn:0853010064::Australopithecus+afarensis</refTaxon>
   		</entity>
 	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+garhi">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus garhi</name>
+				<abbr>A. garhi</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::BOU-VP+12%2F30</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+garhi">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo garhi</name>
+				<abbr>H. garhi</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+garhi</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus+garhi">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus garhi</name>
+				<abbr>P. garhi</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+garhi</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
 	<TaxonIdentifier localName="Australopithecus+africanus">
 		<authority>
 			<refAuthority>urn:isbn:0853010064</refAuthority>
@@ -2175,6 +2321,61 @@
 		</label>
 		<entity>
 			<refTaxon>urn:isbn:0853010064::Australopithecus+%28afarensis%29</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Australopithecus+%28garhi%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Australopithecus (garhi)</name>
+				<abbr>A. (garhi)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1.05</level>
+						<rank>superspecies</rank>
+						<types>
+							<refTaxon>tel:+0112510111117150::BOU-VP+12%2F30</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Homo+%28garhi%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Homo (garhi)</name>
+				<abbr>H. (garhi)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+%28garhi%29</refTaxon>
+  		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Praeanthropus+%28garhi%29">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Praeanthropus (garhi)</name>
+				<abbr>P. (garhi)</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Australopithecus+%28garhi%29</refTaxon>
   		</entity>
 	</TaxonIdentifier>
 	<TaxonIdentifier localName="Australopithecus+%28africanus%29">
@@ -3619,6 +3820,10 @@
   		</Heredity>
   		<Heredity>
   			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:4</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:garh</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:4</refTaxon></predecessor>
   			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:5</refTaxon></successor>
   		</Heredity>
   		<Heredity>
@@ -3747,6 +3952,10 @@
   		</Heredity>
   		<Heredity>
   			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:18</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:garh</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::htu:18</refTaxon></predecessor>
   			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:19</refTaxon></successor>
   		</Heredity>
   		<Heredity>
@@ -3848,6 +4057,10 @@
   		<Heredity>
   			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></predecessor>
   			<successor><refTaxon>org.namesonnodes.math.resolve.test::htu:29</refTaxon></successor>
+  		</Heredity>
+  		<Heredity>
+  			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></predecessor>
+  			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:garh</refTaxon></successor>
   		</Heredity>
   		<Heredity>
   			<predecessor><refTaxon>org.namesonnodes.math.resolve.test::otu:afar</refTaxon></predecessor>

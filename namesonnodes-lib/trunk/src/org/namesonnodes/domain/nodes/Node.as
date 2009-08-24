@@ -16,10 +16,29 @@ package org.namesonnodes.domain.nodes
 		private static const NAMESPACE_PREFIXES:Dictionary = new Dictionary();
 		private const _identifiers:MutableSet = new HashSet();
 		private const _taxa:MutableSet = new HashSet();
+		private var _htmlLabel:String;
 		private var _label:String;
 		public function Node()
 		{
 			super();
+		}
+		public function get htmlLabel():String
+		{
+			XML.prettyPrinting = false;
+			if (_htmlLabel == null)
+			{
+				const labels:MutableSet = new HashSet();
+				for each (var id:TaxonIdentifier in identifiers)
+				{
+					if (isNonEmptyString(id.label.name))
+					{
+						var name:String = id.label.toHTML().toXMLString();
+						labels.add(name);
+					}
+				}
+				_htmlLabel = labels.toArray().sort(Array.CASEINSENSITIVE).join("\n");
+			}
+			return _htmlLabel;
 		}
 		public function get label():String
 		{
