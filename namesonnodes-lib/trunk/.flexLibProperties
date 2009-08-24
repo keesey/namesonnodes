@@ -104,6 +104,7 @@
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
     <classEntry path="org.namesonnodes.flare.NodeRenderer"/>
     <classEntry path="org.namesonnodes.flare.test.NodeGraphVisTest"/>
+    <classEntry path="org.namesonnodes.flare.OptimalTentDAGLayout"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

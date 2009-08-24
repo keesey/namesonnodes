@@ -55,25 +55,29 @@ package org.namesonnodes.commands.biofiles.nexus
 					var g2:AcyclicGraph = graphs[j];
 					var ancestors2:FiniteSet = g2.vertices.diff(g2.maximal(g2.vertices)) as FiniteSet;
 					for each (var vertex1:TaxonIdentifier in ancestors1)
+					{
+						var maxSucc1:FiniteSet = g1.maximal(g1.successors(vertex1));
 						for each (var vertex2:TaxonIdentifier in ancestors2)
 						{
 							if (vertex1.entity == vertex2.entity)
 								continue;
-							var maxSucc1:FiniteSet = g1.maximal(g1.successors(vertex1));
 							var maxSucc2:FiniteSet = g2.maximal(g2.successors(vertex2));
 							if (maxSucc1.equals(maxSucc2))
 								vertex2.entity = vertex1.entity;
 						}
+					}
 				}
 			}
 		}
 		override protected function handleComment(comment:String) : void
 		{
-			comment = comment.toUpperCase();
-			if (comment == "&U")
-				rooted = false;
-			else if (comment == "&R")
-				rooted = true;
+			if (comment.length == 2)
+			{
+				if (comment == "&U")
+					rooted = false;
+				else if (comment == "&R")
+					rooted = true;
+			}
 		}
 		override public function parse(bytes:ByteArray) : void
 		{

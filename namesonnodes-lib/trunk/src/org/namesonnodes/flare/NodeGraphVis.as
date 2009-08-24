@@ -12,9 +12,7 @@ package org.namesonnodes.flare
 	import flare.vis.data.NodeSprite;
 	import flare.vis.data.render.ArrowType;
 	import flare.vis.events.VisualizationEvent;
-	import flare.vis.operator.label.Labeler;
 	import flare.vis.operator.layout.Layout;
-	import flare.vis.operator.layout.NodeLinkTreeLayout;
 	
 	import flash.events.Event;
 	import flash.filters.DropShadowFilter;
@@ -24,8 +22,6 @@ package org.namesonnodes.flare
 
 	public final class NodeGraphVis extends FlareVis
 	{
-		public static const EDGE_PROPERTIES:Object = {lineColor: 0xFF330000, lineWidth: 1, fillColor: 0xFF330000,
-				arrowType: ArrowType.TRIANGLE, arrowHeight: 4, arrowWidth: 6, directed: true};
 		public static const SELECTION_FILL_ALPHA:Number = 0.25;
 		public static const SELECTION_FILL_COLOR:uint = 0xFFFF80;
 		public static const SELECTION_LINE_ALPHA:Number = 1.0;
@@ -133,7 +129,8 @@ package org.namesonnodes.flare
 		private function onAddedToStage(event:Event):void
 		{
 			if (_layout == null)
-				layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
+				layout = new OptimalTentDAGLayout();
+				//layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
 		}
 		private function onTransitionEnd(event:TransitionEvent):void
 		{

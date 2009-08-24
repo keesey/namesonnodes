@@ -16,6 +16,8 @@ package org.namesonnodes.flare
 	
 	public final class NodeGraphDataConverter
 	{
+		public static const EDGE_PROPERTIES:Object = {lineColor: 0xFF330000, lineWidth: 1, fillColor: 0xFF330000,
+				arrowType: ArrowType.TRIANGLE, arrowHeight: 4, arrowWidth: 6, directed: true};
 		private var _nodeGraph:NodeGraph;
 		private var _data:Data;
 		public function NodeGraphDataConverter(nodeGraph:NodeGraph)
@@ -73,6 +75,7 @@ package org.namesonnodes.flare
 					_data.root = root;
 				}
 			}
+			_data.edges.setProperties(EDGE_PROPERTIES);
 			return _data;
 		}
 		public function get nodeGraph():NodeGraph

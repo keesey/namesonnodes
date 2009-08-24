@@ -47,8 +47,6 @@ package org.namesonnodes.flare.test
 			const converter:NodeGraphDataConverter = new NodeGraphDataConverter(nodeGraph);
 			const data:Data = converter.data;
 			const vis:FlareVis = new NodeGraphVis(data);
-			vis.visHeight = 768;
-			vis.visWidth = 1024;
 			UITestUtil.createTestWindow(vis, "NodeGraphDataConverterTest", addAsync(nullEventHandler, int.MAX_VALUE));
 		}
 	}

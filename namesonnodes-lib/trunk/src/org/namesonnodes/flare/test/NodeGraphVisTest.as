@@ -61,7 +61,7 @@ package org.namesonnodes.flare.test
 		private function onFileSelect(event:Event):void
 		{
 			const fileRef:FileReference = event.target as FileReference;
-			fileRef.addEventListener(Event.COMPLETE, addAsync(onFileComplete, 60 * 1000))
+			fileRef.addEventListener(Event.COMPLETE, addAsync(onFileComplete, 60 * 1000));
 			fileRef.load();
 		}
 		private function onFileComplete(event:Event):void
