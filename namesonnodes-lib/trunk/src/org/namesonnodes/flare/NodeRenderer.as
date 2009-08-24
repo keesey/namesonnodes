@@ -19,21 +19,21 @@ package org.namesonnodes.flare
 
 	public final class NodeRenderer extends ShapeRenderer
 	{
-		public static const BORDER_COLOR:uint = 0x330000;
+		public static const BORDER_COLOR:uint = 0x000000;
 		public static const CORNER_RADIUS:uint = 8;
-		public static const FILL_COLOR:uint = 0xC0B003;
+		public static const FILL_COLOR:uint = 0x80D0F0;
 		//public static const FILL_COLOR_PARTIALLY_SELECTED:uint = 0xDFCB01;
-		public static const FILL_COLOR_SELECTED:uint = 0xFFE700;
+		public static const FILL_COLOR_SELECTED:uint = 0xC0FFFF;
 		//public static const FILTERS_PARTIALLY_SELECTED:Array = [new GlowFilter(FILL_COLOR_SELECTED, 1, 4, 4, 3, 3)];
 		public static const FILTERS_SELECTED:Array = [new GlowFilter(FILL_COLOR_SELECTED, 0.33, 4, 4, 3, 3)];
 		public static const HEIGHT:uint = 22;
-		public static const LABEL_FILTERS:Array = [new GlowFilter(0xFFFF80, 1, 4, 4, 2, 3)];
+		public static const LABEL_FILTERS:Array = [new GlowFilter(0xC0FFFF, 1, 4, 4, 2, 3)];
 		public static const MAX_WIDTH:uint = 100;
 		public static const PADDING_BOTTOM:uint = 6;
 		public static const PADDING_LEFT:uint = 4;
 		public static const PADDING_RIGHT:uint = 6;
 		public static const PADDING_TOP:uint = 2;
-		public static const TEXT_COLOR:uint = 0x330000;
+		public static const TEXT_COLOR:uint = 0x000000;
 		public static const UNLABELLED_CORNER_RADIUS:uint = 4;
 		public static const UNLABELLED_HEIGHT:uint = 16;
 		public static const UNLABELLED_WIDTH:uint = 16;
@@ -44,6 +44,8 @@ package org.namesonnodes.flare
 		private var hit:Sprite;
 		override public function render(sprite:DataSprite):void
 		{
+			sprite.buttonMode = true;
+			sprite.mouseChildren = false;
 			sprite.graphics.clear();
 			var ellipse:int, h:int, w:int, x:int, y:int;
 			var label:String = Node(sprite.data).label;
@@ -66,6 +68,7 @@ package org.namesonnodes.flare
 				{
 					labelField = new TLFTextField();
 					labelField.text = label;
+					labelField.mouseEnabled = false;
 					labelField.mouseEnabled = false;
 					labelField.textColor = TEXT_COLOR;
 					labelField.filters = LABEL_FILTERS;
@@ -114,8 +117,14 @@ package org.namesonnodes.flare
 			with (shine.graphics)
 			{
 				clear();
-				beginFill(0xFFFFFF, 0.5);
+				beginFill(0xFFFFFF, 0.75);
 				drawRoundRect(rect.x + 2, rect.y + 2, rect.width - 4, 4, 4, 4);
+			}
+			if (labelField)
+			{
+				const labelIndex:uint = sprite.getChildIndex(labelField);
+				if (sprite.getChildIndex(shine) > labelIndex)
+					sprite.setChildIndex(shine, labelIndex);
 			}
 			if (hit == null)
 			{

@@ -13,9 +13,10 @@ package org.namesonnodes.flare
 	import flash.geom.Point;
 	import flash.utils.Dictionary;
 	
-	public final class OptimalTentDAGLayout extends Layout
+	public final class CompactTentLayout extends Layout
 	{
 		private const traversedNodes:MutableSet = new HashSet();
+		private var collapsed:MutableSet;
 		private var plots:Dictionary;
 		private var distances:Dictionary;
 		private var leaves:FiniteSet = EmptySet.INSTANCE;
@@ -28,7 +29,7 @@ package org.namesonnodes.flare
 		private var left:Number;
 		private var predecessorTable:Dictionary;
 		private var prcDistanceTable:Dictionary;
-		public function OptimalTentDAGLayout(xSpacing:uint = 10, ySpacing:uint = 10)
+		public function CompactTentLayout(xSpacing:uint = 10, ySpacing:uint = 10)
 		{
 			super();
 			this.xSpacing = xSpacing;
@@ -46,7 +47,31 @@ package org.namesonnodes.flare
 				topLeaf = bottomLeaf = null;
 				predecessorTable = null;
 				prcDistanceTable = null;
+				collapsed = null;
 			}
+		}
+		private function collapseNode(node:NodeSprite):void
+		{
+			if (collapsed.has(node))
+				return;
+			collapsed.add(node);
+			var i:uint;
+			const inDegree:uint = node.inDegree;
+			if (inDegree != 0)
+			{
+				const p:Point = plots[node] as Point;
+				for (i = 0; i < inDegree; ++i)
+				{
+					var prcNode:NodeSprite = node.getInNode(i);
+					collapseNode(prcNode);
+					var prcNodeRight:Number = Point(plots[prcNode]).x + prcNode.width / 2;
+					p.x = (i == 0) ? prcNodeRight : Math.max(p.x, prcNodeRight);
+				}
+				p.x += xSpacing + node.width / 2;
+			}
+			const outDegree:uint = node.outDegree;
+			for (i = 0; i < outDegree; ++i)
+				collapseNode(node.getOutNode(i));	
 		}
 		private function findLeaves(ns:NodeSprite):FiniteSet
 		{
@@ -93,6 +118,7 @@ package org.namesonnodes.flare
 				predecessorTable = new Dictionary();
 				prcDistanceTable = new Dictionary();
 				nonLeaves = new HashSet();
+				collapsed = new HashSet();
 				leaves = findLeaves(layoutRoot as NodeSprite);
 				if (leaves.size < 2)
 					plotNoPoles();
@@ -103,9 +129,15 @@ package org.namesonnodes.flare
 				}
 				left = 0;
 				plotTent(layoutRoot as NodeSprite);
+				collapseNode(layoutRoot as NodeSprite);
 				// :TODO: minimizeOverlap();
-				for (var n:* in plots)
-					n.x = plots[n].x - left + xSpacing;
+			}
+			for (var n:* in plots)
+			{
+				var p:Point = plots[n] as Point;
+				var o:Object = _t.$(n);
+				o.x = p.x - left + xSpacing;
+				o.y = p.y;
 			}
 		}
 		/*
@@ -242,8 +274,7 @@ package org.namesonnodes.flare
 				top = Math.min(top, p2.y - h);
 				bottom = Math.max(bottom, p2.y + h);
 			}
-			root.x = p.x;
-			root.y = p.y = (top + bottom) / 2;
+			p.y = (top + bottom) / 2;
 			left = Math.min(left, p.x);
 			plots[root] = p;
 			return p;
@@ -259,11 +290,10 @@ package org.namesonnodes.flare
 			for (var i:uint = 0; i < n; ++i)
 			{
 				var leaf:NodeSprite = leaves[i] as NodeSprite;
-				leaf.x = -leaf.width / 2;
-				leaf.y = y;
+				var p:Point = new Point(-leaf.width / 2, y);
 				y += leaf.height + ySpacing;
-				left = Math.min(leaf.x, left);
-				plots[leaf] = new Point(leaf.x, leaf.y);
+				left = Math.min(p.x, left);
+				plots[leaf] = p;
 			}
 		}
 	}

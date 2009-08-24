@@ -16,8 +16,8 @@ package org.namesonnodes.flare
 	
 	public final class NodeGraphDataConverter
 	{
-		public static const EDGE_PROPERTIES:Object = {lineColor: 0xFF330000, lineWidth: 1, fillColor: 0xFF330000,
-				arrowType: ArrowType.TRIANGLE, arrowHeight: 4, arrowWidth: 6, directed: true};
+		public static const EDGE_PROPERTIES:Object = {lineColor: 0xE0000000, lineWidth: 1, fillColor: 0xE0000000,
+				arrowType: ArrowType.TRIANGLE, arrowHeight: 6, arrowWidth: 8, directed: true};
 		private var _nodeGraph:NodeGraph;
 		private var _data:Data;
 		public function NodeGraphDataConverter(nodeGraph:NodeGraph)

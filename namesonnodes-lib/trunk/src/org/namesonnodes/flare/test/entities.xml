@@ -349,7 +349,7 @@
 			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
 		</authority>
 	</TaxonIdentifier>
-	<!-- TaxonIdentifier localName="htu:27">
+	<TaxonIdentifier localName="htu:27">
 		<authority>
 			<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
 		</authority>
@@ -369,7 +369,7 @@
 		<entity>
 			<refTaxon>org.namesonnodes.math.resolve.test::htu:6</refTaxon>
 		</entity>
-	</TaxonIdentifier-->
+	</TaxonIdentifier>
 
 	<!--  END Hypothetical Taxonomic Units -->
 
@@ -3819,7 +3819,7 @@
   		</Heredity>
   	</heredities>
   </Dataset>
-  <!--Dataset localName="phylogeny:max+ancestry">
+  <Dataset localName="phylogeny:max+ancestry">
   	<authority>
   		<refAuthority>org.namesonnodes.math.resolve.test</refAuthority>
   	</authority>
@@ -3894,7 +3894,7 @@
   			<successor><refTaxon>org.namesonnodes.math.resolve.test::otu:sapi</refTaxon></successor>
   		</Heredity>
   	</heredities>
-  </Dataset-->
+  </Dataset>
   
   <!--  END Datasets -->
   

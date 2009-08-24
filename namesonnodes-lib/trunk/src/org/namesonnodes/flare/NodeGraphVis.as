@@ -8,13 +8,14 @@ package org.namesonnodes.flare
 	import flare.animate.TransitionEvent;
 	import flare.animate.Transitioner;
 	import flare.flex.FlareVis;
+	import flare.vis.controls.DragControl;
 	import flare.vis.data.Data;
 	import flare.vis.data.NodeSprite;
-	import flare.vis.data.render.ArrowType;
 	import flare.vis.events.VisualizationEvent;
 	import flare.vis.operator.layout.Layout;
 	
 	import flash.events.Event;
+	import flash.events.KeyboardEvent;
 	import flash.filters.DropShadowFilter;
 	import flash.geom.Rectangle;
 	
@@ -27,15 +28,32 @@ package org.namesonnodes.flare
 		public static const SELECTION_LINE_ALPHA:Number = 1.0;
 		public static const SELECTION_LINE_COLOR:uint = 0xFFFF00;
 		public static const TRANSITION_SECONDS:Number = 0.5;
+		//private static const NODE_FILTER:Function = filterType(NodeSprite);
+		//private const selectionControls:Array = [new SelectionControl(NODE_FILTER, onSelect, onDeselect), new ClickControl(NODE_FILTER, onSelect, onDeselect)];
+		//private const dragControls:Array = [new DragControl(NODE_FILTER)];
+		//private const panZoomControls:Array = [new PanZoomControl()];
 		private var _layout:Layout;
 		private var _selection:FiniteSet = EmptySet.INSTANCE;
 		private var transitioner:Transitioner;
+		private var _controls:Array /*.<IControl>*/ = [];
 		public function NodeGraphVis(data:Data = null)
 		{
 			super(data);
 			addEventListener(FlexEvent.CREATION_COMPLETE, initVisualization, false, int.MAX_VALUE);
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 			visualization.addEventListener(VisualizationEvent.UPDATE, onVisualizationUpdate);
+		}
+		override public function set controls(a:Array):void
+		{
+			if (a == null)
+				a = [];
+			if (_controls != a)
+			{
+				_controls = a;
+				if (transitioner == null)
+					super.controls = a; 
+			}
 		}
 		override public function set data(v:Object):void
 		{
@@ -121,6 +139,8 @@ package org.namesonnodes.flare
 			if (event)
 				removeEventListener(event.type, killContinuousUpdates);
 			visualization.continuousUpdates = false;
+			mouseEnabled = true;
+			super.controls = _controls;
 		}
 		private static function markNode(node:NodeSprite, marked:Boolean):void
 		{
@@ -128,9 +148,26 @@ package org.namesonnodes.flare
 		}
 		private function onAddedToStage(event:Event):void
 		{
+			// :TODO: replace with constant
+			controls = [new DragControl()];
+			//stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			//stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			if (_layout == null)
-				layout = new OptimalTentDAGLayout();
+				layout = new CompactTentLayout(20, 10);
 				//layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
+		}
+		private function onKeyDown(event:KeyboardEvent):void
+		{
+			//:TODO:
+		}
+		private function onKeyUp(event:KeyboardEvent):void
+		{
+			//:TODO:
+		}
+		private function onRemovedFromStage(event:Event):void
+		{
+			//stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			//stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 		}
 		private function onTransitionEnd(event:TransitionEvent):void
 		{
@@ -141,6 +178,8 @@ package org.namesonnodes.flare
 				stage.invalidate();
 			}
 			else killContinuousUpdates();
+			if (layout)
+				visualization.operators.remove(layout);
 			transitioner = null;
 		}
 		private function onVisualizationUpdate(event:VisualizationEvent = null):void
@@ -164,6 +203,7 @@ package org.namesonnodes.flare
 				visualization.continuousUpdates = true;
 				transitioner = visualization.update(immediate ? 0.1 : TRANSITION_SECONDS);
 				transitioner.addEventListener(TransitionEvent.END, onTransitionEnd, false, 0, true);
+				mouseEnabled = false;
 				transitioner.play();
 			}
 			else
