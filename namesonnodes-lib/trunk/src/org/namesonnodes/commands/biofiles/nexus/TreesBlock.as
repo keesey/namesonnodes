@@ -10,6 +10,7 @@ package org.namesonnodes.commands.biofiles.nexus
 	
 	import org.namesonnodes.commands.biofiles.BioFileError;
 	import org.namesonnodes.domain.entities.Dataset;
+	import org.namesonnodes.domain.entities.Taxon;
 	import org.namesonnodes.domain.entities.TaxonIdentifier;
 	import org.namesonnodes.math.graphs.DatasetGraphExporter;
 	import org.namesonnodes.math.graphs.DatasetGraphImporter;
@@ -68,6 +69,19 @@ package org.namesonnodes.commands.biofiles.nexus
 					}
 				}
 			}
+		}
+		protected function getOrCreateTranslation(label:String):TaxonIdentifier
+		{
+			const r:* = translateMap[label];
+			if (r is TaxonIdentifier)
+				return r as TaxonIdentifier;
+			const ti:TaxonIdentifier = new TaxonIdentifier();
+			ti.entity = new Taxon();
+			ti.label.name = clean(label.replace(/_+/g, " "));;
+			ti.label.italics = true;
+			ti.localName = localName + ":" + escape(label);
+			translateMap[label] = ti;
+			return ti;
 		}
 		override protected function handleComment(comment:String) : void
 		{
@@ -161,7 +175,7 @@ package org.namesonnodes.commands.biofiles.nexus
 				}
 				else if (/=/.test(alias))
 				{
-					var split:Array = alias.split(/\s*=\s*/, 2);
+					var split:Array = alias.split("=", 2);
 					alias = split[0];
 					original = split[1];
 				}
@@ -183,7 +197,7 @@ package org.namesonnodes.commands.biofiles.nexus
 					original = original.substr(1, original.length - 2);
 				if (original.length == 0)
 					throw new BioFileError("Expected taxon label in TRANSLATE command.");
-				newTranslateMap[alias] = translateMap[original];
+				newTranslateMap[alias] = getOrCreateTranslation(original);
 			}
 			translateMap = newTranslateMap;
 		}
@@ -222,7 +236,7 @@ package org.namesonnodes.commands.biofiles.nexus
 			bytes.writeUTFBytes(tree);
 			const graph:AcyclicGraph = importer.importGraph(bytes) as AcyclicGraph;
 			const dataset:Dataset = exporter.exportHeredityDataset(graph);
-			dataset.label.name = clean(name.replace("_", " "));
+			dataset.label.name = clean(name.replace(/_+/g, " "));
 			dataset.localName = treeLocalName;
 			datasets.push(dataset);
 		}

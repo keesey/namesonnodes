@@ -11,6 +11,7 @@ package org.namesonnodes.flare
 	import flare.animate.Transitioner;
 	import flare.display.TextSprite;
 	import flare.flex.FlareVis;
+	import flare.util.Orientation;
 	import flare.vis.controls.DragControl;
 	import flare.vis.controls.TooltipControl;
 	import flare.vis.data.Data;
@@ -18,6 +19,7 @@ package org.namesonnodes.flare
 	import flare.vis.events.TooltipEvent;
 	import flare.vis.events.VisualizationEvent;
 	import flare.vis.operator.layout.Layout;
+	import flare.vis.operator.layout.NodeLinkTreeLayout;
 	
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
@@ -164,8 +166,8 @@ package org.namesonnodes.flare
 			//stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			//stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			if (_layout == null)
-				layout = new CompactTentLayout(40, 20);
-				//layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
+				//layout = new CompactTentLayout(40, 20);
+				layout = new NodeLinkTreeLayout();//LayoutController.DEFAULT_FACTORY.createLayout(Orientation.LEFT_TO_RIGHT);
 		}
 		private function onKeyDown(event:KeyboardEvent):void
 		{

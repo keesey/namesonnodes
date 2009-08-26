@@ -12,6 +12,7 @@ package org.namesonnodes.commands.biofiles.nexus
 		private static const BLOCK_TAXA:String = "TAXA";
 		private static const BLOCK_TREES:String = "TREES";
 		private static const END:String = "END";
+		private static const ENDBLOCK:String = "ENDBLOCK";
 		private const taxaBlocks:Vector.<TaxaBlock> = new Vector.<TaxaBlock>();
 		private var charactersIndex:uint = 0;
 		private var dataIndex:uint = 0;
@@ -57,6 +58,7 @@ package org.namesonnodes.commands.biofiles.nexus
 					break;
 				}
 				case END :
+				case ENDBLOCK :
 				{
 					throw new BioFileError("Invalid NEXUS grammar: END cannot immediately follow BEGIN.");
 				}
@@ -65,8 +67,9 @@ package org.namesonnodes.commands.biofiles.nexus
 					do
 					{
 						line = getLine(bytes);
+						var firstWord:String = line[0].toUpperCase();
 					}
-					while (line[0].toUpperCase() != "END");  
+					while (firstWord != "END" && firstWord != "ENDBLOCK");  
 				}
 			}
 			if (block)

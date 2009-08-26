@@ -57,8 +57,9 @@ package org.namesonnodes.commands.biofiles.nexus
 			do
 			{
 				line = getLine(bytes);
+				var firstWord:String = line[0].toUpperCase();
 			}
-			while (line[0].toUpperCase() != "END");
+			while (firstWord != "END" && firstWord != "ENDBLOCK");
 		}
 		protected function parseDimensions(line:Vector.<String>):void
 		{

@@ -16,7 +16,7 @@ package org.namesonnodes.commands.biofiles.nexus
 
 	public final class NexusFormat extends AbstractBioFileFormat
 	{
-		private static const FILTER:FileFilter = new FileFilter("NEXUS Files", "*.nexus;*.nex;*.nx");
+		public static const FILTER:FileFilter = new FileFilter("NEXUS Files", "*.nexus;*.nex;*.nx;*.tree;*.tre");
 		private static const HEADER:String = "#NEXUS";
 		private static const HEADER_LENGTH:uint = 6;
 		private var blockFactory:NexusBlockFactory;

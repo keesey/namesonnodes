@@ -74,6 +74,7 @@ package org.namesonnodes.commands.biofiles.nexus
 				switch (command)
 				{
 					case "END" :
+					case "ENDBLOCK" :
 					case "ELIMINATE" :
 					case "OPTIONS" :
 					{
@@ -138,7 +139,7 @@ package org.namesonnodes.commands.biofiles.nexus
 					}
 				}
 			}
-			while (command != "END");
+			while (command != "END" && command != "ENBLOCK");
 		}
 		protected function parseCharLabels(line:Vector.<String>):void
 		{

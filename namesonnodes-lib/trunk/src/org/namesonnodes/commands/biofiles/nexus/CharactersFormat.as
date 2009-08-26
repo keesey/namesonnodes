@@ -23,9 +23,9 @@ package org.namesonnodes.commands.biofiles.nexus
 		private const _symbols:Vector.<String> = new Vector.<String>();
 		private const symbolIndexMap:Dictionary = new Dictionary();
 		private var _dataType:String = DATATYPE_STANDARD;
-		private var _gap:String;
+		private var _gap:String = "-";
 		private var _matchChar:String;
-		private var _missing:String;
+		private var _missing:String = "?";
 		private var _statesFormat:String;
 		public var interleave:Boolean;
 		public var labels:Boolean;
