@@ -56,13 +56,13 @@ package org.namesonnodes.math.editor.drag
 		}
 		private function onMouseMove(event:MouseEvent):void
 		{
-			const pos:Point = new Point(event.localX, event.localY);
+			const pos:Point = new Point(stage.mouseX, stage.mouseY);
 			dispatchEvent(new ElementDragEvent(ElementDragEvent.ELEMENT_MOVE, _currentElement, pos));
 		}
 		private function onMouseUp(event:MouseEvent):void
 		{
 			const oldElement:MathMLElement = _currentElement;
-			const pos:Point = new Point(event.localX, event.localY);
+			const pos:Point = new Point(stage.mouseX, stage.mouseY);
 			currentElement = null;
 			dispatchEvent(new ElementDragEvent(ElementDragEvent.ELEMENT_DROP, oldElement, pos));
 		}

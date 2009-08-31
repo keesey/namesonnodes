@@ -11,6 +11,7 @@ package org.namesonnodes.math.editor.elements
 		{
 			super();
 			_child = createMissing();
+			_child.parent = this as MathMLContainer;
 			_child.addEventListener(Event.CHANGE, dispatchEvent);
 		}
 		public final function get canIncrementChildren():Boolean

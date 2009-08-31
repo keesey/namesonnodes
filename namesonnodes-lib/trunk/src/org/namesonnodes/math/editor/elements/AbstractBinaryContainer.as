@@ -7,12 +7,16 @@ package org.namesonnodes.math.editor.elements
 	
 	public class AbstractBinaryContainer extends AbstractContainer
 	{
-		private var _children:Vector.<MathMLElement> = initialChildren;
+		private var _children:Vector.<MathMLElement>;
 		public function AbstractBinaryContainer()
 		{
 			super();
+			_children = initialChildren;
 			for each (var child:MathMLElement in _children)
+			{
+				child.parent = this as MathMLContainer;
 				child.addEventListener(Event.CHANGE, dispatchEvent);
+			}
 		}
 		protected function get cloneBase():MathMLContainer
 		{

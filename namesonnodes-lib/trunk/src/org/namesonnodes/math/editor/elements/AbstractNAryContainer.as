@@ -6,12 +6,16 @@ package org.namesonnodes.math.editor.elements
 	
 	public class AbstractNAryContainer extends AbstractContainer
 	{
-		private var _children:Vector.<MathMLElement> = initialChildren;
+		private var _children:Vector.<MathMLElement>;
 		public function AbstractNAryContainer()
 		{
 			super();
+			_children = initialChildren;
 			for each (var child:MathMLElement in _children)
+			{
+				child.parent = this as MathMLContainer;
 				child.addEventListener(Event.CHANGE, dispatchEvent);
+			}
 		}
 		public final function get canIncrementChildren():Boolean
 		{

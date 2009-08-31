@@ -5,6 +5,7 @@ package org.namesonnodes.math.editor.flare
 	
 	import flare.vis.data.Data;
 	import flare.vis.data.NodeSprite;
+	import flare.vis.data.render.ArrowType;
 	
 	import flash.geom.Point;
 	import flash.utils.Dictionary;
@@ -14,6 +15,9 @@ package org.namesonnodes.math.editor.flare
 
 	public final class DataUpdater
 	{
+		public static const EDGE_PROPERTIES:Object = {lineColor: 0xE0000000, lineWidth: 5,
+				fillColor: 0xE0808080, arrowType: ArrowType.TRIANGLE,
+				arrowHeight: 6, arrowWidth: 8, directed: true};
 		private var data:Data;
 		private const sprites:Dictionary = new Dictionary();
 		private const elements:MutableSet = new HashSet();
@@ -25,6 +29,7 @@ package org.namesonnodes.math.editor.flare
 			readElements(elements);
 			removeUnusedSprites();
 			addNewSprites(pos);
+			data.edges.setProperties(EDGE_PROPERTIES);
 		}
 		private function addNewSprites(pos:Point):void
 		{
@@ -37,12 +42,14 @@ package org.namesonnodes.math.editor.flare
 			if (r is NodeSprite)
 				return r as NodeSprite;
 			const n:NodeSprite = data.addNode(element);
+			sprites[element] = n;
 			n.x = pos.x;
 			n.y = pos.y;
 			n.renderer = new ElementRenderer(element);
-			data.addNode(n);
-			if (element.parent != null)
+			if (elements.has(element.parent))
 				data.addEdgeFor(n, findOrCreateSprite(element.parent, pos), true);
+			else
+				trace("Not in elements: " + element.parent + " (parent of " + element + ")");
 			return n;
 		}
 		private function readDataSprites():void
@@ -75,7 +82,6 @@ package org.namesonnodes.math.editor.flare
 					l = n.outDegree;
 					for (i = 0; i < l; ++i)
 						data.removeEdge(n.getOutEdge(i));
-					delete sprites[element];
 				}
 			}
 		}

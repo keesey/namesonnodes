@@ -8,14 +8,11 @@ package org.namesonnodes.math.editor.flare
 	import flare.animate.Transitioner;
 	import flare.display.TextSprite;
 	import flare.flex.FlareVis;
-	import flare.vis.controls.ClickControl;
-	import flare.vis.controls.DragControl;
 	import flare.vis.controls.TooltipControl;
 	import flare.vis.data.Data;
 	import flare.vis.data.DataSprite;
 	import flare.vis.data.EdgeSprite;
 	import flare.vis.data.NodeSprite;
-	import flare.vis.events.SelectionEvent;
 	import flare.vis.events.TooltipEvent;
 	import flare.vis.events.VisualizationEvent;
 	import flare.vis.operator.layout.ForceDirectedLayout;
@@ -24,6 +21,7 @@ package org.namesonnodes.math.editor.flare
 	import flash.errors.IllegalOperationError;
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
+	import flash.events.MouseEvent;
 	import flash.filters.DropShadowFilter;
 	import flash.filters.GlowFilter;
 	import flash.geom.Point;
@@ -39,19 +37,22 @@ package org.namesonnodes.math.editor.flare
 
 	public final class MathVis extends FlareVis
 	{
-		private static const EDGE_MARK_FILTERS:Array = [new GlowFilter(0xFFFFFF, 0.5, 4, 4, 3, 3)];
-		public static const TRANSITION_SECONDS:Number = 0.5;
+		private static const EDGE_MARK_FILTERS:Array = [new GlowFilter(0xFFC0C0, 0.5, 4, 4, 3, 3)];
+		public static const TRANSITION_SECONDS:Number = 3;
 		private static const NODE_FILTER:Function = filterType(NodeSprite);
 		private static const markedSprites:MutableSet = new HashSet();
 		private var dataInvalid:Boolean = false;
 		private var transitioner:Transitioner;
 		private var _rootElement:MathElement = new MathElement();
+		private var draggedNode:NodeSprite;
 		public function MathVis()
 		{
 			super();
+			_rootElement.addEventListener(Event.CHANGE, onRootElementChange);
 			addEventListener(FlexEvent.CREATION_COMPLETE, initVisualization, false, int.MAX_VALUE);
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
+			addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 			visualization.data = new Data(true);
 			visualization.addEventListener(VisualizationEvent.UPDATE, onVisualizationUpdate);
 			ElementDragger.INSTANCE.addEventListener(ElementDragEvent.ELEMENT_DROP, onElementDrop);
@@ -77,6 +78,33 @@ package org.namesonnodes.math.editor.flare
 					_rootElement.removeEventListener(Event.CHANGE, onRootElementChange);
 				_rootElement = v || new MathElement();
 				_rootElement.addEventListener(Event.CHANGE, onRootElementChange);
+				invalidateData();
+			}
+		}
+		private function dragNode(node:NodeSprite):void
+		{
+			if (draggedNode == node)
+				return;
+			if (draggedNode)
+				draggedNode.stopDrag();
+			draggedNode = node;
+			if (node == null)
+				return;
+			if (transitioner)
+				transitioner.stop();
+			stage.addEventListener(MouseEvent.MOUSE_UP, stopDraggingNode);
+			stage.addEventListener(Event.MOUSE_LEAVE, stopDraggingNode);
+			node.startDrag(true);
+			//visualization.continuousUpdates = true;
+		}
+		private function stopDraggingNode(event:Event):void
+		{
+			stage.removeEventListener(MouseEvent.MOUSE_UP, stopDraggingNode);
+			stage.removeEventListener(Event.MOUSE_LEAVE, stopDraggingNode);
+			if (draggedNode)
+			{
+				draggedNode.stopDrag();
+				draggedNode = null;
 			}
 		}
 		private static function filterEdgesAndMissing(d:DataSprite):Boolean
@@ -102,13 +130,6 @@ package org.namesonnodes.math.editor.flare
 					addEventListener(Event.ADDED_TO_STAGE, validateData);
 			}
 		}
-		private function killContinuousUpdates(event:Event = null):void
-		{
-			if (event)
-				removeEventListener(event.type, killContinuousUpdates);
-			visualization.continuousUpdates = false;
-			mouseEnabled = true;
-		}
 		private function markSprites(element:MathMLElement, p:Point):void
 		{
 			const x:Number = p.x;
@@ -121,12 +142,15 @@ package org.namesonnodes.math.editor.flare
 							return;
 						var child:MathMLElement = (d is EdgeSprite ? EdgeSprite(d).target.data : d.data)
 							as MathMLElement;
-						var index:int = child.parent.getChildIndex(child);
-						if (child.parent.acceptChildAt(element, index))
+						if (child.parent)
 						{
-							d.filters = EDGE_MARK_FILTERS;
-							markedSprites.add(d);
-							return;
+							var index:int = child.parent.getChildIndex(child);
+							if (child.parent.acceptChildAt(element, index))
+							{
+								d.filters = EDGE_MARK_FILTERS;
+								markedSprites.add(d);
+								return;
+							}
 						}
 					}
 					markedSprites.remove(d);
@@ -135,13 +159,14 @@ package org.namesonnodes.math.editor.flare
 		}
 		private function onAddedToStage(event:Event):void
 		{
-			controls = [new TooltipControl(NODE_FILTER, null, onTooltipShow, onTooltipShow),
-				new ClickControl(NODE_FILTER, 1, onNodeClick),
-				new DragControl(NODE_FILTER)];
-			operators = [new ForceDirectedLayout()];
+			controls = [new TooltipControl(NODE_FILTER, null, onTooltipShow, onTooltipShow)];
+			const layout:ForceDirectedLayout = new ForceDirectedLayout(true);
+			layout.defaultSpringLength *= 2.25;
+			operators = [layout];
 		}
 		private function onElementDrop(event:ElementDragEvent):void
 		{
+			// :TODO: Test if over.
 			if (!markedSprites.empty)
 			{
 				const d:DataSprite = markedSprites.toVector()[0] as DataSprite;
@@ -150,7 +175,7 @@ package org.namesonnodes.math.editor.flare
 					{
 						d.filters = null;
 					}, null, filterEdgesAndMissing);
-				const child:MathMLElement = (d is EdgeSprite ? EdgeSprite(d).target.data : d.data)
+				const child:MathMLElement = (d is EdgeSprite ? EdgeSprite(d).source.data : d.data)
 					as MathMLElement;
 				const parent:MathMLContainer = child.parent;
 				const index:int = parent.getChildIndex(child);
@@ -167,17 +192,25 @@ package org.namesonnodes.math.editor.flare
 		{
 			markSprites(event.element, event.position);
 		}
-		private function onNodeClick(event:SelectionEvent):void
+		private function onMouseDown(event:MouseEvent):void
 		{
-			const node:NodeSprite = event.item as NodeSprite;
-			const element:MathMLElement = node.data as MathMLElement;
-			if (event.shiftKey)
-				ElementDragger.INSTANCE.currentElement = element.clone();
-			else
+			if (event.target is NodeSprite)
 			{
-				if (element.parent)
-					element.parent.removeChild(element);
-				ElementDragger.INSTANCE.currentElement = element;
+				const node:NodeSprite = event.target as NodeSprite;
+				const element:MathMLElement = node.data as MathMLElement;
+				if (event.shiftKey && !(element is MissingElement))
+					ElementDragger.INSTANCE.currentElement = element.clone();
+				else if (event.ctrlKey)
+				{
+					if (element.parent)
+						element.parent.removeChild(element);
+					if (!(element is MissingElement))
+						ElementDragger.INSTANCE.currentElement = element;
+				}
+				else if (element is MathMLContainer && event.altKey && MathMLContainer(element).canIncrementChildren)
+					MathMLContainer(element).incrementChildren();
+				else
+					dragNode(node);
 			}
 		}
 		private function onRemovedFromStage(event:Event):void
@@ -194,16 +227,11 @@ package org.namesonnodes.math.editor.flare
 			if (event.node && event.tooltip is TextSprite)
 				TextSprite(event.tooltip).text = MathMLElement(event.node.data).toolTipText;
 		}
-		private function onTransitionEnd(event:TransitionEvent):void
+		private function onTransitionEnd(event:TransitionEvent = null):void
 		{
 			onVisualizationUpdate();
-			if (stage)
-			{
-				addEventListener(Event.RENDER, killContinuousUpdates);
-				stage.invalidate();
-			}
-			else
-				killContinuousUpdates();
+			//if (!draggedNode)
+			//	visualization.continuousUpdates = false;
 			transitioner = null;
 		}
 		private function onVisualizationUpdate(event:VisualizationEvent = null):void
@@ -227,7 +255,6 @@ package org.namesonnodes.math.editor.flare
 				visualization.continuousUpdates = true;
 				transitioner = visualization.update(immediate ? 0 : TRANSITION_SECONDS);
 				transitioner.addEventListener(TransitionEvent.END, onTransitionEnd, false, 0, true);
-				mouseEnabled = false;
 				transitioner.play();
 			}
 			else
