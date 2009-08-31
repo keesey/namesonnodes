@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	xmlns:panels="org.namesonnodes.math.editor.panels.*"
+	width="100" height="100">
+	<fx:Script>
+		<![CDATA[
+			import org.namesonnodes.math.editor.elements.*;
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<panels:ElementButton id="trueButton" x="10" y="10" elementFactory="{new ClassFactory(TrueElement)}"/>
+	<panels:ElementButton id="falseButton" x="60" y="10" elementFactory="{new ClassFactory(FalseElement)}" />
+	<panels:ElementButton id="andButton" x="10" y="40" elementFactory="{new ClassFactory(AndElement)}" />
+	<panels:ElementButton id="orButton" x="60" y="40" elementFactory="{new ClassFactory(OrElement)}" />
+	<panels:ElementButton id="notButton" x="35" y="70" elementFactory="{new ClassFactory(NotElement)}" />
+</s:Group>
