@@ -41,6 +41,8 @@ package org.namesonnodes.math.editor.panels
 					{
 						dataSprite.data = element;
 						new ElementRenderer(element).render(dataSprite);
+						dataSprite.x = dataSprite.width / 2;
+						dataSprite.y = dataSprite.height / 2;
 						visible = true;
 						return;
 					}

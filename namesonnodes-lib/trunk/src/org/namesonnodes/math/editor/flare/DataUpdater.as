@@ -17,7 +17,7 @@ package org.namesonnodes.math.editor.flare
 	{
 		public static const EDGE_PROPERTIES:Object = {lineColor: 0xE0000000, lineWidth: 5,
 				fillColor: 0xE0808080, arrowType: ArrowType.TRIANGLE,
-				arrowHeight: 6, arrowWidth: 8, directed: true};
+				arrowHeight: 10, arrowWidth: 10, directed: true};
 		private var data:Data;
 		private const sprites:Dictionary = new Dictionary();
 		private const elements:MutableSet = new HashSet();
@@ -47,7 +47,8 @@ package org.namesonnodes.math.editor.flare
 			n.y = pos.y;
 			n.renderer = new ElementRenderer(element);
 			if (elements.has(element.parent))
-				data.addEdgeFor(n, findOrCreateSprite(element.parent, pos), true);
+				data.addEdgeFor(n, findOrCreateSprite(element.parent, new Point(pos.x, pos.y - 10)),
+					true);
 			else
 				trace("Not in elements: " + element.parent + " (parent of " + element + ")");
 			return n;

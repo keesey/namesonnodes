@@ -2,6 +2,7 @@ package org.namesonnodes.math.editor.elements
 {
 	import a3lbmonkeybrain.brainstem.errors.AbstractMethodError;
 	
+	import flash.errors.IllegalOperationError;
 	import flash.events.Event;
 	
 	public class AbstractUnaryContainer extends AbstractContainer
@@ -49,6 +50,10 @@ package org.namesonnodes.math.editor.elements
 		public final function hasChild(child:MathMLElement):Boolean
 		{
 			return _child == child;
+		}
+		public final function incrementChildren():void
+		{
+			throw new IllegalOperationError();
 		}
 		public final function removeChild(child:MathMLElement):void
 		{

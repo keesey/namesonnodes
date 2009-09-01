@@ -127,6 +127,10 @@
     <classEntry path="org.namesonnodes.math.editor.panels.test.LogicPanelTest"/>
     <classEntry path="org.namesonnodes.math.editor.MathEditor"/>
     <classEntry path="org.namesonnodes.math.editor.test.MathEditorTest"/>
+    <classEntry path="org.namesonnodes.math.editor.flare.BooleanSprite"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.ElementResolver"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.DeclareElement"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.DeclarationFactory"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

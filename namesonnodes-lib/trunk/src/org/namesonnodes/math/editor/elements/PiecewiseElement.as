@@ -22,9 +22,8 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get mathML():XML
 		{
-			default xml namespace = MathML.NAMESPACE.uri;
 			var missing:Vector.<MathMLElement>;
-			const m:XML = <piecewise/>;
+			const m:XML = <piecewise xmlns={MathML.NAMESPACE.uri}/>;
 			const n:uint = numChildren - 1;
 			for (var i:uint = 0; i < n; ++i)
 			{
@@ -37,7 +36,7 @@ package org.namesonnodes.math.editor.elements
 					missing = missing ? missing.concat(e.elements) : e.elements;
 				}
 			}
-			const otherwise:XML = <otherwise/>;
+			const otherwise:XML = <otherwise xmlns={MathML.NAMESPACE.uri}/>;
 			try
 			{
 				otherwise.appendChild(getChildAt(n).mathML);

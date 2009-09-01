@@ -103,9 +103,8 @@ package org.namesonnodes.flare
 			with (sprite.graphics)
 			{
 				lineStyle(1, BORDER_COLOR);
-				beginFill(fillColor);
-					beginGradientFill(GradientType.LINEAR, [shadowColor, fillColor, tintColor, fillColor, shadowColor],
-						[1.0, 1.0, 1.0, 1.0, 1.0], [0, 63, 168, 191, 255], matrix);
+				beginGradientFill(GradientType.LINEAR, [shadowColor, fillColor, tintColor, fillColor, shadowColor],
+					[1.0, 1.0, 1.0, 1.0, 1.0], [0, 63, 168, 191, 255], matrix);
 				drawRoundRect(x, y, w, h, ellipse, ellipse);
 			}
 			if (shine == null)

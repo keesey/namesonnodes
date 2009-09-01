@@ -4,8 +4,15 @@
 		<s:HorizontalLayout/>
 	</s:layout>
 	
-	<flare:MathVis id="vis" width="100%"/>
+	<flare:MathVis id="vis" width="100%" height="100%"/>
 	
-	<panels:LogicPanel id="logicPanel"/>
+	<s:Group>
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+		<panels:LogicPanel id="logicPanel"/>
+		<panels:DeclarePanel id="declarePanel"/>
+	</s:Group>
+	
 	
 </s:Group>

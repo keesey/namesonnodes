@@ -36,7 +36,19 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
-			return (child != null) && (i < numChildren);
+			if (i >= numChildren)
+				return false;
+			if (child is DeclareElement)
+			{
+				const n:uint = numChildren;
+				for (var i:uint = 0; i < n; ++i)
+				{
+					var otherChild:MathMLElement = getChildAt(i);
+					if (otherChild is DeclareElement && DeclareElement(otherChild).identifier == DeclareElement(child).identifier)
+						return false;
+				}
+			}
+			return child != null;
 		}
 		public function incrementChildren():void
 		{

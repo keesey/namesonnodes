@@ -25,8 +25,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get mathML():XML
 		{
-			default xml namespace = MathML.NAMESPACE.uri;
-			const m:XML = <piece/>;
+			const m:XML = <piece xmlns={MathML.NAMESPACE.uri}/>;
 			appendChildrenMathML(m);
 			return m;
 		}

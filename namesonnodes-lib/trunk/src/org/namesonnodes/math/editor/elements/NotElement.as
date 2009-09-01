@@ -20,8 +20,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get mathML() : XML
 		{
-			default xml namespace = MathML.NAMESPACE.uri;
-			const m:XML = <apply><not/></apply>;
+			const m:XML = <apply xmlns={MathML.NAMESPACE.uri}><not xmlns={MathML.NAMESPACE.uri}/></apply>;
 			appendChildrenMathML(m);
 			return m;
 		}
@@ -40,10 +39,6 @@ package org.namesonnodes.math.editor.elements
 		public function acceptChildAt(child:MathMLElement, i:uint) : Boolean
 		{
 			return child != null && child.resultClass == Boolean && i == 0;
-		}
-		public function incrementChildren() : void
-		{
-			throw new IllegalOperationError();
 		}
 	}
 }

@@ -3,16 +3,20 @@ package org.namesonnodes.math.editor.flare
 	import a3lbmonkeybrain.brainstem.collections.HashSet;
 	import a3lbmonkeybrain.brainstem.collections.MutableSet;
 	import a3lbmonkeybrain.brainstem.filter.filterType;
+	import a3lbmonkeybrain.brainstem.resolve.XMLResolver;
+	import a3lbmonkeybrain.calculia.mathml.MathMLResolver;
 	
 	import flare.animate.TransitionEvent;
 	import flare.animate.Transitioner;
 	import flare.display.TextSprite;
 	import flare.flex.FlareVis;
+	import flare.vis.controls.ClickControl;
 	import flare.vis.controls.TooltipControl;
 	import flare.vis.data.Data;
 	import flare.vis.data.DataSprite;
 	import flare.vis.data.EdgeSprite;
 	import flare.vis.data.NodeSprite;
+	import flare.vis.events.SelectionEvent;
 	import flare.vis.events.TooltipEvent;
 	import flare.vis.events.VisualizationEvent;
 	import flare.vis.operator.layout.ForceDirectedLayout;
@@ -37,17 +41,20 @@ package org.namesonnodes.math.editor.flare
 
 	public final class MathVis extends FlareVis
 	{
-		private static const EDGE_MARK_FILTERS:Array = [new GlowFilter(0xFFC0C0, 0.5, 4, 4, 3, 3)];
+		private static const EDGE_MARK_FILTERS:Array = [new GlowFilter(0xFFFFFF, 1.0, 4, 4, 3, 3)];
 		public static const TRANSITION_SECONDS:Number = 3;
 		private static const NODE_FILTER:Function = filterType(NodeSprite);
 		private static const markedSprites:MutableSet = new HashSet();
 		private var dataInvalid:Boolean = false;
 		private var transitioner:Transitioner;
+		public var resolver:XMLResolver = new MathMLResolver();
 		private var _rootElement:MathElement = new MathElement();
 		private var draggedNode:NodeSprite;
 		public function MathVis()
 		{
 			super();
+			setStyle("backgroundAlpha", 1.0);
+			setStyle("backgroundColor", 0x80A0C0);
 			_rootElement.addEventListener(Event.CHANGE, onRootElementChange);
 			addEventListener(FlexEvent.CREATION_COMPLETE, initVisualization, false, int.MAX_VALUE);
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
@@ -159,14 +166,32 @@ package org.namesonnodes.math.editor.flare
 		}
 		private function onAddedToStage(event:Event):void
 		{
-			controls = [new TooltipControl(NODE_FILTER, null, onTooltipShow, onTooltipShow)];
+			controls = [new TooltipControl(NODE_FILTER, null, onTooltipShow, onTooltipShow),
+				new ClickControl(NODE_FILTER, 2, onDoubleClickNode)];
 			const layout:ForceDirectedLayout = new ForceDirectedLayout(true);
 			layout.defaultSpringLength *= 2.25;
 			operators = [layout];
 		}
+		private function onDoubleClickNode(event:SelectionEvent):void
+		{
+			const n:NodeSprite = event.item as NodeSprite;
+			const element:MathMLElement = n.data as MathMLElement;
+			try
+			{
+				const result:* = resolver.resolveXML(element.mathML);
+				// :TODO: dispatch
+				trace("RESULT:", result);
+			}
+			catch (e:Error)
+			{
+				// :TODO: dispatch
+				trace("ERROR IN RESULT - " + e.name + ": " + e.message); 
+			}
+		}
 		private function onElementDrop(event:ElementDragEvent):void
 		{
-			// :TODO: Test if over.
+			if (!hitTestPoint(event.position.x, event.position.y));
+				trace("NOT OVER VIS");
 			if (!markedSprites.empty)
 			{
 				const d:DataSprite = markedSprites.toVector()[0] as DataSprite;
@@ -200,7 +225,7 @@ package org.namesonnodes.math.editor.flare
 				const element:MathMLElement = node.data as MathMLElement;
 				if (event.shiftKey && !(element is MissingElement))
 					ElementDragger.INSTANCE.currentElement = element.clone();
-				else if (event.ctrlKey)
+				else if (event.ctrlKey || element.parent == _rootElement)
 				{
 					if (element.parent)
 						element.parent.removeChild(element);
