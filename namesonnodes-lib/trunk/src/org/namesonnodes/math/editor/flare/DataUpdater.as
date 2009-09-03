@@ -4,6 +4,7 @@ package org.namesonnodes.math.editor.flare
 	import a3lbmonkeybrain.brainstem.collections.MutableSet;
 	
 	import flare.vis.data.Data;
+	import flare.vis.data.EdgeSprite;
 	import flare.vis.data.NodeSprite;
 	import flare.vis.data.render.ArrowType;
 	
@@ -36,6 +37,36 @@ package org.namesonnodes.math.editor.flare
 			for each (var element:MathMLElement in elements)
 				findOrCreateSprite(element, pos);
 		}
+		private static function elementDepth(element:MathMLElement):uint
+		{
+			if (element.parent == null)
+				return 0;
+			return elementDepth(element.parent) + 1;
+		}
+		private static function elementFilespace(element:MathMLContainer):int
+		{
+			const n:uint = element.numChildren;
+			if (n == 0)
+				return 1;
+			var total:int = 0;
+			for (var i:uint = 0; i < n; ++i)
+			{
+				const child:MathMLElement = element.getChildAt(i);
+				if (child is MathMLContainer)
+					total += elementFilespace(child as MathMLContainer);
+				else
+					total++;
+			}
+			return total;
+		}
+		private static function elementFile(element:MathMLElement):int
+		{
+			const parent:MathMLContainer = element.parent;
+			if (parent == null)
+				return 0;
+			const offset:int = parent.getChildIndex(element) - (elementFilespace(parent) >> 1);
+			return elementFile(parent) + offset;
+		}
 		private function findOrCreateSprite(element:MathMLElement, pos:Point):NodeSprite
 		{
 			const r:* = sprites[element];
@@ -43,12 +74,17 @@ package org.namesonnodes.math.editor.flare
 				return r as NodeSprite;
 			const n:NodeSprite = data.addNode(element);
 			sprites[element] = n;
-			n.x = pos.x;
-			n.y = pos.y;
+			n.x = pos.x + elementFile(element) * 20;
+			n.y = pos.y + (elementDepth(element) - 1) * 20;
 			n.renderer = new ElementRenderer(element);
-			if (elements.has(element.parent))
-				data.addEdgeFor(n, findOrCreateSprite(element.parent, new Point(pos.x, pos.y - 10)),
-					true);
+			const parent:MathMLContainer = element.parent;
+			if (elements.has(parent))
+			{
+				const edge:EdgeSprite = 
+					data.addEdgeFor(n, findOrCreateSprite(parent,
+						new Point(pos.x, pos.y)), true);
+				edge.data = {label: parent.getChildLabelAt(parent.getChildIndex(element))};
+			}
 			else
 				trace("Not in elements: " + element.parent + " (parent of " + element + ")");
 			return n;

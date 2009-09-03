@@ -1,10 +1,6 @@
-package org.namesonnodes.math.editor.elements
+package org.namesonnodes.math.editor.elements 
 {
-	import a3lbmonkeybrain.brainstem.errors.AbstractMethodError;
 	
-	import flash.events.Event;
-	import flash.events.EventDispatcher;
-	import flash.events.IEventDispatcher;
 	
 	public class AbstractContainer extends AbstractElement
 	{
@@ -31,6 +27,10 @@ package org.namesonnodes.math.editor.elements
 			}
 			if (missing != null && missing.length != 0)
 				throw new MissingElementError(missing);
+		}
+		public function getChildLabelAt(i:uint):String
+		{
+			return "";
 		}
 	}
 }

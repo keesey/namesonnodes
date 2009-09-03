@@ -22,5 +22,6 @@
 	</s:HGroup>
 	<s:HGroup width="80">
 		<panels:ElementButton id="notButton" elementFactory="{new ClassFactory(NotElement)}" />
+		<panels:ElementButton id="impliesButton" elementFactory="{new ClassFactory(ImpliesElement)}" />
 	</s:HGroup>
 </s:Panel>

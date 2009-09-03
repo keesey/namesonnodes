@@ -19,6 +19,7 @@ package org.namesonnodes.math.editor.flare
 	import flare.vis.events.SelectionEvent;
 	import flare.vis.events.TooltipEvent;
 	import flare.vis.events.VisualizationEvent;
+	import flare.vis.operator.label.Labeler;
 	import flare.vis.operator.layout.ForceDirectedLayout;
 	
 	import flash.display.DisplayObject;
@@ -29,6 +30,7 @@ package org.namesonnodes.math.editor.flare
 	import flash.filters.DropShadowFilter;
 	import flash.filters.GlowFilter;
 	import flash.geom.Point;
+	import flash.text.TextFormat;
 	
 	import mx.events.FlexEvent;
 	
@@ -170,7 +172,9 @@ package org.namesonnodes.math.editor.flare
 				new ClickControl(NODE_FILTER, 2, onDoubleClickNode)];
 			const layout:ForceDirectedLayout = new ForceDirectedLayout(true);
 			layout.defaultSpringLength *= 2.25;
-			operators = [layout];
+			const edgeFmt:TextFormat = new TextFormat();
+			edgeFmt.color = 0xFFFFFF;
+			operators = [layout, new Labeler("data.label", "edges", edgeFmt, null, Labeler.LAYER)];
 		}
 		private function onDoubleClickNode(event:SelectionEvent):void
 		{

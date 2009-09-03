@@ -9,6 +9,7 @@ package org.namesonnodes.math.editor.elements
 		function acceptChildAt(child:MathMLElement, i:uint):Boolean;
 		function getChildAt(i:uint):MathMLElement;
 		function getChildIndex(child:MathMLElement):int;
+		function getChildLabelAt(i:uint):String;
 		function hasChild(child:MathMLElement):Boolean;
 		function incrementChildren():void;
 		function removeChild(child:MathMLElement):void;
