@@ -8,10 +8,12 @@ package org.namesonnodes.math.resolve
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
 	
 	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.math.entities.Taxon;
 
 	public final class NoNEntityResolver implements XMLResolver
 	{
 		private var nodeGraph:NodeGraph;
+		private var universalTaxon:Taxon;
 		public function NoNEntityResolver(nodeGraph:NodeGraph)
 		{
 			super();
@@ -27,16 +29,16 @@ package org.namesonnodes.math.resolve
 				if (isNonEmptyString(definitionURL))
 				{
 					if (definitionURL == "http://namesonnodes.org/ns/math/2009#def-UniversalTaxon")
-						return nodeGraph.universalTaxon;
-					// :TODO:
-					// else if (definitionURL == "http://namesonnodes.org/ns/math/2009#def-GraphRelatedness")
-					// :TODO:
-					// else if (definitionURL == "http://namesonnodes.org/ns/math/2009#def-DigraphParenthood")
+					{
+						if (universalTaxon == null)
+							universalTaxon = Taxon.fromFinestNodes(nodeGraph.allFinestNodes);
+						return universalTaxon;
+					}
 					else
 					{
-						const taxon:FiniteSet = nodeGraph.interpretQName(definitionURL);
-						if (taxon != null && !taxon.empty)
-							return taxon;
+						const nodeSet:FiniteSet = nodeGraph.interpretQName(definitionURL);
+						if (nodeSet != null && !nodeSet.empty)
+							return Taxon.fromFinestNodes(nodeSet);
 					}
 				}
 			}

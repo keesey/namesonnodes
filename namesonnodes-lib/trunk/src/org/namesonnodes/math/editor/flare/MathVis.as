@@ -10,6 +10,7 @@ package org.namesonnodes.math.editor.flare
 	import flare.animate.Transitioner;
 	import flare.display.TextSprite;
 	import flare.flex.FlareVis;
+	import flare.util.Orientation;
 	import flare.vis.controls.ClickControl;
 	import flare.vis.controls.TooltipControl;
 	import flare.vis.data.Data;
@@ -19,16 +20,18 @@ package org.namesonnodes.math.editor.flare
 	import flare.vis.events.SelectionEvent;
 	import flare.vis.events.TooltipEvent;
 	import flare.vis.events.VisualizationEvent;
+	import flare.vis.operator.IOperator;
 	import flare.vis.operator.label.Labeler;
 	import flare.vis.operator.layout.ForceDirectedLayout;
+	import flare.vis.operator.layout.NodeLinkTreeLayout;
 	
 	import flash.display.DisplayObject;
 	import flash.errors.IllegalOperationError;
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 	import flash.events.MouseEvent;
+	import flash.filters.ColorMatrixFilter;
 	import flash.filters.DropShadowFilter;
-	import flash.filters.GlowFilter;
 	import flash.geom.Point;
 	import flash.text.TextFormat;
 	
@@ -43,9 +46,12 @@ package org.namesonnodes.math.editor.flare
 
 	public final class MathVis extends FlareVis
 	{
-		private static const EDGE_MARK_FILTERS:Array = [new GlowFilter(0xFFFFFF, 1.0, 4, 4, 3, 3)];
-		public static const TRANSITION_SECONDS:Number = 3;
+		private static const EDGE_LABELER:IOperator = createEdgeLabeler();
+		private static const FORCE_LAYOUT:IOperator = createForceLayout();
+		private static const MARK_FILTERS:Array = [new ColorMatrixFilter([0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255])];
 		private static const NODE_FILTER:Function = filterType(NodeSprite);
+		private static const TRANSITION_SECONDS:Number = 0.4;
+		private static const TREE_LAYOUT:IOperator = new NodeLinkTreeLayout(Orientation.TOP_TO_BOTTOM);
 		private static const markedSprites:MutableSet = new HashSet();
 		private var dataInvalid:Boolean = false;
 		private var transitioner:Transitioner;
@@ -90,6 +96,18 @@ package org.namesonnodes.math.editor.flare
 				invalidateData();
 			}
 		}
+		private static function createEdgeLabeler():IOperator
+		{
+			const edgeFmt:TextFormat = new TextFormat();
+			edgeFmt.color = 0xFFFFFF;
+			return new Labeler("data.label", Data.EDGES, edgeFmt, null, Labeler.CHILD);
+		}
+		private static function createForceLayout():IOperator
+		{
+			const layout:ForceDirectedLayout = new ForceDirectedLayout(true);
+			layout.defaultSpringLength *= 3;
+			return layout;
+		}
 		private function dragNode(node:NodeSprite):void
 		{
 			if (draggedNode == node)
@@ -122,7 +140,7 @@ package org.namesonnodes.math.editor.flare
 		}
 		private function initVisualization(event:* = null):void
 		{
-			visualization.filters = [new DropShadowFilter(3, 45, 0x000066, 0.25, 4, 4, 1, 2)];
+			visualization.filters = [new DropShadowFilter(6, 45, 0x000066, 0.33, 0, 0)];
 			updateVisualization(true);
 		}
 		private function invalidateData():void
@@ -156,7 +174,7 @@ package org.namesonnodes.math.editor.flare
 							var index:int = child.parent.getChildIndex(child);
 							if (child.parent.acceptChildAt(element, index))
 							{
-								d.filters = EDGE_MARK_FILTERS;
+								d.filters = MARK_FILTERS;
 								markedSprites.add(d);
 								return;
 							}
@@ -170,11 +188,7 @@ package org.namesonnodes.math.editor.flare
 		{
 			controls = [new TooltipControl(NODE_FILTER, null, onTooltipShow, onTooltipShow),
 				new ClickControl(NODE_FILTER, 2, onDoubleClickNode)];
-			const layout:ForceDirectedLayout = new ForceDirectedLayout(true);
-			layout.defaultSpringLength *= 2.25;
-			const edgeFmt:TextFormat = new TextFormat();
-			edgeFmt.color = 0xFFFFFF;
-			operators = [layout, new Labeler("data.label", "edges", edgeFmt, null, Labeler.LAYER)];
+			operators = [FORCE_LAYOUT, EDGE_LABELER];
 		}
 		private function onDoubleClickNode(event:SelectionEvent):void
 		{
@@ -259,6 +273,8 @@ package org.namesonnodes.math.editor.flare
 		private function onTransitionEnd(event:TransitionEvent = null):void
 		{
 			onVisualizationUpdate();
+			visualization.operators.remove(TREE_LAYOUT);
+			visualization.operators.add(FORCE_LAYOUT);
 			//if (!draggedNode)
 			//	visualization.continuousUpdates = false;
 			transitioner = null;
@@ -280,6 +296,8 @@ package org.namesonnodes.math.editor.flare
 			}
 			if (visualization.data.nodes.length != 0)
 			{
+				visualization.operators.remove(FORCE_LAYOUT);
+				visualization.operators.add(TREE_LAYOUT);
 				visualization.visible = true;
 				visualization.continuousUpdates = true;
 				transitioner = visualization.update(immediate ? 0 : TRANSITION_SECONDS);

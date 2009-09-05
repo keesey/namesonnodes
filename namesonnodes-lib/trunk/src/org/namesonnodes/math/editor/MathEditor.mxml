@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:flare="org.namesonnodes.math.editor.flare.*" xmlns:panels="org.namesonnodes.math.editor.panels.*">
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:flare="org.namesonnodes.math.editor.flare.*" xmlns:panels="org.namesonnodes.math.editor.panels.*" xmlns:graphics="org.namesonnodes.math.editor.graphics.*">
 	<s:layout>
 		<s:HorizontalLayout/>
 	</s:layout>
@@ -12,6 +12,7 @@
 		</s:layout>
 		<panels:LogicPanel id="logicPanel"/>
 		<panels:DeclarePanel id="declarePanel"/>
+		<graphics:OrGraphics/>
 	</s:Group>
 	
 	

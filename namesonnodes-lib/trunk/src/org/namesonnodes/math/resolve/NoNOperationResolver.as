@@ -41,24 +41,33 @@ package org.namesonnodes.math.resolve
 		}
 		private function initOperations(nodeGraph:NodeGraph):void
 		{
-			operations["Maximal"] = new Maximal(nodeGraph);
-			operations["Minimal"] = new Minimal(nodeGraph);
-			operations["PredecessorUnion"] = new PredecessorUnion(nodeGraph);
+			const max:Maximal = new Maximal(nodeGraph);
+			const min:Minimal = new Minimal(nodeGraph);
+			const prcIntersect:PredecessorIntersection = new PredecessorIntersection(nodeGraph);
+			const prcUnion:PredecessorUnion = new PredecessorUnion(nodeGraph);
+			const sucIntersect:SuccessorIntersection = new SuccessorIntersection(nodeGraph);
+			const sucUnion:SuccessorUnion = new SuccessorUnion(nodeGraph);
+			const synPrc:SynapomorphicPredecessors = new SynapomorphicPredecessors(prcIntersect);
+			const nodeCladogen:NodeBasedCladogen = new NodeBasedCladogen(max, prcIntersect);
+			const nodeClade:NodeBasedClade = new NodeBasedClade(sucUnion, nodeCladogen);
+			const branchClade:BranchBasedClade = new BranchBasedClade(sucUnion, prcUnion, prcIntersect);
+			const crown:CrownClade = new CrownClade(nodeClade);
+			operations["Maximal"] = max;
+			operations["Minimal"] = min;
+			operations["PredecessorUnion"] = prcUnion;
 			operations["SuccessorUnion"] = new SuccessorUnion(nodeGraph);
-			operations["PredecessorIntersection"] = new PredecessorIntersection(nodeGraph);
-			operations["SuccessorIntersection"] = new SuccessorIntersection(nodeGraph);
-			operations["SynapomorphicPredecessors"] = new SynapomorphicPredecessors(operations["PredecessorIntersection"] as PredecessorIntersection);
-			operations["NodeBasedCladogen"] = new NodeBasedCladogen(operations["Maximal"] as Maximal, operations["PredecessorIntersection"] as PredecessorIntersection);
-			operations["BranchBasedCladogen"] = new BranchBasedCladogen(operations["Minimal"] as Minimal, operations["PredecessorUnion"] as PredecessorUnion, operations["PredecessorIntersection"] as PredecessorIntersection);
-			operations["ApomorphyBasedCladogen"] = new ApomorphyBasedCladogen(operations["Minimal"] as Minimal, operations["SynapomorphicPredecessors"] as SynapomorphicPredecessors);
-			operations["Clade"] = new Clade(operations["Minimal"] as Minimal, operations["SuccessorUnion"] as SuccessorUnion, operations["SuccessorIntersection"] as SuccessorIntersection);
-			operations["NodeBasedClade"] = new NodeBasedClade(operations["SuccessorUnion"] as SuccessorUnion, operations["NodeBasedCladogen"] as NodeBasedCladogen);
-			operations["BranchBasedClade"] = new BranchBasedClade(operations["SuccessorUnion"] as SuccessorUnion, operations["PredecessorUnion"] as PredecessorUnion, operations["PredecessorIntersection"] as PredecessorIntersection);
-			operations["ApomorphyBasedClade"] = new ApomorphyBasedClade(operations["SuccessorUnion"] as SuccessorUnion, operations["SynapomorphicPredecessors"] as SynapomorphicPredecessors);
-			operations["CrownClade"] = new CrownClade(operations["NodeBasedClade"] as NodeBasedClade);
-			operations["TotalClade"] = new TotalClade(operations["BranchBasedClade"] as BranchBasedClade, operations["CrownClade"] as CrownClade);
-			operations["NodeBranchTriple"] = new NodeBranchTriple(operations["NodeBasedClade"] as NodeBasedClade, operations["BranchBasedClade"] as BranchBasedClade);
-			// :TODO: TaxonBall
+			operations["PredecessorIntersection"] = prcIntersect;
+			operations["SuccessorIntersection"] = sucIntersect;
+			operations["SynapomorphicPredecessors"] = synPrc;
+			operations["NodeBasedCladogen"] = nodeCladogen;
+			operations["BranchBasedCladogen"] = new BranchBasedCladogen(min, prcUnion, prcIntersect);
+			operations["ApomorphyBasedCladogen"] = new ApomorphyBasedCladogen(min, synPrc);
+			operations["Clade"] = new Clade(min, sucUnion, sucIntersect);
+			operations["NodeBasedClade"] = nodeClade;
+			operations["BranchBasedClade"] = branchClade;
+			operations["ApomorphyBasedClade"] = new ApomorphyBasedClade(sucUnion, synPrc);
+			operations["CrownClade"] = crown;
+			operations["TotalClade"] = new TotalClade(branchClade, crown);
 		}
 	}
 }

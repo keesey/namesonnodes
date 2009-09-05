@@ -105,7 +105,6 @@
     <classEntry path="org.namesonnodes.math.operations.Minimal"/>
     <classEntry path="org.namesonnodes.math.operations.NodeBasedClade"/>
     <classEntry path="org.namesonnodes.math.operations.NodeBasedCladogen"/>
-    <classEntry path="org.namesonnodes.math.operations.NodeBranchTriple"/>
     <classEntry path="org.namesonnodes.math.operations.PredecessorIntersection"/>
     <classEntry path="org.namesonnodes.math.operations.PredecessorUnion"/>
     <classEntry path="org.namesonnodes.math.operations.SuccessorIntersection"/>
@@ -132,6 +131,8 @@
     <classEntry path="org.namesonnodes.math.editor.elements.DeclareElement"/>
     <classEntry path="org.namesonnodes.math.editor.elements.DeclarationFactory"/>
     <classEntry path="org.namesonnodes.math.editor.elements.ImpliesElement"/>
+    <classEntry path="org.namesonnodes.flare.NullRenderer"/>
+    <classEntry path="org.namesonnodes.math.entities.Taxon"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

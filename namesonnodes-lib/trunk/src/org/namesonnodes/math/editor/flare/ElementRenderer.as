@@ -4,11 +4,13 @@ package org.namesonnodes.math.editor.flare
 	import flare.vis.data.DataSprite;
 	import flare.vis.data.render.ShapeRenderer;
 	
-	import flash.display.Sprite;
+	import flash.display.DisplayObject;
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 	
 	import org.namesonnodes.math.editor.elements.MathMLElement;
+	
+	import spark.components.Group;
 
 	public final class ElementRenderer extends ShapeRenderer
 	{
@@ -26,6 +28,7 @@ package org.namesonnodes.math.editor.flare
 		override public function render(sprite:DataSprite):void
 		{
 			this.sprite = sprite;
+			sprite.visible = true;
 			sprite.graphics.clear();
 			sprite.hitArea = null;
 			sprite.buttonMode = true;
@@ -33,20 +36,10 @@ package org.namesonnodes.math.editor.flare
 			while (sprite.numChildren != 0)
 				sprite.removeChildAt(0);
 			const element:MathMLElement = sprite.data as MathMLElement;
-			var elementSprite:Sprite;
-			// :TODO: handle null differently
-			if (element.resultClass == Boolean || element.resultClass == null)
-				elementSprite = new BooleanSprite(element);
-			else with (sprite.graphics)
-			{
-				beginFill(0xFF0000, 1.0);
-				drawCircle(0, 0, 10);
-			}
-			if (elementSprite)
-			{
-				sprite.addChild(elementSprite);
-				sprite.hitArea = elementSprite;
-			}
+			const group:Group = new Group();
+			group.addElement(element.graphics);
+			sprite.addChild(group);
+			sprite.hitArea = group;
 		}
 	}
 }

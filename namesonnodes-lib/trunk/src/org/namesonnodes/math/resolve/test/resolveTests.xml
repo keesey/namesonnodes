@@ -517,42 +517,4 @@
 		</apply>
 	</apply>
 	
-	<apply>
-		<eq/>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBranchTriple"/>
-			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afri"/>
-			<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
-		</apply>
-		<list>
-			<apply>
-				<union/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:6"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:7"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:8"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:20"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:21"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afri"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:aeth"/>
-			</apply>
-			<apply>
-				<union/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:7"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:afri"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
-			</apply>
-			<apply>
-				<union/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:8"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:20"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::htu:21"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:robu"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:bois"/>
-				<csymbol definitionURL="org.namesonnodes.math.resolve.test::otu:aeth"/>
-			</apply>
-		</list>
-	</apply>
-	
 </math>

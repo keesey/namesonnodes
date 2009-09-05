@@ -2,6 +2,10 @@ package org.namesonnodes.math.editor.elements
 {
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
 	
+	import mx.core.IVisualElement;
+	
+	import org.namesonnodes.math.editor.graphics.OrGraphics;
+	
 	public final class OrElement extends AbstractNAryContainer implements MathMLContainer
 	{
 		public function OrElement()
@@ -40,6 +44,10 @@ package org.namesonnodes.math.editor.elements
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
 			return child != null && child.resultClass == Boolean && i <= numChildren;
+		}
+		override protected function createGraphics() : IVisualElement
+		{
+			return new OrGraphics();
 		}
 		public function incrementChildren():void
 		{

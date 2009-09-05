@@ -20,7 +20,7 @@ package org.namesonnodes.domain.nodes
 
 	public final class NodeGraph
 	{
-		private var allFinestNodes:FiniteSet;
+		private var _allFinestNodes:FiniteSet;
 		private const connectedNodes:MutableSet = new HashSet();
 		private const datasetDistances:Dictionary = new Dictionary();
 		private const datasets:MutableSet = new HashSet();
@@ -47,19 +47,19 @@ package org.namesonnodes.domain.nodes
 			initPhylogeny();
 			initDistances();
 		}
+		public function get allFinestNodes():FiniteSet
+		{
+			if (_allFinestNodes == null)
+			{
+				_allFinestNodes = EmptySet.INSTANCE;
+				for each (var identifier:TaxonIdentifier in identifiers)
+					_allFinestNodes = _allFinestNodes.union(interpretIdentifier(identifier)) as FiniteSet;
+			}
+			return _allFinestNodes;
+		}
 		public function get relatedNodes():FiniteSet
 		{
 			return connectedNodes;
-		}
-		public function get universalTaxon():FiniteSet
-		{
-			if (allFinestNodes == null)
-			{
-				allFinestNodes = EmptySet.INSTANCE;
-				for each (var identifier:TaxonIdentifier in identifiers)
-					allFinestNodes = allFinestNodes.union(interpretIdentifier(identifier)) as FiniteSet;
-			}
-			return allFinestNodes;
 		}
 		public function addIdentifier(id:TaxonIdentifier):void
 		{

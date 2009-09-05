@@ -3,10 +3,12 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.brainstem.assert.assertNotNull;
 	import a3lbmonkeybrain.brainstem.collections.EmptySet;
 	import a3lbmonkeybrain.brainstem.collections.FiniteSet;
+	import a3lbmonkeybrain.brainstem.collections.Set;
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
 	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.math.entities.Taxon;
 
 	public final class TotalClade extends AbstractOperation
 	{
@@ -29,23 +31,27 @@ package org.namesonnodes.math.operations
 		}
 		override public function apply(args:Array) : Object
 		{
-			if (!checkArguments(args, FiniteSet, 2, 2))
+			if (!checkArguments(args, Set, 2, 2))
 				return getUnresolvableArgument(args);
-			const specifiers:FiniteSet = args[0] as FiniteSet;
-			const extant:FiniteSet = args[1] as FiniteSet;
-			const a:Array = [CalcTable.argumentsToToken(specifiers.toArray()),
-				CalcTable.argumentsToToken(extant.toArray())];
+			const specifiers:Set = toTaxon(args[0]);
+			if (specifiers.empty)
+				return EmptySet.INSTANCE;
+			const extant:Set = toTaxon(args[1]);
+			if (extant.empty)
+				return EmptySet.INSTANCE;
+			const a:Array = [CalcTable.argumentsToToken(Taxon(specifiers).toNodeSet().toArray()),
+				CalcTable.argumentsToToken(Taxon(extant).toNodeSet().toArray())];
 			const r:* = calcTable.getResult(this, a);
-			if (r is FiniteSet)
-				return r as FiniteSet;
-			const crown:FiniteSet = crownClade.apply(args) as FiniteSet;
-			var result:FiniteSet;
+			if (r is Set)
+				return r;
+			const crown:Set = crownClade.apply(args) as Set;
+			var result:Set;
 			if (crown.empty)
 				result = EmptySet.INSTANCE;
 			else
 			{
-				const out:FiniteSet = extant.diff(crown) as FiniteSet;
-				result = branchBasedClade.apply([crown, out]) as FiniteSet;
+				const out:Set = extant.diff(crown);
+				result = branchBasedClade.apply([crown, out]) as Set;
 			}
 			calcTable.setResult(this, a, result);
 			return result;

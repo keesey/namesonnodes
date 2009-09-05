@@ -10,25 +10,26 @@ package org.namesonnodes.math.operations
 	import a3lbmonkeybrain.calculia.collections.operations.AbstractOperation;
 	import a3lbmonkeybrain.calculia.core.CalcTable;
 	
-	import org.namesonnodes.domain.nodes.NodeGraph;
 	import org.namesonnodes.domain.nodes.Node;
+	import org.namesonnodes.domain.nodes.NodeGraph;
+	import org.namesonnodes.math.entities.Taxon;
 
 	public final class SynapomorphicPredecessors extends AbstractOperation
 	{
-		private var predecessorIntersection:PredecessorIntersection;
+		private var prcIntersect:PredecessorIntersection;
 		private const calcTable:CalcTable = new CalcTable();
-		public function SynapomorphicPredecessors(predecessorIntersection:PredecessorIntersection)
+		public function SynapomorphicPredecessors(prcIntersect:PredecessorIntersection)
 		{
 			super();
-			assertNotNull(predecessorIntersection);
-			this.predecessorIntersection = predecessorIntersection;
+			assertNotNull(prcIntersect);
+			this.prcIntersect = prcIntersect;
 		}
 		internal function get nodeGraph():NodeGraph
 		{
-			return predecessorIntersection.nodeGraph;
+			return prcIntersect.nodeGraph;
 		}
 		private function isCommonSynapomorphicPredecessor(prc:Node,
-			representative:FiniteSet, apomorphic:FiniteSet):Boolean
+			representative:Set, apomorphic:Set):Boolean
 		{
 			for each (var rep:Node in representative)
 				if (!isSynapomorphicPredecessor(prc, rep, apomorphic))
@@ -36,10 +37,9 @@ package org.namesonnodes.math.operations
 			return true;
 		}
 		private function isSynapomorphicPredecessor(prc:Node, suc:Node,
-			apomorphic:FiniteSet):Boolean
+			apomorphic:Set):Boolean
 		{
-			const paths:FiniteSet = predecessorIntersection
-				.nodeGraph.paths(prc, suc);
+			const paths:Set = prcIntersect.nodeGraph.paths(prc, suc);
 			if (paths.empty)
 				return false;
 			for each (var path:FiniteList in paths)
@@ -56,43 +56,46 @@ package org.namesonnodes.math.operations
 		}
 		override public function apply(args:Array) : Object
 		{
-			if (!checkArguments(args, FiniteSet, 2, 2))
+			if (!checkArguments(args, Set, 2, 2))
 				return getUnresolvableArgument(args);
-			const apomorphic:FiniteSet = args[0] as FiniteSet;
+			const apomorphic:Set = toTaxon(args[0]);
 			if (apomorphic.empty)
-				return EmptySet.INSTANCE;
-			const representative:FiniteSet = args[1] as FiniteSet;
+				return apomorphic;
+			const representative:Set = toTaxon(args[1]);
 			if (representative.empty)
-				return EmptySet.INSTANCE;
-			const a:Array = [CalcTable.argumentsToToken(apomorphic.toArray()),
-				CalcTable.argumentsToToken(representative.toArray())];
+				return representative;
+			const apomorphicNodeSet:FiniteSet = Taxon(apomorphic).toNodeSet();
+			const representativeNodeSet:FiniteSet = Taxon(representative).toNodeSet();
+			const apomorphicNodes:Array = apomorphicNodeSet.toArray();
+			const representativeNodes:Array = representativeNodeSet.toArray();
+			const a:Array = [CalcTable.argumentsToToken(apomorphicNodes),
+				CalcTable.argumentsToToken(representativeNodes)];
 			const r:* = calcTable.getResult(this, a);
-			if (r is FiniteSet)
-				return r as FiniteSet;
-			var result:FiniteSet;
-			if (!representative.subsetOf(apomorphic))
-				result = EmptySet.INSTANCE;
+			if (r is Set)
+				return r;
+			var resultNodes:FiniteSet;
+			if (!representativeNodeSet.subsetOf(apomorphicNodeSet))
+				resultNodes = EmptySet.INSTANCE;
 			else
 			{
-				const commonPredecessors:FiniteSet = predecessorIntersection.apply([representative]) as FiniteSet;
-				if (commonPredecessors.empty)
-					result = EmptySet.INSTANCE;
+				const commonPrc:Set = prcIntersect.apply([representative]) as Set;
+				if (commonPrc.empty)
+					resultNodes = EmptySet.INSTANCE;
 				else
 				{
-					const apomorphicPredecessors:FiniteSet = commonPredecessors.intersect(apomorphic) as FiniteSet;
-					if (apomorphicPredecessors.empty)
-						result = EmptySet.INSTANCE
+					const apomorphicPrcNodeSet:FiniteSet = toNodeSet(commonPrc).intersect(apomorphicNodeSet) as FiniteSet;
+					if (apomorphicPrcNodeSet.empty)
+						resultNodes = EmptySet.INSTANCE;
 					else
 					{
-						result = new HashSet();
-						for each (var prc:Node in apomorphicPredecessors)
-							if (isCommonSynapomorphicPredecessor(prc, representative, apomorphic))
-								MutableCollection(result).add(prc);
-						if (result.empty)
-							result = EmptySet.INSTANCE;
+						resultNodes = new HashSet();
+						for each (var prc:Node in apomorphicPrcNodeSet)
+							if (isCommonSynapomorphicPredecessor(prc, representativeNodeSet, apomorphicNodeSet))
+								MutableCollection(resultNodes).add(prc);
 					}
 				}
 			}
+			const result:Set = nodesToTaxon(resultNodes);
 			calcTable.setResult(this, a, result);
 			return result;
 		}
