@@ -20,7 +20,7 @@
 			<h2>About <span class="title">Names on Nodes</span></h2>
 			<p>
 				<span class="title">Names on Nodes</span> is a web application that automatically applies biological nomenclature to datasets.
-				Datasets may be uploaded as bioinformatics files (NEXUS, etc.).
+				Datasets may be uploaded as bioinformatics files (<span class="langname">Nexus</span>, etc.).
 				<span class="title">Names on Nodes</span> uses the definitions of names to apply them to phylogenetic hypotheses.
 			</p>
 			<p>
@@ -40,12 +40,18 @@
 				It is not yet known when it will be launched.
 				Progress can be tracked at Mike Keesey's blog, <a href="http://3lbmonkeybrain.blogspot.com/search/label/Names%20on%20Nodes" class="title">A Three-Pound Monkey Brain</a>.
 			</p>
-			<h2><span class="langname">MathML</span> Definitions</h2>
+			<h2>Documentation</h2>
+			<h3><span class="langname">MathML</span> Definitions</h3>
 			<p>
 				<span class="title">Names on Nodes</span> uses <a href="http://www.w3.org/TR/MathML2/" class="langname">MathML 2.0</a> to model nomenclatural definitions.
 				To accomplish this, it relies on certain mathematical entities related to phylogeny and taxonomy.
 				These are defined and discussed in the <a href="./ns/math/2009/index.html"><span class="title"><span class="langname">MathML</span> Definitions</span> document</a>.
 				(Note that this document is currently in draft form, with some incomplete sections.)
+			</p>
+			<h3>Entities</h3>
+			<p>
+				Although <span class="title">Names on Nodes</span> will primarily store information in a database, it will also be capable of reading entity information from <span class="langname">XML</span> files.
+				The <span class="langname">XML</span> format is laid out in the <a href="./ns/entities/2009/index.html"><span class="title">Entity Definitions</span> document</a>.
 			</p>
 			<h2>Open Source Code</h2>
 			<p>
@@ -54,13 +60,14 @@
 			</p>
 			<h2>Demo Tools</h2>
 			<p>
-				Until <span class="title">Names on Nodes</span> is complete, I will be releasing a series of small online applications which showcase some of the functionality.
+				Until <span class="title">Names on Nodes</span> is complete, a series of small applications will be released online in order to showcase some of the functionality.
 				These present an opportunity to test certain components before the final application is complete.
 			</p>
-			<h3><span class="title">NEXUS Viewer</span></h3>
+			<h3><span class="title"><span class="langname">Nexus</span> Viewer</span></h3>
 			<p>
-				<span class="title">NEXUS Viewer</span> opens NEXUS files and displays the trees in them combined into a single phylogenetic network.
-				(Note that this only works properly for NEXUS files with trees. For files without trees, it will simply display a series of operational taxonomic units.)
+				<span class="title"><span class="langname">Nexus</span> Viewer</span> opens <span class="langname">Nexus</span> files and displays the trees in them combined into a single phylogenetic network.
+				(Note that this only works properly for <span class="langname">Nexus</span> files with rooted trees.
+				For files without rooted trees, it will simply display a series of operational taxonomic units.)
 				<a href="./nexusdemo">Click here.</a>
 			</p>
 			<h3><span class="title">Text Tree Maker</span></h3>
