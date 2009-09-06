@@ -6,7 +6,9 @@ package org.namesonnodes.math.editor.elements
 	
 	import flash.utils.getQualifiedClassName;
 	
-	public final class DeclareElement extends AbstractUnaryContainer implements MathMLContainer
+	import org.namesonnodes.utils.parseQName;
+	
+	public final class DeclareElement extends AbstractUnaryContainer implements MathMLContainer, TypedElement
 	{
 		private var _identifier:String;
 		private var _type:Class;
@@ -14,10 +16,11 @@ package org.namesonnodes.math.editor.elements
 		{
 			super();
 			if (isNonEmptyString(identifier))
-				identifier = "A";
+				identifier = "X";
 			assertNotNull(type);
 			_identifier = identifier;
 			_type = type;
+			setChildAt(createMissing(), 0);
 		}
 		override protected function get cloneBase() : MathMLContainer
 		{
@@ -29,11 +32,12 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return _identifier + " :=";
+			return _identifier + " \u2254";
 		}
 		public function get mathML():XML
 		{
-			const xml:XML = <declare type={getQualifiedClassName(_type)} xmlns={MathML.NAMESPACE.uri}><ci xmlns={MathML.NAMESPACE.uri}>{_identifier}</ci></declare>;
+			const typeName:QName = parseQName(getQualifiedClassName(_type));
+			const xml:XML = <declare type={typeName.localName} xmlns={MathML.NAMESPACE.uri}><ci xmlns={MathML.NAMESPACE.uri} type={typeName.localName}>{_identifier}</ci></declare>;
 			xml.appendChild(getChildAt(0).mathML);
 			return xml;
 		}
@@ -45,13 +49,17 @@ package org.namesonnodes.math.editor.elements
 		{
 			return "Declaration: defines the variable \"" + _identifier + "\".";
 		}
+		public function get type():Class
+		{
+			return _type;
+		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
 			return child != null || child.resultClass == _type && i == 0;
 		}
 		override protected function createMissing() : MissingElement
 		{
-			return new MissingElement(_type);
+			return new MissingElement(_type || Object);
 		}
 	}
 }

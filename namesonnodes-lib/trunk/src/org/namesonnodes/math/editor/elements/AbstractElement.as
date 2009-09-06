@@ -11,7 +11,6 @@ package org.namesonnodes.math.editor.elements
 	public class AbstractElement extends EventDispatcher
 	{
 		private var _parent:MathMLContainer;
-		private const _graphics:IVisualElement = createGraphics();
 		public function AbstractElement()
 		{
 			super();
@@ -37,10 +36,6 @@ package org.namesonnodes.math.editor.elements
 				_parent = v;
 				dispatchEvent(new Event(Event.CHANGE));
 			}
-		}
-		protected function createGraphics():IVisualElement
-		{
-			return new GraphicElement();
 		}
 		override public function toString():String
 		{

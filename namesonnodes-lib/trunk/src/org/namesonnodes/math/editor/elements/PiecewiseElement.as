@@ -1,20 +1,27 @@
 package org.namesonnodes.math.editor.elements
 {
-	import a3lbmonkeybrain.brainstem.collections.HashSet;
-	import a3lbmonkeybrain.brainstem.collections.MutableSet;
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
-	
-	import flash.events.Event;
 	
 	public final class PiecewiseElement extends AbstractNAryContainer implements MathMLContainer
 	{
-		public function PiecewiseElement()
+		private var _type:Class = Object;
+		public function PiecewiseElement(type:Class)
 		{
 			super();
+			_type = type;
+			setChildAt(new PieceElement(type), 0);
+			setChildAt(new MissingElement(type), 1);
 		}
 		override protected function get cloneBase() : MathMLContainer
 		{
-			return new PiecewiseElement();
+			return new PiecewiseElement(_type);
+		}
+		override protected function get initialChildren() : Vector.<MathMLElement>
+		{
+			const c:Vector.<MathMLElement> = new Vector.<MathMLElement>();
+			c.push(new PieceElement(Object));
+			c.push(new MissingElement(Object));
+			return c;
 		}
 		public function get label():String
 		{
@@ -52,6 +59,8 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get resultClass():Class
 		{
+			return _type;
+			/*
 			const childClasses:MutableSet = new HashSet();
 			const n:uint = numChildren;
 			for (var i:uint = 0; i < n; ++i)
@@ -65,22 +74,29 @@ package org.namesonnodes.math.editor.elements
 			if (childClasses.size == 1)
 				return childClasses.singleMember as Class;
 			return Object;
+			*/
+		}
+		public function get toolTipText():String
+		{
+			return "Piecewise Expression: yields the first contained piece whose conditional is true, or the final contained expression (\"otherwise\") if none are true.";
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
 			if (i > numChildren || child == null)
 				return false;
 			if (i == numChildren - 1)
-				return child.resultClass != null;
-			return child is PieceElement;
+				return child.resultClass == _type;
+			return child is PieceElement && PieceElement(child).type == _type;
 		}
-		public function get toolTipText():String
+		override public function getChildLabelAt(i:uint) : String
 		{
-			return "Piecewise Expression: yields the first contained piece whose conditional is true, or the final contained expression (\"otherwise\") if none are true.";
+			if (i == numChildren - 1)
+				return "otherwise";
+			return String(i + 1);
 		}
 		public function incrementChildren():void
 		{
-			insertChild(new PieceElement(), numChildren - 1);
+			insertChild(new PieceElement(_type), numChildren - 1);
 		}
 		override public function removeChild(child:MathMLElement):void
 		{

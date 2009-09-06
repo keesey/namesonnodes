@@ -7,6 +7,7 @@ package org.namesonnodes.math.editor.drag
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.MouseEvent;
+	import flash.filters.DropShadowFilter;
 	import flash.geom.Point;
 	import flash.ui.Mouse;
 	
@@ -17,6 +18,7 @@ package org.namesonnodes.math.editor.drag
 	
 	public final class ElementDragger extends EventDispatcher
 	{
+		private static const FILTERS:Array = [new DropShadowFilter(12, 45, 0x000066, 0.33, 0, 0)];
 		public static const INSTANCE:ElementDragger = new ElementDragger();
 		private var _currentElement:MathMLElement;
 		private var dataSprite:DataSprite;
@@ -39,6 +41,7 @@ package org.namesonnodes.math.editor.drag
 				if (v != null)
 				{
 					dataSprite = new DataSprite();
+					dataSprite.filters = FILTERS;
 					dataSprite.data = v;
 					dataSprite.renderer = ElementRenderer.INSTANCE;
 					dataSprite.dirty();

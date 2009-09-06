@@ -135,6 +135,11 @@
     <classEntry path="org.namesonnodes.math.entities.Taxon"/>
     <classEntry path="org.namesonnodes.math.editor.flare.MathEdgeRenderer"/>
     <classEntry path="org.namesonnodes.math.editor.flare.ExpandingCircle"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.TaxonIdentifierElement"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.EmptySetElement"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.SubsetElement"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.MaximalElement"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.NodeBasedCladogenElement"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

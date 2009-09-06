@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	xmlns:panels="org.namesonnodes.math.editor.panels.*"
+	label="Clade Functions"
+	width="100" height="167">
+	<fx:Script>
+		<![CDATA[
+			import org.namesonnodes.math.editor.elements.*;
+		]]>
+	</fx:Script>
+	<panels:ElementButton x="33" y="33"  elementFactory="{new ClassFactory(CladeElement)}" />
+	<panels:ElementButton x="67" y="33"  elementFactory="{new ClassFactory(NodeBasedCladeElement)}" />
+	<panels:ElementButton x="33" y="67"  elementFactory="{new ClassFactory(BranchBasedCladeElement)}" />
+	<panels:ElementButton x="67" y="67"  elementFactory="{new ClassFactory(ApomorphyBasedCladeElement)}" />
+	<panels:ElementButton x="33" y="100"  elementFactory="{new ClassFactory(CrownCladeElement)}" />
+	<panels:ElementButton x="67" y="100"  elementFactory="{new ClassFactory(TotalCladeElement)}" />
+</mx:Canvas>
