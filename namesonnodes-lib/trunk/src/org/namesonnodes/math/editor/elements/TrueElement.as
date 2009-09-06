@@ -10,7 +10,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "true";
+			return "T";
 		}
 		public function get mathML():XML
 		{

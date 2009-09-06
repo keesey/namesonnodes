@@ -1,6 +1,5 @@
 package org.namesonnodes.math.editor.elements
 {
-	import a3lbmonkeybrain.brainstem.assert.assert;
 	import a3lbmonkeybrain.brainstem.assert.assertNotNull;
 	import a3lbmonkeybrain.brainstem.filter.isNonEmptyString;
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
@@ -53,43 +52,6 @@ package org.namesonnodes.math.editor.elements
 		override protected function createMissing() : MissingElement
 		{
 			return new MissingElement(_type);
-		}
-		public static function incrementIdentifier(identifier:String, position:int = -1):String
-		{
-			if (isNonEmptyString(identifier))
-			{
-				identifier = identifier.toUpperCase();
-				if (identifier.match(/^[A-Z]+$/))
-				{
-					const n:uint = identifier.length;
-					if (position < 0)
-						position = n + position;
-					const c:String = identifier.charAt(position);
-					if (c == "Z")
-					{
-						identifier = setCharAt(identifier, position, "A");
-						if (position == 0)
-							identifier = "A" + identifier;
-						else
-							identifier = incrementIdentifier(identifier, position - 1);
-					}
-					else
-						identifier = setCharAt(identifier, position, String.fromCharCode(c.charCodeAt(0) + 1));
-				}
-			}
-			return "A";
-		}
-		public static function setCharAt(s:String, position:uint, char:String):String
-		{
-			if (position == 0)
-			{
-				if (s.length == 1)
-					return char;
-				return char + s;
-			}
-			if (position == s.length - 1)
-				return s.substr(0, position) + char;
-			return s.substr(0, position) + char + s.substr(position + 1);
 		}
 	}
 }

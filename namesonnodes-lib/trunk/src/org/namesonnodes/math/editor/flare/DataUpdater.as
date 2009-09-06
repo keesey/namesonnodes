@@ -12,23 +12,25 @@ package org.namesonnodes.math.editor.flare
 	import flash.utils.Dictionary;
 	
 	import org.namesonnodes.flare.NullRenderer;
+	import org.namesonnodes.math.editor.elements.MathElement;
 	import org.namesonnodes.math.editor.elements.MathMLContainer;
 	import org.namesonnodes.math.editor.elements.MathMLElement;
 
 	public final class DataUpdater
 	{
-		public static const EDGE_PROPERTIES:Object = {lineColor: 0xE0000000, lineWidth: 5,
-				fillColor: 0xE0808080, arrowType: ArrowType.TRIANGLE,
+		public static const EDGE_PROPERTIES:Object = {lineColor: 0xFF000000, lineWidth: 1,
+				fillColor: 0xFF000000, fillAlpha: 1.0, arrowType: ArrowType.TRIANGLE,
 				arrowHeight: 10, arrowWidth: 10, directed: true};
 		private var data:Data;
 		private const sprites:Dictionary = new Dictionary();
 		private const elements:MutableSet = new HashSet();
-		public function DataUpdater(data:Data, elements:Vector.<MathMLElement>, pos:Point)
+		public function DataUpdater(data:Data, element:MathElement, pos:Point)
 		{
 			super();
 			this.data = data;
 			readDataSprites();
-			readElements(elements);
+			elements.add(element);
+			readElements(element.toVector());
 			removeUnusedSprites();
 			addNewSprites(pos);
 			data.edges.setProperties(EDGE_PROPERTIES);
@@ -50,17 +52,18 @@ package org.namesonnodes.math.editor.flare
 			const parent:MathMLContainer = element.parent;
 			if (parent)
 			{
-				if (elements.has(parent))
-				{
-					const edge:EdgeSprite = 
-						data.addEdgeFor(n, findOrCreateSprite(parent,
-							new Point(pos.x, pos.y)), true);
-					edge.data = {label: parent.getChildLabelAt(parent.getChildIndex(element))};
-				}
-				n.renderer = new ElementRenderer(element);
+				const edge:EdgeSprite = 
+					data.addEdgeFor(n, findOrCreateSprite(parent,
+						new Point(pos.x, pos.y)), true);
+				edge.data = {label: parent.getChildLabelAt(parent.getChildIndex(element))};
+				edge.renderer = parent.parent ? MathEdgeRenderer.INSTANCE : NullRenderer.INSTANCE;
+				n.renderer = ElementRenderer.INSTANCE;
 			}
 			else
+			{
+				data.root = n;
 				n.renderer = NullRenderer.INSTANCE;
+			}
 			return n;
 		}
 		private function readDataSprites():void

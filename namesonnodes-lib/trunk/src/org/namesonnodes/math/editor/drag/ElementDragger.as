@@ -18,8 +18,8 @@ package org.namesonnodes.math.editor.drag
 	public final class ElementDragger extends EventDispatcher
 	{
 		public static const INSTANCE:ElementDragger = new ElementDragger();
-		private var dataSprite:DataSprite;
 		private var _currentElement:MathMLElement;
+		private var dataSprite:DataSprite;
 		private var dragging:Boolean = false;
 		public function ElementDragger()
 		{
@@ -39,9 +39,9 @@ package org.namesonnodes.math.editor.drag
 				if (v != null)
 				{
 					dataSprite = new DataSprite();
-					dataSprite.alpha = 0.75;
 					dataSprite.data = v;
-					new ElementRenderer(v).render(dataSprite);
+					dataSprite.renderer = ElementRenderer.INSTANCE;
+					dataSprite.dirty();
 					startDrag();
 				}
 			}

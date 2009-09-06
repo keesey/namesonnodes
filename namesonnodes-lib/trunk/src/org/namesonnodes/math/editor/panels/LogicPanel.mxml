@@ -3,25 +3,19 @@
 	xmlns:mx="library://ns.adobe.com/flex/halo"
 	xmlns:panels="org.namesonnodes.math.editor.panels.*"
 	title="Boolean Logic"
-	width="100" height="100">
+	width="100" height="167">
 	<fx:Script>
 		<![CDATA[
 			import org.namesonnodes.math.editor.elements.*;
 		]]>
 	</fx:Script>
 	<s:layout>
-		<s:VerticalLayout horizontalAlign="center" gap="10"/>
+		<s:BasicLayout/>
 	</s:layout>
-	<s:HGroup width="80">
-		<panels:ElementButton id="trueButton" elementFactory="{new ClassFactory(TrueElement)}"/>
-		<panels:ElementButton id="falseButton" elementFactory="{new ClassFactory(FalseElement)}" />
-	</s:HGroup>
-	<s:HGroup width="80">
-		<panels:ElementButton id="andButton" elementFactory="{new ClassFactory(AndElement)}" />
-		<panels:ElementButton id="orButton" elementFactory="{new ClassFactory(OrElement)}" />
-	</s:HGroup>
-	<s:HGroup width="80">
-		<panels:ElementButton id="notButton" elementFactory="{new ClassFactory(NotElement)}" />
-		<panels:ElementButton id="impliesButton" elementFactory="{new ClassFactory(ImpliesElement)}" />
-	</s:HGroup>
+	<panels:ElementButton id="trueButton" x="33" y="33" elementFactory="{new ClassFactory(TrueElement)}"/>
+	<panels:ElementButton id="falseButton" x="67" y="33"  elementFactory="{new ClassFactory(FalseElement)}" />
+	<panels:ElementButton id="andButton" x="33" y="67"  elementFactory="{new ClassFactory(AndElement)}" />
+	<panels:ElementButton id="orButton"  x="67" y="67" elementFactory="{new ClassFactory(OrElement)}" />
+	<panels:ElementButton id="notButton"  x="33" y="100" elementFactory="{new ClassFactory(NotElement)}" />
+	<panels:ElementButton id="impliesButton"  x="67" y="100" elementFactory="{new ClassFactory(ImpliesElement)}" />
 </s:Panel>

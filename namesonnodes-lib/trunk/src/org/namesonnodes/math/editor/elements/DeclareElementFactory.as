@@ -2,12 +2,12 @@ package org.namesonnodes.math.editor.elements
 {
 	import mx.core.IFactory;
 	
-	public final class DeclarationFactory implements IFactory
+	public final class DeclareElementFactory implements IFactory
 	{
 		public var identifierSource:*;
 		public var identifierProperty:*;
 		public var type:Class;
-		public function DeclarationFactory()
+		public function DeclareElementFactory()
 		{
 			super();
 		}
@@ -17,7 +17,7 @@ package org.namesonnodes.math.editor.elements
 			if (identifierSource is Object && identifierProperty is Object)
 			{
 				identifier = identifierSource[identifierProperty] as String;
-				identifierSource[identifierProperty] = DeclareElement.incrementIdentifier(identifier);
+				identifierSource[identifierProperty] = incrementIdentifier(identifier);
 			}
 			else
 				identifier = "x";

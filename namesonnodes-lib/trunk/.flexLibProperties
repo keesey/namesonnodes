@@ -129,10 +129,12 @@
     <classEntry path="org.namesonnodes.math.editor.flare.BooleanSprite"/>
     <classEntry path="org.namesonnodes.math.editor.elements.ElementResolver"/>
     <classEntry path="org.namesonnodes.math.editor.elements.DeclareElement"/>
-    <classEntry path="org.namesonnodes.math.editor.elements.DeclarationFactory"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.DeclareElementFactory"/>
     <classEntry path="org.namesonnodes.math.editor.elements.ImpliesElement"/>
     <classEntry path="org.namesonnodes.flare.NullRenderer"/>
     <classEntry path="org.namesonnodes.math.entities.Taxon"/>
+    <classEntry path="org.namesonnodes.math.editor.flare.MathEdgeRenderer"/>
+    <classEntry path="org.namesonnodes.math.editor.flare.ExpandingCircle"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

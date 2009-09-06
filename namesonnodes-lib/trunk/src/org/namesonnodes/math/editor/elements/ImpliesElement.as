@@ -10,7 +10,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "=>";
+			return "\u21D2";
 		}
 		override protected function get cloneBase() : MathMLContainer
 		{

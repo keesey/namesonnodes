@@ -11,7 +11,10 @@ package org.namesonnodes.math.editor.test
 	{
 		public function testMathEditor():void
 		{
-			UITestUtil.createTestWindow(new MathEditor(), "MathEditor", addAsync(nullEventHandler, int.MAX_VALUE));
+			const editor:MathEditor = new MathEditor();
+			editor.width = 800;
+			editor.height = 800;
+			UITestUtil.createTestWindow(editor, "MathEditor", addAsync(nullEventHandler, int.MAX_VALUE));
 		}
 	}
 }

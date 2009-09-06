@@ -7,7 +7,7 @@ package org.namesonnodes.math.editor.elements
 	[Event(name = "change", type = "flash.events.Event")]
 	public interface MathMLElement extends IEventDispatcher
 	{
-		function get graphics():IVisualElement;
+		//function get graphics():IVisualElement;
 		function get label():String;
 		function get mathML():XML;
 		function get parent():MathMLContainer;
