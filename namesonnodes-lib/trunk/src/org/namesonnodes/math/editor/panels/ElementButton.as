@@ -1,31 +1,35 @@
 package org.namesonnodes.math.editor.panels
 {
-	import flare.vis.data.DataSprite;
-	
 	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	
-	import mx.containers.Canvas;
+	import mx.core.ClassFactory;
 	import mx.core.IFactory;
+	import mx.events.FlexEvent;
 	
-	import org.namesonnodes.flare.NullRenderer;
 	import org.namesonnodes.math.editor.drag.ElementDragger;
 	import org.namesonnodes.math.editor.elements.MathMLElement;
-	import org.namesonnodes.math.editor.flare.ElementRenderer;
-	import org.namesonnodes.math.editor.flare.MathVis;
 	
-	public final class ElementButton extends Canvas
+	import spark.components.Button;
+	
+	[Event(name = "dataChange", type = "mx.events.FlexEvent")]
+	public final class ElementButton extends Button
 	{
-		private const dataSprite:DataSprite = new DataSprite();
+		private var _data:MathMLElement;
 		private var _elementFactory:IFactory;
 		public function ElementButton()
 		{
 			super();
-			rawChildren.addChild(dataSprite);
 			buttonMode = true;
-			hitArea = dataSprite;
-			visible = false;
-			filters = MathVis.VIS_FILTERS;
+			useHandCursor = true;
+			setStyle("skinFactory", new ClassFactory(ElementButtonSkin));
 			addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+		}
+		[Bindable(event = "dataChange")]
+		public function get data():MathMLElement
+		{
+			return _data;
 		}
 		public function get elementFactory():IFactory
 		{
@@ -38,30 +42,30 @@ package org.namesonnodes.math.editor.panels
 				_elementFactory = v;
 				if (_elementFactory)
 				{
-					const element:MathMLElement = _elementFactory.newInstance() as MathMLElement;
-					if (element)
-					{
-						dataSprite.renderer = ElementRenderer.INSTANCE;
-						dataSprite.data = element;
-						dataSprite.dirty();
-						visible = true;
-						toolTip = element.toolTipText;
-						return;
-					}
+					_data = _elementFactory.newInstance() as MathMLElement;
+					if (_data)
+						toolTip = _data.toolTipText;
 					else
-					{
-						dataSprite.renderer = NullRenderer.INSTANCE;
-						dataSprite.data = null;
 						toolTip = null;
-					}
 				}
-				visible = false;
+				else
+					_data = null;
+				dispatchEvent(new FlexEvent(FlexEvent.DATA_CHANGE));
 			}
 		}
 		private function onMouseDown(event:MouseEvent):void
 		{
 			if (_elementFactory)
-				ElementDragger.INSTANCE.currentElement = _elementFactory.newInstance() as MathMLElement;
+			{
+				const t:Timer = new Timer(1, 1);
+				t.addEventListener(TimerEvent.TIMER_COMPLETE, spawn);
+				t.start();
+			}
+		}
+		private function spawn(event:TimerEvent):void
+		{
+			Timer(event.target).removeEventListener(event.type, spawn);
+			ElementDragger.INSTANCE.currentElement = _elementFactory.newInstance() as MathMLElement;
 		}
 	}
 }

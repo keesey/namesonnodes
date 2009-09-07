@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:flare="org.namesonnodes.math.editor.flare.*" xmlns:panels="org.namesonnodes.math.editor.panels.*" xmlns:graphics="org.namesonnodes.math.editor.graphics.*">
+	<fx:Script>
+		<![CDATA[
+			import org.namesonnodes.domain.nodes.NodeGraph;
+			
+			public function set nodeGraph(v:NodeGraph):void
+			{
+				taxaPanel.taxonIdentifiers = v.taxonIdentifiers;
+			}
+		]]>
+	</fx:Script>
 	<s:layout>
 		<s:HorizontalLayout/>
 	</s:layout>
 	
-	<flare:MathVis id="vis" visWidth="{vis.width}" visHeight="{vis.height}" width="100%" height="100%"/>
+	<panels:TaxaPanel id="taxaPanel" height="100%" width="180" layer="2"/>
 	
-	<mx:Accordion id="panels">
-		<panels:GeneralPanel/> 
-		<panels:DeclarePanel/>
-		<panels:TaxaPanel/>
-		<panels:CladePanel/>
-		<panels:CladogenPanel/>
-		<panels:PhylogeneticPanel/>
-		<panels:LogicPanel/>
-		<panels:SetTheoryPanel/>
-	</mx:Accordion>
+	<flare:MathVis id="vis" visWidth="{vis.width}" visHeight="{vis.height}" width="100%" height="100%" layer="0"/>
+	
+	<panels:EntitiesPanel id="entitiesPanel" height="100%" width="180" layer="1"/>
 	
 </s:Group>

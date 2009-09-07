@@ -49,7 +49,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		override public function getChildLabelAt(i:uint):String
 		{
-			return i == 0 ? "internal" : "external";
+			return i == 0 ? "in" : "ex";
 		}
 	}
 }

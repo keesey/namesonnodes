@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities xmlns="http://namesonnodes.org/ns/entities/2009"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://namesonnodes.org/ns/entities/2009 http://namesonnodes.org/ns/entities/2009/entities.xsd http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+
+	<AuthorityIdentifier uri="urn:isbn:0853010064">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>International Code of Zoological Nomenclature, Fourth Edition</name>
+						<abbr>ICZN 4</abbr>
+						<italics>true</italics>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Clarke 2004</name>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<AuthorityIdentifier uri="http://peabody.yale.edu/collections/vp">
+		<entity>
+			<Authority>
+				<label>
+					<Label>
+						<name>Yale Peabody Museum: Vertebrate Paleontology Collection</name>
+						<abbr>YPM-VP</abbr>
+					</Label>
+				</label>
+			</Authority>
+		</entity>
+	</AuthorityIdentifier>
+	<TaxonIdentifier localName="Ichthyornis">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ichthyornis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>2</level>
+						<rank>genus</rank>
+						<types>
+							<refTaxon>urn:isbn:0853010064::Ichthyornis+dispar</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Diagnosis:Apomorphy:2">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Apomorphy 2</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<StateDefinition/>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Diagnosis:Apomorphy:5">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Apomorphy 5</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<StateDefinition/>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Diagnosis:Apomorphy:6">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Apomorphy 6</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<StateDefinition/>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Diagnosis:Apomorphy:7">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Apomorphy 7</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<StateDefinition/>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Diagnosis:Apomorphy:8">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Apomorphy 8</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<StateDefinition/>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Ichthyornis">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ichthyornis</name>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<PhyloDefinition>
+						<formula>
+							<math xmlns="http://www.w3.org/1998/Math/MathML">
+								<apply>
+									<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/>
+									<apply>
+										<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Minimal"/>
+										<apply>
+											<intersect/>
+											<apply>
+												<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors"/>
+												<apply>
+													<intersect/>
+													<csymbol definitionURL="urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:2"/>
+													<csymbol definitionURL="urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:5"/>
+													<csymbol definitionURL="urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:6"/>
+													<csymbol definitionURL="urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:7"/>
+													<csymbol definitionURL="urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:8"/>
+												</apply>
+												<csymbol definitionURL="http://peabody.yale.edu/collections/vp::1450"/>
+											</apply>
+											<apply>
+												<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedClade"/>
+												<csymbol definitionURL="http://peabody.yale.edu/collections/vp::1450"/>
+												<apply>
+													<union/>
+													<csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/>
+													<csymbol definitionURL="urn:isbn:0853010064::Struthio+camelus"/>
+													<csymbol definitionURL="urn:isbn:0853010064::Tetrao+major"/>
+												</apply>
+											</apply>
+										</apply>
+									</apply>
+								</apply>
+							</math>
+						</formula>
+						<prose>
+							<div xmlns="http://www.w3.org/1999/xhtml">The clade stemming from an ancestor that possessed all of the morphologies described by apomorphies 2, 5, 6, 7, 8 (in the <i>Ichthyornis dispar</i> Diagnosis) homologous (sensu Patterson, 1982) with those in YPM 1450 (holotype of <i>Ichthyornis dispar</i> Marsh, 1872b) and more closely related to YPM 1450 than to Aves (internal specifiers of Gauthier and de Queiroz, 2001; see Introduction).</div>
+						</prose>
+						<specifiers>
+							<refTaxon>http://peabody.yale.edu/collections/vp::1450</refTaxon>
+							<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:2</refTaxon>
+							<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:5</refTaxon>
+							<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:6</refTaxon>
+							<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:7</refTaxon>
+							<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:8</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Vultur+gryphus</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Struthio+camelus</refTaxon>
+							<refTaxon>urn:isbn:0853010064::Tetrao+major</refTaxon>
+						</specifiers>
+					</PhyloDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Ichthyornis+dispar">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Ichthyornis dispar</name>
+				<abbr>I. dispar</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+						<types>
+							<refTaxon>http://peabody.yale.edu/collections/vp::1450</refTaxon>
+						</types>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Vultur+gryphus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Vultur gryphus</name>
+				<abbr>V. gryphus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Struthio+camelus">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Struthio camelus</name>
+				<abbr>S. camelus</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Tetrao+major">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Tetrao major</name>
+				<abbr>T. major</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<RankDefinition>
+						<level>1</level>
+						<rank>species</rank>
+					</RankDefinition>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="Tinamus+major">
+		<authority>
+			<refAuthority>urn:isbn:0853010064</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>Tinamus major</name>
+				<abbr>T. major</abbr>
+				<italics>true</italics>
+			</Label>
+		</label>
+		<entity>
+			<refTaxon>urn:isbn:0853010064::Tetrao+major</refTaxon>
+		</entity>
+	</TaxonIdentifier>
+	<TaxonIdentifier localName="1450">
+		<authority>
+			<refAuthority>http://peabody.yale.edu/collections/vp</refAuthority>
+		</authority>
+		<label>
+			<Label>
+				<name>1450</name>
+			</Label>
+		</label>
+		<entity>
+			<Taxon>
+				<definition>
+					<SpecimenDefinition/>
+				</definition>
+			</Taxon>
+		</entity>
+	</TaxonIdentifier>
+  	<Dataset localName="Character+Matrix">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>  	
+		<label>
+			<Label>
+				<name>Character Matrix</name>
+			</Label>
+		</label>	
+		<inclusions>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:2</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Ichthyornis+dispar</refTaxon>
+				</subset>
+			</Inclusion>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:5</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Ichthyornis+dispar</refTaxon>
+				</subset>
+			</Inclusion>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:6</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Ichthyornis+dispar</refTaxon>
+				</subset>
+			</Inclusion>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:7</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Ichthyornis+dispar</refTaxon>
+				</subset>
+			</Inclusion>
+			<Inclusion>
+				<superset>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Diagnosis:Apomorphy:8</refTaxon>
+				</superset>
+				<subset>
+					<refTaxon>urn:isbn:0853010064::Ichthyornis+dispar</refTaxon>
+				</subset>
+			</Inclusion>
+		</inclusions>
+  	</Dataset>
+  	<Dataset localName="Phylogeny">
+		<authority>
+			<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+		</authority>  	
+		<label>
+			<Label>
+				<name>Phylogeny</name>
+			</Label>
+		</label>	
+		<heredities>
+			<Heredity>
+				<predecessor>
+					<TaxonIdentifier localName="Phylogeny:HTU:0">
+						<authority>
+							<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+						</authority>  	
+					</TaxonIdentifier>
+				</predecessor>
+				<successor>
+					<refTaxon>urn:isbn:0853010064::Ichthyornis+dispar</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Phylogeny:HTU:0</refTaxon>
+				</predecessor>
+				<successor>
+					<TaxonIdentifier localName="Phylogeny:HTU:1">
+						<authority>
+							<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+						</authority>  	
+					</TaxonIdentifier>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Phylogeny:HTU:1</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>urn:isbn:0853010064::Vultur+gryphus</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Phylogeny:HTU:1</refTaxon>
+				</predecessor>
+				<successor>
+					<TaxonIdentifier localName="Phylogeny:HTU:2">
+						<authority>
+							<refAuthority>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2</refAuthority>
+						</authority>  	
+					</TaxonIdentifier>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Phylogeny:HTU:2</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>urn:isbn:0853010064::Struthio+camelus</refTaxon>
+				</successor>
+			</Heredity>
+			<Heredity>
+				<predecessor>
+					<refTaxon>urn:doi:10.1206/0003-0090(2004)286&lt;0001:MPTASO&gt;2.0.CO;2::Phylogeny:HTU:2</refTaxon>
+				</predecessor>
+				<successor>
+					<refTaxon>urn:isbn:0853010064::Tinamus+major</refTaxon>
+				</successor>
+			</Heredity>
+		</heredities>
+  	</Dataset>
+</entities>

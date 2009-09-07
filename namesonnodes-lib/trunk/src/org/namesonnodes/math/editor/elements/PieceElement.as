@@ -39,7 +39,7 @@ package org.namesonnodes.math.editor.elements
 		public function get toolTipText():String
 		{
 			return "Piece: a piece of a piecewise expression,\n" + 
-					"consisting of a value and a conditional test.";
+					"consisting of a value (V) and a conditional test (C).";
 		}
 		public function get type():Class
 		{
@@ -58,8 +58,8 @@ package org.namesonnodes.math.editor.elements
 		override public function getChildLabelAt(i:uint) : String
 		{
 			if (i == 0)
-				return "value";
-			return "condition";
+				return "V";
+			return "C";
 		}
 	}
 }

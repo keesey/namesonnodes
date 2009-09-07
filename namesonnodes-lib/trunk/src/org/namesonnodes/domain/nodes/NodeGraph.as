@@ -61,6 +61,13 @@ package org.namesonnodes.domain.nodes
 		{
 			return connectedNodes;
 		}
+		public function get taxonIdentifiers():Vector.<TaxonIdentifier>
+		{
+			const v:Vector.<TaxonIdentifier> = new Vector.<TaxonIdentifier>();
+			for each (var identifier:TaxonIdentifier in identifiers)
+				v.push(identifier);
+			return v;
+		}
 		public function addIdentifier(id:TaxonIdentifier):void
 		{
 			identifiers[id.qName.toString()] = id;

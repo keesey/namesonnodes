@@ -1,13 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-	xmlns:mx="library://ns.adobe.com/flex/halo"
-	xmlns:panels="org.namesonnodes.math.editor.panels.*"
-	label="Taxa"
-	width="100" height="100">
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo">
 	<fx:Script>
 		<![CDATA[
-			import org.namesonnodes.math.editor.elements.*;
+			import a3lbmonkeybrain.brainstem.collections.HashSet;
+			import a3lbmonkeybrain.brainstem.collections.MutableSet;
+			import org.namesonnodes.domain.entities.PhyloDefinition;
+			import org.namesonnodes.domain.entities.StateDefinition;
+			import org.namesonnodes.domain.entities.SpecimenDefinition;
+			import org.namesonnodes.domain.entities.Definition;
+			import org.namesonnodes.domain.entities.RankDefinition;
+			import org.namesonnodes.domain.entities.TaxonIdentifier;
+			private const rankLevels:Dictionary = createRankLevels();
+			public function set taxonIdentifiers(value:Object):void
+			{
+				// :TODO: Use invalidation?
+				var identifiers:Vector.<TaxonIdentifier> = new Vector.<TaxonIdentifier>();
+				for each (var o:* in value)
+					if (o is TaxonIdentifier && TaxonIdentifier(o).entity)
+						identifiers.push(o as TaxonIdentifier);
+				identifiers = identifiers.sort(compareIdentifiers);
+				const hash:Dictionary = new Dictionary();
+				const keySet:MutableSet = new HashSet();
+				var key:String;
+				for each (var identifier:TaxonIdentifier in identifiers)
+				{
+					key = getCategory(identifier);
+					if (keySet.has(key))
+						ArrayCollection(hash[key]).addItem(identifier);
+					else
+					{
+						keySet.add(key);
+						hash[key] = new ArrayCollection([key, identifier]);
+					}
+				}
+				const keys:Vector.<Object> = keySet.toVector().sort(compareCategories);
+				taxonCollections.removeAll();
+				for each (key in keys)
+					taxonCollections.addItem(hash[key]);
+			}
+			private function compareCategories(a:String, b:String):int
+			{
+				const aNum:Number = rankLevels[a] as Number;
+				const bNum:Number = rankLevels[b] as Number;
+				if (aNum == bNum)
+					return 0;
+				if (aNum < bNum)
+					return -1;
+				return 1;
+			}
+			private static function compareIdentifiers(a:TaxonIdentifier, b:TaxonIdentifier):int
+			{
+				if (a == b)
+					return 0;
+				const aName:String = a.label.name;
+				const bName:String = b.label.name;
+				if (aName == bName)
+					return 0;
+				if (aName < bName)
+					return -1;
+				return 1;
+			}
+			private static function createRankLevels():Dictionary
+			{
+				const levels:Dictionary = new Dictionary();
+				levels["CHARACTER STATES"] = -2;
+				levels["SPECIMENS"] = -1;
+				levels["PHYLOGENETIC NAMES"] = uint.MAX_VALUE - 1;
+				levels["OTHER"] = uint.MAX_VALUE;
+				return levels;
+			}
+			private function getCategory(identifier:TaxonIdentifier):String
+			{
+				const def:Definition = identifier.entity.definition;
+				if (def == null)
+					return "OTHER";
+				if (def is SpecimenDefinition)
+					return "SPECIMENS";
+				if (def is StateDefinition)
+					return "CHARACTER STATES";
+				if (def is PhyloDefinition)
+					return "PHYLOGENETIC NAMES";
+				if (def is RankDefinition)
+				{
+					const rdef:RankDefinition = def as RankDefinition;
+					const rank:String = rdef.rank.toUpperCase() + " NAMES";
+					rankLevels[rank] = rdef.level;
+					return rank;
+				}
+				return "OTHER";
+			}
 		]]>
 	</fx:Script>
-	<panels:ElementButton id="universalTaxonButton" x="50" y="33"  elementFactory="{new ClassFactory(UniversalTaxonElement)}" />
-</mx:Canvas>
+	<fx:Declarations>
+		<s:ArrayCollection id="taxonCollections"/>
+	</fx:Declarations>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:DataGroup id="dataGroup" width="100%"
+			dataProvider="{taxonCollections}"
+			itemRenderer="{new ClassFactory(TaxonComboBox)}">
+		<s:layout>
+			<s:VerticalLayout gap="10"/>
+		</s:layout>
+	</s:DataGroup>
+</s:Panel>

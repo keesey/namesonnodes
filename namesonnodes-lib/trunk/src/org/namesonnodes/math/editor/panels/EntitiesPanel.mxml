@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo"
+	title="Entities" xmlns:panels="org.namesonnodes.math.editor.panels.*">
+	<fx:Script>
+		<![CDATA[
+			import a3lbmonkeybrain.brainstem.collections.Set;
+			import org.namesonnodes.math.editor.elements.*;
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:VerticalLayout gap="0" horizontalAlign="center" clipAndEnableScrolling="true"/>
+	</s:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:TileLayout horizontalAlign="center" verticalAlign="middle"
+				clipAndEnableScrolling="true" requestedColumnCount="3"
+				columnAlign="justifyUsingGap" verticalGap="-10" horizontalGap="-10"/>
+		</s:layout>
+		<panels:ElementButton elementFactory="{new ClassFactory(UniversalTaxonElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(EmptySetElement)}"/>
+		<panels:ElementButton elementFactory="{new PiecewiseElementFactory(Set)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(CladeElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(CrownCladeElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(TotalCladeElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(NodeBasedCladeElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(BranchBasedCladeElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(ApomorphyBasedCladeElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(NodeBasedCladogenElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(BranchBasedCladogenElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(ApomorphyBasedCladogenElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(MinimalElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(MaximalElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(SynapomorphicPredecessorsElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(PredecessorUnionElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(SuccessorUnionElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(UnionElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(PredecessorIntersectionElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(SuccessorIntersectionElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(IntersectElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(EqElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(NEqElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(SetDiffElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(SubsetElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(NotSubsetElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(TrueElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(PrSubsetElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(NotPrSubsetElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(FalseElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(AndElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(OrElement)}"/>
+		<panels:ElementButton elementFactory="{new ClassFactory(XOrElement)}"/>
+		
+		<panels:ElementButton elementFactory="{new ClassFactory(NotElement)}"/>
+		<mx:Spacer/>
+		<panels:ElementButton elementFactory="{new ClassFactory(ImpliesElement)}"/>
+	</s:Group>
+	
+	<!--:TODO: Declare Elements-->
+	<!--s:Group>
+		<s:layout>
+			<s:HorizontalLayout/>
+		</s:layout>
+	<s:Group>
+		<s:layout>
+			<s:HorizontalLayout/>
+		</s:layout>
+		<panels:ElementButton>
+			<panels:elementFactory>
+				<elements:DeclareElementFactory
+					identifierSource="{identifierInput}"
+					identifierProperty="text" type="{Boolean}"/>
+			</panels:elementFactory>
+		</panels:ElementButton>
+		<s:Group width="100%">
+			<s:layout>
+				<s:VerticalLayout horizontalAlign="left"/>
+			</s:layout>
+			<s:SimpleText text="Identifier:"/>
+			<s:TextInput id="identifierInput" text="A"
+				editable="true" restrict="A-Z" maxChars="255" width="100%"/>
+		</s:Group>
+	</s:Group-->
+	
+</s:Panel>

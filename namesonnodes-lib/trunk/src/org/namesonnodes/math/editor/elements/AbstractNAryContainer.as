@@ -70,14 +70,18 @@ package org.namesonnodes.math.editor.elements
 				dispatchEvent(new Event(Event.CHANGE));
 			}
 		}
-		public function removeChild(child:MathMLElement):void
+		protected function maintainMinimumChildren():void
+		{
+		}
+		public final function removeChild(child:MathMLElement):void
 		{
 			const i:int = _children.indexOf(child);
 			if (i >= 0)
 			{
 				_children.splice(i, 1);
-				child.parent = null;
 				child.removeEventListener(Event.CHANGE, dispatchEvent);
+				child.parent = null;
+				maintainMinimumChildren();
 				dispatchEvent(new Event(Event.CHANGE));
 			}
 		}

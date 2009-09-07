@@ -37,7 +37,7 @@ package org.namesonnodes.math.editor.elements
 		public function get toolTipText():String
 		{
 			return "Total Clade: yields the branch-based clade with the crown clade of all\n" + 
-					"specifiers internal and all extant nonmembers of that crown clade external.";
+					"specifiers (S) internal and all extant (E) nonmembers of that crown clade external.";
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
@@ -49,7 +49,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		override public function getChildLabelAt(i:uint):String
 		{
-			return i == 0 ? "specifiers" : "extant";
+			return i == 0 ? "S" : "E";
 		}
 	}
 }

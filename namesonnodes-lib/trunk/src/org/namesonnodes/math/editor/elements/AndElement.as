@@ -46,9 +46,8 @@ package org.namesonnodes.math.editor.elements
 		{
 			insertChild(new MissingElement(Boolean), numChildren);
 		}
-		override public function removeChild(child:MathMLElement) : void
+		override protected function maintainMinimumChildren():void
 		{
-			super.removeChild(child);
 			while (numChildren < 2)
 				incrementChildren();
 		}

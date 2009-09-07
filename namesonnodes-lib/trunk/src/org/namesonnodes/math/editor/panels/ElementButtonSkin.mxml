@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo"
+	minHeight="{dataElement.height + 10}" minWidth="{dataElement.width + 10}"
+	height="{dataElement.height + 10}" width="{dataElement.width + 10}"
+	xmlns:data="flare.vis.data.*"
+	alpha.disabled="0.5"
+	xmlns:panels="org.namesonnodes.math.editor.panels.*">
+	<fx:Script>
+		<![CDATA[
+			import flash.filters.DropShadowFilter;
+			import org.namesonnodes.math.editor.flare.ElementRenderer;
+			
+            //private static const DOWN_FILTERS:Array = [new DropShadowFilter(1, 35, 0x000066, 0.33, 0, 0)];
+            private static const FILTERS:Array = [new DropShadowFilter(5, 35, 0x000066, 0.33, 0, 0)];
+            private static const OVER_FILTERS:Array = [new DropShadowFilter(9, 35, 0x000066, 0.33, 0, 0)];
+            private static const UNCOLORIZED:Array = ["dataElement"];
+            
+            override public function get colorizeExclusions():Array
+            {
+            	return UNCOLORIZED.concat();
+            }
+		]]>
+	</fx:Script>
+	<fx:Metadata>
+		[HostComponent("org.namesonnodes.math.editor.panels.ElementButton")]
+	</fx:Metadata>
+   <s:states>
+        <s:State name="up" />
+        <s:State name="over" />
+        <s:State name="down" />
+        <s:State name="disabled" />
+    </s:states>
+    <s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<s:Graphic>
+		<s:Rect x="0" y="0" width="{dataElement.width + 10}" height="{dataElement.height + 10}">
+			<s:fill>
+				<s:SolidColor alpha="0.0" color="#FF0000"/>
+			</s:fill>
+		</s:Rect>
+	</s:Graphic>
+	<panels:DataVisualElement id="dataElement"
+		x="4" y="4"
+		x.over="0" y.over="0"
+		data="{hostComponent.data}"
+		renderer="{ElementRenderer.INSTANCE}"
+		filters="{FILTERS}"
+		filters.over="{OVER_FILTERS}"/>
+</s:SparkSkin>

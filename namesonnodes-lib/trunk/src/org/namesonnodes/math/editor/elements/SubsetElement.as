@@ -36,7 +36,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get toolTipText():String
 		{
-			return "Subset: tells whether a set (sub) is a subset of another set (super).\nHolds true if the sets are equal.";
+			return "Subset: tells whether a set (sub) is a subset of another set (sup).\nHolds true if the sets are equal.";
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
@@ -48,7 +48,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		override public function getChildLabelAt(i:uint):String
 		{
-			return (i == 0) ? "sub" : "super";
+			return (i == 0) ? "sub" : "sup";
 		}
 	}
 }

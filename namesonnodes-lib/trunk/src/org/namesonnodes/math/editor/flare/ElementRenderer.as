@@ -59,9 +59,13 @@ package org.namesonnodes.math.editor.flare
 			else if (type == Set)
 			{
 				if (element is TaxonIdentifierElement)
-					renderRoundRect(sprite, element, 0x039C7A, TEXT_FORMAT_WHITE);
+					renderRoundRect(sprite, element, 0x409C70, TEXT_FORMAT_WHITE);
 				else
-					renderCircle(sprite, element, 0x039C7A, TEXT_FORMAT_WHITE);
+					renderCircle(sprite, element, 0x409C70, TEXT_FORMAT_WHITE);
+			}
+			else if (type == Object)
+			{
+				renderCircle(sprite, element, 0x808080, TEXT_FORMAT_BLACK);
 			}
 			else if (element is TypedElement)
 			{
@@ -69,7 +73,7 @@ package org.namesonnodes.math.editor.flare
 				if (type == Boolean)
 					renderRect(sprite, element, 0xFFFFFF, TEXT_FORMAT_BLACK);
 				else if (type == Set)
-					renderRect(sprite, element, 0x039C7A, TEXT_FORMAT_WHITE);
+					renderRect(sprite, element, 0x409C70, TEXT_FORMAT_WHITE);
 				else
 					renderRect(sprite, element, 0x808080, TEXT_FORMAT_BLACK);
 			}
@@ -79,6 +83,8 @@ package org.namesonnodes.math.editor.flare
 		private static function renderCircle(sprite:DataSprite, element:MathMLElement, color:uint, format:TextFormat):void
 		{
 			const text:TextSprite = new TextSprite(element.label, format);
+			text.font = element.fontFamily;
+			text.size = element.fontSize;
 			text.x = text.width / -2;
 			text.y = text.height / -2;
 			const radius:Number = Math.max(text.width, text.height) / 2;
@@ -123,33 +129,33 @@ package org.namesonnodes.math.editor.flare
 		{
 			var label:String = element.label;
 			const text:TextSprite = new TextSprite(label, format);
-			while (text.width > MAX_LABEL_WIDTH)
-				text.text = label = label.substr(0, -1) + "\u2026";
+			//while (text.width > MAX_LABEL_WIDTH)
+			//	text.text = label = label.substr(0, -1) + "\u2026";
 			text.x = text.width / -2;
 			text.y = text.height / -2;
 			with (sprite.graphics)
 			{
 				beginFill(color, 0.0);
-				lineStyle(1, 0x037A9C, 1.0, true, LineScaleMode.NONE);
-				drawRoundRect(text.x - 4, text.y - 4, text.width + 8, text.height + 8, 16);
+				lineStyle(1, color, 1.0, true, LineScaleMode.NONE);
+				drawRoundRect(text.x - 4, text.y - 4, text.width + 8, text.height + 8, 32);
 				lineStyle();
 				beginFill(color);
-				drawRoundRect(text.x - 2, text.y - 2, text.width + 4, text.height + 4, 16);
+				drawRoundRect(text.x - 2, text.y - 2, text.width + 4, text.height + 4, 32);
 				endFill();
 			}
 			const hit:Sprite = new Sprite();
 			with (hit.graphics)
 			{
 				beginFill(0xFF0000, 0.0);
-				drawRoundRect(text.x - 2, text.y - 2, text.width + 4, text.height + 4, 16);
+				drawRoundRect(text.x - 2, text.y - 2, text.width + 4, text.height + 4, 32);
 			}
 			sprite.addChild(hit);
 			sprite.hitArea = hit;
 			sprite.addChild(text);
 			if (element is MissingElement)
 			{
-				sprite.addChildAt(new ExpandingRectangle(color, text.width, text.height, 12, randomSpeed, 16), 0);
-				sprite.addChildAt(new ExpandingRectangle(color, text.width, text.height, 12, randomSpeed, 16), 0);
+				sprite.addChildAt(new ExpandingRectangle(color, text.width, text.height, 12, randomSpeed, 32), 0);
+				sprite.addChildAt(new ExpandingRectangle(color, text.width, text.height, 12, randomSpeed, 32), 0);
 			}
 		}
 	}

@@ -48,11 +48,11 @@ package org.namesonnodes.math.editor.flare
 	{
 		//private static const EDGE_LABELER:IOperator = createEdgeLabeler();
 		private static const FORCE_LAYOUT:IOperator = createForceLayout();
-		private static const MARK_FILTERS:Array = [new GlowFilter(0xFFFFFF, 1.0, 0.0, 0.0, 12.0, BitmapFilterQuality.MEDIUM)];
+		private static const MARK_FILTERS:Array = [new GlowFilter(0xFFE000, 1.0, 8, 8, 8.0, BitmapFilterQuality.MEDIUM)];
 		private static const NODE_FILTER:Function = filterType(NodeSprite);
 		private static const TRANSITION_SECONDS:Number = 0.4;
-		private static const TREE_LAYOUT:IOperator = new NodeLinkTreeLayout(Orientation.LEFT_TO_RIGHT);
-		public static const VIS_FILTERS:Array = [new DropShadowFilter(6, 45, 0x000066, 0.33, 0, 0)];
+		private static const TREE_LAYOUT:IOperator = new NodeLinkTreeLayout(Orientation.TOP_TO_BOTTOM);
+		public static const VIS_FILTERS:Array = [new DropShadowFilter(10, 35, 0x000066, 0.33, 0, 0)];
 		private static const markedSprites:MutableSet = new HashSet();
 		private var dataInvalid:Boolean = false;
 		private var transitioner:Transitioner;
@@ -161,13 +161,12 @@ package org.namesonnodes.math.editor.flare
 					addEventListener(Event.ADDED_TO_STAGE, validateData);
 			}
 		}
-		private function markSprites(element:MathMLElement, p:Point):void
+		private function markSprites(element:MathMLElement):void
 		{
-			const x:Number = p.x;
-			const y:Number = p.y;
+			const object:DisplayObject = ElementDragger.INSTANCE.displayObject;
 			visualization.data.visit(function(d:DataSprite):void
 				{
-					if (d.hitTestPoint(x, y, true))
+					if (d.hitTestObject(object))
 					{
 						if (markedSprites.has(d))
 							return;
@@ -237,7 +236,7 @@ package org.namesonnodes.math.editor.flare
 		}
 		private function onElementMove(event:ElementDragEvent):void
 		{
-			markSprites(event.element, event.position);
+			markSprites(event.element);
 		}
 		private function onMouseDown(event:MouseEvent):void
 		{

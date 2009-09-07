@@ -15,7 +15,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "prc\u2229";
+			return "prc\n\u2229";
 		}
 		public function get mathML():XML
 		{

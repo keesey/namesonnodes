@@ -16,7 +16,8 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return identifier.label.abbrOrName;
+			return identifier.label.abbrOrName + "\n("
+				+ identifier.authority.entity.label.abbrOrName + ")";
 		}
 		public function get mathML():XML
 		{

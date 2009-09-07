@@ -15,7 +15,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "suc\u222A";
+			return "suc\n\u222A";
 		}
 		public function get mathML():XML
 		{

@@ -8,6 +8,7 @@ package org.namesonnodes.math.editor.flare
 	import flare.vis.data.NodeSprite;
 	import flare.vis.data.render.EdgeRenderer;
 	
+	import flash.display.Sprite;
 	import flash.geom.Point;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
@@ -15,7 +16,7 @@ package org.namesonnodes.math.editor.flare
 	public final class MathEdgeRenderer extends EdgeRenderer
 	{
 		public static const INSTANCE:MathEdgeRenderer = new MathEdgeRenderer();
-		private static const MIDPOINT_RADIUS:Number = 4;
+		private static const MIDPOINT_RADIUS:Number = 5;
 		private static const TEXT_FORMAT:TextFormat = createTextFormat();
 		public function MathEdgeRenderer()
 		{
@@ -42,29 +43,45 @@ package org.namesonnodes.math.editor.flare
 				d.graphics.clear();
 				return;
 			}
-			const mid:Point = Point.interpolate(sourcePoint, targetPoint, 0.5);
+			const label:String = d.data.label;
+			const hasLabel:Boolean = isNonEmptyString(label);
 			super.render(d);
+			const mid:Point = Point.interpolate(sourcePoint, targetPoint, 0.5);
 			with (d.graphics)
 			{
 				moveTo(mid.x, mid.y);
 				beginFill(d.fillColor, d.fillAlpha);
 			}
-			const label:String = d.data.label;
-			if (isNonEmptyString(label))
+			if (hasLabel)
 			{
 				var text:TextSprite;
+				var textContainer:Sprite;
 				if (d.numChildren == 0)
 				{
+					textContainer = new Sprite();
 					text = new TextSprite(label, TEXT_FORMAT);
-					d.addChild(text);
+					textContainer.addChild(text);
+					d.addChild(textContainer);
 				}
 				else
 				{
-					text = d.getChildAt(0) as TextSprite;
-					text.text = label;
+					textContainer = d.getChildAt(0) as Sprite;
+					if (textContainer.numChildren == 0)
+					{
+						text = new TextSprite(label, TEXT_FORMAT);
+						textContainer.addChild(text);
+					}
+					else
+						text = textContainer.getChildAt(0) as TextSprite;
 				}
-				text.x = mid.x - text.width / 2;
-				text.y = mid.y - text.height / 2;
+				text.x = -text.width / 2;
+				text.y = -text.height / 2;
+				textContainer.x = mid.x;
+				textContainer.y = mid.y;
+				//textContainer.rotation = Math.atan2(target.y - source.y, target.x - source.x)
+				//	* 180 / Math.PI + 90;
+				//if (textContainer.rotation > 90 || textContainer.rotation < -90)
+				//	textContainer.rotation += 180; 
 			}
 			else
 			{

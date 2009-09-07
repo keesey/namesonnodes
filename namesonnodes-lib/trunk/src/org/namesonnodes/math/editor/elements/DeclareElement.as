@@ -32,7 +32,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return _identifier + " \u2254";
+			return _identifier + "\n:=";
 		}
 		public function get mathML():XML
 		{

@@ -22,7 +22,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "synprc";
+			return "syn\nprc";
 		}
 		public function get mathML():XML
 		{
@@ -36,8 +36,8 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get toolTipText():String
 		{
-			return "Synapomorphic Predecessors: yields the set of all predecessors of a representative taxon which share membership\n" + 
-					"in an apomorphic taxon synapomorphically (homologously) with the members of the representative taxon.";
+			return "Synapomorphic Predecessors: yields the set of all predecessors of a representative taxon (R) which share membership " + 
+					"in an apomorphic taxon (A) synapomorphically (homologously) with the members of the representative taxon.";
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
@@ -49,7 +49,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		override public function getChildLabelAt(i:uint):String
 		{
-			return i == 0 ? "apomorphic" : "representative";
+			return i == 0 ? "A" : "R";
 		}
 	}
 }

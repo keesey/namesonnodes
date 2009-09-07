@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ComboBox xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo"
+	change="onChange(event)" labelFunction="{labelItem}" width="176">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.ListEvent;
+			import org.namesonnodes.domain.entities.TaxonIdentifier;
+			import org.namesonnodes.math.editor.drag.ElementDragger;
+			import org.namesonnodes.math.editor.elements.MathMLElement;
+			import org.namesonnodes.math.editor.elements.TaxonIdentifierElement;
+
+			override public function set data(value:Object) : void
+			{
+				dataProvider = value;
+			}
+			protected static function labelItem(o:Object):String
+			{
+				try
+				{
+					if (o is TaxonIdentifier)
+					{
+						const id:TaxonIdentifier = o as TaxonIdentifier;
+						return id.label.name + " (" + id.authority.entity.label.abbrOrName + ")";
+					}
+					return String(o);
+				}
+				catch (e:Error)
+				{
+					return e.name + ": " + e.message;
+				}
+				return "";
+			}
+			protected function onChange(event:ListEvent):void
+			{
+				if (selectedItem is TaxonIdentifier)
+				{
+					const element:MathMLElement = new TaxonIdentifierElement(selectedItem as TaxonIdentifier);
+					ElementDragger.INSTANCE.currentElement = element;
+					const t:Timer = new Timer(1, 1);
+					t.addEventListener(TimerEvent.TIMER_COMPLETE, resetSelection);
+					t.start();
+				}
+			}
+			private function resetSelection(event:TimerEvent):void
+			{
+				Timer(event.target).removeEventListener(event.type, resetSelection);
+				selectedIndex = 0;
+			}
+		]]>
+	</fx:Script>
+	
+</mx:ComboBox>

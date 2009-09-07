@@ -21,7 +21,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "Clade+";
+			return "Clade\n+";
 		}
 		public function get mathML():XML
 		{
@@ -45,9 +45,8 @@ package org.namesonnodes.math.editor.elements
 		{
 			insertChild(new MissingElement(Set), numChildren);
 		}
-		override public function removeChild(child:MathMLElement) : void
+		override protected function maintainMinimumChildren():void
 		{
-			super.removeChild(child);
 			if (numChildren == 0)
 				incrementChildren();
 		}

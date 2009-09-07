@@ -35,7 +35,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get toolTipText():String
 		{
-			return "Implication: yields the logical entailment of an antecedent and a consequent.";
+			return "Implication: yields the logical entailment of an antecedent (A) and a consequent (C).";
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
@@ -48,9 +48,9 @@ package org.namesonnodes.math.editor.elements
 		override public function getChildLabelAt(i:uint) : String
 		{
 			if (i == 0)
-				return "antecedent";
+				return "A";
 			if (i == 1)
-				return "consequent";
+				return "C";
 			return "";
 		}
 	}

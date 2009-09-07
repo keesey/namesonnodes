@@ -91,16 +91,15 @@ package org.namesonnodes.math.editor.elements
 		override public function getChildLabelAt(i:uint) : String
 		{
 			if (i == numChildren - 1)
-				return "otherwise";
+				return "DEFAULT";
 			return String(i + 1);
 		}
 		public function incrementChildren():void
 		{
 			insertChild(new PieceElement(_type), numChildren - 1);
 		}
-		override public function removeChild(child:MathMLElement):void
+		override protected function maintainMinimumChildren():void
 		{
-			super.removeChild(child);
 			if (getChildAt(numChildren - 1) is PieceElement)
 				insertChild(new MissingElement(Object), numChildren);
 			while (numChildren < 2)

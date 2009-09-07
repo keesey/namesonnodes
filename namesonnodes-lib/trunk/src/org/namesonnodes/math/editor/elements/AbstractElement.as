@@ -17,12 +17,14 @@ package org.namesonnodes.math.editor.elements
 			if (!(this is MathMLElement))
 				throw new Error("Instantiation of a pseudo-abstract class.");
 		}
-		/*
-		public final function get graphics():IVisualElement
+		public function get fontFamily():String
 		{
-			return _graphics;
+			return "Verdana";
 		}
-		*/
+		public function get fontSize():uint
+		{
+			return 10;
+		}
 		public final function get parent():MathMLContainer
 		{
 			return _parent;

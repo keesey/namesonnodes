@@ -13,7 +13,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "\u2205";
+			return "Ø";
 		}
 		public function get mathML():XML
 		{

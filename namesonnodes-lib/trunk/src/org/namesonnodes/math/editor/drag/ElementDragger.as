@@ -18,7 +18,7 @@ package org.namesonnodes.math.editor.drag
 	
 	public final class ElementDragger extends EventDispatcher
 	{
-		private static const FILTERS:Array = [new DropShadowFilter(12, 45, 0x000066, 0.33, 0, 0)];
+		private static const FILTERS:Array = [new DropShadowFilter(20, 35, 0x000066, 0.33, 0, 0)];
 		public static const INSTANCE:ElementDragger = new ElementDragger();
 		private var _currentElement:MathMLElement;
 		private var dataSprite:DataSprite;
@@ -48,6 +48,10 @@ package org.namesonnodes.math.editor.drag
 					startDrag();
 				}
 			}
+		}
+		public function get displayObject():DisplayObject
+		{
+			return dataSprite;
 		}
 		private function get stage():Stage
 		{

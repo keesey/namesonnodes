@@ -22,7 +22,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "Clade\u2190";
+			return "Clade\n\u2190";
 		}
 		public function get mathML():XML
 		{
@@ -49,7 +49,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		override public function getChildLabelAt(i:uint):String
 		{
-			return i == 0 ? "internal" : "external";
+			return i == 0 ? "in" : "ex";
 		}
 	}
 }

@@ -66,6 +66,8 @@ package org.namesonnodes.math.editor.elements
 			const i:int = _children.indexOf(child);
 			if (i >= 0)
 			{
+				child.removeEventListener(Event.CHANGE, dispatchEvent);
+				child.parent = null;
 				const newChild:MathMLElement = _children[i] = createMissing(i);
 				newChild.parent = this as MathMLContainer;
 				newChild.addEventListener(Event.CHANGE, dispatchEvent);

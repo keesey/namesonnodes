@@ -21,7 +21,7 @@ package org.namesonnodes.math.editor.elements
 		{
 			const c:Vector.<MathMLElement> = new Vector.<MathMLElement>(2);
 			c[0] = new MissingElement(Set);
-			c[0] = new MissingElement(Set);
+			c[1] = new MissingElement(Set);
 			return c;
 		}
 		public function get mathML():XML
@@ -36,7 +36,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get toolTipText():String
 		{
-			return "Set Difference: yields the relative complement of two sets (A and B).";
+			return "Set Difference: yields all members of set A which are not members of set B.";
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{

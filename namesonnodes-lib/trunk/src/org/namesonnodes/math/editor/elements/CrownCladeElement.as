@@ -36,7 +36,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get toolTipText():String
 		{
-			return "Crown Clade: yields the node-based clade of all extant members of a specifying set.";
+			return "Crown Clade: yields the node-based clade of all extant (E) members of a specifying set (S).";
 		}
 		public function acceptChildAt(child:MathMLElement, i:uint):Boolean
 		{
@@ -48,7 +48,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		override public function getChildLabelAt(i:uint):String
 		{
-			return i == 0 ? "specifiers" : "extant";
+			return i == 0 ? "S" : "E";
 		}
 	}
 }

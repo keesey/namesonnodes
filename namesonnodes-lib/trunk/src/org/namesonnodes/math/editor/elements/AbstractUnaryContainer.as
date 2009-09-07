@@ -66,8 +66,8 @@ package org.namesonnodes.math.editor.elements
 				throw new RangeError();
 			if (!MathMLContainer(this).acceptChildAt(child, 0))
 				throw new ArgumentError();
-			_child.parent = null;
 			_child.removeEventListener(Event.CHANGE, dispatchEvent);
+			_child.parent = null;
 			_child = child;
 			_child.addEventListener(Event.CHANGE, dispatchEvent);
 			_child.parent = this as MathMLContainer;
