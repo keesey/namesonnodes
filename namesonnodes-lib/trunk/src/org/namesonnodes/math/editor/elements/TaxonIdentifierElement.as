@@ -4,7 +4,7 @@ package org.namesonnodes.math.editor.elements
 	import a3lbmonkeybrain.brainstem.w3c.mathml.MathML;
 	
 	import org.namesonnodes.domain.entities.TaxonIdentifier;
-	import org.namesonnodes.domain.nodes.Node;
+	import org.namesonnodes.domain.entities.labelTaxonIdentifier;
 	
 	public final class TaxonIdentifierElement extends AbstractElement implements MathMLElement
 	{
@@ -16,8 +16,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return identifier.label.abbrOrName + "\n("
-				+ identifier.authority.entity.label.abbrOrName + ")";
+			return labelTaxonIdentifier(identifier, true);
 		}
 		public function get mathML():XML
 		{

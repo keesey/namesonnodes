@@ -19,11 +19,11 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get fontFamily():String
 		{
-			return "Verdana";
+			return "MS Mincho";
 		}
 		public function get fontSize():uint
 		{
-			return 10;
+			return 11;
 		}
 		public final function get parent():MathMLContainer
 		{

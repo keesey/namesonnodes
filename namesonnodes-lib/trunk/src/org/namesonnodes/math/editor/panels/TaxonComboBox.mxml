@@ -4,6 +4,7 @@
 	change="onChange(event)" labelFunction="{labelItem}" width="176">
 	<fx:Script>
 		<![CDATA[
+			import org.namesonnodes.domain.entities.labelTaxonIdentifier;
 			import mx.events.ListEvent;
 			import org.namesonnodes.domain.entities.TaxonIdentifier;
 			import org.namesonnodes.math.editor.drag.ElementDragger;
@@ -19,10 +20,7 @@
 				try
 				{
 					if (o is TaxonIdentifier)
-					{
-						const id:TaxonIdentifier = o as TaxonIdentifier;
-						return id.label.name + " (" + id.authority.entity.label.abbrOrName + ")";
-					}
+						return labelTaxonIdentifier(o as TaxonIdentifier, false, " ");
 					return String(o);
 				}
 				catch (e:Error)

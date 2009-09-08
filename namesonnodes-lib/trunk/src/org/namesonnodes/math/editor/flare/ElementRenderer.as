@@ -82,7 +82,8 @@ package org.namesonnodes.math.editor.flare
 		}
 		private static function renderCircle(sprite:DataSprite, element:MathMLElement, color:uint, format:TextFormat):void
 		{
-			const text:TextSprite = new TextSprite(element.label, format);
+			const text:TextSprite = new TextSprite("", format);
+			text.htmlText = element.label;
 			text.font = element.fontFamily;
 			text.size = element.fontSize;
 			text.x = text.width / -2;
@@ -114,7 +115,10 @@ package org.namesonnodes.math.editor.flare
 		}
 		private static function renderRect(sprite:DataSprite, element:MathMLElement, color:uint, format:TextFormat):void
 		{
-			const text:TextSprite = new TextSprite(element.label, format);
+			const text:TextSprite = new TextSprite("", format);
+			text.htmlText = element.label;
+			text.font = element.fontFamily;
+			text.size = element.fontSize;
 			text.x = text.width / -2;
 			text.y = text.height / -2;
 			sprite.addChild(text);
@@ -128,7 +132,10 @@ package org.namesonnodes.math.editor.flare
 		private static function renderRoundRect(sprite:DataSprite, element:MathMLElement, color:uint, format:TextFormat):void
 		{
 			var label:String = element.label;
-			const text:TextSprite = new TextSprite(label, format);
+			const text:TextSprite = new TextSprite("", format);
+			text.htmlText = label;
+			text.font = element.fontFamily;
+			text.size = element.fontSize;
 			//while (text.width > MAX_LABEL_WIDTH)
 			//	text.text = label = label.substr(0, -1) + "\u2026";
 			text.x = text.width / -2;

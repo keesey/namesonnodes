@@ -10,7 +10,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get label():String
 		{
-			return "...";
+			return "\u2026";
 		}
 		public function get mathML():XML
 		{
