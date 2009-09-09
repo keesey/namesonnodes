@@ -184,6 +184,7 @@
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
     <classEntry path="org.namesonnodes.math.editor.panels.TaxaPanel"/>
     <classEntry path="org.namesonnodes.math.editor.panels.FilePanel"/>
+    <classEntry path="org.namesonnodes.math.editor.elements.MathMLElementResolver"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

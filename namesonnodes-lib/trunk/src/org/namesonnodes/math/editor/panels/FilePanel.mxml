@@ -4,6 +4,13 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.events.CloseEvent;
+			import mx.controls.Alert;
+			import a3lbmonkeybrain.brainstem.resolve.UnresolvableXML;
+			import a3lbmonkeybrain.brainstem.resolve.Unresolvable;
+			import org.namesonnodes.math.editor.elements.MathElement;
+			import org.namesonnodes.math.editor.elements.MathMLElementResolver;
+			import a3lbmonkeybrain.brainstem.resolve.XMLResolver;
 			import a3lbmonkeybrain.visualcortex.alerts.alertErrorEvent;
 			import a3lbmonkeybrain.visualcortex.alerts.alertError;
 
@@ -11,8 +18,19 @@
 
 			import org.namesonnodes.math.editor.flare.MathVis;
 			
+			private var _elementResolver:XMLResolver;
 			public var mathVis:MathVis;
 			
+			public function get elementResolver():XMLResolver
+			{
+				if (_elementResolver == null)
+					_elementResolver = new MathMLElementResolver();
+				return _elementResolver;
+			}
+			public function set elementResolver(v:XMLResolver):void
+			{
+				_elementResolver = v;
+			}
 			private function onFileRefCancel(event:Event):void
 			{
 				const fileRef:FileReference = event.target as FileReference;
@@ -24,17 +42,29 @@
 			private function onFileRefComplete(event:Event):void
 			{
 				const fileRef:FileReference = event.target as FileReference;
-				fileRef.removeEventListener(Event.COMPLETE, onFileRefComplete);
-				fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
-				fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
 				try
 				{
+					fileRef.removeEventListener(Event.COMPLETE, onFileRefComplete);
+					fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+					fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
 					const xml:XML = new XML(fileRef.data.readUTFBytes(fileRef.data.length));
-					// :TODO: send to MathVis
+					const element:Object = elementResolver.resolveXML(xml);
+					if (element is MathElement)
+					{
+						if (mathVis)
+							mathVis.rootElement = element as MathElement;
+					}
+					else if (element is UnresolvableXML)
+						throw new Error("Could not resolve XML:\n" + UnresolvableXML(element).xml.toXMLString());
+					else if (element is Unresolvable)
+						throw new Error("Could not resolve XML.");
+					else
+						throw new Error("File does not represent a <math> element.");
 				}
 				catch (e:Error)
 				{
 					alertError(e);
+					trace(e.getStackTrace());
 				}
 			}
 			private function onFileRefError(event:ErrorEvent):void
@@ -53,26 +83,62 @@
 				fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
 				fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
 				fileRef.removeEventListener(Event.COMPLETE, onFileRefSaveComplete);
+				Alert.show("Your formula has been saved.");
 			}
 			private function onFileRefSelect(event:Event):void
 			{
 				const fileRef:FileReference = event.target as FileReference;
-				fileRef.removeEventListener(Event.CANCEL, onFileRefCancel);
-				fileRef.removeEventListener(Event.SELECT, onFileRefSelect);
-				fileRef.addEventListener(Event.COMPLETE, onFileRefComplete);
-				fileRef.load();
+				try
+				{
+					fileRef.removeEventListener(Event.CANCEL, onFileRefCancel);
+					fileRef.removeEventListener(Event.SELECT, onFileRefSelect);
+					fileRef.addEventListener(Event.COMPLETE, onFileRefComplete);
+					fileRef.load();
+				}
+				catch (e:Error)
+				{
+					fileRef.removeEventListener(Event.COMPLETE, onFileRefComplete);
+					fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+					fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+					alertError(e);
+					trace(e.getStackTrace());
+				}
 			}
-			private function open():void
+			private function onResetClose(event:CloseEvent):void
+			{
+				if (event.detail == Alert.YES)
+					mathVis.rootElement = new MathElement();
+			}
+			private function open(event:Event = null):void
 			{
 				const fileRef:FileReference = new FileReference();
-				fileRef.addEventListener(Event.CANCEL, onFileRefCancel);
-				fileRef.addEventListener(Event.SELECT, onFileRefSelect);
-				fileRef.addEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
-				fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
-				fileRef.browse([new FileFilter("MathML Files", "*.mathml;*.mml"),
-					new FileFilter("XML Files", "*.xml"), new FileFilter("All Files", "*")]);
+				try
+				{
+					fileRef.addEventListener(Event.CANCEL, onFileRefCancel);
+					fileRef.addEventListener(Event.SELECT, onFileRefSelect);
+					fileRef.addEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+					fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+					if (!fileRef.browse([new FileFilter("MathML Files", "*.mathml;*.mml"),
+						new FileFilter("XML Files", "*.xml"), new FileFilter("All Files", "*")]))
+					{
+						throw new Error("Cannot open file browser.");
+					}
+				}
+				catch (e:Error)
+				{
+					fileRef.removeEventListener(Event.CANCEL, onFileRefCancel);
+					fileRef.removeEventListener(Event.SELECT, onFileRefSelect);
+					fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+					fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+					alertError(e);
+					trace(e.getStackTrace());
+				}
 			}
-			private function save():void
+			private function reset():void
+			{
+				Alert.show("Are you sure you want to clear all of your formula(s)?", "", Alert.YES | Alert.CANCEL, null, onResetClose);
+			}
+			private function save(event:Event = null):void
 			{
 				XML.prettyPrinting = true;
 				const fileRef:FileReference = new FileReference();
@@ -89,14 +155,19 @@
 				}
 				catch (e:Error)
 				{
+					fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+					fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+					fileRef.removeEventListener(Event.COMPLETE, onFileRefSaveComplete);
 					alertError(e);
+					trace(e.getStackTrace());
 				}
 			}
 		]]>
 	</fx:Script>
 	<s:layout>
-		<s:HorizontalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
+		<s:TileLayout horizontalAlign="center" requestedColumnCount="2"/>
 	</s:layout>
-	<s:Button label="Open a file." click="open()"/>
-	<s:Button label="Save." click="save()"/>
+	<s:Button label="Open a file." click="open(event)"/>
+	<s:Button label="Save." click="save(event)"/>
+	<s:Button label="Reset." click="reset()"/>
 </s:Panel>
