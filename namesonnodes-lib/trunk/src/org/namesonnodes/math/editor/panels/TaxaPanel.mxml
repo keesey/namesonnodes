@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo">
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo"
+	title="Taxa">
+	
 	<fx:Script>
 		<![CDATA[
 			import a3lbmonkeybrain.brainstem.collections.HashSet;
@@ -10,14 +12,28 @@
 			import org.namesonnodes.domain.entities.Definition;
 			import org.namesonnodes.domain.entities.RankDefinition;
 			import org.namesonnodes.domain.entities.TaxonIdentifier;
+			
 			private const rankLevels:Dictionary = createRankLevels();
-			public function set taxonIdentifiers(value:Object):void
+			
+			private var identifiers:Object;
+			private var taxonIdentifiersValid:Boolean = true;
+			
+			public function set taxonIdentifiers(v:Object):void
 			{
-				// :TODO: Use invalidation?
+				identifiers = v;
+				invalidateTaxonIdentifiers();
+			}
+			private function commitTaxonIdentifiers(event:Event):void
+			{
+				IEventDispatcher(event.target).removeEventListener(event.type, commitTaxonIdentifiers);
+				if (taxonIdentifiersValid)
+					return;
+				taxonIdentifiersValid = true;
 				var identifiers:Vector.<TaxonIdentifier> = new Vector.<TaxonIdentifier>();
-				for each (var o:* in value)
+				for each (var o:* in this.identifiers)
 					if (o is TaxonIdentifier && TaxonIdentifier(o).entity)
 						identifiers.push(o as TaxonIdentifier);
+				this.identifiers = null;
 				identifiers = identifiers.sort(compareIdentifiers);
 				const hash:Dictionary = new Dictionary();
 				const keySet:MutableSet = new HashSet();
@@ -89,13 +105,27 @@
 				}
 				return "OTHER";
 			}
+			private function invalidateTaxonIdentifiers():void
+			{
+				if (taxonIdentifiersValid)
+				{
+					taxonIdentifiersValid = false;
+					if (stage)
+					{
+						addEventListener(Event.RENDER, commitTaxonIdentifiers, false, int.MAX_VALUE);
+						stage.invalidate();
+					}
+					else
+						addEventListener(Event.ADDED_TO_STAGE, commitTaxonIdentifiers, false, int.MAX_VALUE);
+				}
+			}
 		]]>
 	</fx:Script>
 	<fx:Declarations>
 		<s:ArrayCollection id="taxonCollections"/>
 	</fx:Declarations>
 	<s:layout>
-		<s:VerticalLayout/>
+		<s:VerticalLayout gap="0"/>
 	</s:layout>
 	<s:DataGroup id="dataGroup" width="100%"
 			dataProvider="{taxonCollections}"

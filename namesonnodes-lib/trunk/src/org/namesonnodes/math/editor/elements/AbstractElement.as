@@ -23,7 +23,7 @@ package org.namesonnodes.math.editor.elements
 		}
 		public function get fontSize():uint
 		{
-			return 11;
+			return 12;
 		}
 		public final function get parent():MathMLContainer
 		{

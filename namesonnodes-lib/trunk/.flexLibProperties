@@ -183,6 +183,7 @@
     <classEntry path="org.namesonnodes.utils.parseQName"/>
     <classEntry path="org.namesonnodes.w3c.xhtml.convertXMLToSparkHTML"/>
     <classEntry path="org.namesonnodes.math.editor.panels.TaxaPanel"/>
+    <classEntry path="org.namesonnodes.math.editor.panels.FilePanel"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -97,6 +97,17 @@ package org.namesonnodes.math.editor.flare
 				invalidateData();
 			}
 		}
+		private function commitData(event:Event):void
+		{
+			IEventDispatcher(event.target).removeEventListener(event.type, commitData);
+			if (dataInvalid)
+			{
+				dataInvalid = false;
+				new DataUpdater(visualization.data, _rootElement, new Point(mouseX, mouseY));
+				if (!draggedNode)
+					updateVisualization();
+			}
+		}
 		/*
 		private static function createEdgeLabeler():IOperator
 		{
@@ -154,11 +165,11 @@ package org.namesonnodes.math.editor.flare
 				dataInvalid = true;
 				if (stage)
 				{
-					stage.addEventListener(Event.RENDER, validateData)
+					stage.addEventListener(Event.RENDER, commitData)
 					stage.invalidate();
 				}
 				else
-					addEventListener(Event.ADDED_TO_STAGE, validateData);
+					addEventListener(Event.ADDED_TO_STAGE, commitData);
 			}
 		}
 		private function markSprites(element:MathMLElement):void
@@ -313,17 +324,6 @@ package org.namesonnodes.math.editor.flare
 				transitioner = null;
 				visualization.visible = false;
 				visualization.continuousUpdates = false;
-			}
-		}
-		private function validateData(event:Event):void
-		{
-			IEventDispatcher(event.target).removeEventListener(event.type, validateData);
-			if (dataInvalid)
-			{
-				dataInvalid = false;
-				new DataUpdater(visualization.data, _rootElement, new Point(mouseX, mouseY));
-				if (!draggedNode)
-					updateVisualization();
 			}
 		}
 	}

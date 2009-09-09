@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo"
+	title="MathML Files">
+	
+	<fx:Script>
+		<![CDATA[
+			import a3lbmonkeybrain.visualcortex.alerts.alertErrorEvent;
+			import a3lbmonkeybrain.visualcortex.alerts.alertError;
+
+			import mx.events.FlexEvent;
+
+			import org.namesonnodes.math.editor.flare.MathVis;
+			
+			public var mathVis:MathVis;
+			
+			private function onFileRefCancel(event:Event):void
+			{
+				const fileRef:FileReference = event.target as FileReference;
+				fileRef.removeEventListener(Event.CANCEL, onFileRefCancel);
+				fileRef.removeEventListener(Event.SELECT, onFileRefSelect);
+				fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+				fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+			}
+			private function onFileRefComplete(event:Event):void
+			{
+				const fileRef:FileReference = event.target as FileReference;
+				fileRef.removeEventListener(Event.COMPLETE, onFileRefComplete);
+				fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+				fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+				try
+				{
+					const xml:XML = new XML(fileRef.data.readUTFBytes(fileRef.data.length));
+					// :TODO: send to MathVis
+				}
+				catch (e:Error)
+				{
+					alertError(e);
+				}
+			}
+			private function onFileRefError(event:ErrorEvent):void
+			{
+				const fileRef:FileReference = event.target as FileReference;
+				fileRef.removeEventListener(Event.CANCEL, onFileRefCancel);
+				fileRef.removeEventListener(Event.SELECT, onFileRefSelect);
+				fileRef.removeEventListener(Event.COMPLETE, onFileRefComplete);
+				fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+				fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+				alertErrorEvent(event);
+			}
+			private function onFileRefSaveComplete(event:Event):void
+			{
+				const fileRef:FileReference = event.target as FileReference;
+				fileRef.removeEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+				fileRef.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+				fileRef.removeEventListener(Event.COMPLETE, onFileRefSaveComplete);
+			}
+			private function onFileRefSelect(event:Event):void
+			{
+				const fileRef:FileReference = event.target as FileReference;
+				fileRef.removeEventListener(Event.CANCEL, onFileRefCancel);
+				fileRef.removeEventListener(Event.SELECT, onFileRefSelect);
+				fileRef.addEventListener(Event.COMPLETE, onFileRefComplete);
+				fileRef.load();
+			}
+			private function open():void
+			{
+				const fileRef:FileReference = new FileReference();
+				fileRef.addEventListener(Event.CANCEL, onFileRefCancel);
+				fileRef.addEventListener(Event.SELECT, onFileRefSelect);
+				fileRef.addEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+				fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+				fileRef.browse([new FileFilter("MathML Files", "*.mathml;*.mml"),
+					new FileFilter("XML Files", "*.xml"), new FileFilter("All Files", "*")]);
+			}
+			private function save():void
+			{
+				XML.prettyPrinting = true;
+				const fileRef:FileReference = new FileReference();
+				try
+				{
+					const xml:XML = mathVis.rootElement.mathML;
+					const bytes:ByteArray = new ByteArray();
+					bytes.writeUTFBytes("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+					bytes.writeUTFBytes(xml.toXMLString());
+					fileRef.addEventListener(IOErrorEvent.IO_ERROR, onFileRefError);
+					fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onFileRefError);
+					fileRef.addEventListener(Event.COMPLETE, onFileRefSaveComplete);
+					fileRef.save(bytes, "formula.mathml");
+				}
+				catch (e:Error)
+				{
+					alertError(e);
+				}
+			}
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:HorizontalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
+	</s:layout>
+	<s:Button label="Open a file." click="open()"/>
+	<s:Button label="Save." click="save()"/>
+</s:Panel>
