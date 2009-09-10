@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <flexLibProperties version="1">
   <includeClasses>
     <classEntry path="org.namesonnodes.commands.AbstractCommandFlow"/>
@@ -185,6 +185,8 @@
     <classEntry path="org.namesonnodes.math.editor.panels.TaxaPanel"/>
     <classEntry path="org.namesonnodes.math.editor.panels.FilePanel"/>
     <classEntry path="org.namesonnodes.math.editor.elements.MathMLElementResolver"/>
+    <classEntry path="org.namesonnodes.math.editor.flare.CalculateControl"/>
+    <classEntry path="org.namesonnodes.math.editor.flare.CutPasteControl"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
