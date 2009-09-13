@@ -1506,7 +1506,7 @@
 						<th>Definition</th>
 						<td>
 							<p class="math">Crown : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
-							<p class="math">Crown(<i>A</i>, <i>E</i>) := Clade<sub>+</sub>(<i>A</i> &#x2229; <i>E</i>)</p>
+							<p class="math">Crown(<i>A</i>, <i>E</i>) := Clade<sub>+</sub>(suc<sub>&#x222A;</sub>(<i>A</i>) &#x2229; <i>E</i>)</p>
 						</td>
 					</tr>
 					<tr>
@@ -1619,6 +1619,9 @@
 							<code>emptyset</code>
 						</th>
 						<td>
+							<p>
+								May be used wherever taxa may be used.
+							</p>
 						</td>
 					</tr>
 					<tr>
@@ -1715,6 +1718,9 @@
 							<code>piecewise</code>
 						</th>
 						<td>
+							<p>
+								The <code>type</code> attribute should be set to <code>&quot;set&quot;</code>.
+							</p>
 						</td>
 					</tr>
 					<tr>
@@ -1786,33 +1792,31 @@
 					<tr>
 						<th>Mathematical Formulae</th>
 						<td class="math">
-							<p><i>Dinosauria</i> := Clade<sub>+</sub>(<i>Megalosaurus bucklandii</i> &#x222A; <i>Iguanodon bernissartensis</i> &#x222A; <i>Hylaeosaurus armatus</i>)</p>
-							<p><i>Dinosauria</i> := Clade(<i>Megalosaurus bucklandii</i> + <i>Iguanodon bernissartensis</i> + <i>Hylaeosaurus armatus</i>)</p>
+							<p><i>Dinosauria</i> := Clade<sub>+</sub>(<i>Megalosaurus bucklandii</i> &#x222A; <i>Iguanodon bernissartensis</i> &#x222A; <i>Hylaeosaurus armatus</i>).</p>
+							Or:
+							<p><i>Dinosauria</i> := Clade(<i>Megalosaurus bucklandii</i> + <i>Iguanodon bernissartensis</i> + <i>Hylaeosaurus armatus</i>).</p>
 						</td>
 					</tr>
 					<tr>
 						<th><span class="langname">MathML</span> Formulae</th>
 						<td><pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-	&lt;apply&gt;
-		&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"&gt;
-		&lt;apply&gt;
-			&lt;union/&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Hylaeosaurus+armatus"/&gt;
-		&lt;/apply&gt;
-	&lt;/apply&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"&gt;
+    &lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
+    &lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
+    &lt;csymbol definitionURL="urn:isbn:0853010064::Hylaeosaurus+armatus"/&gt;
+  &lt;/apply&gt;
 &lt;/math&gt;</pre>
 <pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-	&lt;apply&gt;
-		&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"&gt;
-		&lt;apply&gt;
-			&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedCladogen"&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Hylaeosaurus+armatus"/&gt;
-		&lt;/apply&gt;
-	&lt;/apply&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"&gt;
+    &lt;apply&gt;
+      &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedCladogen"&gt;
+      &lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
+      &lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
+      &lt;csymbol definitionURL="urn:isbn:0853010064::Hylaeosaurus+armatus"/&gt;
+    &lt;/apply&gt;
+  &lt;/apply&gt;
 &lt;/math&gt;</pre>
 </td>
 					</tr>
@@ -1841,28 +1845,238 @@
 					<tr>
 						<th>Mathematical Formulae</th>
 						<td class="math">
-							<p><i>Saurischia</i> := Clade<sub>&larr;</sub>(<i>Megalosaurus bucklandii</i>, <i>Iguanodon bernissartensis</i>)</p>
-							<p><i>Saurischia</i> := Clade(<i>Megalosaurus bucklandii</i> &larr; <i>Iguanodon bernissartensis</i>)</p>
+							<p><i>Saurischia</i> := Clade<sub>&larr;</sub>(<i>Megalosaurus bucklandii</i>, <i>Iguanodon bernissartensis</i>).</p>
+							Or:
+							<p><i>Saurischia</i> := Clade(<i>Megalosaurus bucklandii</i> &larr; <i>Iguanodon bernissartensis</i>).</p>
 						</td>
 					</tr>
 					<tr>
 						<th><span class="langname">MathML</span> Formulae</th>
 						<td><pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-	&lt;apply&gt;
-		&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedClade"&gt;
-		&lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
-		&lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
-	&lt;/apply&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedClade"&gt;
+    &lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
+    &lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
+  &lt;/apply&gt;
 &lt;/math&gt;</pre>
 <pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-	&lt;apply&gt;
-		&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"&gt;
-		&lt;apply&gt;
-			&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedCladogen"&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
-			&lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
-		&lt;/apply&gt;
-	&lt;/apply&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"&gt;
+    &lt;apply&gt;
+      &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedCladogen"&gt;
+      &lt;csymbol definitionURL="urn:isbn:0853010064::Megalosaurus+bucklandii"/&gt;
+      &lt;csymbol definitionURL="urn:isbn:0853010064::Iguanodon+bernissartensis"/&gt;
+    &lt;/apply&gt;
+  &lt;/apply&gt;
+&lt;/math&gt;</pre></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<th>Taxon Name</th>
+						<td>
+							<i>Avialae</i>
+						</td>
+					</tr>
+					<tr>
+						<th>Definition Type</th>
+						<td>Apomorphy-Based</td>
+					</tr>
+					<tr>
+						<th>Authorities Referenced</th>
+						<td>
+							<ul>
+								<li>
+									<span class="title">The International Code of Zoological Nomenclature, Fourth Edition</span>
+									(ISBN: 0-85301-0006-4)
+								</li>
+								<li>
+									Gauthier, J. and K. de Queiroz (2001 Dec).
+									Feathered dinosaurs, flying dinosaurs, crown dinosaurs, and the name &quot;Aves&quot;.
+									Pages 8&ndash;47 in J. Gauthier and L. F. Gall (eds.)
+									<span class="title">New Perspectives on the Origin and Early Evolution of Birds: Proceeding of the International Symposium in Honor of John H. Ostrom 1999 Feb. 12&ndash;14</span>.
+									Peabody Mus. Nat. Hist., Yale. Univ., New Haven, CT.
+									(ISBN: 0-91253-257-2)
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Prose</th>
+						<td><p>All successors of the minimal predecessors of <i>Vultur gryphus</i> Linnaeus 1758 to share the synapomorphy of wings used for powered flight (Gauthier and de Queiroz 2001).</p></td>
+					</tr>
+					<tr>
+						<th>Mathematical Formulae</th>
+						<td class="math">
+							<p><i>Avialae</i> := Clade<sub>in</sub>(&quot;wings used for powered flight&quot;, <i>Vultur gryphus</i>).</p>
+							Or:
+							<p><i>Avialae</i> := Clade(&quot;wings used for powered flight&quot; in <i>Vultur gryphus</i>).</p>
+						</td>
+					</tr>
+					<tr>
+						<th><span class="langname">MathML</span> Formulae</th>
+						<td><pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ApomorphyBasedClade"&gt;
+    &lt;csymbol definitionURL="urn:bici:0912532572(200112)%3C7:FDFDCD%3E2.0.TX;2-H
+::wings+used+for+powered+flight"/&gt;
+    &lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+  &lt;/apply&gt;
+&lt;/math&gt;</pre>
+<pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"&gt;
+    &lt;apply&gt;
+      &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ApomorphyBasedCladogen"&gt;
+      &lt;csymbol definitionURL="urn:bici:0912532572(200112)%3C7:FDFDCD%3E2.0.TX;2-H
+::wings+used+for+powered+flight"/&gt;
+      &lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+    &lt;/apply&gt;
+  &lt;/apply&gt;
+&lt;/math&gt;</pre></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<th>Taxon Name</th>
+						<td>
+							<i>Tracheophyta</i>
+						</td>
+					</tr>
+					<tr>
+						<th>Definition Type</th>
+						<td>Branch-Modified Node-Based</td>
+					</tr>
+					<tr>
+						<th>Authorities Referenced</th>
+						<td>
+							<ul>
+								<li>
+									<span class="title">The International Code of Botanical Nomenclature (Vienna Code)</span>
+									(ISBN: 3-906166-48-1)
+								</li>
+								<li>
+									Cantino P. D., J. A. Doyle, S. W. Graham, W. S. Judd, R. G. Olmstead, D. E. Soltis, P. S. Soltis &amp; M. J. Donoghue (2007 Aug).
+									Towards a phylogenetic nomenclature of <i>Tracheophyta</i>.
+									<span class="title">Taxon</span> <b>56</b>(3):822&ndash;846.
+									(ISSN: 0040-0262)
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Prose</th>
+						<td>
+							<p>
+								All successors of the maximal common predecessors of all extant (Cantino &amp; al. 2007)
+								successors of the minimal predecessors of <i>Zea mays</i> L. 1753
+								exclusive of all predecessors of <i>Phaeoceros laevis</i> (L.) Prosk. 1951,
+								<i>Marchantia polymorpha</i> L. 1753,
+								and <i>Polytrichum commune</i> Hedw. 1801.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Mathematical Formula</th>
+						<td class="math">
+							<p><i>Tracheophyta</i> := Crown(<i>Zea mays</i> &larr; <i>Phaeoceros laevis</i> &#x222a; <i>Marchantia polymorpha</i> &#x222a; <i>Polytricha commune</i>, &quot;extant&quot;)</p>.
+						</td>
+					</tr>
+					<tr>
+						<th><span class="langname">MathML</span> Formula</th>
+						<td><pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"&gt;
+    &lt;apply&gt;
+      &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedCladogen"&gt;
+      &lt;csymbol definitionURL="urn:isbn:3906166481::Zea+mays"&gt;
+      &lt;apply&gt;
+        &lt;union/&gt;
+        &lt;csymbol definitionURL="urn:isbn:3906166481::Phaeoceros+laevis"&gt;
+        &lt;csymbol definitionURL="urn:isbn:3906166481::Marchantia+polymorpha"&gt;
+        &lt;csymbol definitionURL="urn:isbn:3906166481::Polytrichum+commune"&gt;
+      &lt;/apply&gt;
+    &lt;/apply&gt;
+    &lt;csymbol definitionURL="urn:sici:0040-0262(200708)56:3%3C822:TAPNOT%3E2.0.TX;2-#::extant"&gt;
+  &lt;/apply&gt;
+&lt;/math&gt;</pre></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<th>Taxon Name</th>
+						<td>
+							<i>Pan-Tracheophyta</i>
+						</td>
+					</tr>
+					<tr>
+						<th>Definition Type</th>
+						<td>Total</td>
+					</tr>
+					<tr>
+						<th>Authorities Referenced</th>
+						<td>
+							<ul>
+								<li>
+									<span class="title">The International Code of Botanical Nomenclature (Vienna Code)</span>
+									(ISBN: 3-906166-48-1)
+								</li>
+								<li>
+									Cantino P. D., J. A. Doyle, S. W. Graham, W. S. Judd, R. G. Olmstead, D. E. Soltis, P. S. Soltis &amp; M. J. Donoghue (2007 Aug).
+									Towards a phylogenetic nomenclature of <i>Tracheophyta</i>.
+									<span class="title">Taxon</span> <b>56</b>(3):822&ndash;846.
+									(ISSN: 0040-0262)
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Prose</th>
+						<td>
+							<p>
+								All successors of the minimal predecessors of <i>Tracheophyta</i> exclusive of all predecessors of extant (Cantino &amp; al. 2007) non-tracheophytes.
+							</p>
+							<p>
+								The total clade of <i>Tracheophyta</i>.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Mathematical Formula</th>
+						<td class="math">
+							<p>
+								Let <i>Tracheophyta</i> := Crown(<i>Zea mays</i> &larr; <i>Phaeoceros laevis</i> &#x222a; <i>Marchantia polymorpha</i> &#x222a; <i>Polytricha commune</i>, &quot;extant&quot;).
+							</p>
+							<p>
+								<i>Pan-Tracheophyta</i> := Total(<i>Tracheophyta</i>, &quot;extant&quot;).
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th><span class="langname">MathML</span> Formula</th>
+						<td><pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+  &lt;declare type="set"&gt;
+    &lt;ci&gt;Tracheophyta&lt;/ci&gt;
+    &lt;apply&gt;
+      &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"&gt;
+      &lt;apply&gt;
+        &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-BranchBasedCladogen"&gt;
+        &lt;csymbol definitionURL="urn:isbn:3906166481::Zea+mays"&gt;
+        &lt;apply&gt;
+          &lt;union/&gt;
+          &lt;csymbol definitionURL="urn:isbn:3906166481::Phaeoceros+laevis"&gt;
+          &lt;csymbol definitionURL="urn:isbn:3906166481::Marchantia+polymorpha"&gt;
+          &lt;csymbol definitionURL="urn:isbn:3906166481::Polytrichum+commune"&gt;
+        &lt;/apply&gt;
+      &lt;/apply&gt;
+      &lt;csymbol definitionURL="urn:sici:0040-0262(200708)56:3%3C822:TAPNOT%3E2.0.TX;2-#::extant"&gt;
+    &lt;/apply&gt;
+  &lt;/declare&gt;
+  &lt;apply&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade"&gt;
+    &lt;ci&gt;Tracheophyta&lt;/ci&gt;
+    &lt;csymbol definitionURL="urn:sici:0040-0262(200708)56:3%3C822:TAPNOT%3E2.0.TX;2-#::extant"&gt;
+  &lt;/apply&gt;
 &lt;/math&gt;</pre></td>
 					</tr>
 				</table>
