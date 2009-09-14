@@ -1,0 +1,49 @@
+strict digraph CrownSpecifier
+{
+	graph [rankdir="LR"];
+
+	0 [label="",shape="circle"];
+	1 [label="",shape="circle"];
+	2 [label="",shape="circle"];
+	3 [label="",shape="circle"];
+	4 [label="",shape="circle"];
+	5 [label="",shape="circle"];
+	6 [label="",shape="circle"];
+	7 [label="",shape="circle"];
+	8 [label="",shape="circle"];
+	9 [label="",shape="circle"];
+	10 [label="",shape="circle"];
+	11 [label="",shape="circle"];
+	12 [label="",shape="circle"];
+	13 [label="",shape="circle"];
+	14 [label="",shape="circle"];
+	15 [label="",shape="circle"];
+	16 [label="",shape="circle"];
+	17 [label="",shape="circle"];
+	18 [label="",shape="circle"];
+	19 [label="",shape="circle"];
+	20 [label="",shape="circle"];
+
+	0 -> 1;
+	0 -> 2;
+	2 -> 3;
+	2 -> 4;
+	3 -> 5;
+	4 -> 6;
+	4 -> 7;
+	5 -> 8;
+	6 -> 9;
+	6 -> 10;
+	7 -> 11;
+	7 -> 12;
+	8 -> 13;
+	12 -> 14;
+	12 -> 15;
+	12 -> 16;
+	13 -> 17;
+	15 -> 18;
+	15 -> 19;
+	16 -> 20;
+
+	7 [style="filled",fillcolor="black"];
+}
