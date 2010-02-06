@@ -10,7 +10,7 @@
 		<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://vancouver-webpages.com/VWP1.0/&quot; l gen true comment &quot;VWP1.0&quot; by &quot;keesey@gmail.com&quot; on &quot;2009.06.12T11:31-0700&quot; for &quot;http://namesonnodes.org/&quot; r (Gam -1 V 0 Env 0 SF 0 Com 1 Can 0 Edu -1 S 0 P 0 Tol 0 MC 0 ))" />
 		<meta name="Author" content="T. Michael Keesey" />
 		<meta name="Description" content="Documentation of the Names on Nodes: MathML namespace (Definition URL: http://namesonnodes.org/ns/math/2009)." />
-		<meta name="Keywords" content="names,nodes,Keesey,Mike,Michael,biological,biology,hierarchy,nomenclature,code,phylogeny,phylogenetic,rank,based,mathemetics,mathematical,graph,digraph,network,arc,edge,vertex,weight,predecessor,successor,ancestor,descendant,parent,child,set,theory,list,triple,triplet,ordered,partial,order,ordering" />
+		<meta name="Keywords" content="names,nodes,Keesey,Mike,Michael,biological,biology,hierarchy,nomenclature,nomenclatural,nomen,nomina,code,phylogeny,phylogenetic,rank,based,mathematics,mathematical,graph,digraph,network,arc,edge,vertex,weight,predecessor,successor,ancestor,descendant,parent,child,set,theory,list,triple,triplet,ordered,partial,order,ordering,unit,taxon,taxonomy,taxonomic" />
 		<link href="../../../css/screen.css" type="text/css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -21,7 +21,7 @@
 				<p class="authors">T. Michael Keesey<sup><a href="#aff1">1</a></sup></p>
 				<p class="affiliations"><a name="aff1" id="aff1"></a><strong>1</strong> P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes%3AMathML+Definitions"><code>keesey@gmail.com</code></a></p>
 				<p class="publication-date">First Published Online 2009 July 29</p>
-				<p class="publication-date">Last Updated 2009 September 13</p>
+				<p class="publication-date">Last Updated 2010 February 6</p>
 				<div class="warning">
 					<h2>This Is A Draft</h2>
 					<p>
@@ -60,108 +60,110 @@
 						}
 					//]]>
 				</script>
-				<a id="section-Abstract" name="section-Abstract"></a>
-				<h2>Abstract</h2>
-				<p>
-					Phylogenetic nomenclature is a type of biological nomenclature which ties taxonomic names to taxa using algorithms which rely on phylogeny (i.e., patterns of ancestry and descent).
-					Unlike earlier forms of biological nomenclature (e.g., Linnaean, rank-based), the application of a name to a taxon is unambiguous under an appropriate phylogenetic hypothesis.
-					Phylogeny may be modeled as directed, acyclic graphs, with organisms (or sufficiently small taxa) as vertices and parent-child relations as directed edges connecting them.
-					Because phylogeny can be modeled mathematically, phylogenetic definitions may be expressed as mathematical formulae.
-					Mathematical formulae, in turn, may be expressed using an extensible computer language called <span class="langname">MathML</span>.
-					Expressing phylogenetic definitions in <span class="langname">MathML</span> requires the definition of some additional entities.
-					Here I review the relevant mathematical and biological concepts, terms, and notations, and provide an overview of <span class="langname">MathML</span>.
-					I correlate these concepts to each other and, finally, define the entities needed to express phylogenetic definitions in <span class="langname">MathML</span>.
-				</p>
-				<a id="section-TOC" name="section-TOC"></a>
-				<h2>Table of Contents</h2>
-				<table>
-					<tr>
-						<th colspan="3"><a href="#section-Abstract">Abstract</a></th>
-					</tr>
-					<tr>
-						<th colspan="3"><a href="#section-TOC">Table of Contents</a></th>
-					</tr>
-					<tr>
-						<th rowspan="3"><a href="#section-Introduction">Introduction</a></th>
-						<th style="min-width: 16em"><a href="#section-ReviewMath">A General Review of Mathematical Concepts, Terms, and Notation</a></th>
-						<td>
-							<a href="#section-Collections">Collections</a> &#x2022; 
-							<a href="#section-Sets">Sets</a> &#x2022;
-							<a href="#section-Lists">Lists</a> &#x2022;
-							<a href="#section-Relations">Relations</a> &#x2022;
-							<a href="#section-Graphs">Graphs</a> &#x2022;
-							<a href="#section-Functions">Functions</a>
-						</td>
-					</tr>
-					<tr>
-						<th><a href="#section-ReviewBio">A General Review of Biological Concepts and Terms</a></th>
-						<td>
-							<a href="#section-Organisms">Organisms</a> &#x2022; 
-							<a href="#section-Taxonomy">Taxonomy</a> &#x2022;
-							<a href="#section-Specimens">Specimens</a> &#x2022;
-							<a href="#section-CharacterStates">Character States</a> &#x2022;
-							<a href="#section-RankBasedNomenclature">Rank-Based Nomenclature</a> &#x2022;
-							<a href="#section-Phylogeny">Phylogeny</a> &#x2022;
-							<a href="#section-Lineages">Lineages</a> &#x2022;
-							<a href="#section-Cladogens">Cladogens</a> &#x2022;
-							<a href="#section-Clades">Clades</a> &#x2022;
-							<a href="#section-NonClades">Non-Clades</a> &#x2022;
-							<a href="#section-PhylogenyBasedNomenclature">Phylogeny-Based Nomenclature</a>
-						</td>
-					</tr>
-					<tr>
-						<th><a href="#section-ReviewMathML">A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</a></th>
-						<td>
-							<a href="#section-Strings">Strings</a> &#x2022; 
-							<a href="#section-URIs">URIs</a> &#x2022;
-							<a href="#section-Namespaces">Namespaces</a> &#x2022;
-							<a href="#section-XML" class="langname">XML</a> &#x2022;
-							<a href="#section-MathML" class="langname">MathML</a>
-						</td>
-					</tr>
-					<tr>
-						<th colspan="2"><a href="#section-CorrelateBioMath">On the Correlation of Biological and Mathematical Terms</a></th>
-						<td>
-							<a href="#section-TaxaSets">Taxa and Sets</a> &#x2022; 
-							<a href="#section-AncestryPrecedence">Ancestry and Precedence</a> &#x2022;
-							<a href="#section-PhylogenyGraphs">Phylogeny and Graphs</a>
-						</td>
-					</tr>
-					<tr>
-						<th colspan="2"><a href="#section-DefinitionsMath">Definitions of Mathematical Entities</a></th>
-						<td>
-							<a href="#def-UniversalTaxon">Universal Taxon</a> &#x2022; 
-							<a href="#def-Maximal">Maximal</a> &#x2022;
-							<a href="#def-Minimal">Minimal</a> &#x2022;
-							<a href="#def-PredecessorUnion">Predecessor Union</a> &#x2022;
-							<a href="#def-SuccessorUnion">Successor Union</a> &#x2022;
-							<a href="#def-PredecessorIntersection">Predecessor Intersection</a> &#x2022;
-							<a href="#def-SuccessorIntersection">Successor Intersection</a> &#x2022;
-							<a href="#def-SynapomorphicPredecessors">Synapomorphic Predecessors</a> &#x2022;
-							<a href="#def-NodeBasedCladogen">Node-Based Cladogen</a> &#x2022;
-							<a href="#def-BranchBasedCladogen">Branch-Based Cladogen</a> &#x2022;
-							<a href="#def-ApomorphyBasedCladogen">Apomorphy-Based Cladogen</a> &#x2022;
-							<a href="#def-Clade">Clade</a> &#x2022;
-							<a href="#def-NodeBasedClade">Node-Based Clade</a> &#x2022;
-							<a href="#def-BranchBasedClade">Branch-Based Clade</a> &#x2022;
-							<a href="#def-ApomorphyBasedClade">Apomorphy-Based Clade</a> &#x2022;
-							<a href="#def-CrownClade">Crown Clade</a> &#x2022;
-							<a href="#def-TotalClade">Total Clade</a>
-						</td>
-					</tr>
-					<tr>
-						<th colspan="2"><a href="#appendix1">Appendix I</a></th>
-						<td>
-							Implemented <span class="langname">MathML-Content</span> Elements
-						</td>
-					</tr>
-					<tr>
-						<th colspan="2"><a href="#appendix2">Appendix II</a></th>
-						<td>
-							Example Definitions
-						</td>
-					</tr>
-				</table>
+				<div id="section-Abstract">
+					<h2>Abstract</h2>
+					<p>
+						Phylogenetic nomenclature is a type of biological nomenclature which ties taxonomic names to taxa using algorithms that rely on phylogeny (i.e., patterns of ancestry and descent).
+						Unlike earlier forms of biological nomenclature (e.g., Linnaean, rank-based), the application of a name to a taxon is unambiguous under an appropriate phylogenetic hypothesis.
+						Phylogeny may be modeled as directed, acyclic graphs, with taxonomic units as vertices and immediate ancestor-descendant relations as directed edges connecting them.
+						Because phylogeny can be modeled mathematically, phylogenetic definitions may be expressed as mathematical formulae.
+						Mathematical formulae, in turn, may be expressed using an extensible computer language called <span class="langname">MathML</span>.
+						Expressing phylogenetic definitions in <span class="langname">MathML</span> requires the definition of some additional entities.
+						Here I review the relevant mathematical and biological concepts, terms, and notations, and provide an overview of <span class="langname">MathML</span>.
+						I correlate these concepts to each other and, finally, define the entities needed to express phylogenetic definitions in <span class="langname">MathML</span>.
+					</p>
+				</div>
+				<div id="section-TOC">
+					<h2>Table of Contents</h2>
+					<table>
+						<tr>
+							<th colspan="3"><a href="#section-Abstract">Abstract</a></th>
+						</tr>
+						<tr>
+							<th colspan="3"><a href="#section-TOC">Table of Contents</a></th>
+						</tr>
+						<tr>
+							<th rowspan="3"><a href="#section-Introduction">Introduction</a></th>
+							<th style="min-width: 16em"><a href="#section-ReviewMath">A General Review of Mathematical Concepts, Terms, and Notation</a></th>
+							<td>
+								<a href="#section-Collections">Collections</a> &#x2022; 
+								<a href="#section-Sets">Sets</a> &#x2022;
+								<a href="#section-Lists">Lists</a> &#x2022;
+								<a href="#section-Relations">Relations</a> &#x2022;
+								<a href="#section-Graphs">Graphs</a> &#x2022;
+								<a href="#section-Functions">Functions</a>
+							</td>
+						</tr>
+						<tr>
+							<th><a href="#section-ReviewBio">A General Review of Biological Concepts and Terms</a></th>
+							<td>
+								<a href="#section-TaxonomicUnits">Taxonomic Units</a> &#x2022; 
+								<a href="#section-Taxonomy">Taxonomy</a> &#x2022;
+								<a href="#section-Specimens">Specimens</a> &#x2022;
+								<a href="#section-CharacterStates">Character States</a> &#x2022;
+								<a href="#section-RankBasedNomenclature">Rank-Based Nomenclature</a> &#x2022;
+								<a href="#section-Phylogeny">Phylogeny</a> &#x2022;
+								<a href="#section-Lineages">Lineages</a> &#x2022;
+								<a href="#section-Cladogens">Cladogens</a> &#x2022;
+								<a href="#section-Clades">Clades</a> &#x2022;
+								<a href="#section-NonClades">Non-Clades</a> &#x2022;
+								<a href="#section-PhylogenyBasedNomenclature">Phylogeny-Based Nomenclature</a>
+							</td>
+						</tr>
+						<tr>
+							<th><a href="#section-ReviewMathML">A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</a></th>
+							<td>
+								<a href="#section-Strings">Strings</a> &#x2022; 
+								<a href="#section-URIs">URIs</a> &#x2022;
+								<a href="#section-Namespaces">Namespaces</a> &#x2022;
+								<a href="#section-XML" class="langname">XML</a> &#x2022;
+								<a href="#section-MathML" class="langname">MathML</a>
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2"><a href="#section-CorrelateBioMath">On the Correlation of Biological and Mathematical Terms</a></th>
+							<td>
+								<a href="#section-TaxaSets">Taxa and Sets</a> &#x2022; 
+								<a href="#section-AncestryPrecedence">Ancestry and Precedence</a> &#x2022;
+								<a href="#section-PhylogenyGraphs">Phylogeny and Graphs</a>
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2"><a href="#section-DefinitionsMath">Definitions of Mathematical Entities</a></th>
+							<td>
+								<a href="#def-UniversalTaxon">Universal Taxon</a> &#x2022; 
+								<a href="#def-Maximal">Maximal</a> &#x2022;
+								<a href="#def-Minimal">Minimal</a> &#x2022;
+								<a href="#def-PredecessorUnion">Predecessor Union</a> &#x2022;
+								<a href="#def-SuccessorUnion">Successor Union</a> &#x2022;
+								<a href="#def-PredecessorIntersection">Predecessor Intersection</a> &#x2022;
+								<a href="#def-SuccessorIntersection">Successor Intersection</a> &#x2022;
+								<a href="#def-SynapomorphicPredecessors">Synapomorphic Predecessors</a> &#x2022;
+								<a href="#def-NodeBasedCladogen">Node-Based Cladogen</a> &#x2022;
+								<a href="#def-BranchBasedCladogen">Branch-Based Cladogen</a> &#x2022;
+								<a href="#def-ApomorphyBasedCladogen">Apomorphy-Based Cladogen</a> &#x2022;
+								<a href="#def-Clade">Clade</a> &#x2022;
+								<a href="#def-NodeBasedClade">Node-Based Clade</a> &#x2022;
+								<a href="#def-BranchBasedClade">Branch-Based Clade</a> &#x2022;
+								<a href="#def-ApomorphyBasedClade">Apomorphy-Based Clade</a> &#x2022;
+								<a href="#def-CrownClade">Crown Clade</a> &#x2022;
+								<a href="#def-TotalClade">Total Clade</a>
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2"><a href="#appendix1">Appendix I</a></th>
+							<td>
+								Implemented <span class="langname">MathML-Content</span> Elements
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2"><a href="#appendix2">Appendix II</a></th>
+							<td>
+								Example Definitions
+							</td>
+						</tr>
+					</table>
+				</div>
 				<a id="section-Introduction" name="section-Introduction"></a>
 				<h2>Introduction</h2>
 				<a id="section-ReviewMath" name="section-ReviewMath"></a>
@@ -190,10 +192,13 @@
 					Sets may be denoted in the following ways:
 				</p>
 				<ul>
-					<li>Extensionally, as a list of objects: <span class="math">{<i>x</i>, <i>y</i>, <i>z</i>}</span></li>
+					<li>Extensionally, as a list of members: <span class="math">{<i>x</i>, <i>y</i>, <i>z</i>}</span></li>
 					<li>Intensionally, with a rule that determines membership: <span class="math">{<i>x</i> | <i>x</i> &gt; 1}</span>, <span class="math">{<i>x</i> | <i>x</i> exhibits a cellular nucleus}</span></li>
-					<li>Using a defined symbol, name, or phrase: <span class="math">&#x2205;</span>, <span class="math">U</span>, <span class="math nomen">Mammalia</span>, <span class="math">YPM-VP 1450</span></li>
+					<li>Using a defined symbol or name: <span class="math">&#x2205;</span>, <span class="math">U</span>, <span class="math nomen">Mammalia</span>, <span class="math">YPM-VP 1450</span></li>
 				</ul>
+				<p>
+					An intensional definition may limit members to a given set: <span class="math">{<i>x</i> &isin; <i>Mammalia</i> | <i>x</i> is extant}</span>.
+				</p>
 				<p>
 					The <strong>empty set</strong> is the set which includes no members, denoted as <span class="math">&#x2205;</span>.
 				</p>
@@ -201,20 +206,20 @@
 					The symbol <span class="math">&#x211D;</span> indicates the set of all <strong>real numbers</strong>.
 					The nonnegative real numbers are indicated as <span class="math">&#x211D;<sub>0</sub><sup>+</sup></span>.
 				</p>
-				<p>
+				<!--<p>
 					The <strong>cardinality</strong> of a set is the number of members in that set, denoted with enclosing vertical bars: <span class="math">|<i>S</i>|</span>.
 				</p>
 				<p>
 					<span class="header">Examples.</span>
 					<span class="math">|&#x2205;| = 0</span>.
 					<span class="math">|{1, 2, 3}| = 3</span>.
-				</p>
+				</p>-->
 				<p>
 					If all members of a set, <span class="math"><i>A</i></span>, are members of a set, <span class="math"><i>B</i></span>, then <span class="math"><i>A</i></span> is a <strong>subset</strong> of <span class="math"><i>B</i></span>, denoted <span class="math"><i>A</i> &#x2286; <i>B</i></span>.
 					<span class="math"><i>B</i></span> is a <strong>superset</strong> of <span class="math"><i>A</i></span>.
 					Note that all sets are subsets and supersets of themselves.
 					If <span class="math"><i>A</i> &#x2286; <i>B</i></span> and <span class="math"><i>A</i> &#x2260; <i>B</i></span>, then <span class="math"><i>A</i></span> is a <strong>proper subset</strong> of <span class="math"><i>B</i></span>, denoted <span class="math"><i>A</i> &#x2282; <i>B</i></span>, and <span class="math"><i>B</i></span> is a <strong>proper superset</strong> of <span class="math"><i>A</i></span>.
-					Note that &#x2205; is a subset of all sets.
+					Note that &#x2205; is a subset of all sets, and a proper subset of all nonempty sets.
 				</p>
 				<p>
 					The operations of <strong>union</strong>, <strong>intersection</strong>, and <strong>difference</strong> may be applied to sets:
@@ -238,7 +243,7 @@
 					If <span class="math"><i>A</i> = {1, 2}</span> and <span class="math"><i>B</i> = {2, 3}</span>, then <span class="math"><i>A</i> &#x222A; <i>B</i> = {1, 2, 3}</span>, <span class="math"><i>A</i> &#x2229; <i>B</i> = {2}</span>, and <span class="math"><i>A</i> &minus; <i>B</i> = {1}</span>.
 				</p>
 				<p>
-					A <strong>partition</strong> of a set, <span class="math"><i>S</i></span>, is a set of subsets of <span class="math"><i>S</i></span>, so that no sets in the partition overlap and all members of <span class="math"><i>S</i></span> are members of some set in the partition.
+					A <strong>partition</strong> of a set, <span class="math"><i>S</i></span>, is a set of subsets of <span class="math"><i>S</i></span>, such that no sets in the partition overlap and all members of <span class="math"><i>S</i></span> are members of some set in the partition.
 					A partition, <span class="math"><i>P</i><sub>1</sub></span>, is a <strong>refinement</strong> of another partition, <span class="math"><i>P</i><sub>2</sub></span>, if every member of <span class="math"><i>P</i><sub>1</sub></span> is a subset of some member of <span class="math"><i>P</i><sub>2</sub></span>.
 					<span class="math"><i>P</i><sub>1</sub></span> is <strong>finer</strong> than <span class="math"><i>P</i><sub>2</sub></span>, and <span class="math"><i>P</i><sub>2</sub></span> is <strong>coarser</strong> than <span class="math"><i>P</i><sub>1</sub></span>.
 					This is written <span class="math"><i>P</i><sub>1</sub> &le; <i>P</i><sub>2</sub></span>.
@@ -342,8 +347,8 @@
 				<p>
 					A <strong>function</strong> maps an element, called an <strong>argument</strong>, to a value.
 					Formally, a function may be defined as an ordered triple of three sets: <span class="math"><i>f</i> := [<i>X</i>, <i>Y</i>, <i>F</i>]</span>.
-					The final set, <span class="math"><i>F</i></span>, is a set of ordered pairs, wherein the first element is the argument and the second element is the value.
-					There may be only one ordered pair per argument.
+					The final set, <span class="math"><i>F</i></span>, is a set of ordered pairs, wherein the first element (a member of <span class="math"><i>X</i></span>) is the argument and the second element (a member of <span class="math"><i>Y</i></span>) is the value.
+					There can be only one ordered pair per argument.
 					If an ordered pair, <span class="math">[<i>x</i>, <i>y</i>]</span>, is a member of <span class="math"><i>F</i></span>, this may be denoted as <span class="math"><i>f</i>(<i>x</i>) = <i>y</i></span>.
 					If the argument is a list, instead of <span class="math"><i>f</i>([<i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, &#x2026; <i>a</i><sub><i>n</i></sub>])</span>, it is customary to simply write <span class="math"><i>f</i>(<i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, &#x2026; <i>a</i><sub><i>n</i></sub>)</span>.
 					Sometimes this may be written <span class="math"><i>a</i><sub>1</sub> <i>f</i> <i>a</i><sub>2</sub> <i>f</i> &#x2026; <i>a</i><sub><i>n</i></sub></span> (infix notation).
@@ -360,32 +365,64 @@
 					Note that the codomain of <span class="math"><i>g</i></span> must be a subset of the domain of <span class="math"><i>f</i></span>.
 					If <span class="math"><i>g</i> : <i>X</i> &rarr; <i>Y</i></span> and <span class="math"><i>f</i> : <i>Y</i> &rarr; <i>Z</i></span>, then <span class="math">(<i>f</i> &#x2218; <i>g</i>) : <i>X</i> &rarr; <i>Z</i></span>.
 				</p>
-				<p>
+				<!--p>
 					A <b>metric</b> on a set, <span class="math"><i>X</i></span>, is a function with <span class="math"><i>X</i><sup>2</sup></span> as its domain and the set of nonnegative real numbers as its codomain.
 					It defines a <strong>metric distance</strong> between any two members of <span class="math"><i>X</i></span>.
 					The <strong><span class="math"><i>&#x3B5;</i></span>-ball</strong> of <span class="math"><i>x</i></span> is the set of all elements less than a certain distance, <span class="math"><i>&#x3B5;</i></span>, from <span class="math"><i>x</i></span>.
-				</p>
+				</p-->
 				<a id="section-ReviewBio" name="section-ReviewBio"></a>
 				<h3>A General Review of Biological Concepts and Terms</h3>
-				<a id="section-Organisms" name="section-Organisms"></a>
-				<h4>Organisms</h4>
+				<a id="section-TaxonomicUnits" name="section-TaxonomicUnits"></a>
+				<h4>Taxonomic Units</h4>
 				<p>
-					An <strong>organism</strong> is an individual living entity.
-					Although in many cases it is clear what constitutes an individual, there are notable difficult cases.
-					However, although the mathematical system used by <span class="title">Names on Nodes</span> assumes that there are discrete, individual entities, the implemented algorithms need never deal with them directly.
-					Thus there is no present need to clarify the term.
+					Within the context of a study, life forms are divided into discrete sets.
+					The finest sets (i.e., the sets which are not subdivided) may be referred to as <strong>taxonomic units</strong> or simply <strong>units</strong>.
+					A unit may represent any of the following levels of biological organization:
+				</p>
+				<ul>
+					<li>
+						An <strong>organism</strong>, i.e., an individual living entity.
+						This kind of unit may be conceptualized as a singleton set. 
+					</li>
+					<li>
+						A <strong>population</strong>, i.e., a set of interbreeding and/or closely related organisms, generally within a given spatiotemporal region.
+						Some populations are recognized as <strong>species</strong> according to various criteria. 
+					</li>
+					<li>
+						A more inclusive set of related organisms.
+					</li>
+				</ul>
+				<p>
+					In all cases, all members of a taxonomic unit must be related to each other in ways that do not involve organisms outside the unit.
+				</p>
+				<p>
+					An <strong>operational unit</strong> is a unit represented by concrete data.
+					A <strong>hypothetical unit</strong> is a unit whose existence is inferred.
+				</p>
+				<p>
+					A unit may be considered <strong>extant</strong> (living as of a certain time) or <strong>extinct</strong> (no longer living at that time).
+					(Hypothetical units may also exist in the future, but for practical reasons these are not considered here.)
 				</p>
 				<a id="section-Taxonomy" name="section-Taxonomy"></a>
 				<h4>Taxonomy</h4>
 				<p>
 					A nonempty set of organisms is a <strong>taxon</strong> (plural: <strong>taxa</strong>).
+					Taxonomic units are the least inclusive taxa used in a given context.
+					A taxon may be conceptualized as a union of one or more taxonomic units (which is how <span class="title">Names on Nodes</span> treats them).
+					A unit which is a subtaxon of another taxon is a <strong>subunit</strong>.
+					(Note that there is no such thing as a "superunit"; if a taxon has subsets in the same context, it is not a unit.)
+				</p>
+				<p>
 					A taxon whose members are all within another taxon is a <strong>subtaxon</strong> of that other taxon.
 					A taxon which includes all members of another taxon is a <strong>supertaxon</strong> of that taxon.
 					The most inclusive taxon is the <strong>universal taxon</strong>, which includes all organisms.
-					A <strong>taxonomy</strong> is a system for dividing a taxon into subtaxa.
+					A <strong>taxonomy</strong> is a scheme or system for recognizing certain taxa and relating them as supertaxa and subtaxa.
 				</p>
 				<p>
-					A <strong>taxonomic name</strong> is a word or phrase which signifies a taxon.
+					A taxon is extant if all its subunits are extant, and extinct if all its subunits are extinct.
+				</p>
+				<p>
+					A <strong>taxonomic name</strong> is a word or series of words which signifies a taxon.
 					A <strong>nomenclatural code</strong> is a code of rules which governs taxonomic names.
 				</p>
 				<a id="section-Specimens" name="section-Specimens"></a>
@@ -406,13 +443,13 @@
 				</p>
 				<p>
 					<span class="header">Examples.</span>
-					"<span class="math">Cellular nucleus present</span>" is a valid state, assuming that "cellular nucleus" has been defined in such a way that it is either present or not, never partially present.
+					"<span class="math">Cellular nucleus present</span>" is a valid state, assuming that "cellular nucleus" has been defined in such a way that it cannot be only partially present.
 					"<span class="math">Large leaf size</span>" is not a valid state, since it is relative, not absolute.
 				</p>
 				<p>
-					Taxa may be defined using a collection of character states.
-					If all states are required for membership, the taxon is <strong>monothetic</strong>.
-					If at least one state is required, the taxon is <strong>polythetic</strong>.
+					Taxa may be defined using a set of character states.
+					If all of the states are required for membership, the taxon is <strong>monothetic</strong>.
+					If it is only required that one or more of the states be exhibited, the taxon is <strong>polythetic</strong>.
 				</p>
 				<p>
 					Taxonomic names are not usually defined according to character states, but the taxa that the names signify may be <strong>diagnosed</strong> by character states.
@@ -422,12 +459,13 @@
 				<h4>Rank-Based Nomenclature</h4>
 				<p>
 					Taxonomic names may be loosely defined using <strong>rank-based definitions</strong>.
-					A taxon is rank-defined by specifying one or more <strong>type specimens</strong> or a <strong>type subtaxon</strong> (generally, a <strong>type</strong>), which must be included in the taxon by definition, and a <strong>rank</strong>, which indicates relative inclusivity of the taxon.
+					A taxon is rank-defined by specifying a <strong>type</strong>, which is either a <strong>type subtaxon</strong> or a union of one or more <strong>type specimens</strong>, and a <strong>rank</strong>, which indicates relative inclusivity of the taxon.
+					The type is a mandatory subset of the taxon.
 					Commonly used ranks are, from least to most inclusive, <strong>species</strong>, <strong>genus</strong>, <strong>family</strong>, <strong>order</strong>, <strong>phylum</strong> (zoology) or <strong>division</strong> (other disciplines), and <strong>kingdom</strong>.
 					Many others exist as well.
 				</p>
 				<p>
-					Note that rank-based definitions do not dictate any criteria for membership, apart from the requirement that the type (specimens or subtaxon) must represent included organisms.
+					Note that rank-based definitions do not dictate any criteria for membership, apart from the requirement that the type form a subset.
 				</p>
 				<p>
 					If a taxonomic name, "<span class="nomen">X</span>", is defined as having a taxon with name "<span class="nomen">Y</span>" as its type, and "<span class="nomen">Y</span>" is defined as having specimen <span class="math"><i>Z</i></span> as its type, then <span class="math"><i>Z</i></span> may be called the <strong>finest type</strong> of "<span class="nomen">X</span>".
@@ -453,9 +491,9 @@
 						<td>animals, some other eukaryotes</td>
 					</tr>
 					<tr>
-						<td><span class="title">International Code of Nomenclature of Prokaryotes</span></td>
-						<td><span class="title">ICNP</span></td>
-						<td>prokaryotes</td>
+						<td><span class="title">International Code of Nomenclature of Bacteria</span></td>
+						<td><span class="title">ICNB</span></td>
+						<td>extant prokaryotes</td>
 					</tr>
 					<tr>
 						<td><span class="title">International Code of Nomenclature for Cultivated Plants</span></td>
@@ -463,6 +501,9 @@
 						<td>cultivated plants</td>
 					</tr>
 				</table>
+				<p>
+					(Note that there is some overlap between the <span class="title">ICBN</span> and the <span class="title">ICZN</span>.)
+				</p>
 				<p>
 					<span class="header">Examples.</span>
 					Under <span class="title">ICZN</span> rules, the name "<span class="nomen">Tyrannosaurus rex</span>" refers to a taxon of the species rank typified by <span class="math">CM 9380</span> (formerly <span class="math">AMNH 973</span>). Therefore, <span class="nomen">Tyrannosaurus rex</span> must include the organism represented by that specimen.
@@ -477,37 +518,45 @@
 					The pattern of ancestry and descent among organisms is <strong>phylogeny</strong>.
 				</p>
 				<p>
-					Although a fuller correlation wil be made further on, I note here that the biological term "ancestor" correlates to the mathematical term "proper predecessor", and the biological term "descendant" correlates to the mathematical term "proper successor".
-					Therefore, we may say that a <strong>predecessor</strong> of an organism is any ancestor of that organism, or that organism itself.
-					Conversely, a <strong>successor</strong> of an organism is any descendant of that organism, or that organism itself.
-					I also note that the terms "maximal" and "minimal" may be applied to organisms with regard to taxa.
-					The <strong>minimal</strong> members of a taxon are those which are not descended from any other member.
-					The <strong>maximal</strong> members of a taxon are those which are not ancestral to any other member.
+					Taxa, including taxonomic units, may also be related in terms of ancestry and descent.
+					If all members of one taxon, <span class="math"><i>A</i></span>, are ancestral to all members of another taxon, <span class="math"><i>B</i></span>, then <span class="math"><i>A</i></span> is ancestral to <span class="math"><i>B</i></span>.
+					Immediately ancestral units may be called "parents", with the understanding that this is context-specific, and not necessarily the same as a parent at the organismal level.
 				</p>
 				<p>
-					The <strong>common predecessors</strong> of a taxon are all organisms which are predecessors of all members of that taxon.
-					The <strong>common successors</strong> of a taxon are all organisms which are successors of all members of that taxon.
+					Although a fuller correlation will be made further on, I note here that the biological term "ancestor" correlates to the mathematical term "proper predecessor", and the biological term "descendant" correlates to the mathematical term "proper successor".
+					Therefore, we may say that a <strong>predecessor</strong> of a taxonomic unit is any ancestor of that unit, or that unit itself.
+					Conversely, a <strong>successor</strong> of a unit is any descendant of that unit, or that unit itself.
+					I also note that the terms "maximal" and "minimal" may be applied to units with regard to their supertaxa.
+					The <strong>minimal</strong> subunits of a taxon are those which are not descended from any other subunit.
+					The <strong>maximal</strong> subunits of a taxon are those which are not ancestral to any other subunit.
 				</p>
 				<p>
-					The <strong>exclusive predecessors</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to another taxon, <span class="math"><i>Z</i></span>, are all common predecessors of <span class="math"><i>A</i></span> except any which are predecessors of any member of <span class="math"><i>Z</i></span>.
+					The <strong>common predecessors</strong> of a taxon is the union of all units which are predecessors of all subunits of that taxon.
+					The <strong>common successors</strong> of a taxon is the union of all units which are successors of all subunits of that taxon.
+				</p>
+				<p>
+					The <strong>exclusive predecessors</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to another taxon, <span class="math"><i>Z</i></span>, is the common predecessors of <span class="math"><i>A</i></span> except any which are predecessors of any subunit of <span class="math"><i>Z</i></span>.
 					<span class="math"><i>A</i></span> may be termed the <strong>internal taxon</strong> and <span class="math"><i>B</i></span> may be termed the <strong>external taxon</strong>
 				</p>
 				<p>
-					The <strong>apomorphic predecessors</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to another (generally character-based) taxon, <span class="math"><i>M</i></span>, are all common predecessors of <span class="math"><i>A</i></span> which are also members of <span class="math"><i>M</i></span>.
+					The <strong>apomorphic predecessors</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to another (generally character-based) taxon, <span class="math"><i>M</i></span>, is the common predecessors of <span class="math"><i>A</i></span> which are also subunits of <span class="math"><i>M</i></span>.
 					<span class="math"><i>A</i></span> may be termed the <strong>representative taxon</strong> and <span class="math"><i>M</i></span> may be termed the <strong>apomorphic taxon</strong>
+				</p>
+				<p>
+					A <strong>phylogenetic hypothesis</strong> is an arrangement of taxonomic units into ancestor-descendant relationships.
 				</p>
 				<a id="section-Lineages" name="section-Lineages"></a>
 				<h4>Lineages</h4>
 				<p>
-					A <strong>lineage</strong> is a sequence of organisms wherein each organism is followed by one of its children.
+					A <strong>lineage</strong> is a sequence of taxonomic units wherein each unit is preceded by one of its parents and/or followed by one of its children.
 				</p>
 				<p>
-					A <strong>synapomorphic predecessor</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to taxon <span class="math"><i>M</i></span>, is an apomorphic predecessor for which there is at least one lineage for every member of <span class="math"><i>A</i></span> satisfying the following conditions:
+					The <strong>synapomorphic predecessors</strong> of a taxon, <span class="math"><i>A</i></span>, with regard to taxon <span class="math"><i>M</i></span>, is the union of all apomorphic predecessor units for which there is at least one lineage for every subunit of <span class="math"><i>A</i></span> satisfying the following conditions:
 				</p>
 				<ol>
-					<li>The first member of the lineage (i.e., the ancestor of all other members) is the apomorphic predecessor.</li>
-					<li>The last member of the lineage (i.e., the descendant of all other members) is the member of <span class="math"><i>A</i></span>.</li>
-					<li>All members of the lineage are members of <span class="math"><i>M</i></span>.</li>
+					<li>The first unit in the lineage (i.e., the ancestor of all other units) is the apomorphic predecessor unit.</li>
+					<li>The last unit in the lineage (i.e., the descendant of all other units) is the subunit of <span class="math"><i>A</i></span>.</li>
+					<li>All units in the lineage are subunits of <span class="math"><i>M</i></span>.</li>
 				</ol>
 				<a id="section-Cladogens" name="section-Cladogens"></a>
 				<h4>Cladogens</h4>
@@ -515,11 +564,11 @@
 					A taxon which fulfills the following requirements is here termed a <strong>cladogen</strong> (new term; previously "cladogenetic set" in <a href="http://dx.doi.org/10.1111/j.1463-6409.2007.00302.x">Keesey [2007]</a>):
 				</p>
 				<ul>
-					<li>No member of a cladogen can be ancestral to any other member.</li>
-					<li>There must be at least one organism which is a common successor of all members of the cladogen.</li>
+					<li>No subunit of a cladogen can be ancestral to any other subunit.</li>
+					<li>There must be at least one unit which is a common successor of all subunits of the cladogen.</li>
 				</ul>
 				<p>
-					All singleton taxa are cladogens, but cladogens may have larger numbers of members as well.
+					All taxonomic units are cladogens, but larger cladogens may include multiple subunits.
 				</p>
 				<p>
 					A <strong>node-based cladogen</strong> consists of the maximal common predecessors of a taxon.
@@ -533,34 +582,39 @@
 				<a id="section-Clades" name="section-Clades"></a>
 				<h4>Clades</h4>
 				<p>
-					A <strong>clade</strong> is a taxon including all members of a cladogen and all descendants of all of those members.
+					A <strong>clade</strong> is the union of cladogen with all descendants of all of the cladogen's subunits.
 					Clades are <strong>monophyletic</strong>; in fact, "clade" is a synonym of "monophyletic taxon".
 				</p>
 				<p>
-					A <strong>node-based clade</strong> consist of a node-based cladogen and all descendants of all of its members.
-					A <strong>branch-based clade</strong> consist of a branch-based cladogen and all descendants of all of its members.
-					An <strong>apomorphy-based clade</strong> consist of an apomorphy-based cladogen and all descendants of all of its members.
+					A <strong>node-based clade</strong> consists of a node-based cladogen and all descendants of all of its subunits.
+					A <strong>branch-based clade</strong> consists of a branch-based cladogen and all descendants of all of its subunits.
+					An <strong>apomorphy-based clade</strong> consists of an apomorphy-based cladogen and all descendants of all of its subunits.
+				</p>
+				<p>
+					A <strong>crown clade</strong> is a type of clade wherein the minimal subunits form the node-based cladogen for some extant taxon.
+					A <strong>total clade</strong> is a type of clade wherein the minimal subunits form the branch-based cladogen for some extant internal taxon and some extant external taxon.
+					Every crown clade has a corresponding total clade where the internal taxon is the union of all extant subunits of the crown clade and the external taxon is the union of of all other extant units.
 				</p>
 				<a id="section-NonClades" name="section-NonClades"></a>
 				<h4>Non-Clades</h4>
 				<p>
-					If a taxon's minimal members form a cladogen, but the taxon does not include not all descendants of that cladogen, then it is <strong>paraphyletic</strong>.
-					(Note that cladogens themselves are paraphyletic, with the exception of singleton cladogens wherein the single member has no descendants.
-					For such singleton cladogens, the clade and cladogen are identical.)
+					If a taxon's minimal subunits form a cladogen, but the taxon does not include not all descendants of that cladogen, then it is <strong>paraphyletic</strong>.
+					(Note that cladogens themselves are paraphyletic, with the exception of taxonomic units that have no descendants.
+					Such terminal taxonomic units are clades themselves, since they consist of a cladogen and all of its descendants.)
 				</p>
 				<p>
-					If the maximal common predecessors (i.e., the members of the node-based cladogen) of a taxon are not included within that taxon,
+					If the node-based cladogen of a taxon is not included within that taxon,
 					then that taxon is <strong>polyphyletic</strong>.
 				</p>
 				<a id="section-PhylogenyBasedNomenclature" name="section-PhylogenyBasedNomenclature"></a>
 				<h4>Phylogeny-Based Nomenclature</h4>
 				<p>
-					A taxon may be strictly defined according to phylogeny, using a <strong>phylogeny-based definition</strong>.
-					Most commonly, the taxa defined are clades, but other types of taxa may also be phylogenetically defined.
+					A taxonomic name may be strictly defined according to phylogenetic hypothesis, using a <strong>phylogeny-based definition</strong>.
+					Most commonly, such names refer to clades, but other types of taxa may also be phylogenetically referenced.
 				</p>
 				<p>
 					A <strong>phylogeny-based code</strong> is one which governs phylogeny-based definitions. Currently there are no such codes in effect, but there is a draft of one called the <i>International Code of Phylogenetic Nomenclature</i> (or the <i>PhyloCode</i>, for short).
-					This code is intended to go into effect in the next few years, exist alongside the rank-based codes, and govern clade names for all types of organisms.
+					This code is intended to go into effect in the next few years, exist alongside the rank-based codes, and govern clade names across all biological disciplines.
 				</p>
 				<a id="section-ReviewMathML" name="section-ReviewMathML"></a>
 				<h3>A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</h3>
@@ -587,19 +641,19 @@
 				</p>
 				<ul>
 					<li>
-						<span class="header">International Standard Book Numbers.</span>
+						International Standard Book Numbers:
 						<code>urn:isbn:3906166481</code>
 					</li>
 					<li>
-						<span class="header">Digital Object Identifiers.</span>
+						Digital Object Identifiers:
 						<code>urn:doi:10.1080/10635150500431221</code>
 					</li>
 					<li>
-						<span class="header">Life Science Identifiers.</span>
+						Life Science Identifiers:
 						<code>urn:lsid:ubio.org:namebank:109086</code>
 					</li>
 					<li>
-						<span class="header">SHA-1 keys formed from raw data.</span>
+						SHA-1 keys formed from raw data:
 						<code>urn:sha1:7ba04f9b4289bf102e17854388108f9f6553ce5b</code>
 						<br />
 						(Note: this usage is strictly informal, but widespread.)
@@ -637,12 +691,12 @@
 				<h4 class="langname">XML</h4>
 				<p>
 					<span class="langname"><strong>Extensible Markup Language</strong></span>, or <span class="langname"><strong>XML</strong></span> for short, is a specification for creating markup languages.
-					Text in <span class="langname">XML</span> may be surrounded with <strong>tags</strong>: an <strong>opening tag</strong>, of the form <code>&lt;<i>tagName</i>&gt;</code>, and a <strong>closing tag</strong>, of the form <code>&lt;/<i>tagName</i>&gt;</code>, where <code><i>tagName</i></code> is the name of the tag.
+					Text in <span class="langname">XML</span> may be surrounded with <strong>tags</strong>: an <strong>opening tag</strong>, of the form <code>&lt;<i>tagName</i>&gt;</code>, and a <strong>closing tag</strong>, of the form <code>&lt;/<i>tagName</i>&gt;</code>, where &quot;<code><i>tagName</i></code>&quot; is the name of the tag.
 					For example, in the <span class="langname">XML</span> expression <code>&lt;sentence&gt;Hello, world!&lt;/sentence&gt;</code>, the text "<code>Hello, world!</code>" has been marked up by <code>sentence</code> tags.
 					<span class="langname">XML</span> tags may also included nested tags, for example: <code>&lt;sentence&gt;&lt;word&gt;Hello&lt;/word&gt;, &lt;word&gt;world&lt;/word&gt;!&lt;/sentence&gt;</code>.
 					The entire stucture consisting of an opening tag, content, and a closing tag is an <strong>element</strong>.
 					Any elements within an element's content are <strong>child elements</strong>.
-					An element with no content, i.e., an <strong>empty element</strong>, may be written as a <strong>self-closing tag</strong>: <code>&lt;<i>tagName</i>/&gt;</code>.
+					An element with no content,  an <strong>empty element</strong>, may be written as a <strong>self-closing tag</strong>: <code>&lt;<i>tagName</i>/&gt;</code>.
 				</p>
 				<p>
 					Both opening and self-closing <span class="langname">XML</span> tags may be augmented with <strong>attributes</strong>, each of which pairs a name to a value: <code>&lt;<i>tagName</i> <i>attrName</i>="<i>attrValue</i>"/&gt;</code>.
@@ -667,7 +721,8 @@
     &lt;/body&gt;
 &lt;/html&gt;</pre>
 				<p>
-					In this example, the default namespace is identified by <code>http://www.w3.org/1999/xhtml</code> (which identifies the <span class="langname">XHTML</span> namespace), and a namespace identifier, <code>m</code>, is synonymized with <code>http://www.w3.org/1998/Math/MathML</code> (which identifies the <span class="langname">MathML</span> namespace).
+					In this example, the default namespace is identified by <code>http://www.w3.org/1999/xhtml</code>, which identifies the <span class="langname">XHTML</span> namespace (for hypertext).
+					A namespace identifier, <code>m</code>, is synonymized with <code>http://www.w3.org/1998/Math/MathML</code>, which identifies the <span class="langname">MathML</span> namespace (for mathematical formulae).
 					Therefore, if a tag or attribute's name is unqualified, then it is interpreted as an <span class="langname">XHTML</span> name.
 					If a tag or attribute's name is qualified by the prefix "<code>m:</code>", then it is interpreted as a <span class="langname">MathML</span> name.
 				</p>
@@ -700,8 +755,10 @@
 				</p>
 				<ul>
 					<li>
-						A qualified name identifying a taxonomic name, e.g., "<code>urn:isbn:3906166481::Pinus</code>".
-						If the taxonomic name's definition has a type, the symbol is interpreted as indicating the finest type of the name.
+						A URN or qualified name identifying a taxon.
+						For example, the zoological genus <span class="nomen">Tyrannosaurus</span> may be referenced using the URN <code>urn:lsid:ubio.org:namebank:4419260</code> (a Life Science Identifier) or the qualified name <code>urn:isbn:0853010064::Tyrannosaurus</code> (which refers to the <span class="title">ICZN</span> via its ISBN number and uses the local name &quot;<span class="nomen">Tyrannosaurus</span>&quot;).
+						If the name's definition has a type, the symbol is interpreted as indicating the unit which includes the finest type of the name.
+						For example, <code>urn:isbn:0853010064::Tyrannosaurus</code> is interpreted as whichever unit includes the organism represented by <span class="math">CM 9380</span>, which is the holotype specimen of <span class="nomen">Tyrannosaurus rex</span>, which is the type species of <span class="nomen">Tyrannosaurus</span>.
 						Otherwise, it is interpreted as indicating the corresponding taxon.
 					</li>
 					<!--li>
@@ -713,7 +770,7 @@
 				<p>
 					<span class="header">Example.</span>
 					The following <span class="langname">MathML</span> element indicates a node-based clade consisting of all successors of the maximal common predecessors of the types of botanical species <span class="nomen">Lycopodium clavatum</span>, <span class="nomen">Huperzia selago</span>, <span class="nomen">Iso&euml;tes lacustris</span>, and <span class="nomen">Selaginella apoda</span>.
-					(This is Cantino et al.'s [2007] definition of the clade name "<span class="nomen">Lycopodiophyta</span>".)
+					(This is <a href="http://www.phylodiversity.net/donoghue/publications/MJD_papers/2007/164_Cantino_Taxon07.pdf">Cantino et al.'s [2007]</a> definition of the clade name "<span class="nomen">Lycopodiophyta</span>".)
 				</p>
 				<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
     &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"/&gt;
@@ -725,6 +782,20 @@
         &lt;csymbol definitionURL="urn:isbn:3906166481::Selaginella+apoda"/&gt;
     &lt;/apply&gt;
 &lt;/apply&gt;</pre>
+				<p>
+					Here is an alternate version using URNs (Life Science Identifiers) instead of qualified names: 
+				</p>
+				<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-NodeBasedClade"/&gt;
+    &lt;apply&gt;
+        &lt;union/&gt;
+        &lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:2644342"/&gt;
+        &lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:471067"/&gt;
+        &lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:446548"/&gt;
+        &lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:446489"/&gt;
+    &lt;/apply&gt;
+&lt;/apply&gt;</pre>
+				<p>For more on <span class="langname">MathML</span>, see this official specification: <a href="http://www.w3.org/TR/MathML2/" class="title">Mathematical Markup Language (MathML) Version 2.0 (Second Edition)</a>.</p>
 				<a id="section-CorrelateBioMath" name="section-CorrelateBioMath"></a>
 				<h2>On the Correlation of Biological and Mathematical Terms</h2>
 				<a id="section-TaxaSets" name="section-TaxaSets"></a>
@@ -734,6 +805,7 @@
 					Thus, the operations defined for sets may be employed with taxa.
 					Let <span class="math">U</span> be the universal taxon, the set that includes all organisms.
 					To be a taxon, a set must be a nonempty subset of <span class="math">U</span>.
+					In the context of a particular study, <span class="math">U</span> may be interpreted as the union of all taxonomic units.
 				</p>
 				<p>
 					A union of taxa, <span class="math"><i>T</i><sub>1</sub> &#x222A; <i>T</i><sub>2</sub> &#x222A; &#x2026; &#x222A; <i>T</i><sub><i>n</i></sub></span>, constitutes a polythetic set.
@@ -763,24 +835,30 @@
 					The expression <span class="math">&#x227C;[<i>x</i>]</span> represents the set of <span class="math"><i>x</i></span> and all of its successors.
 					The expression <span class="math">&#x227D;[<i>x</i>]</span> represents the set of <span class="math"><i>x</i></span> and all of its predecessors.
 				</p>
+				<p>
+					These relations may be used for organisms, or, in the context of a particular study, for taxonomic units.
+				</p>
 				<a id="section-PhylogenyGraphs" name="section-PhylogenyGraphs"></a>
 				<h3>Phylogeny and Graphs</h3>
 				<p>
-					Phylogeny may be represented as a directed, acyclic graph (which correlates to a partially ordered set), <span class="math">G<sub>&#x22B2;</sub> := [U, &#x22B2;]</span>.
-					In this digraph, organisms are the vertices.
-					The arcs (directed edges) point from parents to their children, so that the head of each arc is a parent and the tail of each arc is a child.
+					A phylogenetic hypothesis may be modeled as a directed, acyclic graph (which correlates to a partially ordered set).
+					Let <span class="math"><i>T</i></span> be a set whose members are all taxonomic units in the hypothesis.
+					Then a <strong>phylogenetic graph</strong>, <span class="math"><i>P</i></span>, may be defined as <span class="math">[<i>T</i>, {[<i>x</i>, <i>y</i>] &isin; <i>T</i><sup>2</sup> | <i>x</i> &#x22B2; <i>y</i>}]</span>.
+					The arcs (directed edges) in the graph point from parents to their children, so that the head of each arc is a parent and the tail of each arc is a child.
 				</p>
 				<p>
-					A path in <span class="math">G<sub>&#x22B2;</sub></span> represents a lineage from ancestor to descendant.
-					An <span class="math"><i>x</i>&ndash;<i>y</i></span> path in <span class="math">G<sub>&#x22B2;</sub></span> is a sequence of vertices (organisms), <span class="math"><i>p</i></span>, of length <span class="math"><i>n</i></span> such that <span class="math"><i>x</i> = <i>p</i><sub>1</sub></span> and <span class="math"><i>y</i> = <i>p</i><sub><i>n</i></sub></span> and <span class="math"><i>p</i><sub>1</sub> &#x22B2; <i>p</i><sub>2</sub> &#x22B2; &#x2026; &#x22B2; <i>p</i><sub><i>n</i></sub></span>.
+					A path in a phylogenetic graph represents a lineage from ancestor to descendant.
+					An <span class="math"><i>x</i>&ndash;<i>y</i></span> path in a phylogenetic graph is a sequence of vertices (taxonomic units), <span class="math"><i>p</i></span>, of length <span class="math"><i>n</i></span> such that <span class="math"><i>x</i> = <i>p</i><sub>1</sub></span> and <span class="math"><i>y</i> = <i>p</i><sub><i>n</i></sub></span> and <span class="math"><i>p</i><sub>1</sub> &#x22B2; <i>p</i><sub>2</sub> &#x22B2; &#x2026; &#x22B2; <i>p</i><sub><i>n</i></sub></span>.
 				</p>
 				<p>
-					A cladogen is an antichain in <span class="math">G<sub>&#x22B2;</sub></span> wherein all members share at least one common successor.
-					As noted earlier, all singleton subsets of <span class="math">U</span> are cladogens.
+					A cladogen is an antichain in a phylogenetic graph wherein all members share at least one common successor.
+					As noted earlier, each vertex in the graph (i.e., each taxonomic unit) is a cladogen.
 				</p>
 				<p>
-					Relatedness may be represented as an undirected graph, <span class="math">G<sub>&#x22C8;</sub> := [U, {{<i>x</i>, <i>y</i>} | <i>x</i> &#x22C8; <i>y</i>}]</span>.
-					If two organisms (vertices) in this graph are connected, then they are in some way related.
+					Relatedness may be represented as an undirected graph.
+					Let <span class="math"><i>T</i></span> be a set whose members are all taxonomic units in a phylogenetic hypothesis.
+					Then a <strong>relatedness graph</strong>, <span class="math"><i>R</i></span>, may be defined as <span class="math">[<i>T</i>, {{<i>x</i>, <i>y</i>} | <i>x</i> &isin; <i>T</i> and <i>y</i> &isin; <i>T</i> and <i>x</i> &#x22C8; <i>y</i>}]</span>.
+					If two vertices (taxonomic units) in this graph are connected, then they are in some way related.
 					(Note that all known organisms are considered to be related.)
 				</p>
 				<a id="section-DefinitionsMath" name="section-DefinitionsMath"></a>
@@ -813,8 +891,8 @@
 						Further discussion of the entity.
 					</li>
 					<li>
-						<span class="header">Example(s).</span>
-						Examples of how the entity may be used in <span class="langname">MathML</span> code.
+						<span class="header">Example.</span>
+						Example of how the entity may be used in <span class="langname">MathML</span> code.
 					</li>
 				</ul>
 				<a id="def-UniversalTaxon" name="def-UniversalTaxon"></a>
@@ -859,9 +937,11 @@
     &lt;card/&gt;
     &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
 &lt;/apply&gt;</pre>
-							This evaluates to the total number of organisms.
-							Obviously, this number is actually unknown.
-							Operationally, this expression evaluates to the union of all taxa being treated in the context.
+							<p>
+								This evaluates to the total number of organisms.
+								Obviously, this number is actually unknown.
+								Operationally, this expression evaluates to the union of all taxa being treated in the context.
+							</p>
 						</td>
 					</tr>
 				</table>
@@ -901,7 +981,7 @@
 	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Maximal"/&gt;
 	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
 &lt;/apply&gt;</pre>
-(This evaluates to the set of all organisms with no descendants.)
+This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
