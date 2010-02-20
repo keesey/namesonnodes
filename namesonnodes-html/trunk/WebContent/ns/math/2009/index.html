@@ -925,34 +925,23 @@
 						<th>Definition</th>
 						<td>
 							<p><span class="math">U</span> is the set of all organisms, be they extinct, extant, or yet to be.</p>
+							or
+							<p><span class="math">U</span> is the union of all taxonomic units.</p>
 						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.entities::Taxon.fromFinestNodes</code> and <code>org.namesonnodes.domain.nodes::NodeGraph.allFinestNodes</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
 						<td>
 							<p>(See the discussion of <a href="#section-Taxonomy">universal taxon</a>, above.)</p>
 							<p>
-								Operationally, <i>Names on Nodes</i> treats the smallest discernible taxa in a given context as individuals.
-								The union of these least inclusive taxa is treated as the operational equivalent of <span class="math">U</span>.
+								Operationally, <i>Names on Nodes</i> interprets <span class="math">U</span> as the union of all taxa in the current dataset(s).
 							</p>
 						</td>
 					</tr>
 					<tr>
 						<th>Example</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-    &lt;card/&gt;
-    &lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
-&lt;/apply&gt;</pre>
-							<p>
-								This evaluates to the total number of organisms.
-								Obviously, this number is actually unknown.
-								Operationally, this expression evaluates to the union of all taxa being treated in the context.
-							</p>
+							<pre>&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;</pre>
 						</td>
 					</tr>
 				</table>
@@ -982,8 +971,13 @@
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::Maximal</code></td>
+						<th>Discussion</th>
+						<td>
+							<p>The maximal members of a set are all members which are not strictly ancestral to any other member.</p>
+							<p>The concept of "maximal" correlates to what some authors have termed "last", "latest", or "most recent", as in "most recent common ancestor". However, unlike those other terms, "maximal" is not tied to chronology; the maximal members of a set are not necessarily contemporaries.</p>
+							<p>Other potential synonyms of "maximal" are "final", "terminal", or "leafmost".</p>
+							<p>The symbol for this function is the same as that of a <span class="langname">MathML</span> function, <code>max</code>; however, the <span class="langname">MathML</span> function's domain is the power set of real numbers, not the power set of the universal taxon.</p>
+						</td>
 					</tr>
 					<tr>
 						<th>Example</th>
@@ -992,16 +986,7 @@
 	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Maximal"/&gt;
 	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
 &lt;/apply&gt;</pre>
-This evaluates to the set of all organisms with no descendants.
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>The maximal members of a set are all members which are not strictly ancestral to any other member.</p>
-							<p>The concept of "maximal" correlates to what some authors have termed "last", "latest", or "most recent", as in "most recent common ancestor". However, unlike those other terms, "maximal" is not tied to chronology; the maximal members of a set are not necessarily contemporaries.</p>
-							<p>Other potential synonyms of "maximal" are "final", "terminal", or "leafmost".</p>
-							<p>The symbol for this function is the same as that of a <span class="langname">MathML</span> function, <code>max</code>; however, the <span class="langname">MathML</span> function's domain is the power set of real numbers, not the power set of the universal taxon.</p>
+This evaluates to the union of all taxonomic units with no descendants.
 						</td>
 					</tr>
 				</table>
@@ -1031,8 +1016,13 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::Minimal</code></td>
+						<th>Discussion</th>
+						<td>
+							<p>The minimal members of a set are all members which are not strictly descended from any other member.</p>
+							<p>The concept of "minimal" correlates to what some authors have termed "earliest", "first", or "least recent", as in "least recent common ancestor". However, unlike those other terms, "minimal" is not tied to chronology; the minimal members of a set are not necessarily contemporaries.</p>
+							<p>Other potential synonyms of "minimal" are "initial" or "rootmost".</p>
+							<p>The symbol for this function is the same as that of a <span class="langname">MathML</span> function, <code>min</code>; however, the <span class="langname">MathML</span> function's domain is the power set of real numbers, not the power set of the universal taxon.</p>
+						</td>
 					</tr>
 					<tr>
 						<th>Example</th>
@@ -1041,16 +1031,7 @@ This evaluates to the set of all organisms with no descendants.
 	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Minimal"/&gt;
 	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
 &lt;/apply&gt;</pre>
-(This evaluates to the set of all organisms with no ancestors, i.e., the original organism[s].)
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>The minimal members of a set are all members which are not strictly descended from any other member.</p>
-							<p>The concept of "minimal" correlates to what some authors have termed "earliest", "first", or "least recent", as in "least recent common ancestor". However, unlike those other terms, "minimal" is not tied to chronology; the minimal members of a set are not necessarily contemporaries.</p>
-							<p>Other potential synonyms of "minimal" are "initial" or "rootmost".</p>
-							<p>The symbol for this function is the same as that of a <span class="langname">MathML</span> function, <code>min</code>; however, the <span class="langname">MathML</span> function's domain is the power set of real numbers, not the power set of the universal taxon.</p>
+This evaluates to the union of all taxonomic units with no ancestors.
 						</td>
 					</tr>
 				</table>
@@ -1092,8 +1073,11 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::PredecessorUnion</code></td>
+						<th>Discussion</th>
+						<td>
+							<p>The predecessor union of a taxon includes all members of that taxon as well as all ancestors of all members of that taxon.</p>
+							<p>The predecessor union of a taxon is always a superset of the predecessor intersection.</p>
+						</td>
 					</tr>
 					<tr>
 						<th>Example</th>
@@ -1106,14 +1090,7 @@ This evaluates to the set of all organisms with no descendants.
 		&lt;csymbol definitionURL="urn:isbn:3906166481::Pinus+sylvestris"/&gt;
 	&lt;/apply&gt;
 &lt;/apply&gt;</pre>
-(This evaluates to a set including all humans, all Scots pines, all ancestors of all humans, and all ancestors of all Scots pines. This includes shared ancestors as well as unshared ancestors.)
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>The predecessor union of a set of organisms includes all members of that set as well as all ancestors of all members of that set.</p>
-							<p>The predecessor union of a set is always a superset of the predecessor intersection.</p>
+This evaluates to a set including all humans, all Scots pines, all ancestors of all humans, and all ancestors of all Scots pines. This includes shared ancestors as well as unshared ancestors.
 						</td>
 					</tr>
 				</table>
@@ -1155,8 +1132,11 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::SuccessorUnion</code></td>
+						<th>Discussion</th>
+						<td>
+							<p>The successor union of a taxon includes all members of that taxon as well as all descendants of all members of that taxon.</p>
+							<p>The successor union of a taxon is always a superset of the successor intersection.</p>
+						</td>
 					</tr>
 					<tr>
 						<th>Example</th>
@@ -1165,18 +1145,11 @@ This evaluates to the set of all organisms with no descendants.
 	&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorUnion"/&gt;
 	&lt;apply&gt;
 		&lt;union/&gt;
-		&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+ferus"/&gt;
-		&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+asinus"/&gt;
+		&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+ferus+caballus"/&gt;
+		&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+africanus+asinus"/&gt;
 	&lt;/apply&gt;
 &lt;/apply&gt;</pre>
-(This evaluates to a set including all horses [<i>Equus ferus</i>], donkeys [<i>Equus asinus</i>], mules [<i>Equus asinus</i> &times; <i>ferus</i>] and hinnies[<i>Equus ferus</i> &times; <i>asinus</i>].)
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>The successor union of a set of organisms includes all members of that set as well as all descendants of all members of that set.</p>
-							<p>The successor union of a set is always a superset of the successor intersection.</p>
+(This evaluates to a set including all horses [<i>Equus ferus caballus</i>], donkeys [<i>Equus africanus asinus</i>], mules [<i>E. a. asinus</i> &times; <i>E. f. caballus</i>] and hinnies[<i>E. f. caballus</i> &times; <i>E. a. asinus</i>].)
 						</td>
 					</tr>
 				</table>
@@ -1216,10 +1189,6 @@ This evaluates to the set of all organisms with no descendants.
 								</tr>
 							</table>
 						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::PredecessorIntersection</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1265,10 +1234,6 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::SuccessorIntersection</code></td>
-					</tr>
-					<tr>
 						<th>Discussion</th>
 						<td>
 						</td>
@@ -1301,10 +1266,6 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::SynapomorphicPredecessors</code></td>
-					</tr>
-					<tr>
 						<th>Discussion</th>
 						<td>
 						</td>
@@ -1332,10 +1293,6 @@ This evaluates to the set of all organisms with no descendants.
 							<p>&amp; := max &#x2218; prc<sub>&#x2229;</sub></p>
 							<p><i>A</i> &amp; <i>B</i> &amp; &hellip; &amp; <i>Z</i> := (max &#x2218; prc<sub>&#x2229;</sub>)(<i>A</i> &#x222a; <i>B</i> &#x222a; ... &#x222a; <i>Z</i>)</p>
 						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::NodeBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1377,10 +1334,6 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::BranchBasedCladogen</code></td>
-					</tr>
-					<tr>
 						<th>Discussion</th>
 						<td>
 							<p>
@@ -1416,10 +1369,6 @@ This evaluates to the set of all organisms with no descendants.
 							<p>@ := min &#x2218; synprc</p>
 							<p><i>M</i> @ <i>A</i> := (min &#x2218; synprc)(<i>M</i>, <i>A</i>)</p>
 						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::ApomorphyBasedCladogen</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1468,10 +1417,6 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::Clade</code></td>
-					</tr>
-					<tr>
 						<th>Discussion</th>
 						<td>
 							TBD
@@ -1499,10 +1444,6 @@ This evaluates to the set of all organisms with no descendants.
 							<p class="math">Clade<sub>&amp;</sub> : 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p class="math">Clade<sub>&amp;</sub> := Clade &#x2218; &amp;<br />= suc<sub>&#x222A;</sub> &#x2218; max &#x2218; prc<sub>&#x2229;</sub></p>
 						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::NodeBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1535,10 +1476,6 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::BranchBasedClade</code></td>
-					</tr>
-					<tr>
 						<th>Discussion</th>
 						<td>
 							TBD
@@ -1566,10 +1503,6 @@ This evaluates to the set of all organisms with no descendants.
 							<p class="math">Clade<sub>@</sub> : 2<sup>U</sup> &times; 2<sup>U</sup> &rarr; 2<sup>U</sup></p>
 							<p class="math">Clade<sub>@</sub> := Clade &#x2218; @<br />= suc<sub>&#x222a;</sub> &#x2218; synprc</p>
 						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::ApomorphyBasedClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
@@ -1601,10 +1534,6 @@ This evaluates to the set of all organisms with no descendants.
 						</td>
 					</tr>
 					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::CrownClade</code></td>
-					</tr>
-					<tr>
 						<th>Discussion</th>
 						<td>
 							TBD
@@ -1633,10 +1562,6 @@ This evaluates to the set of all organisms with no descendants.
 							<p class="math">Let <i>C</i> = Crown(<i>A</i>, <i>E</i>)</p>
 							<p class="math">Total(<i>A</i>, <i>E</i>) := Clade(<i>C</i> &larr; <i>E</i> &minus; <i>C</i>)</p>
 						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td><code>org.namesonnodes.math.operations::TotalClade</code></td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
