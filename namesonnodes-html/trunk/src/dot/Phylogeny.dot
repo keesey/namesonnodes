@@ -1,4 +1,4 @@
-strict digraph SuccessorUnion
+strict digraph Phylogeny
 {
 	graph [rankdir="LR"];
 
@@ -11,20 +11,24 @@ strict digraph SuccessorUnion
 	6 [label="",shape="circle"];
 	7 [label="",shape="circle"];
 	8 [label="",shape="circle"];
+	9 [label="",shape="circle"];
+	10 [label="",shape="circle"];
+	11 [label="",shape="circle"];
 
-	0 -> 3;
-	1 -> 3;
+	0 -> 4;
+	0 -> 5;
 	1 -> 4;
-	2 -> 4;
+	1 -> 5;
+	2 -> 6;
+	2 -> 7;
+	3 -> 6;
 	3 -> 7;
-	5 -> 7;
 	4 -> 8;
+	4 -> 9;
+	5 -> 10;
+	5 -> 11;
 	6 -> 8;
-
-	1 [style="filled",fillcolor="black"];
-	2 [style="filled",fillcolor="black"];
-	3 [style="filled",fillcolor="black"];
-	7 [style="filled",fillcolor="black"];
-	4 [style="filled",fillcolor="black"];
-	8 [style="filled",fillcolor="black"];
+	6 -> 9;
+	7 -> 10;
+	7 -> 11;
 }

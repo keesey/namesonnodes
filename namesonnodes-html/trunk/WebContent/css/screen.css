@@ -69,6 +69,40 @@ div#content {
 }
 div#title h1 { font-size: 200%; font-weight: bold; font-variant: small-caps; font-style: normal; text-align: center}
 div#title h2 { font-size: 125%; font-variant: small-caps; font-style: normal; }
+div.figure-left, div.figure-right, div.figure-center
+{
+	background-color: #D2F7FF;
+	font-size: 80%;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding: 10px;
+	text-align: center;
+}
+div.figure-center
+{
+	float: none;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+div.figure-left
+{
+	float: left;
+	margin-left: 0px;
+	margin-right: 1em;
+	width: 220px;
+}
+div.figure-right
+{
+	float: right;
+	margin-left: 1em;
+	margin-right: 0px;
+	width: 220px;
+}
+div.figure-left p, div.figure-right p, div.figure-center p
+{
+	margin-bottom: 0px;
+  text-align: left;
+}
 div.warning
 {
 	background-color: #E0D0FF;
