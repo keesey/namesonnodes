@@ -1,0 +1,34 @@
+strict digraph Phylogeny
+{
+	graph [rankdir="LR"];
+
+	0 [label="",shape="circle"];
+	1 [label="",shape="circle"];
+	2 [label="",shape="circle"];
+	3 [label="",shape="circle"];
+	4 [label="",shape="circle"];
+	5 [label="",shape="circle"];
+	6 [label="",shape="circle"];
+	7 [label="",shape="circle"];
+	8 [label="",shape="circle"];
+	9 [label="",shape="circle"];
+	10 [label="",shape="circle"];
+	11 [label="",shape="circle"];
+
+	0 -> 4;
+	0 -> 5;
+	1 -> 4;
+	1 -> 5;
+	2 -> 6;
+	2 -> 7;
+	3 -> 6;
+	3 -> 7;
+	4 -> 8;
+	4 -> 9;
+	5 -> 10;
+	5 -> 11;
+	6 -> 8;
+	6 -> 9;
+	7 -> 10;
+	7 -> 11;
+}

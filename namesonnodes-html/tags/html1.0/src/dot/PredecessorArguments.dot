@@ -1,0 +1,22 @@
+strict digraph PredecessorArguments
+{
+	graph [rankdir="LR"];
+
+	0 [label="",shape="circle"];
+	1 [label="",shape="circle"];
+	2 [label="",shape="circle"];
+	3 [label="",shape="circle"];
+	4 [label="",shape="circle"];
+	5 [label="",shape="circle"];
+	6 [label="",shape="circle"];
+
+	0 -> 1;
+	0 -> 2;
+	2 -> 3;
+	2 -> 4;
+	4 -> 5;
+	4 -> 6;
+
+	3 [style="filled",fillcolor="black"];
+	6 [style="filled",fillcolor="black"];
+}
