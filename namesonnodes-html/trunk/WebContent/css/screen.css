@@ -115,9 +115,16 @@ em
 	font-style: italic;
 	font-weight: bold;
 }
+hr {color: #000;
+background-color: #000;
+height: 1px;border: 0;}
 img
 {
 	border: 0;
+}
+img.bordered
+{
+  border: 1px solid #808080;
 }
 label
 {
@@ -174,14 +181,16 @@ table.layout { margin:0; border-collapse: collapse}
 table.layout td { padding:0; background-color:transparent; border:0; vertical-align:top; }
 table.math {margin: 0; border-collapse: collapse;}
 table.math td {padding: 2px; background-color:transparent; border:0; vertical-align:middle; text-align: center;}
-table.definition
+table.math td.piece {text-align: left;}
+table.definition, table.example
 {
 	width: 100%;
 }
-table.definition th
+table.definition th, table.example th
 {
 	width: 10em;
 }
+div.thead { font-family: Georgia, serif; color: #333333; font-size: 1.2em; font-weight: normal; text-align: center; padding-top: 0.5em; padding-bottom: 0px;}
 
 h1, h2, h3, h4, h5, h6 { font-family: Georgia, serif; color: #333333; }
 h1 { font-size: 2.2em; font-weight: normal; line-height:1.1em; color: #333333; }

@@ -1,0 +1,62 @@
+strict digraph phylogenetic_graph
+{
+	graph [rankdir="LR", ranksep=0.2,truecolor="true",bgcolor="transparent"];
+	node [shape="circle",fontname="Times New Roman Italic",fontsize=10,fixedsize=1,width=0.6,height=0.6];
+
+	Diadectes [label="Dia-\ndectes"];
+	Dimorphodon [label="Di-\nmorpho-\ndon"];
+	Ichthyornis [label="Ichthy-\nornis"];
+	Pterodactylus [label="Ptero-\ndactylus"];
+	Tyrannosaurus [label="Tyran-\nnosaur-\nus"];
+	
+	E_stenionis [label="E.\nsteni-\nonis"];
+	
+	C_niloticus [label="C.\nnilo-\nticus"];
+	E_africanus [label="E.\nafri-\ncanus"];
+	E_ferus [label="E.\nferus"];
+	H_sapiens [label="H.\nsapiens"];
+	L_agilis [label="L.\nagilis"];
+	O_anatinus [label="O.\nanatinus"];
+	S_camelus [label="S.\ncamelus"];
+	T_graeca [label="T.\ngraeca"];
+	T_major [label="T.\nmajor"];
+	V_murinus [label="V.\nmurinus"];
+	V_gryphus [label="V.\ngryphus"];
+	
+	mule [fontname="Times New Roman"];
+	hinny [fontname="Times New Roman"];
+	
+	HTU1 [label="HTU\n1",fontname="Times New Roman"];
+	HTU2 [label="HTU\n2",fontname="Times New Roman"];
+	HTU3 [label="HTU\n3",fontname="Times New Roman"];
+	HTU4 [label="HTU\n4",fontname="Times New Roman"];
+	HTU5 [label="HTU\n5",fontname="Times New Roman"];
+	HTU6 [label="HTU\n6",fontname="Times New Roman"];
+	HTU7 [label="HTU\n7",fontname="Times New Roman"];
+	HTU8 [label="HTU\n8",fontname="Times New Roman"];
+	HTU9 [label="HTU\n9",fontname="Times New Roman"];
+	HTU10 [label="HTU\n10",fontname="Times New Roman"];
+	HTU11 [label="HTU\n11",fontname="Times New Roman"];
+	HTU12 [label="HTU\n12",fontname="Times New Roman"];
+	HTU13 [label="HTU\n13",fontname="Times New Roman"];
+	
+	HTU1 -> Diadectes;HTU1 -> HTU2;HTU2 -> HTU3;HTU2 -> HTU6;HTU3 -> O_anatinus [minlen=7];
+	HTU3 -> HTU4;HTU4 -> H_sapiens [minlen=6];
+	HTU4 -> HTU5;HTU5 -> V_murinus [minlen=5];
+	HTU5 -> E_stenionis [minlen=4];
+	E_stenionis -> E_africanus;
+	E_stenionis -> E_ferus;
+	E_africanus -> mule;
+	E_africanus -> hinny;
+	E_ferus -> mule;
+	E_ferus -> hinny;
+	HTU6 -> T_graeca [minlen=7];
+	HTU6 -> L_agilis [minlen=7];
+	HTU6 -> HTU7;
+	HTU7 -> C_niloticus [minlen=6];
+	HTU7 -> HTU8;HTU8 -> HTU9;HTU8 -> HTU10;HTU9 -> Dimorphodon;HTU9 -> Pterodactylus;HTU10 -> Tyrannosaurus;HTU10 -> HTU11;
+	HTU11 -> Ichthyornis;
+	HTU11 -> HTU12;
+	HTU12 -> V_gryphus [minlen=2];
+	HTU12 -> HTU13;HTU13 -> S_camelus;HTU13 -> T_major;
+}
