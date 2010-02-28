@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://namesonnodes.org/ns/entities/2009"
+	xmlns:nne="http://namesonnodes.org/ns/entities/2009"
+	elementFormDefault="qualified" xmlns:math="http://www.w3.org/1998/Math/MathML"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<import namespace="http://www.w3.org/1998/Math/MathML"
+		schemaLocation="http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd" />
+
+	<import namespace="http://www.w3.org/1999/xhtml"
+		schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd" />
+
+	<element name="entities" type="nne:entities.type" />
+
+	<element name="Authority" type="nne:Authority.type" />
+
+	<element name="refAuthority" type="anyURI" />
+
+	<element name="AuthorityIdentifier" type="nne:AuthorityIdentifier.type" />
+
+	<element name="DistanceRow" type="nne:DistanceRow.type" />
+
+	<element name="Dataset" type="nne:Dataset.type" />
+
+	<element name="Heredity" type="nne:Heredity.type" />
+
+	<element name="Inclusion" type="nne:Inclusion.type" />
+
+	<element name="Label" type="nne:Label.type" />
+
+	<element name="PhyloDefinition" type="nne:PhyloDefinition.type" />
+
+	<element name="RankDefinition" type="nne:RankDefinition.type" />
+
+	<element name="SpecimenDefinition" type="nne:SpecimenDefinition.type" />
+
+
+	<element name="StateDefinition" type="nne:StateDefinition.type" />
+
+	<element name="Synonymy" type="nne:Synonymy.type" />
+
+	<element name="Taxon" type="nne:Taxon.type" />
+
+	<element name="TaxonIdentifier" type="nne:TaxonIdentifier.type" />
+
+	<attributeGroup name="Persistent">
+		<attribute name="id" type="nonNegativeInteger" use="optional"
+			default="0" />
+
+		<attribute name="version" type="nonNegativeInteger" default="0"
+			use="optional" />
+
+	</attributeGroup>
+
+	<element name="refTaxon" type="nne:qualifiedName"/>
+
+	<element name="refDataset" type="nne:qualifiedName"/>
+
+
+	<simpleType name="qualifiedName">
+		<restriction base="string">
+			<pattern value="(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?::[A-Za-z0-9_+%:/-]+"></pattern>
+		</restriction>
+	</simpleType>
+
+	<complexType name="AuthorityIdentifier.type">
+		<all>
+			<element name="entity" type="nne:Authority.ref.type" />
+		</all>
+		<attribute name="uri" type="anyURI" use="required" />
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="Authority.ref.type">
+		<choice>
+			<element ref="nne:Authority" />
+			<element ref="nne:refAuthority" />
+		</choice>
+	</complexType>
+
+
+	<complexType name="entities.type">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<choice>
+				<element ref="nne:AuthorityIdentifier" />
+				<element ref="nne:Dataset" />
+				<element ref="nne:TaxonIdentifier" />
+			</choice>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="Authority.type">
+		<all>
+			<element name="label" maxOccurs="1" minOccurs="1" type="nne:Labelled.label.type"/>
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+
+	<complexType name="Label.type">
+		<all>
+			<element name="name" type="string" maxOccurs="1" minOccurs="1" />
+
+			<element name="abbr" type="string" maxOccurs="1" minOccurs="0" />
+
+			<element name="italics" type="boolean" maxOccurs="1"
+				minOccurs="0" />
+
+		</all>
+	</complexType>
+
+	<complexType name="SpecimenDefinition.type">
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="StateDefinition.type">
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<attributeGroup name="Qualified">
+		<attribute name="localName" type="string" />
+	</attributeGroup>
+
+	<complexType name="Taxon.type">
+		<all>
+			<element name="definition" maxOccurs="1" minOccurs="0">
+				<complexType>
+					<choice>
+						<element ref="nne:PhyloDefinition" />
+						<element ref="nne:RankDefinition" />
+						<element ref="nne:SpecimenDefinition" />
+						<element ref="nne:StateDefinition" />
+					</choice>
+				</complexType>
+			</element>
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="TaxonIdentifier.type">
+		<all>
+			<element name="authority" type="nne:AuthorityIdentifier.ref.type"
+				maxOccurs="1" minOccurs="1" />
+
+			<element name="entity" type="nne:Taxon.ref.type" maxOccurs="1"
+				minOccurs="0" />
+
+			<element name="label" maxOccurs="1" minOccurs="0" type="nne:Labelled.label.type"/>
+
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+		<attributeGroup ref="nne:Qualified" />
+	</complexType>
+
+	<complexType name="Labelled.label.type">
+		<sequence>
+			<element ref="nne:Label"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Taxon.ref.type">
+		<choice>
+			<element ref="nne:Taxon" />
+			<element ref="nne:refTaxon" />
+		</choice>
+	</complexType>
+
+	<complexType name="AuthorityIdentifier.ref.type">
+		<choice>
+			<element ref="nne:AuthorityIdentifier" />
+			<element ref="nne:refAuthority" />
+		</choice>
+	</complexType>
+
+	<complexType name="Synonymy.type">
+		<all>
+			<element name="synonyms" minOccurs="1" maxOccurs="1">
+				<complexType>
+					<sequence maxOccurs="unbounded" minOccurs="2">
+						<choice>
+							<element ref="nne:TaxonIdentifier" />
+							<element ref="nne:refTaxon" />
+						</choice>
+					</sequence>
+				</complexType>
+			</element>
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="RankDefinition.type">
+		<all>
+			<element name="rank" type="string" maxOccurs="1" minOccurs="0" />
+
+			<element name="level" type="float" maxOccurs="1" minOccurs="0" />
+
+			<element name="types" maxOccurs="1" minOccurs="0">
+				<complexType>
+					<choice minOccurs="1" maxOccurs="unbounded">
+						<element ref="nne:TaxonIdentifier" />
+						<element ref="nne:refTaxon" />
+					</choice>
+				</complexType>
+			</element>
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="PhyloDefinition.type">
+		<all>
+			<element name="prose">
+				<complexType>
+					<sequence>
+						<element ref="html:div" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="formula">
+				<complexType>
+					<sequence>
+						<element ref="math:math" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="specifiers">
+				<complexType>
+					<choice minOccurs="1" maxOccurs="unbounded">
+						<element ref="nne:TaxonIdentifier" />
+						<element ref="nne:refTaxon" />
+					</choice>
+				</complexType>
+			</element>
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+
+	<complexType name="Inclusion.type">
+		<all>
+			<element name="superset" type="nne:TaxonIdentifier.ref.type"
+				minOccurs="1" maxOccurs="1" />
+
+			<element name="subset" type="nne:TaxonIdentifier.ref.type"
+				minOccurs="1" maxOccurs="1" />
+
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="Dataset.type">
+		<all>
+			<element name="authority" type="nne:AuthorityIdentifier.ref.type"
+				maxOccurs="1" minOccurs="1" />
+			<element name="label" maxOccurs="1" minOccurs="1" type="nne:Labelled.label.type"/>
+			<element name="weightPerGeneration" minOccurs="0" maxOccurs="1"
+				type="float" />
+
+			<element name="distanceRows" minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence maxOccurs="unbounded" minOccurs="1">
+						<element ref="nne:DistanceRow" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="heredities" minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence>
+						<element name="weightPerGeneration" minOccurs="0"
+							maxOccurs="1" type="float" />
+
+						<sequence maxOccurs="unbounded" minOccurs="1">
+							<element ref="nne:Heredity" />
+						</sequence>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="inclusions" minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence maxOccurs="unbounded" minOccurs="1">
+						<element ref="nne:Inclusion" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="synonymies" minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence maxOccurs="unbounded" minOccurs="1">
+						<element ref="nne:Synonymy" />
+					</sequence>
+				</complexType>
+			</element>
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+		<attributeGroup ref="nne:Qualified" />
+	</complexType>
+
+	<complexType name="DistanceRow.type">
+		<all>
+			<element name="a" type="nne:TaxonIdentifier.ref.type"
+				maxOccurs="1" minOccurs="1" />
+
+			<element name="b" type="nne:TaxonIdentifier.ref.type"
+				maxOccurs="1" minOccurs="1" />
+
+			<element name="distance" type="float" />
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="Heredity.type">
+		<all>
+			<element name="predecessor" type="nne:TaxonIdentifier.ref.type"
+				maxOccurs="1" minOccurs="1" />
+
+			<element name="successor" type="nne:TaxonIdentifier.ref.type"
+				maxOccurs="1" minOccurs="1" />
+
+			<element name="weight" type="float" maxOccurs="1" minOccurs="0" />
+
+		</all>
+		<attributeGroup ref="nne:Persistent" />
+	</complexType>
+
+	<complexType name="TaxonIdentifier.ref.type">
+		<choice>
+			<element ref="nne:TaxonIdentifier" />
+			<element ref="nne:refTaxon" />
+		</choice>
+	</complexType>
+
+</schema>

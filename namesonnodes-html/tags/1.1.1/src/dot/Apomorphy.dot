@@ -1,0 +1,38 @@
+strict digraph Apomorphy
+{
+	graph [rankdir="LR"];
+
+	0 [label="",shape="circle"];
+	1 [label="",shape="circle"];
+	2 [label="",shape="circle"];
+	3 [label="",shape="circle"];
+	4 [label="",shape="circle"];
+	5 [label="",shape="circle"];
+	6 [label="",shape="circle"];
+	7 [label="",shape="circle"];
+	8 [label="",shape="circle"];
+	9 [label="",shape="circle"];
+	10 [label="",shape="circle"];
+	11 [label="",shape="circle"];
+
+	0 -> 1;
+	1 -> 2;
+	0 -> 3;
+	3 -> 4;
+	4 -> 5;
+	5 -> 6;
+	6 -> 7;
+	6 -> 9;
+	7 -> 8;
+	9 -> 10;
+	9 -> 11;
+
+	2 [style="filled",fillcolor="black"];
+	3 [style="filled",fillcolor="black"];
+	5 [style="filled",fillcolor="black"];
+	6 [style="filled",fillcolor="black"];
+	7 [style="filled",fillcolor="black"];
+	8 [style="filled",fillcolor="black"];
+	9 [style="filled",fillcolor="black"];
+	11 [style="filled",fillcolor="black"];
+}
