@@ -12,8 +12,42 @@
 		<meta name="Description" content="Documentation of the Names on Nodes: MathML namespace (Definition URL: &lt;http://namesonnodes.org/ns/math/2009&gt;)." />
 		<meta name="Keywords" content="names,nodes,Keesey,Mike,Michael,biological,biology,hierarchy,nomenclature,nomenclatural,nomen,nomina,code,phylogeny,phylogenetic,rank,based,mathematics,mathematical,graph,digraph,network,arc,edge,vertex,weight,predecessor,successor,ancestor,descendant,parent,child,set,theory,list,triple,triplet,ordered,partial,order,ordering,unit,taxon,taxonomy,taxonomic" />
 		<link href="../../../css/screen.css" type="text/css" rel="stylesheet"/>
+		<script type="text/javascript">
+			//<![CDATA[
+        var isAppleWebKit = navigator.appVersion.toLowerCase().indexOf("applewebkit") >= 0; 
+        var isWindows = navigator.appVersion.toLowerCase().indexOf("windows") >= 0; 
+        function body_onload_handler()
+        {
+          if (isAppleWebKit && isWindows)
+            fixParenthoodRelations(document.body);
+        }
+				function fixParenthoodRelations(element)
+				{
+					var n = element.childNodes.length;
+					for (var i = 0; i < n; ++i)
+					{
+						var node = element.childNodes[i];
+						if (node.nodeType == 3)
+						{
+							var text = node.nodeValue;
+							text = text.replace(/\u22B2/g, String.fromCharCode(0x22B1));
+							text = text.replace(/\u22B3/g, String.fromCharCode(0x22B2));
+							text = text.replace(/\u22B1/g, String.fromCharCode(0x22B3));
+							text = text.replace(/&#x22B2;/gi, "&#x22B1;");
+							text = text.replace(/&#x22B3;/gi, "&#x22B2;");
+							text = text.replace(/&#x22B1;/gi, "&#x22B3;");
+							node.nodeValue = text;
+						}
+						else if (node.nodeType == 1 && node.tagName.toLowerCase() != "script")
+						{
+							fixParenthoodRelations(node);
+						}
+					}
+				}
+			//]]>
+		</script>
 	</head>
-	<body onload="checkForFix()">
+	<body onload="body_onload_handler()">
 		<div id="container">
 			<div id="content">
 				<a name="h1" id="h1"></a>
@@ -24,43 +58,6 @@
 				<p class="publication-date">Version 1.0 Published Online 2010 February 21</p>
 				<p class="publication-date">Version 1.1 Published Online 2010 February 25</p>
 				<br />
-				<script type="text/javascript">
-					//<![CDATA[
-            var isIE = navigator.appName == "Microsoft Internet Explorer"; 
-						if (!isIE)
-						{
-							document.write('<div id="warning-parenthoodRelation" class="warning"><h2>Font Warning</h2><p>Your browser\'s font may erroneously switch the characters "&#x22B2;" and "&#x22B3;". If "&#x22B2;" and "&#x22B4;" do not face the same way, <a href=\"javascript:fixParenthoodRelations(document.body)">click here</a>.</p><p>To remove this warning, <a href="javascript:document.getElementById(\'warning-parenthoodRelation\').style.display = \'none\'">click here</a>.</p></div>');
-            }
-            function checkForFix()
-            {
-							if (!isIE && navigator.appVersion.toLowerCase().indexOf('win') != -1)
-  							fixParenthoodRelations(document.body);
-            }
-						function fixParenthoodRelations(element)
-						{
-							var n = element.childNodes.length;
-							for (var i = 0; i < n; ++i)
-							{
-								var node = element.childNodes[i];
-								if (node.nodeType == 3)
-								{
-									var text = node.nodeValue;
-									text = text.replace(/\u22B2/g, String.fromCharCode(0x22B1));
-									text = text.replace(/\u22B3/g, String.fromCharCode(0x22B2));
-									text = text.replace(/\u22B1/g, String.fromCharCode(0x22B3));
-									text = text.replace(/&#x22B2;/gi, "&#x22B1;");
-									text = text.replace(/&#x22B3;/gi, "&#x22B2;");
-									text = text.replace(/&#x22B1;/gi, "&#x22B3;");
-									node.nodeValue = text;
-								}
-								else if (node.nodeType == 1 && node.tagName.toLowerCase() != "script")
-								{
-									fixParenthoodRelations(node);
-								}
-							}
-						}
-					//]]>
-				</script>
 				<div id="section-Abstract">
 					<h2>Abstract</h2>
 					<p>
