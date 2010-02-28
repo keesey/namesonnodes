@@ -51,12 +51,13 @@
 		<div id="container">
 			<div id="content">
 				<a name="h1" id="h1"></a>
-				<h1><a href="http://namesonnodes.org/" class="title">Names on Nodes</a>: <span class="langname">MathML</span> Definitions (Version 1.1)</h1>
+				<h1><a href="http://namesonnodes.org/" class="title">Names on Nodes</a>: <span class="langname">MathML</span> Definitions (Version 1.1.1)</h1>
 				<p class="authors">T. Michael Keesey<sup><a href="#aff1">1</a></sup></p>
 				<p class="affiliations"><a name="aff1" id="aff1"></a><strong>1</strong> P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes%3AMathML+Definitions"><code>keesey@gmail.com</code></a></p>
 				<p class="publication-date">First Draft Published Online 2009 July 29</p>
 				<p class="publication-date">Version 1.0 Published Online 2010 February 21</p>
 				<p class="publication-date">Version 1.1 Published Online 2010 February 25</p>
+				<p class="publication-date">Version 1.1.1 Published Online 2010 February 27</p>
 				<br />
 				<div id="section-Abstract">
 					<h2>Abstract</h2>
@@ -836,11 +837,11 @@
 					A <strong>qualified name</strong> is an expression joining a namespace identifier with a local name.
 					Different computer languages have different methods of joining these.
 					Common conventions are to use one or two colons ("<code>:</code>").
-					<a href="http://namesonnodes.org/" class="title">Names on Nodes</a> uses double colons to join a URN namespace identifier to a local name.
+					<a href="http://namesonnodes.org/" class="title">Names on Nodes</a> uses double colons to join a URI namespace identifier to a local name.
 					Examples of usage:
 				</p>
 				<ul>
-					<li>To indicate a taxonomic name regulated by a nomenclatural code: <code>urn:isbn:3906166481::Pinus</code> (the botanical genus <span class="nomen">Pinus</span>).</li>
+					<li>To indicate a taxonomic name regulated by a nomenclatural code: <code>urn:isbn:3906166481::Pinus</code> (the botanical genus <span class="nomen">Pinus</span>). Note that the name must be unique under the code. For the zoological code, names are only unique within a rank group. Therefore, an additional qualification is needed. For example, <code>urn:isbn:0853010064::fam:Columbina</code> is a zoological name in the family group (in this case, a subtribe) and <code>urn:isbn:0853010064::gen:Columbina</code> is a zoological name in the genus group (in this case, a genus).</li>
 					<li>To indicate a specimen in a collection: <code>http://www.peabody.yale.edu/collections/vp::1450</code> (<span class="math">YPM-VP 1450</span>).</li>
 					<li>To indicate a character state as described in a publication: <code>urn:bici:0912532572(200112)%3C7:FDFDCD%3E2.0.TX;2-H::wings+used+for+powered+flight</code> (the character &quot;wings used for powered flight&quot; as specified by Gauthier &amp; de Queiroz [2001]).</li>
 					<li>To indicate a specific date: <code>urn:iso:8601::17580101</code> (1758 January 1). In <a href="http://namesonnodes.org/" class="title">Names on Nodes</a>, dates are interpreted as referring to all taxonomic units extant as of or after the specified date.</li>
@@ -914,7 +915,7 @@
 				<ul>
 					<li>
 						A URI or a qualified name identifying a taxon.
-						For example, the zoological genus <span class="nomen">Tyrannosaurus</span> may be referenced using the URI <code>urn:lsid:ubio.org:namebank:4419260</code> (a Life Science Identifier) or the qualified name <code>urn:isbn:0853010064::Tyrannosaurus</code> (which refers to the <span class="title">ICZN</span> via its ISBN number and uses the local name &quot;<span class="nomen">Tyrannosaurus</span>&quot;).
+						For example, the zoological genus <span class="nomen">Tyrannosaurus</span> may be referenced using the URI <code>urn:lsid:ubio.org:namebank:4419260</code> (a Life Science Identifier) or the qualified name <code>urn:isbn:0853010064::gen:Tyrannosaurus</code> (which refers to the <span class="title">ICZN</span> via its ISBN number and uses the local name &quot;<span class="nomen">Tyrannosaurus</span>&quot;).
 					</li>
 					<!--li>
 						A qualified name identifying a dataset, e.g., "<code>urn:sha1:7ba04f9b4289bf102e17854388108f9f6553ce5b::DISTANCES:0</code>".
@@ -1343,8 +1344,8 @@
 						<td>
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessor"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+stenonis"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+africanus"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+stenonis"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+africanus"/&gt;
 &lt;/apply&gt;</pre>
 						</td>
 					</tr>
@@ -1366,7 +1367,7 @@
 						<td>
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessor"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+stenonis"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+stenonis"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#otu-mule"/&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -1427,8 +1428,8 @@
 						<td>
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessorOrEqual"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+ferus"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+ferus"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+ferus"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+ferus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#otu-mule"/&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -1492,7 +1493,7 @@
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Predecessor"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#htu-1"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Homo+sapiens"/&gt;
 &lt;/apply&gt;</pre>
             </td>
           </tr>
@@ -1554,8 +1555,8 @@
 						<td>
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ProperPredecessor"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Homo+sapiens"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Homo+sapiens"/&gt;
 &lt;/apply&gt;</pre>
             </td>
           </tr>
@@ -1763,8 +1764,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorUnion"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Pterodactylus"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:3906166481::Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::gen:Pterodactylus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -1842,8 +1843,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorIntersection"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Pterodactylus"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::gen:Pterodactylus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -1920,8 +1921,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorUnion"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+stenonis"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+africanus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+stenonis"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+africanus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -2000,8 +2001,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorIntersection"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+stenonis"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+africanus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+stenonis"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+africanus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -2067,8 +2068,8 @@
 						<td>
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Pterodactylus"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::gen:Pterodactylus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -2146,7 +2147,7 @@
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="uttp://namesonnodes.org/ns/math/2009#apomorphy-flight"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
 &lt;/apply&gt;</pre>
 						</td>
 					</tr>
@@ -2236,7 +2237,7 @@
 						<td>
 							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Equus+ferus"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+ferus"/&gt;
 &lt;/apply&gt;</pre>
 						</td>
 					</tr>
@@ -2266,8 +2267,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Homo+sapiens"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Ornithorhynchus+anatinus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Homo+sapiens"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Ornithorhynchus+anatinus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -2330,8 +2331,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Pterodactylus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::gen:Pterodactylus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -2363,7 +2364,7 @@
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors"/&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#apomorphy-flight"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &lt;/apply&gt;</pre>
 						</td>
@@ -2437,8 +2438,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Tyrannosaurus"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::gen:Tyrannosaurus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:iso:8601::2010"&gt;
 &lt;/apply&gt;</pre>
@@ -2469,8 +2470,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Ptrodactylus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::gen:Pterodactylus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:iso:8601::2010"&gt;
 &lt;/apply&gt;</pre>
@@ -2502,7 +2503,7 @@
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors/&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#apomorphy-flight/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:iso:8601::2010"&gt;
 &lt;/apply&gt;</pre>
@@ -2572,8 +2573,8 @@
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Struthio+camelus"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::Vultur+gryphus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Struthio+camelus"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Vultur+gryphus"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:iso:8601::2010"/&gt;
 &lt;/apply&gt;</pre>
