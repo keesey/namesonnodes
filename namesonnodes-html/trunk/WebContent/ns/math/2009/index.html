@@ -56,8 +56,7 @@
 				<p class="affiliations"><a name="aff1" id="aff1"></a><strong>1</strong> P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes%3AMathML+Definitions"><code>keesey@gmail.com</code></a></p>
 				<p class="publication-date">First Draft Published Online 2009 July 29</p>
 				<p class="publication-date">Version 1.0 Published Online 2010 February 21</p>
-				<p class="publication-date">Version 1.1 Published Online 2010 February 25</p>
-				<p class="publication-date">Version 1.1.1 Published Online 2010 February 27</p>
+				<p class="publication-date">Version 1.2 Published Online 2010 March 31</p>
 				<br />
 				<div id="section-Abstract">
 					<h2>Abstract</h2>
@@ -138,13 +137,7 @@
 						</tr>
 						<tr>
 							<td>
-								<a href="#def-TaxonomicUnits">Taxonomic Units</a> &#x2022; 
-								<a href="#def-UniversalTaxon">Universal Taxon</a> &#x2022; 
-								<a href="#def-ImmediatePredecessor">Immediate Predecessor</a> &#x2022; 
-								<a href="#def-ImmediatePredecessorOrEqual">Immediate Predecessor Or Equal</a> &#x2022; 
-								<a href="#def-Predecessor">Predecessor</a> &#x2022; 
-								<a href="#def-ProperPredecessor">Proper Predecessor</a> &#x2022; 
-								<a href="#def-UniversalTaxon">Universal Taxon</a> &#x2022; 
+								<a href="#def-Phylogenetic Graph">Phylogenetic Graph</a> &#x2022;
 								<a href="#def-UniversalTaxon">Universal Taxon</a> &#x2022; 
 								<a href="#def-Maximal">Maximal</a> &#x2022;
 								<a href="#def-Minimal">Minimal</a> &#x2022;
@@ -193,7 +186,7 @@
         </p>
         <p>
           <a href="http://namesonnodes.org/" class="title">Names on Nodes</a> is an open-source project.
-          The progress of the project, including this document, can be viewed online at <a href="http://code.google.com/p/namesonnodes/"><code>http://code.google.com/p/namesonnodes/</code></a>.
+          The progress of the project, including this document, can be viewed online at <a href="http://code.google.com/p/namesonnodes/"><code>http://code.google.com/p/namesonnodes/</code></a> (this website, older versions of the project) and <a href="http://bitbucket.org/keesey/namesonnodes-sa/"><code>http://bitbucket.org/keesey/namesonnodes-sa/</code></a> (the standalone version).
         </p>
 				<a id="section-ReviewMath"></a>
 				<h3>A General Review of Mathematical Concepts, Terms, and Notation</h3>
@@ -785,34 +778,8 @@
 				</p>
 				<p>
 					Another type of URL is the <strong>Uniform Resource Name</strong>, or <strong>URN</strong>, which functions as a location-independent name.
-					Many types of identification can be expressed as URNs. For example:
-				</p>
-				<ul>
-					<li>
-						International Standard Book Numbers (ISBNs):
-						<code>urn:isbn:3906166481</code>
-					</li>
-					<li>
-						Digital Object Identifiers (DOIs):
-						<code>urn:doi:10.1080/10635150500431221</code>
-					</li>
-					<li>
-						Life Science Identifiers (LSIDs):
-						<code>urn:lsid:ubio.org:namebank:109086</code>
-					</li>
-					<li>
-						International Organization for Standardization (ISO) Specifications:
-						<code>urn:iso:8601</code>
-					</li>
-					<li>
-						SHA-1 keys formed from raw data:
-						<code>urn:sha1:7ba04f9b4289bf102e17854388108f9f6553ce5b</code>
-						<br />
-						(Note: this usage is strictly informal, but widespread.)
-					</li>
-				</ul>
-				<p>
-					A <strong>URN resolver</strong> translates URNs (i.e., names) into URLs (i.e., locations).
+					Many types of identification can be expressed as URNs.
+					For example a URN identifying the species <i>Homo sapiens</i> Linnaeus 1758 is <code>urn:lsid:ubio.org:namebank:109086</code>. 
 				</p>
 				<p>
 					For more on URIs, see these official specifications:
@@ -831,21 +798,10 @@
 					In some contexts, a shorter identifier may be equated with a URI.
 				</p>
 				<p>
-					Note that taxonomic publications (including nomenclatural codes) and specimen collections may be considered types of namespace, wherein taxonomic names and specimen identifiers, respectively, function as local names. Character state descriptions may also be considered local names within a publication.
-				</p>
-				<p>
 					A <strong>qualified name</strong> is an expression joining a namespace identifier with a local name.
 					Different computer languages have different methods of joining these.
 					Common conventions are to use one or two colons ("<code>:</code>").
-					<a href="http://namesonnodes.org/" class="title">Names on Nodes</a> uses double colons to join a URI namespace identifier to a local name.
-					Examples of usage:
 				</p>
-				<ul>
-					<li>To indicate a taxonomic name regulated by a nomenclatural code: <code>urn:isbn:3906166481::Pinus</code> (the botanical genus <span class="nomen">Pinus</span>). Note that the name must be unique under the code. For the zoological code, names are only unique within a rank group. Therefore, an additional qualification is needed. For example, <code>urn:isbn:0853010064::fam:Columbina</code> is a zoological name in the family group (in this case, a subtribe) and <code>urn:isbn:0853010064::gen:Columbina</code> is a zoological name in the genus group (in this case, a genus).</li>
-					<li>To indicate a specimen in a collection: <code>http://www.peabody.yale.edu/collections/vp::1450</code> (<span class="math">YPM-VP 1450</span>).</li>
-					<li>To indicate a character state as described in a publication: <code>urn:bici:0912532572(200112)%3C7:FDFDCD%3E2.0.TX;2-H::wings+used+for+powered+flight</code> (the character &quot;wings used for powered flight&quot; as specified by Gauthier &amp; de Queiroz [2001]).</li>
-					<li>To indicate a specific date: <code>urn:iso:8601::17580101</code> (1758 January 1). In <a href="http://namesonnodes.org/" class="title">Names on Nodes</a>, dates are interpreted as referring to all taxonomic units extant as of or after the specified date.</li>
-				</ul>
 				<a id="section-XML"></a>
 				<h4 class="langname">XML</h4>
 				<p>
@@ -908,49 +864,38 @@
 					The <span class="langname">MathML</span> element <code>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;sin/&gt;&lt;cn&gt;0&lt;/cn&gt;&lt;/apply&gt;</code> indicates that the sine function (<span class="math">sin</span>) is to be applied to the constant number, <span class="math">0</span> (zero).
 				</p>
 				<p>
-					Another important element is the <code>csymbol</code> element, which allows the creation of custom-defined mathematical entities.
-					This is commonly achieved through use of the <code>csymbol</code> element's <code>definitionURL</code> attribute.
-					In <a href="http://namesonnodes.org/" class="title">Names on Nodes</a>, the value of the <code>definitionURL</code> attribute may be:
+					Other important elements are the <code>ci</code> (content identifier) and <code>csymbol</code> (content symbol) elements, which allow the creation of custom-defined mathematical entities.
+					A <code>ci</code> element must be defined within the <span class="langname">MathML</span> document.
+					A <code>csymbol</code> element has an attribute called <code>definitionURL</code>, which contains a URL that locates the symbol's definition.
+					In <a href="http://namesonnodes.org/" class="title">Names on Nodes</a>, the value of the <code>definitionURL</code> attribute may be a URL identifying a definition in this document, e.g., <a href="#def-UniversalTaxon" class="term"><code>http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</code></a>.
+					Both <code>ci</code> and <code>csymbol</code> elements may contain <span class="langname">MathML-Presentation</span> elements indicating how they are to be presented.
 				</p>
-				<ul>
-					<li>
-						A URI or a qualified name identifying a taxon.
-						For example, the zoological genus <span class="nomen">Tyrannosaurus</span> may be referenced using the URI <code>urn:lsid:ubio.org:namebank:4419260</code> (a Life Science Identifier) or the qualified name <code>urn:isbn:0853010064::gen:Tyrannosaurus</code> (which refers to the <span class="title">ICZN</span> via its ISBN number and uses the local name &quot;<span class="nomen">Tyrannosaurus</span>&quot;).
-					</li>
-					<!--li>
-						A qualified name identifying a dataset, e.g., "<code>urn:sha1:7ba04f9b4289bf102e17854388108f9f6553ce5b::DISTANCES:0</code>".
-						If used as an operation, this is interpreted as the metric function corresponding to the distance matrix in the dataset, if any.
-					</li-->
-					<li>A URL identifying a definition in this document, e.g., <a href="#def-UniversalTaxon" class="term"><code>http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</code></a>.</li>
-				</ul>
 				<p>
 					<span class="header">Example.</span>
-					The following <span class="langname">MathML</span> element indicates a node-based clade consisting of all successors of the maximal common predecessors of the types of botanical species <span class="nomen">Lycopodium clavatum</span>, <span class="nomen">Huperzia selago</span>, <span class="nomen">Iso&euml;tes lacustris</span>, and <span class="nomen">Selaginella apoda</span>.
+					The following <span class="langname">MathML</span> element defines the identifier <code>&lt;ci&gt;Lycopodiophyta&lt;/ci&gt;</code> a node-based clade consisting of all successors of the maximal common predecessors of the types of species <span class="nomen">Lycopodium clavatum</span>, <span class="nomen">Huperzia selago</span>, <span class="nomen">Iso&euml;tes lacustris</span>, and <span class="nomen">Selaginella apoda</span>.
 					(This is <a href="http://www.phylodiversity.net/donoghue/publications/MJD_papers/2007/164_Cantino_Taxon07.pdf">Cantino et al.'s [2007]</a> definition of the clade name "<span class="nomen">Lycopodiophyta</span>".)
 				</p>
-				<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
+				<pre>&lt;declare xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+&nbsp;&nbsp;&nbsp;&lt;ci&gt;Lycopodiophyta&lt;/ci&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:3906166481::Lycopodium+clavatum"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:3906166481::Huperzia+selago"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:3906166481::Isoetes+lacustris"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:3906166481::Selaginella+apoda"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mo form="function-model"&gt;Clade&lt;/mo&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/csymbol&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;apply&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ci&gt;Lycopodium clavatum&lt;/ci&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ci&gt;Huperzia selago&lt;/ci&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ci&gt;Isoetes lacustris&lt;/ci&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ci&gt;Selaginella apoda&lt;/ci&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;/apply&gt;
-&lt;/apply&gt;</pre>
+&lt;/declare&gt;</pre>
 				<p>
-					Here is an alternate version using URNs (Life Science Identifiers) instead of qualified names: 
+					This assumes that the identifiers <code>&lt;ci&gt;Lycopodium clavatum&lt;/ci&gt;</code>, <code>&lt;ci&gt;Huperzia selago&lt;/ci&gt;</code>, <code>&lt;ci&gt;Isoetes lacustris&lt;/ci&gt;</code>, and <code>&lt;ci&gt;Selaginella apoda&lt;/ci&gt;</code> have been defined elsewhere.
+					The <code>csymbol</code> element contains some <span class="langname">MathML-Presentation</span> stating that it is to be presented as a function operator with the name <code>Clade</code>.
+					The presentation markup is superfluous to the mathematical meaning.
+					The entire expression might be presented visually as: <span class="math"><i>Lycopodiophyta</i> := Clade(<i>Lycopodium clavatum</i> &#x222A; <i>Huperzia selago</i> &#x222A; <i>Isoetes lacustris</i> &#x222A; <i>Selaginella apoda</i>)</span>.
 				</p>
-				<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;apply&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:2644342"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:471067"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:446548"/&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:lsid:ubio.org:namebank:446489"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;/apply&gt;
-&lt;/apply&gt;</pre>
 				<p>For more on <span class="langname">MathML</span>, see this official specification: <a href="http://www.w3.org/TR/MathML2/" class="title">Mathematical Markup Language (MathML) Version 2.0 (Second Edition)</a>.</p>
 				<a id="section-CorrelateBioMath"></a>
 				<h2>On the Correlation of Biological and Mathematical Terms</h2>
@@ -1147,7 +1092,7 @@
             Note that the trait arose three times, in the ancestors of chiropterans (bats), pterosaurs, and avians (birds), and that the trait was lost once, in the ancestors of <span class="nomen">Struthio camelus</span> (ostriches).
           </p>
         </div>
-				<a id="def-TaxonomicUnits"></a>
+				<a id="def-PhylogeneticGraph"></a>
 				<h3>Taxonomic Units</h3>
 				<table class="definition">
 					<tr>
@@ -1156,34 +1101,51 @@
 					</tr>
 					<tr>
 						<th>Symbol</th>
-						<td><span class="math">T</span></td>
+						<td><span class="math">P</span></td>
 					</tr>
 					<tr>
 						<th>Class</th>
-						<td>Set</td>
+						<td>List (Directed, Acyclic Graph)</td>
 					</tr>
 					<tr>
 						<th>Definition</th>
 						<td class="math">
 						  <p>T := the set of all taxonomic units.</p>
+						  <p>&#x22B2; := the relation of parent units to child units.</p>
+						  <p>P := [T, &#x22B2;].</p>
 						</td>
 					</tr>
 					<tr>
 						<th>Discussion</th>
 						<td>
 							<p>
-                <span class="math">T</span> is the set of all taxonomic units in the current phylogenetic context.
+				                <span class="math">T</span> is the set of all taxonomic units in the current phylogenetic context.
+				                This is not to be confused with <span class="math">U</span>, which is the union of all taxonomic units in the current phylogenetic context.
 							</p>
 							<p>
-                This is not to be confused with <span class="math">U</span>, which is the union of all taxonomic units in the current phylogenetic context.
+								The relation <span class="math">&#x22B2;</span> includes all ordered pairs <span class="math">(<i>x</i>, <i>y</i>) &isin; T<sup>2</sup></span> such that <span class="math"><i>x</i></span> is an immediate ancestor (parent) of <span class="math"><i>y</i></span>. 
+							</p>
+							<p>
+								<span class="math">P</span> is a directed, acyclic graph, which serves as the phylogenetic context for all other entities defined herein.
 							</p>
 						</td>
 					</tr>
 					<tr>
 						<th>Implementation</th>
 						<td>
-              <code>org.namesonnodes.domain.nodes::PhyloGraph.vertices</code>
-            </td>
+							<p>
+				              <span class="math">P</span> may be any implementation of <code>asmathema.collections.lists::FiniteList</code>, usually <code>asmathema.collections.lists::OrderedPair</code>.
+			              </p>
+							<p>
+				              <span class="math">T</span> may be any implementation of <code>asmathema.collections.sets::FiniteSet</code>, usually <code>asmathema.collections.sets::HashSet</code>.
+			              </p>
+							<p>
+				              <span class="math">&#x22B2;</span> may be any implementation of <code>asmathema.collections.sets::FiniteSet</code> and <code>asmathema.collections.operators::Operator</code>, usually <code>asmathema.collections.sets::HashSet</code>.
+			              </p>
+			              <p>
+				              See also <code>asmathema.collections.graphs::DAGSolver</code> and <code>asmathema.collections.graphs::GraphBuilder</code>.
+							</p>
+			            </td>
 					</tr>
 				</table>
 			  <div class="thead">Example</div>
@@ -1192,18 +1154,24 @@
   					<tr>
   						<th class="langName">MathML</th>
   						<td>
-  							<pre>&lt;csymbol xmlns="http://www.w3.org/1998/Math/MathML"
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;definitionURL="http://namesonnodes.org/ns/math/2009#def-TaxonomicUnits"/&gt;</pre>
+  							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+&nbsp;&nbsp;&nbsp;&lt;selector/&gt;
+&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PhylogeneticGraph"&gt;P&lt;/csymbol&gt;
+&nbsp;&nbsp;&nbsp;&lt;cn&gt;2&lt;/cn&gt;
+&lt;/apply&gt;</pre>
   						</td>
   					</tr>
   					<tr>
   						<th>Formula</th>
-  						<td><span class="math">T</span></td>
+  						<td><span class="math">P<sub>2</sub></span></td>
   					</tr>
   					<tr>
   						<th>Discussion</th>
   						<td>
-                <p>In the example context, <span class="math">T := {<i>Crocodylus niloticus</i>, <i>Diadectes</i>, <i>Dimorphodon</i>, <i>Equus africanus</i>, <i>Equus ferus</i>, <i>Equus stenonis</i>, <i>Homo sapiens</i>, <i>Ichthyornis</i>, <i>Lacerta agilis</i>, <i>Ornithorhynchus anatinus</i>, <i>Pterodactylus</i>, <i>Struthio camelus</i>, <i>Testudo graeca</i>, <i>Tinamus major</i>, <i>Tyrannosaurus</i>, <i>Vespertilio murinus</i>, <i>Vultur gryphus</i>, hinny, mule, HTU<sub>1</sub>, HTU<sub>2</sub>, HTU<sub>3</sub>, HTU<sub>4</sub>, HTU<sub>5</sub>, HTU<sub>6</sub>, HTU<sub>7</sub>, HTU<sub>8</sub>, HTU<sub>9</sub>, HTU<sub>10</sub>, HTU<sub>11</sub>, HTU<sub>12</sub>, HTU<sub>13</sub>}</span>.</p>
+                <p>
+                	This selects the second element of <span class="math">P</span>, namely, the relation <span class="math">&#x22B2;</span>.
+                	The set <span class="math">T</span> may be specified in a similar manner, using <code>1</code> instead of <code>2</code>.
+                </p>
               </td>
   					</tr>
   				</tbody>
@@ -1255,8 +1223,8 @@
 					<tr>
 						<th>Implementation</th>
 						<td>
-              <code>org.namesonnodes.domain.nodes::PhyloGraph.taxon</code>
-            </td>
+							<code>org.namesonnodes.math::TaxonomicUnion</code>
+						</td>
 					</tr>
 				</table>
 				<div class="thead">Example</div>
@@ -1265,7 +1233,9 @@
 						<th class="langname">MathML</th>
 						<td>
 							<pre>&lt;csymbol xmlns="http://www.w3.org/1998/Math/MathML"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"&gt;
+&nbsp;&nbsp;&nbsp;U
+&lt;/csymbol&gt;</pre>
 						</td>
 					</tr>
 					<tr>
@@ -1279,299 +1249,6 @@
 						<td>
               <p>In the example context, <span class="math">U = <i>Crocodylus niloticus</i> &#x222A; <i>Diadectes</i> &#x222A; <i>Dimorphodon</i> &#x222A; <i>Equus africanus</i> &#x222A; <i>Equus ferus</i> &#x222A; <i>Equus stenonis</i> &#x222A; <i>Homo sapiens</i> &#x222A; <i>Ichthyornis</i> &#x222A; <i>Lacerta agilis</i> &#x222A; <i>Ornithorhynchus anatinus</i> &#x222A; <i>Pterodactylus</i> &#x222A; <i>Struthio camelus</i> &#x222A; <i>Testudo graeca</i> &#x222A; <i>Tinamus major</i> &#x222A; <i>Tyrannosaurus</i> &#x222A; <i>Vespertilio murinus</i> &#x222A; <i>Vultur gryphus</i> &#x222A; hinny &#x222A; mule &#x222A; HTU<sub>1</sub> &#x222A; HTU<sub>2</sub> &#x222A; HTU<sub>3</sub> &#x222A; HTU<sub>4</sub> &#x222A; HTU<sub>5</sub> &#x222A; HTU<sub>6</sub> &#x222A; HTU<sub>7</sub> &#x222A; HTU<sub>8</sub> &#x222A; HTU<sub>9</sub> &#x222A; HTU<sub>10</sub> &#x222A; HTU<sub>11</sub> &#x222A; HTU<sub>12</sub> &#x222A; HTU<sub>13</sub></span>.</p>
             </td>
-					</tr>
-				</table>
-				<a id="def-ImmediatePredecessor"></a>
-				<h3>Immediate Predecessor</h3>
-				<table class="definition">
-					<tr>
-						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessor</code></td>
-					</tr>
-					<tr>
-						<th>Symbol</th>
-						<td><span class="math">&#x22B2;</span></td>
-					</tr>
-					<tr>
-						<th>Class</th>
-						<td>Relation</td>
-					</tr>
-					<tr>
-						<th>Definition</th>
-						<td class="math">
-						  <p>&#x22B2; := {[<i>X</i>, <i>Y</i>] &isin; <i>T</i><sup>2</sup> | <i>X</i> is a parent unit of <i>Y</i>}</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>
-                A phylogenetic hypothesis posits the existence of ancestor-descendant relationships between taxonomic units.
-                An immediate successor, or child, to an ancestor is a descendant for which there are no intermediate descendants. 
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td>
-              <code>org.namesonnodes.domain.nodes::PhyloGraph.arcs</code>
-            </td>
-					</tr>
-				</table>
-				<div class="thead">Example 1. The Relation As a Set</div>
-				<table class="example">
-					<tr>
-						<th class="langname">MathML</th>
-						<td>
-							<pre>&lt;csymbol xmlns="http://www.w3.org/1998/Math/MathML"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;definitionURL="http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessor"/&gt;</pre>
-						</td>
-					</tr>
-					<tr>
-						<th>Formula</th>
-						<td><span class="math">&#x22B2;</span></td>
-					</tr>
-				  <tr>
-				    <th>Discussion</th>
-				    <td>
-				      <p>In the example context, <span class="math">&#x22B2; := {[HTU<sub>1</sub>, <i>Diadectes</i>], [HTU<sub>1</sub>, HTU<sub>2</sub>], [HTU<sub>2</sub>, HTU<sub>3</sub>], [HTU<sub>2</sub>, HTU<sub>6</sub>], [HTU<sub>3</sub>, <i>Ornithorhynchus anatinus</i>], [HTU<sub>3</sub>, HTU<sub>4</sub>], [HTU<sub>4</sub>, <i>Homo sapiens</i>], [HTU<sub>4</sub>, HTU<sub>5</sub>], [HTU<sub>5</sub>, <i>Vespertilio murinus</i>], [HTU<sub>5</sub>, <i>Equus stenonis</i>], [<i>Equus stenonis</i>, <i>Equus africanus</i>], [<i>Equus stenonis</i>, <i>Equus ferus</i>], [<i>Equus africanus</i>, mule], [<i>Equus africanus</i>, hinny], [<i>Equus ferus</i>, mule], [<i>Equus ferus</i>, hinny], [HTU<sub>6</sub>, <i>Testudo graeca</i>], [HTU<sub>6</sub>, <i>Lacerta agilis</i>], [HTU<sub>6</sub>, HTU<sub>7</sub>], [HTU<sub>7</sub>, <i>Crocodylus niloticus</i>], [HTU<sub>7</sub>, HTU<sub>8</sub>], [HTU<sub>8</sub>, HTU<sub>9</sub>], [HTU<sub>8</sub>, HTU<sub>10</sub>], [HTU<sub>9</sub>, <i>Dimorphodon</i>], [HTU<sub>9</sub>, <i>Pterodactylus</i>], [HTU<sub>10</sub>, <i>Tyrannosaurus</i>], [HTU<sub>10</sub>, HTU<sub>11</sub>], [HTU<sub>11</sub>, <i>Ichthyornis</i>], [HTU<sub>11</sub>, HTU<sub>12</sub>], [HTU<sub>12</sub>, <i>Vultur gryphus</i>], [HTU<sub>12</sub>, HTU<sub>13</sub>], [HTU<sub>13</sub>, <i>Struthio camelus</i>], [HTU<sub>13</sub>, <i>Tinamus major</i>]}</span>.</p>
-				    </td>
-				</table>
-				<div class="thead">Example 2. Immediate Precedence</div>
-				<table class="example">
-					<tr>
-						<th class="langname">MathML</th>
-						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessor"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+stenonis"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+africanus"/&gt;
-&lt;/apply&gt;</pre>
-						</td>
-					</tr>
-					<tr>
-						<th>Formula</th>
-						<td><span class="math"><i>Equus stenonis</i> &#x22B2; <i>Equus africanus</i></span></td>
-					</tr>
-				  <tr>
-				    <th>Discussion</th>
-				    <td>
-				      <p>In the example context, this evaluates to <span class="math">true</span>, since <span class="nomen">Equus stenonis</span> is deemed a parent unit (immediate predecessor) of <span class="nomen">Equus africanus</span> (asses).</p>
-				    </td>
-				  </tr>
-				</table>
-				<div class="thead">Example 3. Non-Immediate Precedence</div>
-				<table class="example">
-					<tr>
-						<th class="langname">MathML</th>
-						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessor"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+stenonis"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#otu-mule"/&gt;
-&lt;/apply&gt;</pre>
-						</td>
-					</tr>
-					<tr>
-						<th>Formula</th>
-						<td><span class="math"><i>Equus stenonis</i> &#x22B2; mule</span></td>
-					</tr>
-				  <tr>
-				    <th>Discussion</th>
-				    <td>
-				      <p>
-                In the example context, this evaluates to <span class="math">false</span>.
-                Although <span class="nomen">Equus stenonis</span> is a predecessor of <span class="math">mule</span>, it is not an immediate predecessor, since <span class="nomen">Equus africanus</span> (asses) and <span class="nomen">Equus ferus</span> (horses) are intermediate predecessors.</p>
-				    </td>
-				  </tr>
-				</table>
-				<a id="def-ImmediatePredecessorOrEqual"></a>
-				<h3>Immediate Predecessor Or Equal</h3>
-				<table class="definition">
-					<tr>
-						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessorOrEqual</code></td>
-					</tr>
-					<tr>
-						<th>Symbol</th>
-						<td><span class="math">&#x22B4;</span></td>
-					</tr>
-					<tr>
-						<th>Class</th>
-						<td>Relation</td>
-					</tr>
-					<tr>
-						<th>Definition</th>
-						<td class="math">
-						  <p>&#x22B4; := {[<i>X</i>, <i>Y</i>] &isin; <i>T</i><sup>2</sup> | <i>X</i> &#x22B2; <i>Y</i> or <i>X</i> = <i>Y</i>}</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>
-							   This relation relates parents to children as well as to themselves.
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td>
-              <code>org.namesonnodes.math.operations::ImmediatePredecessorOrEqual</code>
-            </td>
-					</tr>
-				</table>
-				<div class="thead">Example</div>
-				<table class="example">
-					<tr>
-						<th class="langname">MathML</th>
-						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ImmediatePredecessorOrEqual"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+ferus"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Equus+ferus"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#otu-mule"/&gt;
-&lt;/apply&gt;</pre>
-						</td>
-					</tr>
-					<tr>
-						<th>Formula</th>
-						<td><span class="math"><i>Equus ferus</i> &#x22B4; <i>Equus ferus</i> &#x22B4; mule</span></td>
-					</tr>
-				  <tr>
-				    <th>Discussion</th>
-				    <td>
-				      <p>
-                In the example context, this evaluates to <span class="math">true</span>, since <span class="math"><i>Equus ferus</i> = <i>Equus ferus</i></span> and  <span class="math"><i>Equus ferus</i> &#x22B2; mule</span>.
-              </p>
-				    </td>
-				  </tr>
-				</table>
-				<a id="def-Predecessor"></a>
-				<h3>Predecessor</h3>
-				<table class="definition">
-					<tr>
-						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#def-Predecessor</code></td>
-					</tr>
-					<tr>
-						<th>Symbol</th>
-						<td><span class="math">&#x227C;</span></td>
-					</tr>
-					<tr>
-						<th>Class</th>
-						<td>Relation</td>
-					</tr>
-					<tr>
-						<th>Definition</th>
-						<td class="math">
-						  <p>&#x227C; := {[<i>X</i>, <i>Y</i>] &isin; <i>T</i><sup>2</sup> | <i>X</i> &#x22B4; <i>Y</i> or there exists some <i>Z</i> &isin; <i>T</i> such that <i>X</i> &#x22B2; <i>Z</i> and <i>Z</i> &#x227C; <i>Y</i>}.</p>
-						  or
-						  <p>&#x227C; is the transitive closure of &#x22B4;.</p> 
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>
-							 The predecessor of a taxonomic unit is any ancestor of that unit, or that unit itself.
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td>
-              <code>org.namesonnodes.math.operations::Predecessor</code>
-            </td>
-					</tr>
-				</table>
-				<div class="thead">Example</div>
-				<table class="example">
-					<tr>
-						<th class="langname">MathML</th>
-						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Predecessor"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#htu-1"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Homo+sapiens"/&gt;
-&lt;/apply&gt;</pre>
-            </td>
-          </tr>
-					<tr>
-						<th>Formula</th>
-						<td><span class="math">HTU<sub>1</sub> &#x227C; <i>Homo sapiens</i></span></td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-					 <td>
-              <p>
-                In the example context, this evaluates to <span class="math">true</span>, since <span class="math">HTU<sub>1</sub></span> precedes <span class="nomen">Homo sapiens</span> (humans) through the lineage <span class="math">[HTU<sub>1</sub>, HTU<sub>2</sub>,  HTU<sub>3</sub>,  HTU<sub>5</sub>,  <i>Homo sapiens</i>]</span>. 
-              </p>
-						</td>
-					</tr>
-				</table>
-				<a id="def-ProperPredecessor"></a>
-				<h3>Proper Predecessor</h3>
-				<table class="definition">
-					<tr>
-						<th>Definition URL</th>
-						<td><code>http://namesonnodes.org/ns/math/2009#def-ProperPredecessor</code></td>
-					</tr>
-					<tr>
-						<th>Symbol</th>
-						<td><span class="math">&#x227A;</span></td>
-					</tr>
-					<tr>
-						<th>Class</th>
-						<td>Relation</td>
-					</tr>
-					<tr>
-						<th>Definition</th>
-						<td class="math">
-						  <p>&#x227A; := {[<i>X</i>, <i>Y</i>] &isin; <i>T</i><sup>2</sup> | <i>X</i> &#x227C; <i>Y</i> and <i>X</i> &ne; <i>Y</i>}</p>
-						  or
-						  <p>&#x227A; := {[<i>X</i>, <i>Y</i>] &isin; <i>T</i><sup>2</sup> | <i>X</i> &#x22B2; <i>Y</i> or for some <i>Z</i> &isin; <i>T</i>, <i>X</i> &#x22B2; <i>Z</i> and <i>Z</i> &#x227A; <i>Y</i>}</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Discussion</th>
-						<td>
-							<p>
-							 The proper predecessor of a taxonomic unit is any ancestor of that unit.
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Implementation</th>
-						<td>
-              <code>org.namesonnodes.math.operations::ProperPredecessor</code>
-            </td>
-					</tr>
-				</table>
-				<div class="thead">Example</div>
-				<table class="example">
-					<tr>
-						<th class="langname">MathML</th>
-						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ProperPredecessor"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Homo+sapiens"/&gt;
-&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="urn:isbn:0853010064::sp:Homo+sapiens"/&gt;
-&lt;/apply&gt;</pre>
-            </td>
-          </tr>
-					<tr>
-						<th>Symbol</th>
-						<td><span class="math"><i>Homo sapiens</i> &#x227A; <i>Homo sapiens</i></span></td>
-					</tr>
-					<tr>
-					 <th>Discussion</th>
-					 <td>
-              <p>
-                This evaluates as <span class="math">false</span>.
-                <span class="nomen">Homo sapiens</span> (humans) is a predecessor of itself, but not a proper predecessor.
-              </p>
-						</td>
 					</tr>
 				</table>
 				<a id="def-Maximal"></a>
