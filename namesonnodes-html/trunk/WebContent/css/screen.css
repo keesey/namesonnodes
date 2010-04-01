@@ -156,6 +156,8 @@ p.affiliations	{ font-size: .85em; margin: 0; line-height:1.4em; }
 p.authors { margin: 10px 0 0 0; font-weight: bold; font-size: 1.1em; }
 p.publication-date {font-size: 0.9em; margin:0; text-align: right}
 span.header {color: #333; font-size: 110%; line-height: 1em; font-family:Georgia, serif; margin-right: 0.5em;}
+p.skip {margin: 0; padding: 0; font-size: 75%;}
+
 p.subtitle { margin: 0; font-weight: bold; font-size: 1.1em; }
 strong
 {
