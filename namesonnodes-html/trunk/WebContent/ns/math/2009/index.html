@@ -51,13 +51,13 @@
 		<div id="container">
 			<div id="content">
 				<a name="h1" id="h1"></a>
-				<h1><a href="http://namesonnodes.org/" class="title">Names on Nodes</a>: <span class="langname">MathML</span> Definitions (Version 1.1.1)</h1>
-				<p class="authors">T. Michael Keesey<sup><a href="#aff1">1</a></sup></p>
-				<p class="affiliations"><a name="aff1" id="aff1"></a><strong>1</strong> P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes%3AMathML+Definitions"><code>keesey@gmail.com</code></a></p>
+				<h1><a href="http://namesonnodes.org/" class="title">Names on Nodes</a>: <span class="langname">MathML</span> Definitions (Version 1.2)</h1>
+				<p class="authors">T. Michael Keesey<!--<sup><a href="#aff1">*</a></sup>--></p>
+				<p class="affiliations"><!--<a name="aff1" id="aff1"></a><strong>*</strong> -->P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes%3AMathML+Definitions"><code>keesey@gmail.com</code></a></p>
 				<p class="publication-date">First Draft Published Online 2009 July 29</p>
 				<p class="publication-date">Version 1.0 Published Online 2010 February 21</p>
-				<p class="publication-date">Version 1.2 Published Online 2010 March 31</p>
-				<br />
+				<p class="publication-date">Version 1.2 Published Online 2010 April 2</p>
+				<p class="skip">&#x2193; <a href="#section-DefinitionsMath">Skip to the definitions.</a></p>
 				<div id="section-Abstract">
 					<h2>Abstract</h2>
 					<p>
@@ -102,7 +102,6 @@
 								<a href="#section-Taxonomy">Taxonomy</a> &#x2022;
 								<a href="#section-Specimens">Specimens</a> &#x2022;
 								<a href="#section-CharacterStates">Character States</a> &#x2022;
-								<a href="#section-RankBasedNomenclature">Rank-Based Nomenclature</a> &#x2022;
 								<a href="#section-Phylogeny">Phylogeny</a> &#x2022;
 								<a href="#section-Lineages">Lineages</a> &#x2022;
 								<a href="#section-Cladogens">Cladogens</a> &#x2022;
@@ -186,10 +185,11 @@
         </p>
         <p>
           <a href="http://namesonnodes.org/" class="title">Names on Nodes</a> is an open-source project.
-          The progress of the project, including this document, can be viewed online at <a href="http://code.google.com/p/namesonnodes/"><code>http://code.google.com/p/namesonnodes/</code></a> (this website, older versions of the project) and <a href="http://bitbucket.org/keesey/namesonnodes-sa/"><code>http://bitbucket.org/keesey/namesonnodes-sa/</code></a> (the standalone version).
+          The progress of the project, including this document, can be viewed online at <a href="http://code.google.com/p/namesonnodes/"><code>http://code.google.com/p/namesonnodes/</code></a> (this website, older versions of the project) and <a href="http://bitbucket.org/keesey/namesonnodes-sa/"><code>http://bitbucket.org/keesey/namesonnodes-sa/</code></a> (the standalone version of the application).
         </p>
 				<a id="section-ReviewMath"></a>
 				<h3>A General Review of Mathematical Concepts, Terms, and Notation</h3>
+				<p class="skip">&#x2193; <a href="#section-ReviewBio">Skip this section.</a></p>
 				<p>
 					Some terminology and notation varies across different contexts.
 					Where possible, I have followed <span class="langname">MathML</span>'s terminology and default notation.
@@ -414,6 +414,7 @@
 				</p-->
 				<a id="section-ReviewBio"></a>
 				<h3>A General Review of Biological Concepts and Terms</h3>
+				<p class="skip">&#x2193; <a href="#section-ReviewMathML">Skip this section.</a></p>
 				<a id="section-TaxonomicUnits"></a>
 				<h4>Taxonomic Units</h4>
 				<p>
@@ -463,7 +464,7 @@
 					(Note that there is no such thing as a "superunit"; if a taxon has subsets in a certain context, then it is not a unit.)
 				</p>
 				<p>
-					A <strong>taxonomy</strong> is a scheme or system for recognizing certain taxa and relating them as supertaxa and subtaxa.
+					A <strong>taxonomy</strong> is a scheme or system for recognizing certain taxa and relating them as supertaxa and subtaxa (or, in some cases, overlapping taxa).
 				</p>
 				<p>
 					A taxon is extant if any of its members are extant, and extinct if all of it members are extinct.
@@ -695,6 +696,7 @@
 				</p>
 				<a id="section-ReviewMathML"></a>
 				<h3>A General Review of <span class="langname">MathML</span> and Its Foundational Technologies</h3>
+				<p class="skip">&#x2193; <a href="#section-CorrelateBioMath">Skip this section.</a></p>
 				<a id="section-Strings"></a>
 				<h4>Strings</h4>
 					<p>
@@ -739,13 +741,13 @@
 				<a id="section-XML"></a>
 				<h4 class="langname">XML</h4>
 				<p>
-					<span class="langname"><strong>Extensible Markup Language</strong></span>, or <span class="langname"><strong>XML</strong></span> for short, is a specification for creating markup languages.
+					<span class="langname"><strong>Extensible Markup Language</strong></span>, or <span class="langname"><strong>XML</strong></span> for short, is a specification for creating <strong>markup languages</strong>.
 					Text in <span class="langname">XML</span> may be surrounded with <strong>tags</strong>: an <strong>opening tag</strong>, of the form <code>&lt;<i>abc</i>&gt;</code>, and a <strong>closing tag</strong>, of the form <code>&lt;/<i>abc</i>&gt;</code>, where &quot;<code><i>abc</i></code>&quot; is the name of the tag.
 					For example, in the <span class="langname">XML</span> expression <code>&lt;sentence&gt;Hello, world!&lt;/sentence&gt;</code>, the text "<code>Hello, world!</code>" has been marked up by <code>sentence</code> tags.
 					<span class="langname">XML</span> tags may also included nested tags, for example: <code>&lt;sentence&gt;&lt;word&gt;Hello&lt;/word&gt;, &lt;word&gt;world&lt;/word&gt;!&lt;/sentence&gt;</code>.
 					The entire stucture consisting of an opening tag, content, and a closing tag is an <strong>element</strong>.
 					Any elements within an element's content are <strong>child elements</strong>.
-					An element with no content,  an <strong>empty element</strong>, may be written as a <strong>self-closing tag</strong>: <code>&lt;<i>tagName</i>/&gt;</code>.
+					An element with no content,  an <strong>empty element</strong>, may be written as a <strong>self-closing tag</strong>: <code>&lt;<i>abc</i>/&gt;</code>.
 				</p>
 				<p>
 					Both opening and self-closing <span class="langname">XML</span> tags may be augmented with <strong>attributes</strong>, each of which pairs a name to a value: <code>&lt;<i>tagName</i> <i>attrName</i>="<i>attrValue</i>"/&gt;</code>.
@@ -799,14 +801,14 @@
 				</p>
 				<p>
 					Other important elements are the <code>ci</code> (content identifier) and <code>csymbol</code> (content symbol) elements, which allow the creation of custom-defined mathematical entities.
-					A <code>ci</code> element must be defined within the <span class="langname">MathML</span> document.
+					A <code>ci</code> element uses its textual content as a unique identifier, must be defined within the <span class="langname">MathML</span> document.
 					A <code>csymbol</code> element has an attribute called <code>definitionURL</code>, which contains a URL that locates the symbol's definition.
 					In <a href="http://namesonnodes.org/" class="title">Names on Nodes</a>, the value of the <code>definitionURL</code> attribute may be a URL identifying a definition in this document, e.g., <a href="#def-UniversalTaxon" class="term"><code>http://namesonnodes.org/ns/math/2009#def-UniversalTaxon</code></a>.
 					Both <code>ci</code> and <code>csymbol</code> elements may contain <span class="langname">MathML-Presentation</span> elements indicating how they are to be presented.
 				</p>
 				<p>
 					<span class="header">Example.</span>
-					The following <span class="langname">MathML</span> element defines the identifier <code>&lt;ci&gt;Lycopodiophyta&lt;/ci&gt;</code> as a node-based clade consisting of all successors of the maximal common predecessors of the types of species <span class="nomen">Lycopodium clavatum</span>, <span class="nomen">Huperzia selago</span>, <span class="nomen">Iso&euml;tes lacustris</span>, and <span class="nomen">Selaginella apoda</span>.
+					The following <span class="langname">MathML</span> element defines the identifier <code>&lt;ci&gt;Lycopodiophyta&lt;/ci&gt;</code> as a node-based clade consisting of all successors of the maximal common predecessors of the species <span class="nomen">Lycopodium clavatum</span>, <span class="nomen">Huperzia selago</span>, <span class="nomen">Iso&euml;tes lacustris</span>, and <span class="nomen">Selaginella apoda</span>.
 					(This is equivalent to <a href="http://www.phylodiversity.net/donoghue/publications/MJD_papers/2007/164_Cantino_Taxon07.pdf">Cantino et al.'s [2007]</a> definition of the clade name "<span class="nomen">Lycopodiophyta</span>".)
 				</p>
 				<pre>&lt;declare xmlns="http://www.w3.org/1998/Math/MathML"&gt;
@@ -829,6 +831,7 @@
 				<p>For more on <span class="langname">MathML</span>, see this official specification: <a href="http://www.w3.org/TR/MathML2/" class="title">Mathematical Markup Language (MathML) Version 2.0 (Second Edition)</a>.</p>
 				<a id="section-CorrelateBioMath"></a>
 				<h2>On the Correlation of Biological and Mathematical Terms</h2>
+				<p class="skip">&#x2193; <a href="#section-DefinitionsMath">Skip this section.</a></p>
 				<a id="section-TaxaSets"></a>
 				<h3>Taxa and Sets</h3>
 				<p>
@@ -843,8 +846,9 @@
 					An intersection of taxa, <span class="math"><i>T</i><sub>1</sub> &#x2229; <i>T</i><sub>2</sub> &#x2229; &#x2026; &#x2229; <i>T</i><sub><i>n</i></sub></span>, constitutes a monothetic taxon.
 				</p>
 				<p>
-					A rank-based taxonomy of a taxon, <span class="math"><i>T</i></span>, may be considered a series of partitions on <span class="math"><i>T</i></span>, wherein each partition corresponds to a rank.
-					Partitions of lower ranks are refinements of partitions of higher ranks, e.g., a species-level partition is a refinement of a genus-level partition.
+					A set of taxonomic units is a partition on some subset of <span class="math">U</span>.
+					Such a set forms part of a phylogenetic hypothesis.
+					The resolution of the hypothesis is determined by the fineness or coarseness of the set of taxonomic units.
 				</p>
 				<a id="section-AncestryPrecedence"></a>
 				<h3>Ancestry and Precedence</h3>
@@ -926,11 +930,13 @@
 					<li>
 						<span class="header">Example(s).</span>
 						One or more examples of how the entity may be used in <span class="langname">MathML</span> code.
+						(See below, about <a href="#definitions-context">Phylogenetic Context</a>.)
 						Each example includes:
 						<ul>
     					<li>
     						<span class="header"><span class="langname">MathML</span>.</span>
-                <span class="langname">MathML</span> code showing how the entity may be used.
+			                <span class="langname">MathML</span> code showing how the entity may be used.
+			                The namespace <code>http://www.w3.org/1998/Math/MathML</code> is implicit throughout all examples.
     					</li>
     					<li>
     						<span class="header">Formula.</span>
@@ -952,40 +958,41 @@
 				</ul>
 				<a id="definitions-context"></a>
 				<h3>Phylogenetic Context</h3>
+				<p>(The XML namespace <code>http://www.w3.org/1998/Math/MathML</code> is implicit throughout this section.)</p>
 				<p>
 				  All definitions assume the existence of a phylogenetic graph, <span class="math">[T, &#x22B2;]</span>, where <span class="math">T</span> is the set of all taxonomic units and <span class="math">&#x22B2;</span> is the relation of parent units (immediate predecessors) to child units (immediate successors).
-          For the examples in this section, let us assume the phylogenetic graph <span class="math">[T, &#x22B2;]</span> where <span class="math">T</span>'s members are:
+          For the definition examples, let us assume the phylogenetic graph <span class="math">[T, &#x22B2;]</span> where <span class="math">T</span>'s members are:
         </p>
         <ul>
           <li>
             The extinct zoological genera <span class="nomen">Diadectes</span>, <span class="nomen">Dimorphodon</span>, <span class="nomen">Ichthyornis</span>, <span class="nomen">Pterodactylus</span>, and <span class="nomen">Tyrannosaurus</span>.
-            These may be referred to using <span class="langname">MathML</span> code of the form <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;<i>Genus</i>&lt;/ci&gt;</code>, where <code><i>Genus</i></code> is the unit's generic name.
+            These may be referred to using <span class="langname">MathML</span> code of the form <code>&lt;ci&gt;<i>Genus</i>&lt;/ci&gt;</code>, where <code><i>Genus</i></code> is the unit's generic name.
           </li>
           <li>
             The extinct zoological species <span class="nomen">Equus stenonis</span>.
-            This may be referred to using the <span class="langname">MathML</span> code of the form <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;Equus stenonis&lt;/ci&gt;</code>.
+            This may be referred to using the <span class="langname">MathML</span> code of the form <code>&lt;ci&gt;Equus stenonis&lt;/ci&gt;</code>.
           </li>
           <li>
             The extant zoological species <span class="nomen">Crocodylus niloticus</span> (Nile crocodiles), <span class="nomen">Equus africanus</span> (asses), <span class="nomen">Equus ferus</span> (horses), <span class="nomen">Homo sapiens</span> (humans), <span class="nomen">Lacerta agilis</span> (sand lizards), <span class="nomen">Ornithorhynchus anatinus</span> (platypuses), <span class="nomen">Struthio camelus</span> (ostriches), <span class="nomen">Testudo graeca</span> (spur-thighed tortoises), <span class="nomen">Tinamus major</span> (great tinamous), <span class="nomen">Vespertilio murinus</span> (parti-colored bats), and <span class="nomen">Vultur gryphus</span> (Andean condors).
-            These may be referred to using <span class="langname">MathML</span> code of the form <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;<i>Genus species</i>&lt;/ci&gt;</code>, where <code><i>Genus species</i></code> is the unit's binomial.
+            These may be referred to using <span class="langname">MathML</span> code of the form <code>&lt;ci&gt;<i>Genus species</i>&lt;/ci&gt;</code>, where <code><i>Genus species</i></code> is the unit's binomial.
           </li>
           <li>
             A singleton taxon including an extant <span class="math"><i>Equus africanus</i> &times; <i>Equus ferus</i></span> hybrid, labelled <span class="math">mule</span>.
-            This may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;mtext&gt;mule&lt;/mtext&gt;&lt;/ci&gt;</code>. 
+            This may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci&gt;&lt;mtext&gt;mule&lt;/mtext&gt;&lt;/ci&gt;</code>. 
           </li>
           <li>
             A singleton taxon including an extant <span class="math"><i>Equus ferus</i> &times; <i>Equus africanus</i></span> hybrid, labelled <span class="math">hinny</span>.
-            This may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;mtext&gt;hinny&lt;/mtext&gt;&lt;/ci&gt;</code>. 
+            This may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci&gt;&lt;mtext&gt;hinny&lt;/mtext&gt;&lt;/ci&gt;</code>. 
           </li>
           <li>
             Thirteen hypothetical taxonomic units, labelled <span class="math">HTU<sub>1</sub></span>, <span class="math">HTU<sub>2</sub></span>, &#x2026; <span class="math">HTU<sub>13</sub></span>.
-            These may be referred to using <span class="langname">MathML</span> code of the form <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;mo&gt;HTU&lt;/mo&gt;&lt;msub&gt;&lt;mn&gt;<i>n</i>&lt;mn&gt;&lt;/msub&gt;&lt;/ci&gt;</code>, where <code><i>n</i></code> is the unit's number.
+            These may be referred to using <span class="langname">MathML</span> code of the form <code>&lt;ci&gt;&lt;mphantom&gt;&lt;mo&gt;HTU&lt;/mo&gt;&lt;msub&gt;&lt;mn&gt;<i>n</i>&lt;mn&gt;&lt;/msub&gt;&lt;/mphantom&gt;&lt;/ci&gt;</code>, where <code><i>n</i></code> is the unit's number.
             All hypothetical taxonomic units are considered extinct.
           </li>
         </ul>
         <p>
         	The extant units are <span class="nomen">Crocodylus niloticus</span>, <span class="nomen">Equus africanus</span>, <span class="nomen">Equus ferus</span>, <span class="nomen">Homo sapiens</span>, <span class="nomen">Lacerta agilis</span>, <span class="nomen">Ornithorhynchus anatinus</span>, <span class="nomen">Struthio camelus</span>, <span class="nomen">Testudo graeca</span>, <span class="nomen">Tinamus major</span>, <span class="nomen">Vespertilio murinus</span>, <span class="nomen">Vultur gryphus</span>, <span class="math">hinny</span>, and <span class="math">mule</span>.
-        	The union of these units may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;ms&gt;extant&lt;/ms&gt;&lt;/ci&gt;</code>.
+        	The union of these units may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci&gt;&lt;ms&gt;extant&lt;/ms&gt;&lt;/ci&gt;</code>.
         </p>
         <p>
           Let <span class="math">&#x22B2;</span> be defined for <span class="math">T</span> as <span class="math">{[HTU<sub>1</sub>, <i>Diadectes</i>], [HTU<sub>1</sub>, HTU<sub>2</sub>], [HTU<sub>2</sub>, HTU<sub>3</sub>], [HTU<sub>2</sub>, HTU<sub>6</sub>], [HTU<sub>3</sub>, <i>O. anatinus</i>], [HTU<sub>3</sub>, HTU<sub>4</sub>], [HTU<sub>4</sub>, <i>H. sapiens</i>], [HTU<sub>4</sub>, HTU<sub>5</sub>], [HTU<sub>5</sub>, <i>V. murinus</i>], [HTU<sub>5</sub>, <i>E. stenonis</i>], [<i>E. stenonis</i>, <i>E. africanus</i>], [<i>E. stenonis</i>, <i>E. ferus</i>], [<i>E. africanus</i>, mule], [<i>E. africanus</i>, hinny], [<i>E. ferus</i>, mule], [<i>E. ferus</i>, hinny], [HTU<sub>6</sub>, <i>T. graeca</i>], [HTU<sub>6</sub>, <i>L. agilis</i>], [HTU<sub>6</sub>, HTU<sub>7</sub>], [HTU<sub>7</sub>, <i>C. niloticus</i>], [HTU<sub>7</sub>, HTU<sub>8</sub>], [HTU<sub>8</sub>, HTU<sub>9</sub>], [HTU<sub>8</sub>, HTU<sub>10</sub>], [HTU<sub>9</sub>, <i>Dimorphodon</i>], [HTU<sub>9</sub>, <i>Pterodactylus</i>], [HTU<sub>10</sub>, <i>Tyrannosaurus</i>], [HTU<sub>10</sub>, HTU<sub>11</sub>], [HTU<sub>11</sub>, <i>Ichthyornis</i>], [HTU<sub>11</sub>, HTU<sub>12</sub>], [HTU<sub>12</sub>, <i>V. gryphus</i>], [HTU<sub>12</sub>, HTU<sub>13</sub>], [HTU<sub>13</sub>, <i>S. camelus</i>], [HTU<sub>13</sub>, <i>T. major</i>]}</span>.
@@ -1001,7 +1008,7 @@
         </div>
         <p>
           Let us also define the apomorphic taxon <span class="math">"wings used for powered flight"</span> as <span class="math">HTU<sub>9</sub> &#x222A; HTU<sub>11</sub> &#x222A; HTU<sub>12</sub> &#x222A; HTU<sub>13</sub> &#x222A; <i>Dimorphodon</i> &#x222A; <i>Ichthyornis</i> &#x222A; <i>Pterodactylus</i> &#x222A; <i>Tinamus major</i> &#x222A; <i>Vespertilio murinus</i> &#x222A; <i>Vultur gryphus</i></span>.
-          This may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;ms&gt;wings used for powered flight&lt;/ms&gt;&lt;/ci&gt;</code>.
+          This may be referred to using the <span class="langname">MathML</span> code <code>&lt;ci&gt;&lt;ms&gt;wings used for powered flight&lt;/ms&gt;&lt;/ci&gt;</code>.
         </p>
         <div class="figure-center">
           <img src="./images/defs/apomorphic-taxon.png" width="600" height="701" class="bordered" alt=""/>
@@ -1074,7 +1081,7 @@
   					<tr>
   						<th class="langName">MathML</th>
   						<td>
-  							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+  							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;selector/&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PhylogeneticGraph"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;cn&gt;2&lt;/cn&gt;
@@ -1102,7 +1109,7 @@
   					<tr>
   						<th class="langName">MathML</th>
   						<td>
-  							<pre>&lt;declare xmlns="http://www.w3.org/1998/Math/MathML" type="list"&gt;
+  							<pre>&lt;declare&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PhylogeneticGraph"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;list&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;set&gt;
@@ -1219,8 +1226,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;csymbol xmlns="http://www.w3.org/1998/Math/MathML"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;</pre>
+							<pre>&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;</pre>
 						</td>
 					</tr>
 					<tr>
@@ -1280,7 +1286,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Maximal"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt; 
 &lt;/apply&gt;</pre>
@@ -1346,7 +1352,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Minimal"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-UniversalTaxon"/&gt;
 &lt;/apply&gt;</pre>
@@ -1422,7 +1428,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorUnion"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
@@ -1501,7 +1507,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PredecessorIntersection"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
@@ -1579,7 +1585,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorUnion"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
@@ -1659,7 +1665,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SuccessorIntersection"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
@@ -1728,7 +1734,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;ci&gt;Vultur gryphus&lt;/ci&gt;
 &nbsp;&nbsp;&nbsp;&lt;ci&gt;Pterodactylus&lt;/ci&gt;
@@ -1805,7 +1811,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;ci&gt;&lt;ms&gt;wings used for powered flight&lt;/ms&gt;&lt;/ci&gt;
 &nbsp;&nbsp;&nbsp;&lt;ci&gt;Vultur gryphus&lt;/ci&gt;
@@ -1896,7 +1902,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;ci&gt;Equus ferus&lt;/ci&gt;
 &lt;/apply&gt;</pre>
@@ -1924,7 +1930,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union&gt;
@@ -1955,7 +1961,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union&gt;
@@ -1988,7 +1994,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors"/&gt;
@@ -2020,7 +2026,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors"/&gt;
@@ -2095,7 +2101,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
@@ -2127,7 +2133,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors/&gt;
@@ -2159,7 +2165,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade"&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors/&gt;
@@ -2230,7 +2236,7 @@
 					<tr>
 						<th class="langname">MathML</th>
 						<td>
-							<pre>&lt;apply xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+							<pre>&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&lt;csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade"/&gt;
 &nbsp;&nbsp;&nbsp;&lt;apply&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;union/&gt;
@@ -2300,7 +2306,7 @@
 						<td>
 							<p>
 								The <code>type</code> attribute may be set to <code>&quot;integer&quot;</code>.
-								Since the only use for numbers in this version of <span class="title">Names on Nodes</span> is for <code>selector</code> argument, only integers are necessary.
+								Since the only use for numbers in this version of <span class="title">Names on Nodes</span> is for <code>selector</code> arguments, only integers are necessary.
 							</p> 
 						</td>
 					</tr>
@@ -2584,18 +2590,6 @@
 				  <tr>
 				    <td>monothetic taxon</td>
 				    <td>intersection</td>
-				  </tr>
-				  <tr>
-				    <td>rank-level taxonomy</td>
-				    <td>partition</td>
-				  </tr>
-				  <tr>
-				    <td>higher rank-level taxonomy</td>
-				    <td>coarser partition</td>
-				  </tr>
-				  <tr>
-				    <td>lower rank-level taxonomy</td>
-				    <td>finer partition</td>
 				  </tr>
 				  <tr>
 				    <td>related</td>
