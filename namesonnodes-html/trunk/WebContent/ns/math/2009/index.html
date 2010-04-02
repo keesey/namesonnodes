@@ -159,6 +159,9 @@
 							<th colspan="2"><a href="#appendix2">Appendix II</a></th>
               <td><a href="#appendix2">Equivalence Between Biological and Mathematical Terms</a></td>
 						</tr>
+						<tr>
+							<th colspan="3"><a href="#supplements">Supplementary Files</a></th>
+						</tr>
 					</table>
 				</div>
 				<a id="section-Introduction"></a>
@@ -2296,26 +2299,10 @@
 					</tr>
 					<tr>
 						<th>
-							<code>annotation</code>
-						</th>
-						<td>
-							<code>annotation</code> elements are ignored.
-						</td>
-					</tr>
-					<tr>
-						<th>
-							<code>annotation-xml</code>
-						</th>
-						<td>
-							<code>annotation-xml</code> elements are ignored.
-						</td>
-					</tr>
-					<tr>
-						<th>
 							<code>apply</code>
 						</th>
 						<td>
-								The <code>type</code> attribute may be set to <code>&quot;boolean&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
+								The <code>type</code> attribute may be set to <code>&quot;boolean&quot;</code>, <code>&quot;fn&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
 						</td>
 					</tr>
 					<tr>
@@ -2324,7 +2311,7 @@
 						</th>
 						<td>
 							<p>
-								The <code>type</code> attribute may be set to <code>&quot;boolean&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
+								The <code>type</code> attribute may be set to <code>&quot;boolean&quot;</code>, <code>&quot;fn&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
 							</p> 
 						</td>
 					</tr>
@@ -2356,10 +2343,13 @@
 							</p>
 							<ul>
 								<li>A URL identified in the <a href="#section-DefinitionsMath" class="title">Definitions of Mathematical Entities</a> section of this document.</li>
-								<li>A URI or qualified name indicating a taxon.</li>
+								<li>
+									A URI indicating a taxon or taxonomic name.
+									Any URI not identified in this document is interpreted as a taxon.
+								</li>
 							</ul>
 							<p>
-								The <code>type</code> attribute may be set to <code>&quot;set&quot;</code>.
+								The <code>type</code> attribute may be set to <code>&quot;fn&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
 							</p> 
 						</td>
 					</tr>
@@ -2369,7 +2359,7 @@
 						</th>
 						<td>
 							<p>
-								The <code>type</code> attribute should be set to <code>&quot;boolean&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
+								The <code>type</code> attribute may be set to <code>&quot;boolean&quot;</code>, <code>&quot;fn&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
 							</p> 
 						</td>
 					</tr>
@@ -2487,7 +2477,7 @@
 						</th>
 						<td>
 							<p>
-								The <code>type</code> attribute may be set to <code>&quot;boolean&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
+								The <code>type</code> attribute may be set to <code>&quot;boolean&quot;</code>, <code>&quot;fn&quot;</code>, <code>&quot;list&quot;</code>, or <code>&quot;set&quot;</code>.
 							</p> 
 						</td>
 					</tr>
@@ -2750,7 +2740,7 @@
 				  </tr>
 				  <tr>
 				    <td>parent-child relation</td>
-				    <td>edge<br/>or<br/>arc</td>
+				    <td>directed edge<br/>or<br/>arc</td>
 				  </tr>
 				  <tr>
 				    <td>lineage</td>
@@ -2793,6 +2783,21 @@
 				    <td>filially related</td>
 				    <td>comparable</td>
  				  </tr>
+				</table>
+				<a id="supplement"></a>
+				<h2>Supplementary Files</h2>
+				<table>
+					<tr>
+						<th>
+							<a href="./mathml.xml"><code>mathml.xml</code></a>
+						</th>
+						<td>
+							<p>
+								This <span class="langname">MathML</span> file contains the context used in the definition examples of this document, along with a number of further examples.
+								It may be opened with <span class="title">Names on Nodes: Standalone Version</span>.
+							</p>
+						</td>
+					</tr>
 				</table>
 			</div>
 		</div>
