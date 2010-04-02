@@ -153,7 +153,7 @@
 						</tr>
 						<tr>
 							<th colspan="2"><a href="#appendix1">Appendix I</a></th>
-              <td><a href="#appendix1">Implemented <span class="langname">MathML-Content</span> Elements</a></td>
+              <td><a href="#appendix1">Implemented <span class="langname">MathML</span> Elements</a></td>
 						</tr>
 						<tr>
 							<th colspan="2"><a href="#appendix2">Appendix II</a></th>
@@ -1606,7 +1606,7 @@
 					 <td>
 					    <p>
 					       The successor union of <span class="nomen">Equus stenonis</span> and <span class="nomen">Equus africanus</span> (asses) includes both of those units as well as every unit descended from either one of them, or from both.
-					       Since <span class="nomen">Equus africanus</span> is descended from <span class="nomen">Equus stenonis</span>, this is the same as <span class="math"><nobr>&#x227C;[<i>Equus stenonis</i>]</span>.
+					       Since <span class="nomen">Equus africanus</span> is descended from <span class="nomen">Equus stenonis</span>, this is the same as <span class="math"><nobr>&#x227C;[<i>Equus stenonis</i>]</nobr></span>.
               </p>
 					 </td>
           </tr>
@@ -1686,7 +1686,7 @@
 					 <td>
 					    <p>
 					       The successor intersection of <span class="nomen">Equus stenonis</span> and <span class="nomen">Equus africanus</span> (asses) includes only the units that succeed both of them.
-					       Since <span class="nomen">Equus africanus</span> is descended from <span class="nomen">Equus stenonis</span>, this is the same as <span class="math"><nobr>&#x227C;[<i>Equus africanus</i>]</span>.
+					       Since <span class="nomen">Equus africanus</span> is descended from <span class="nomen">Equus stenonis</span>, this is the same as <span class="math"><nobr>&#x227C;[<i>Equus africanus</i>]</nobr></span>.
               </p>
 					 </td>
           </tr>
@@ -2257,8 +2257,8 @@
 					 <th>Discussion</th>
 					 <td>
 					   <p>
-					     <span class="math">Crown(<i>Struthio camelus</i> &#x222A; <i>Vultur gryphus</i>, "extant as of or after 2010") = <i>Aves</i></span>.
-               <span class="math">Total(<i>Aves</i>, "extant as of or after 2010")</span> is a branch-based clade where avians are the internal specifiers and extant non-avians are the external specifiers.
+					     <span class="math">Crown(<i>Struthio camelus</i> &#x222A; <i>Vultur gryphus</i>, "extant") = <i>Aves</i></span>.
+               <span class="math">Total(<i>Aves</i>, "extant")</span> is a branch-based clade where avians are the internal specifiers and extant non-avians are the external specifiers.
                Since, in the example context, <span class="nomen">Crocodylus niloticus</span> is the closest extant outgroup to <span class="nomen">Aves</span>, this is equivalent to <span class="math">Clade(<i>Aves</i> &larr; <i>C. niloticus</i>)</span>.
                This total clade is known by several names, including <span class="nomen">Pan-Aves</span> and <span class="nomen">Avemetatarsalia</span>. 
 					   </p>
@@ -2266,19 +2266,48 @@
           </tr>
 				</table>
 				<a id="appendix1"></a>
-				<h2>Appendix I.&mdash;Implemented <span class="langname">MathML-Content</span> Elements</h2>
+				<h2>Appendix I.&mdash;Implemented <span class="langname">MathML</span> Elements</h2>
 				<p>
 					<span class="langname">MathML-Content</span> provides methods for modelling a wide variety of mathematical entities.
 					Since <a href="http://namesonnodes.org/" class="title">Names on Nodes</a> only deals with logic and set theory, only certain elements have been implemented.
-					The following is a list of all <span class="langname">MathML-Content</span> element which have been implemented in <a href="http://namesonnodes.org/" class="title">Names on Nodes</a>, with notes as necessary.
-					Other elements may work, but are not guaranteed.
+					A subset of <span class="langname">MathML-Presentation</span> has also been implemented allowing for custom rendering of identifier (<code>ci</code>) and symbol (<code>csymbol</code>) elements.
+					The following is a list of all <span class="langname">MathML</span> elements which have been implemented in <a href="http://namesonnodes.org/" class="title">Names on Nodes</a>, with notes as necessary.
 				</p>
 				<table>
+					<tr>
+						<th colspan="2"><span class="langname">MathML</span> (general)</th>
+					</tr>
+					<tr>
+						<th>
+							<code>math</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2"><span class="langname">MathML-Content</span></th>
+					</tr>
 					<tr>
 						<th>
 							<code>and</code>
 						</th>
 						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>annotation</code>
+						</th>
+						<td>
+							<code>annotation</code> elements are ignored.
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>annotation-xml</code>
+						</th>
+						<td>
+							<code>annotation-xml</code> elements are ignored.
 						</td>
 					</tr>
 					<tr>
@@ -2377,6 +2406,13 @@
 					</tr>
 					<tr>
 						<th>
+							<code>in</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
 							<code>intersect</code>
 						</th>
 						<td>
@@ -2391,13 +2427,6 @@
 					</tr>
 					<tr>
 						<th>
-							<code>math</code>
-						</th>
-						<td>
-						</td>
-					</tr>
-					<tr>
-						<th>
 							<code>neq</code>
 						</th>
 						<td>
@@ -2406,6 +2435,13 @@
 					<tr>
 						<th>
 							<code>not</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>notin</code>
 						</th>
 						<td>
 						</td>
@@ -2471,6 +2507,20 @@
 					</tr>
 					<tr>
 						<th>
+							<code>sep</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>set</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
 							<code>setdiff</code>
 						</th>
 						<td>
@@ -2500,6 +2550,150 @@
 					<tr>
 						<th>
 							<code>xor</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2"><span class="langname">MathML-Presentation</span></th>
+					</tr>
+					<tr>
+						<th>
+							<code>merror</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mfenced</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mi</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mn</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mo</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mover</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mphantom</code>
+						</th>
+						<td>
+							<code>mphantom</code> elements may be used to indicate that the label of a taxonomic unit should not appear in charts (e.g., for hypothetical units).
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mrow</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>ms</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mspace</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mstyle</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>msub</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>msubsup</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>msup</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mtable</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mtd</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mtext</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>mtr</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>munder</code>
+						</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<code>munderover</code>
 						</th>
 						<td>
 						</td>
