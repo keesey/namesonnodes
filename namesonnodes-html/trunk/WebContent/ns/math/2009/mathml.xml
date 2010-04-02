@@ -58,6 +58,7 @@
 		<apply>
 			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
 				<mo>Clade</mo>
+				<!--  The presentation markup here ("<mo>Clade</mo>") is not strictly necessary. -->
 			</csymbol>
 			<apply>
 				<union/>
@@ -136,7 +137,6 @@
 		<apply>
 			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
 				<mo>Clade</mo>
-				<!--  The presentation markup here ("<mo>Clade</mo>") is not strictly necessary. -->
 			</csymbol>
 			<apply>
 				<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors">
