@@ -10,6 +10,9 @@
 		<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://vancouver-webpages.com/VWP1.0/&quot; l gen true comment &quot;VWP1.0&quot; by &quot;keesey@gmail.com&quot; on &quot;2009.06.12T11:31-0700&quot; for &quot;http://namesonnodes.org/&quot; r (Gam -1 V 0 Env 0 SF 0 Com 1 Can 0 Edu -1 S 0 P 0 Tol 0 MC 0 ))" />
 		<meta name="Author" content="T. Michael Keesey" />
 		<link href="../../../css/screen.css" type="text/css" rel="stylesheet"/>
+		<style type="text/css">
+			th { vertical-align: top};
+		</style>
 	</head>
 	<body>
 		<div id="container">
@@ -46,7 +49,7 @@
 							<th>Notes</th>
 						</tr>
 						<tr>
-							<td rowspan="4">General</td>
+							<th rowspan="4">General</th>
 							<td>equality</td>
 							<td><pre><i>entity1</i> = <i>entity2</i></pre></td>
 						</tr>
@@ -65,7 +68,7 @@
 							<td>Evaluates to <code><i>entity1</i></code> if <code><i>proposition</i></code> is true, or <code><i>entity2</i></code> if <code><i>proposition</i></code> is false.</td>
 						</tr>
 						<tr>
-							<td rowspan="3">Constants</td>
+							<th rowspan="3">Constants</th>
 							<td>constant name</td>
 							<td><pre>"<i>name</i>"</pre></td>
 						</tr>
@@ -79,7 +82,7 @@
 							<td>Base 10.</td>
 						</tr>
 						<tr>
-							<td rowspan="10">Set Theory</td>
+							<th rowspan="10">Set Theory</th>
 							<td>extensional set</td>
 							<td><pre>{<i>entity1</i>, <i>entity2 &#x2026;</i>}</pre></td>
 						</tr>
@@ -120,7 +123,7 @@
 							<td><pre><i>set1</i> &gt; <i>set2</i></pre></td>
 						</tr>
 						<tr>
-							<td rowspan="2">Ordered Lists</td>
+							<th rowspan="2">Ordered Lists</th>
 							<td>extensional list</td>
 							<td><pre>[<i>entity1</i>, <i>entity 2 &#x2026;</i>]</pre></td>
 						</tr>
@@ -129,7 +132,7 @@
 							<td><pre><i>list</i>_<i>index</i></pre></td>
 						</tr>
 						<tr>
-							<td rowspan="5">Boolean Logic</td>
+							<th rowspan="5">Boolean Logic</th>
 							<td>true</td>
 							<td><pre>true</pre></td>
 						</tr>
@@ -150,7 +153,7 @@
 							<td><pre><i>proposition1</i> || <i>proposition2</i></pre></td>
 						</tr>
 						<tr>
-							<td rowspan="2">Functions</td>
+							<th rowspan="2">Functions</th>
 							<td>application</td>
 							<td><pre><i>function</i>(<i>entity1</i>, <i>entity2 &#x2026;</i>)</pre></td>
 						</tr>
@@ -159,7 +162,7 @@
 							<td><pre><i>function1</i> * <i>function2</i></pre></td>
 						</tr>
 						<tr>
-							<td rowspan="16">Phylogeny</td>
+							<th rowspan="16">Phylogeny</th>
 							<td>phylogenetic graph</td>
 							<td><pre>P</pre></td>
 						</tr>
@@ -189,7 +192,7 @@
 						</tr>
 						<tr>
 							<td>successor intersection</td>
-							<td><pre>suc&(<i>set</i>)</pre></td>
+							<td><pre>suc&amp;(<i>set</i>)</pre></td>
 						</tr>
 						<tr>
 							<td>exclusive predecessors</td>
@@ -240,8 +243,45 @@
 					<table>
 						<tr>
 							<th>Formula</th>
-							<th>Prose</th>
+							<th>Prose or Diagram</th>
 							<th>Notes</th>
+						</tr>
+						<tr>
+							<td><pre>
+P :=
+[
+	{
+		"Aves*", 
+		"Palaeognathae*",
+		"Struthio camelus",
+		"Tetrao major",
+		"Vultur gryphus"
+	},
+	{
+		["Aves*", "Vultur gryphus"],
+		["Aves*", "Palaeognathae*"],
+		["Palaeognathae*", "Struthio camelus"],
+		["Palaeognathae*", "Tetrao major"]
+	}
+].</pre></td>
+ 							<td>
+ 								<ul>
+ 									<li><i>Aves</i>
+ 										<ul>
+		 									<li><i>Vultur gryphus</i></li>
+		 									<li><i>Palaeognathae</i>
+		 										<ul>
+				 									<li><i>Struthio camelus</i></li>
+				 									<li><i>Tetrao major</i></li>
+		 										</ul>
+		 									</li>
+ 										</ul>
+ 									</li>
+ 								</ul>
+ 							</td>
+ 							<td>
+ 								This defines a simple phylogenetic context (a directed, acyclic graph where vertices are taxonomic units and arcs represent immediate descent).
+ 							</td>
 						</tr>
 						<tr>
 							<td><pre>"Tinamus major" := "Tetrao major".</pre></td>
@@ -249,23 +289,23 @@
 							<td>These are objective synonyms under the zoological code.</td>
 						</tr>
 						<tr>
-							<td><pre>"Aves" := clade("Struthio camelus" |
-"Tetrao major" | "Vultur gryphus").</pre></td>
+							<td><pre>"Aves" := clade("Struthio camelus" | "Tetrao major"
+                | "Vultur gryphus").</pre></td>
 							<td><i>Aves</i> is all successors of the maximal common predecessors of <i>Struthio camelus</i>, <i>Tetrao major</i>, and <i>Vultur gryphus</i>.</td>
 						</tr>
 						<tr>
 							<td><pre>"Saurischia" := clade("Megalosaurus bucklandii"
-&lt;- "Iguanodon bernissartensis").</pre></td>
+                &lt;- "Iguanodon bernissartensis").</pre></td>
 							<td><i>Saurischia</i> is all successors of the (common) predecessors of <i>Megalosaurus bucklandii</i> exclusive of all predecessors of <i>Iguanodon bernissartensis</i>.</td>
 						</tr>
 						<tr>
 							<td><pre>"Avialae" := clade("wings used for powered flight"
-@ "Vultur gryphus").</pre></td>
+                   @ "Vultur gryphus").</pre></td>
 							<td><i>Avialae</i> is all successors of the predecessors of <i>Vultur gryphus</i> to share wings used for powered flight synapomorphically with <i>Vultur gryphus</i>.</td>
 						</tr>
 						<tr>
 							<td><pre>"Aves" = crown("Avialae", "extant")
-= crown("Saurischia", "extant").</pre></td>
+       = crown("Saurischia", "extant")</pre></td>
 							<td><i>Aves</i> is equivalent to the avialan crown clade and the saurischian crown clade.</td>
 						</tr>
 						<tr>
@@ -273,26 +313,30 @@
 							<td><i>Pan-Aves</i> is the avian total clade.</td>
 						</tr>
 						<tr>
-							<td><pre>"Avemetatarsalia" := clade("Aves"
-&lt;- "Crocodylus niloticus").</pre></td>
+							<td><pre>"Avemetatarsalia" := clade("Aves" &lt;- 
+                     "Crocodylus niloticus").</pre></td>
 							<td><i>Avemetatarsalia</i> is all successors of the (common) predecessors of <i>Aves</i> exclusive of all predecessors of <i>Crocodylus niloticus</i>.</td>
 						</tr>
 						<tr>
-							<td><pre>"Pan-Aves" = "Avemetatarsalia".</pre></td>
+							<td><pre>"Pan-Aves" = "Avemetatarsalia"</pre></td>
 							<td><i>Pan-Aves</i> is equivalent to <i>Avemetatarsalia</i>.</td>
 						</tr>
 						<tr>
-							<td><pre>"Ichthyornithes" := clade("YPM-VP 1450" &lt;-
-"Struthio camelus" | "Tetrao major"
-| "Vultur gryphus").</pre></td>
+							<td><pre>"Ichthyornithes" := clade("YPM-VP 1450" 
+                 &lt;- "Struthio camelus"
+                    | "Tetrao major"
+                    | "Vultur gryphus").</pre></td>
 							<td><i>Ichthyornithes</i> is all successors of the (common) predecessors of the organism represented by YPM-VP 1450 exclusive of all predecessors of <i>Struthio camelus</i>, <i>Tetrao major</i>, and/or <i>Vultur gryphus</i>.</td>
 							<td>YPM-VP 1450 is the <i>Ichthyornis dispar</i> holotype specimen.</td>
 						</tr>
 						<tr>
 							<td><pre>"Ichthyornis" := clade("Ichthyornithes"
-&amp; ("apomorphy 2" | "apomorphy 5"
-| "apomorphy 6"  | "apomorphy 7" 
-| "apomorphy 8" @ "YPM-VP 1450")).</pre></td>
+                 &amp; ("apomorphy 2"
+                    | "apomorphy 5"
+                    | "apomorphy 6"
+                    | "apomorphy 7" 
+                    | "apomorphy 8" 
+                    @ "YPM-VP 1450")).</pre></td>
 							<td><i>Ichthyornis</i> is all successors of all ichthyornithean predecessors of the organism represented by YPM-VP 1450 to share apomorphies 2, 5, 6, 7, and 8 synapomorphically with the organism represented by YPM-VP 1450.</td>
 							<td>The numbers refer to apomorphies described by Clarke (2004).</td>
 						</tr>
@@ -307,11 +351,11 @@
 						</tr>
 						<tr>
 							<td><pre>"S" := "Otaria byronia" | "Odobenus rosmarus"
-| "Phoca vitulina".
+       | "Phoca vitulina".
 
 "Pinnipedia" :=
-(max * prc&amp;)("S") &lt;= ("flippers" @ "S")
-? clade("S") : {}.</pre></td>
+             (max * prc&amp;)("S") &lt;= ("flippers" @ "S")
+             ? clade("S") : {}.</pre></td>
 							<td>
 								If the maximal common predecessors of the specifiers (<i>Otaria byronia</i>, <i>Odobenus rosmarus</i>, and <i>Phoca vitulina</i>) possessed flippers synapomorphic with those of the specifiers, then <i>Pinnipedia</i> is all successors of the maximal common predecessors of the specifiers.
 								Otherwise, <i>Pinnipedia</i> is empty.
