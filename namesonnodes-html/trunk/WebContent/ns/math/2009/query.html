@@ -4,7 +4,7 @@
  	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
 	<head>
-		<title>Names on Nodes: Phylogenetic Queries</title>
+		<title>Names on Nodes: Phylogenetic Query Script</title>
 		<meta http-equiv="Content-Language" content="en" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://vancouver-webpages.com/VWP1.0/&quot; l gen true comment &quot;VWP1.0&quot; by &quot;keesey@gmail.com&quot; on &quot;2009.06.12T11:31-0700&quot; for &quot;http://namesonnodes.org/&quot; r (Gam -1 V 0 Env 0 SF 0 Com 1 Can 0 Edu -1 S 0 P 0 Tol 0 MC 0 ))" />
@@ -14,272 +14,311 @@
 	<body>
 		<div id="container">
 			<div id="content">
-				<h2>Query Format</h2>
-				<table>
-					<tr>
-						<th>Category</th>
-						<th>Description</th>
-						<th>Formula</th>
-						<th>Notes</th>
-					</tr>
-					<tr>
-						<td rowspan="4">General</td>
-						<td>equality</td>
-						<td><code><i>entity1</i> = <i>entity2</i></code></td>
-					</tr>
-					<tr>
-						<td>inequality</td>
-						<td><code><i>entity1</i> != <i>entity2</i></code></td>
-						<td>Also used for exclusive disjunction ("xor").</td>
-					</tr>
-					<tr>
-						<td>clause</td>
-						<td><code>(<i>entity</i>)</code></td>
-					</tr>
-					<tr>
-						<td>conditional statement</td>
-						<td><code><i>proposition</i> ? <i>entity1</i> : <i>entity2</i></code></td>
-						<td>Evaluates to <code><i>entity1</i></code> if <code><i>proposition</i></code> is true, or <code><i>entity2</i></code> if <code><i>proposition</i></code> is false.</td>
-					</tr>
-					<tr>
-						<td rowspan="3">Constants</td>
-						<td>constant name</td>
-						<td><code>"<i>name</i>"</code></td>
-					</tr>
-					<tr>
-						<td>declaration</td>
-						<td><code>"<i>name</i>" := <i>entity</i>.</code></td>
-					</tr>
-					<tr>
-						<td>integer</td>
-						<td><code><i>digits</i></code></td>
-						<td>Base 10.</td>
-					</tr>
-					<tr>
-						<td rowspan="10">Set Theory</td>
-						<td>extensional set</td>
-						<td><code>{<i>element1</i>, <i>element2 &#x2026;</i>}</code></td>
-					</tr>
-					<tr>
-						<td>empty set</td>
-						<td><code>{}</code></td>
-					</tr>
-					<tr>
-						<td>union</td>
-						<td><code><i>set1</i> | <i>set2 &#x2026;</i></code></td>
-					</tr>
-					<tr>
-						<td>intersection</td>
-						<td><code><i>set1</i> &amp; <i>set2 &#x2026;</i></code></td>
-					</tr>
-					<tr>
-						<td>difference</td>
-						<td><code><i>set1</i> - <i>set2</i></code></td>
-					</tr>
-					<tr>
-						<td>set membership</td>
-						<td><code><i>element</i> in <i>set</i></code></td>
-					</tr>
-					<tr>
-						<td>subset</td>
-						<td><code><i>set1</i> &lt;= <i>set2</i></code></td>
-					</tr>
-					<tr>
-						<td>proper subset</td>
-						<td><code><i>set1</i> &lt; <i>set2</i></code></td>
-					</tr>
-					<tr>
-						<td>superset</td>
-						<td><code><i>set1</i> &gt;= <i>set2</i></code></td>
-					</tr>
-					<tr>
-						<td>proper superset</td>
-						<td><code><i>set1</i> &gt; <i>set2</i></code></td>
-					</tr>
-					<tr>
-						<td rowspan="2">Ordered Lists</td>
-						<td>extensional list</td>
-						<td><code>[<i>element1</i>, <i>element 2 &#x2026;</i>]</code></td>
-					</tr>
-					<tr>
-						<td>list element selector</td>
-						<td><code><i>list</i>_<i>index</i></code></td>
-					</tr>
-					<tr>
-						<td rowspan="5">Boolean Logic</td>
-						<td>true</td>
-						<td><code>true</code></td>
-					</tr>
-					<tr>
-						<td>false</td>
-						<td><code>false</code></td>
-					</tr>
-					<tr>
-						<td>negation</td>
-						<td><code>!<i>proposition</i></code></td>
-					</tr>
-					<tr>
-						<td>conjunction</td>
-						<td><code><i>proposition1</i> &amp;&amp; <i>proposition2</i></code></td>
-					</tr>
-					<tr>
-						<td>disjunction (inclusive)</td>
-						<td><code><i>proposition1</i> || <i>proposition2</i></code></td>
-					</tr>
-					<tr>
-						<td rowspan="2">Functions</td>
-						<td>application</td>
-						<td><code><i>function</i>(<i>entity1</i>, <i>entity2 &#x2026;</i>)</code></td>
-					</tr>
-					<tr>
-						<td>composition</td>
-						<td><code><i>function1</i> * <i>function2</i></code></td>
-					</tr>
-					<tr>
-						<td rowspan="16">Phylogeny</td>
-						<td>phylogenetic graph</td>
-						<td><code>P</code></td>
-					</tr>
-					<tr>
-						<td>universal taxon</td>
-						<td><code>U</code></td>
-					</tr>
-					<tr>
-						<td>maximal members</td>
-						<td><code>max(<i>set</i>)</code></td>
-					</tr>
-					<tr>
-						<td>minimal members</td>
-						<td><code>min(<i>set</i>)</code></td>
-					</tr>
-					<tr>
-						<td>predecessor union</td>
-						<td><code>prc_union(<i>set</i>)</code></td>
-					</tr>
-					<tr>
-						<td>predecessor intersection</td>
-						<td><code>prc_inter(<i>set</i>)</code></td>
-					</tr>
-					<tr>
-						<td>successor union</td>
-						<td><code>suc_union(<i>set</i>)</code></td>
-					</tr>
-					<tr>
-						<td>successor intersection</td>
-						<td><code>suc_inter(<i>set</i>)</code></td>
-					</tr>
-					<tr>
-						<td>exclusive predecessors</td>
-						<td><code><i>set1</i> &lt;- <i>set2</i></code></td>
-						<td><code><i>set1</i></code> is the internal set; <code><i>set2</i></code> is the external set.</td>
-					</tr>
-					<tr>
-						<td>synapomorphic predecessors</td>
-						<td><code><i>set1</i> @ <i>set2</i></code></td>
-						<td><code><i>set1</i></code> is the apomorphic set; <code><i>set2</i></code> is the representative set.</td>
-					</tr>
-					<tr>
-						<td>clade</td>
-						<td><code>clade(<i>set1</i>)</code></td>
-					</tr>
-					<tr>
-						<td>node-based clade</td>
-						<td><code>clade(<i>set1</i> | <i>set2 &#x2026;</i>)</code></td>
-					</tr>
-					<tr>
-						<td>branch-based clade</td>
-						<td><code>clade(<i>set1</i> &lt;- <i>set2 &#x2026;</i>)</code></td>
-						<td><code><i>set1</i></code> is the internal set; <code><i>set2</i></code> is the external set.</td>
-					</tr>
-					<tr>
-						<td>apomorphy-based clade</td>
-						<td><code>clade(<i>set1</i> @ <i>set2 &#x2026;</i>)</code></td>
-						<td><code><i>set1</i></code> is the apomorphic set; <code><i>set2</i></code> is the representative set.</td>
-					</tr>
-					<tr>
-						<td>crown clade</td>
-						<td><code>crown(<i>set1</i>, <i>set2</i>)</code></td>
-						<td><code><i>set1</i></code> is the bounding set; <code><i>set2</i></code> is the set of extant organisms.</td>
-					</tr>
-					<tr>
-						<td>total clade</td>
-						<td><code>total(<i>set1</i>, <i>set2</i>)</code></td>
-						<td><code><i>set1</i></code> is the internal set; <code><i>set2</i></code> is the set of extant organisms.</td>
-					</tr>
-				</table>
-				<h2>Examples</h2>
-				<table>
-					<tr>
-						<th>Formula</th>
-						<th>Prose</th>
-						<th>Notes</th>
-					</tr>
-					<tr>
-						<td><pre>"Tinamus major" := "Tetrao major".</pre></td>
-						<td><i>Tinamus major</i> is the same as <i>Tetrao major</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Aves" := clade("Struthio camelus" |
+				<h1><a href="http://namesonnodes.org/" class="title">Names on Nodes</a>: Phylogenetic Query Script (Rough Draft)</h1>
+				<p class="authors">T. Michael Keesey<!--<sup><a href="#aff1">*</a></sup>--></p>
+				<p class="affiliations"><!--<a name="aff1" id="aff1"></a><strong>*</strong> -->P.O. Box 292304 Los Angeles, CA, USA 90027; <a href="mailto:keesey@gmail.com?subject=Names+on+Nodes%3AMathML+Definitions"><code>keesey@gmail.com</code></a></p>
+				<div id="section-Abstract">
+					<h2>Abstract</h2>
+					<p>
+						The <a href="./index.html"><span class="title"><span class="langname">MathML</span> Definitions</span></a> document shows how <span class="langname">MathML</span> may be used to model phylogenetic hypotheses and phylogenetic definitions.
+						Since <span class="langname">MathML</span> is verbose, it may be preferable in some instance to have a more succinct scripting language with the same functionality.
+						I have created a plain text version of the mathematical markup specified by the <span class="title"><span class="langname">MathML</span> Definitions</span> document.
+					</p>
+				</div>
+				<div id="section-TOC">
+					<h2>Table of Contents</h2>
+					<table style="width:100%">
+						<tr>
+							<th><a href="#section-OperatorsIdentifiers">Operators and Identifiers</a></th>
+						</tr>
+						<tr>
+							<th><a href="#section-Examples">Examples</a></th>
+						</tr>
+					</table>
+				</div>
+				<div id="section-OperatorsIdentifiers">
+					<h2>Operators and Identifiers</h2>
+					<table>
+						<tr>
+							<th>Category</th>
+							<th>Description</th>
+							<th>Formula</th>
+							<th>Notes</th>
+						</tr>
+						<tr>
+							<td rowspan="4">General</td>
+							<td>equality</td>
+							<td><pre><i>entity1</i> = <i>entity2</i></pre></td>
+						</tr>
+						<tr>
+							<td>inequality</td>
+							<td><pre><i>entity1</i> != <i>entity2</i></pre></td>
+							<td>Also used for exclusive disjunction ("xor").</td>
+						</tr>
+						<tr>
+							<td>clause</td>
+							<td><pre>(<i>entity</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>conditional statement</td>
+							<td><pre><i>proposition</i> ? <i>entity1</i> : <i>entity2</i></pre></td>
+							<td>Evaluates to <code><i>entity1</i></code> if <code><i>proposition</i></code> is true, or <code><i>entity2</i></code> if <code><i>proposition</i></code> is false.</td>
+						</tr>
+						<tr>
+							<td rowspan="3">Constants</td>
+							<td>constant name</td>
+							<td><pre>"<i>name</i>"</pre></td>
+						</tr>
+						<tr>
+							<td>declaration</td>
+							<td><pre>"<i>name</i>" := <i>entity</i>.</pre></td>
+						</tr>
+						<tr>
+							<td>integer</td>
+							<td><pre><i>digits</i></pre></td>
+							<td>Base 10.</td>
+						</tr>
+						<tr>
+							<td rowspan="10">Set Theory</td>
+							<td>extensional set</td>
+							<td><pre>{<i>entity1</i>, <i>entity2 &#x2026;</i>}</pre></td>
+						</tr>
+						<tr>
+							<td>empty set</td>
+							<td><pre>{}</pre></td>
+						</tr>
+						<tr>
+							<td>union</td>
+							<td><pre><i>set1</i> | <i>set2 &#x2026;</i></pre></td>
+						</tr>
+						<tr>
+							<td>intersection</td>
+							<td><pre><i>set1</i> &amp; <i>set2 &#x2026;</i></pre></td>
+						</tr>
+						<tr>
+							<td>difference</td>
+							<td><pre><i>set1</i> - <i>set2</i></pre></td>
+						</tr>
+						<tr>
+							<td>set membership</td>
+							<td><pre><i>entity</i> in <i>set</i></pre></td>
+						</tr>
+						<tr>
+							<td>subset</td>
+							<td><pre><i>set1</i> &lt;= <i>set2</i></pre></td>
+						</tr>
+						<tr>
+							<td>proper subset</td>
+							<td><pre><i>set1</i> &lt; <i>set2</i></pre></td>
+						</tr>
+						<tr>
+							<td>superset</td>
+							<td><pre><i>set1</i> &gt;= <i>set2</i></pre></td>
+						</tr>
+						<tr>
+							<td>proper superset</td>
+							<td><pre><i>set1</i> &gt; <i>set2</i></pre></td>
+						</tr>
+						<tr>
+							<td rowspan="2">Ordered Lists</td>
+							<td>extensional list</td>
+							<td><pre>[<i>entity1</i>, <i>entity 2 &#x2026;</i>]</pre></td>
+						</tr>
+						<tr>
+							<td>list element selector</td>
+							<td><pre><i>list</i>_<i>index</i></pre></td>
+						</tr>
+						<tr>
+							<td rowspan="5">Boolean Logic</td>
+							<td>true</td>
+							<td><pre>true</pre></td>
+						</tr>
+						<tr>
+							<td>false</td>
+							<td><pre>false</pre></td>
+						</tr>
+						<tr>
+							<td>negation</td>
+							<td><pre>!<i>proposition</i></pre></td>
+						</tr>
+						<tr>
+							<td>conjunction</td>
+							<td><pre><i>proposition1</i> &amp;&amp; <i>proposition2</i></pre></td>
+						</tr>
+						<tr>
+							<td>disjunction (inclusive)</td>
+							<td><pre><i>proposition1</i> || <i>proposition2</i></pre></td>
+						</tr>
+						<tr>
+							<td rowspan="2">Functions</td>
+							<td>application</td>
+							<td><pre><i>function</i>(<i>entity1</i>, <i>entity2 &#x2026;</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>composition</td>
+							<td><pre><i>function1</i> * <i>function2</i></pre></td>
+						</tr>
+						<tr>
+							<td rowspan="16">Phylogeny</td>
+							<td>phylogenetic graph</td>
+							<td><pre>P</pre></td>
+						</tr>
+						<tr>
+							<td>universal taxon</td>
+							<td><pre>U</pre></td>
+						</tr>
+						<tr>
+							<td>maximal members</td>
+							<td><pre>max(<i>set</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>minimal members</td>
+							<td><pre>min(<i>set</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>predecessor union</td>
+							<td><pre>prc|(<i>set</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>predecessor intersection</td>
+							<td><pre>prc&amp;(<i>set</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>successor union</td>
+							<td><pre>suc|(<i>set</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>successor intersection</td>
+							<td><pre>suc&(<i>set</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>exclusive predecessors</td>
+							<td><pre><i>set1</i> &lt;- <i>set2</i></pre></td>
+							<td><code><i>set1</i></code> is the internal set; <code><i>set2</i></code> is the external set.</td>
+						</tr>
+						<tr>
+							<td>synapomorphic predecessors</td>
+							<td><pre><i>set1</i> @ <i>set2</i></pre></td>
+							<td><code><i>set1</i></code> is the apomorphic set; <code><i>set2</i></code> is the representative set.</td>
+						</tr>
+						<tr>
+							<td>clade</td>
+							<td><pre>clade(<i>set</i>)</pre></td>
+							<td>
+								If the minimal members of <code><i>set1</i></code> form a cladogen (a clade ancestor), then this is equivalent to <code>suc|(<i>set</i>)</code>.
+								Otherwise, it is equivalent to <code>(suc| * max * prc&amp;)(<i>set</i>)</code>.
+							</td>
+						</tr>
+						<tr>
+							<td>node-based clade</td>
+							<td><pre>clade(<i>set1</i> | <i>set2 &#x2026;</i>)</pre> or <pre>(suc| * max * prc&amp;)(<i>set1</i> | <i>set2 &#x2026;</i>)</pre></td>
+						</tr>
+						<tr>
+							<td>branch-based clade</td>
+							<td><pre>clade(<i>set1</i> &lt;- <i>set2</i>)</pre> or <pre>suc|(<i>set1</i> &lt;- <i>set2</i>)</pre></td>
+							<td><code><i>set1</i></code> is the internal set; <code><i>set2</i></code> is the external set.</td>
+						</tr>
+						<tr>
+							<td>apomorphy-based clade</td>
+							<td><pre>clade(<i>set1</i> @ <i>set2</i>)</pre> or <pre>suc|(<i>set1</i> @ <i>set2</i>)</pre></td>
+							<td><code><i>set1</i></code> is the apomorphic set; <code><i>set2</i></code> is the representative set.</td>
+						</tr>
+						<tr>
+							<td>crown clade</td>
+							<td><pre>crown(<i>set1</i>, <i>set2</i>)</pre></td>
+							<td><code><i>set1</i></code> is the bounding set; <code><i>set2</i></code> is the set of extant organisms.</td>
+						</tr>
+						<tr>
+							<td>total clade</td>
+							<td><pre>total(<i>set1</i>, <i>set2</i>)</pre></td>
+							<td><code><i>set1</i></code> is the internal set; <code><i>set2</i></code> is the set of extant organisms.</td>
+						</tr>
+					</table>
+				</div>
+				<div id="section-Examples">
+					<h2>Examples</h2>
+					<table>
+						<tr>
+							<th>Formula</th>
+							<th>Prose</th>
+							<th>Notes</th>
+						</tr>
+						<tr>
+							<td><pre>"Tinamus major" := "Tetrao major".</pre></td>
+							<td><i>Tinamus major</i> is <i>Tetrao major</i>.</td>
+							<td>These are objective synonyms under the zoological code.</td>
+						</tr>
+						<tr>
+							<td><pre>"Aves" := clade("Struthio camelus" |
 "Tetrao major" | "Vultur gryphus").</pre></td>
-						<td><i>Aves</i> is all successors of the maximal common predecessors of <i>Struthio camelus</i>, <i>Tetrao major</i>, and <i>Vultur gryphus</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Saurischia" := clade("Megalosaurus bucklandii"
+							<td><i>Aves</i> is all successors of the maximal common predecessors of <i>Struthio camelus</i>, <i>Tetrao major</i>, and <i>Vultur gryphus</i>.</td>
+						</tr>
+						<tr>
+							<td><pre>"Saurischia" := clade("Megalosaurus bucklandii"
 &lt;- "Iguanodon bernissartensis").</pre></td>
-						<td><i>Saurischia</i> is all successors of the (common) predecessors of <i>Megalosaurus bucklandii</i> exclusive of all predecessors of <i>Iguanodon bernissartensis</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Avialae" := clade("wings used for powered flight"
+							<td><i>Saurischia</i> is all successors of the (common) predecessors of <i>Megalosaurus bucklandii</i> exclusive of all predecessors of <i>Iguanodon bernissartensis</i>.</td>
+						</tr>
+						<tr>
+							<td><pre>"Avialae" := clade("wings used for powered flight"
 @ "Vultur gryphus").</pre></td>
-						<td><i>Avialae</i> is all successors of the predecessors of <i>Vultur gryphus</i> to share wings used for powered flight synapomorphically with <i>Vultur gryphus</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Aves" = crown("Avialae", "extant")
+							<td><i>Avialae</i> is all successors of the predecessors of <i>Vultur gryphus</i> to share wings used for powered flight synapomorphically with <i>Vultur gryphus</i>.</td>
+						</tr>
+						<tr>
+							<td><pre>"Aves" = crown("Avialae", "extant")
 = crown("Saurischia", "extant").</pre></td>
-						<td><i>Aves</i> is equivalent to the avialan crown clade and the saurischian crown clade.</td>
-					</tr>
-					<tr>
-						<td><pre>"Pan-Aves" := total("Aves", "extant").</pre></td>
-						<td><i>Pan-Aves</i> is the avian total clade.</td>
-					</tr>
-					<tr>
-						<td><pre>"Avemetatarsalia" := clade("Aves"
+							<td><i>Aves</i> is equivalent to the avialan crown clade and the saurischian crown clade.</td>
+						</tr>
+						<tr>
+							<td><pre>"Pan-Aves" := total("Aves", "extant").</pre></td>
+							<td><i>Pan-Aves</i> is the avian total clade.</td>
+						</tr>
+						<tr>
+							<td><pre>"Avemetatarsalia" := clade("Aves"
 &lt;- "Crocodylus niloticus").</pre></td>
-						<td><i>Avemetatarsalia</i> is all successors of the (common) predecessors of <i>Aves</i> exclusive of all predecessors of <i>Crocodylus niloticus</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Pan-Aves" = "Avemetatarsalia".</pre></td>
-						<td><i>Pan-Aves</i> is equivalent to <i>Avemetatarsalia</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Ichthyornithes" := clade("YPM-VP 1450" &lt;-
+							<td><i>Avemetatarsalia</i> is all successors of the (common) predecessors of <i>Aves</i> exclusive of all predecessors of <i>Crocodylus niloticus</i>.</td>
+						</tr>
+						<tr>
+							<td><pre>"Pan-Aves" = "Avemetatarsalia".</pre></td>
+							<td><i>Pan-Aves</i> is equivalent to <i>Avemetatarsalia</i>.</td>
+						</tr>
+						<tr>
+							<td><pre>"Ichthyornithes" := clade("YPM-VP 1450" &lt;-
 "Struthio camelus" | "Tetrao major"
 | "Vultur gryphus").</pre></td>
-						<td><i>Ornithischia</i> is all successors of the (common) predecessors of the organism represented by YPM-VP 1450 exclusive of all predecessors of <i>Struthio camelus</i>, <i>Tetrao major</i>, and/or <i>Vultur gryphus</i>.</td>
-						<td>YPM-VP 1450 is the <i>Ichthyornis dispar</i> holotype specimen.</td>
-					</tr>
-					<tr>
-						<td><pre>"Ichthyornis apomorphies" := "apomorphy 2"
-| "apomorphy 5" | "apomorphy 6" 
-| "apomorphy 7" | "apomorphy 8".</pre></td>
-						<td><i>Ichthyornis</i>' apomorphies are numbers 2, 5, 6, 7 and 8.</td>
-						<td>These numbers refer to apomorphies described by Clarke (2004).</td>
-					</tr>
-					<tr>
-						<td><pre>"Ichthyornis" := clade("Ichthyornithes"
-| ("Ichthyornis apomorphies" @ "YPM-VP 1450")).</pre></td>
-						<td><i>Ichthyornis</i> is all successors of the minimal common predecessors of the organism represented by YPM-VP 1450 exclusive of all predecessors of <i>Struthio camelus</i>, <i>Tetrao major</i>, and/or <i>Vultur gryphus</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Pan-Biota" :=
-(clade * prc_union)("Homo sapiens").</pre></td>
-						<td><i>Pan-Biota</i> is all successors of all predecessors of <i>Homo sapiens</i>.</td>
-					</tr>
-					<tr>
-						<td><pre>"Biota" := crown("Pan-Biota", "extant").</pre></td>
-						<td><i>Biota</i> is all successors of the maximal common predecessors of all extant members of <i>Pan-Biota</i>.</td>
-					</tr>
-				</table>
+							<td><i>Ichthyornithes</i> is all successors of the (common) predecessors of the organism represented by YPM-VP 1450 exclusive of all predecessors of <i>Struthio camelus</i>, <i>Tetrao major</i>, and/or <i>Vultur gryphus</i>.</td>
+							<td>YPM-VP 1450 is the <i>Ichthyornis dispar</i> holotype specimen.</td>
+						</tr>
+						<tr>
+							<td><pre>"Ichthyornis" := clade("Ichthyornithes"
+&amp; ("apomorphy 2" | "apomorphy 5"
+| "apomorphy 6"  | "apomorphy 7" 
+| "apomorphy 8" @ "YPM-VP 1450")).</pre></td>
+							<td><i>Ichthyornis</i> is all successors of all ichthyornithean predecessors of the organism represented by YPM-VP 1450 to share apomorphies 2, 5, 6, 7, and 8 synapomorphically with the organism represented by YPM-VP 1450.</td>
+							<td>The numbers refer to apomorphies described by Clarke (2004).</td>
+						</tr>
+						<tr>
+							<td><pre>"Pan-Biota" :=
+(clade * prc&amp;)("Homo sapiens").</pre></td>
+							<td><i>Pan-Biota</i> is all successors of all (common) predecessors of <i>Homo sapiens</i>.</td>
+						</tr>
+						<tr>
+							<td><pre>"Biota" := crown("Pan-Biota", "extant").</pre></td>
+							<td><i>Biota</i> is all successors of the maximal common predecessors of all extant members of <i>Pan-Biota</i>.</td>
+						</tr>
+						<tr>
+							<td><pre>"S" := "Otaria byronia" | "Odobenus rosmarus"
+| "Phoca vitulina".
+
+"Pinnipedia" :=
+(max * prc&amp;)("S") &lt;= ("flippers" @ "S")
+? clade("S") : {}.</pre></td>
+							<td>
+								If the maximal common predecessors of the specifiers (<i>Otaria byronia</i>, <i>Odobenus rosmarus</i>, and <i>Phoca vitulina</i>) possessed flippers synapomorphic with those of the specifiers, then <i>Pinnipedia</i> is all successors of the maximal common predecessors of the specifiers.
+								Otherwise, <i>Pinnipedia</i> is empty.
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</body>
