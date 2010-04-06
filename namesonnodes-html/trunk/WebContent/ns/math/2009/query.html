@@ -52,11 +52,15 @@
 							<th rowspan="4">General</th>
 							<td>equality</td>
 							<td><pre><i>entity1</i> = <i>entity2</i></pre></td>
+							<td>It may be desirable to use <code>==</code> instead (as in C and many other computer languages).</td>
 						</tr>
 						<tr>
 							<td>inequality</td>
 							<td><pre><i>entity1</i> != <i>entity2</i></pre></td>
-							<td>Also used for exclusive disjunction ("xor").</td>
+							<td>
+								Also used for exclusive disjunction ("xor").
+								This operator is borrowed from C.
+							</td>
 						</tr>
 						<tr>
 							<td>clause</td>
@@ -65,12 +69,19 @@
 						<tr>
 							<td>conditional statement</td>
 							<td><pre><i>proposition</i> ? <i>entity1</i> : <i>entity2</i></pre></td>
-							<td>Evaluates to <code><i>entity1</i></code> if <code><i>proposition</i></code> is true, or <code><i>entity2</i></code> if <code><i>proposition</i></code> is false.</td>
+							<td>
+								Evaluates to <code><i>entity1</i></code> if <code><i>proposition</i></code> is true, or <code><i>entity2</i></code> if <code><i>proposition</i></code> is false.
+								This operator is borrowed from C.
+							</td>
 						</tr>
 						<tr>
 							<th rowspan="3">Constants</th>
 							<td>constant name</td>
 							<td><pre>"<i>name</i>"</pre></td>
+							<td>
+								Internal quotes may be "escaped", e.g., <code>"\"Iguanodon\" hoggi"</code>.
+								Possibly single quotes (<code>'</code>) should be allowed as well, or no quotes for names without whitespace.
+							</td>
 						</tr>
 						<tr>
 							<td>declaration</td>
@@ -79,7 +90,10 @@
 						<tr>
 							<td>integer</td>
 							<td><pre><i>digits</i></pre></td>
-							<td>Base 10.</td>
+							<td>
+								Base 10.
+								Non-integers and negative numbers are not required, so no method is provided for denoting them.
+							</td>
 						</tr>
 						<tr>
 							<th rowspan="10">Set Theory</th>
@@ -93,34 +107,56 @@
 						<tr>
 							<td>union</td>
 							<td><pre><i>set1</i> | <i>set2 &#x2026;</i></pre></td>
+							<td>
+								The character &#x222A; would be preferable, but it is not an ASCII character. 
+							</td>
 						</tr>
 						<tr>
 							<td>intersection</td>
 							<td><pre><i>set1</i> &amp; <i>set2 &#x2026;</i></pre></td>
+							<td>
+								The character &#x2229; would be preferable, but it is not an ASCII character. 
+							</td>
 						</tr>
 						<tr>
 							<td>difference</td>
 							<td><pre><i>set1</i> - <i>set2</i></pre></td>
+							<td>Some mathematical texts use "\", so this may be preferable.</td>
 						</tr>
 						<tr>
 							<td>set membership</td>
 							<td><pre><i>entity</i> in <i>set</i></pre></td>
+							<td>
+								The character &#x2208; would be preferable, but it is not an ASCII character. 
+							</td>
 						</tr>
 						<tr>
 							<td>subset</td>
 							<td><pre><i>set1</i> &lt;= <i>set2</i></pre></td>
+							<td>
+								The character &#x2286; would be preferable, but it is not an ASCII character. 
+							</td>
 						</tr>
 						<tr>
 							<td>proper subset</td>
 							<td><pre><i>set1</i> &lt; <i>set2</i></pre></td>
+							<td>
+								The character &#x2282; (or &#x228A;) would be preferable, but it is not an ASCII character. 
+							</td>
 						</tr>
 						<tr>
 							<td>superset</td>
 							<td><pre><i>set1</i> &gt;= <i>set2</i></pre></td>
+							<td>
+								The character &#x2287; would be preferable, but it is not an ASCII character. 
+							</td>
 						</tr>
 						<tr>
 							<td>proper superset</td>
 							<td><pre><i>set1</i> &gt; <i>set2</i></pre></td>
+							<td>
+								The character &#x2283; (or &#x228B;) would be preferable, but it is not an ASCII character. 
+							</td>
 						</tr>
 						<tr>
 							<th rowspan="2">Ordered Lists</th>
@@ -130,6 +166,10 @@
 						<tr>
 							<td>list element selector</td>
 							<td><pre><i>list</i>_<i>index</i></pre></td>
+							<td>
+								This notation is somewhat unusual.
+								Other languages use brackets (<code><i>list</i>[<i>index</i>]</code>), but using underscores allows a clearer distinction between element selection and extensional declaration (previous item), and relate better to common mathematical notation (which uses subscripts).
+							</td>
 						</tr>
 						<tr>
 							<th rowspan="5">Boolean Logic</th>
@@ -143,14 +183,29 @@
 						<tr>
 							<td>negation</td>
 							<td><pre>!<i>proposition</i></pre></td>
+							<td>
+								This operator is borrowed from C.
+								The character <code>&#x00AC;</code> would be preferable, but it is not an ASCII character.
+								(Possibly <code>not</code> should be used or allowed?)
+							</td>
 						</tr>
 						<tr>
 							<td>conjunction</td>
 							<td><pre><i>proposition1</i> &amp;&amp; <i>proposition2</i></pre></td>
+							<td>
+								This operator is borrowed from C.
+								The character <code>&#x2227;</code> would be preferable, but it is not an ASCII character.
+								(Possibly <code>and</code> should be used or allowed?)
+							</td>
 						</tr>
 						<tr>
 							<td>disjunction (inclusive)</td>
 							<td><pre><i>proposition1</i> || <i>proposition2</i></pre></td>
+							<td>
+								This operator is borrowed from C.
+								The character <code>&#x2228;</code> would be preferable, but it is not an ASCII character.
+								(Possibly <code>and</code> should be used or allowed?)
+							</td>
 						</tr>
 						<tr>
 							<th rowspan="2">Functions</th>
@@ -160,6 +215,10 @@
 						<tr>
 							<td>composition</td>
 							<td><pre><i>function1</i> * <i>function2</i></pre></td>
+							<td>
+								This is an unorthodox usage of this character.
+								The character <code>&#x2218;</code> would be preferable, but it is not an ASCII character.
+							</td>
 						</tr>
 						<tr>
 							<th rowspan="16">Phylogeny</th>
