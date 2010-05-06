@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>PhyloPainter</title>
+		<script type="text/javascript" src="./Newick.js"></script>
+		<script type="text/javascript" src="./PhyloPainter.js"></script>
+		<script type="text/javascript">
+			//<[CDATA[
+				var painter;
+				function onError(event)
+				{
+					alert("ERROR: " + event.error);
+				}
+				function onResult(event)
+				{
+					var treeCanvas = document.getElementById("treeCanvas");
+					painter = new PhyloPainter(event.result, treeCanvas);
+					painter.render();
+				}
+				function onProgress(event)
+				{
+					var treeCanvas = document.getElementById("treeCanvas");
+					var context = treeCanvas.getContext('2d');
+					var ratio = event.total == 0 ? 0 : (event.progress / event.total);
+					if (ratio != 0)
+					{
+						context.fillStyle = "rgba(255, 0, 0, 0.5)";
+						context.fillRect(0, 0, treeCanvas.width * ratio, treeCanvas.height);
+					} 
+				}
+				function drawTree()
+				{
+					var input = document.getElementById("newickInput");
+					new Newick(input.value, onResult, onError, onProgress);
+				}
+				function drawButton_onclick(event)
+				{
+					drawTree();
+				}
+				function clearButton_onclick(event)
+				{
+					var input = document.getElementById("newickInput");
+					input.value = "";
+				}
+				function body_onload(event)
+				{
+					//drawTree();
+				}
+			//]]>
+		</script>
+		<link href="../css/screen.css" type="text/css" rel="stylesheet"/>
+		<style type="text/css">
+			canvas, textarea
+			{
+				border: 1px solid black;
+				background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body onload="body_onload(event)">
+		<div id="content">
+			<h1><span class="title">PhyloPainter</span></h1>
+			<p class="authors">by <a href="http://tmkeesey.net/">Mike Keesey</a></p>
+			<p style="text-align:center;font-style:italic">&ldquo;Let's paint a happy little tree.&rdquo;</p>
+			<p style="text-align:right">&mdash;Bob Ross</p>
+			<p><span class="title">PhyloPainter</span> is a prototype tool which reads Newick tree strings and renders the data as a visual graph on an HTML 5 canvas.</p>
+			<p>This is part of the <a href="http://namesonnodes.org/" class="title">Names on Nodes</a> project.</p>
+			<h2>Process</h2>
+			<p>1. Enter a Newick tree string:</p>
+			<div style="text-align: right">
+				<textarea id="newickInput" rows="4" cols="96" width="100%">((Archaea,((Apusozoa,Excavata,(((Viridiplantae,Rhodophyta,Glaucophyta)Plastida,Hacrobia),(Rhizaria,(Straminopiles,Alveolata))))Bikonta,(Amoebozoa,(Fungi,(Mesomycetozoa,(Choanoflagellata,Filasterea,Metazoa)Filozoa)Holozoa)Opisthokonta)Unikonta)Eukaryota)Neomura,((Eukaryota,Rickettsia)Proteobacteria,(Plastida,Gloeobacter)Cyanobacteria)Eubacteria)Biota</textarea>
+				<br/>
+				<br/>
+				<input id="clearButton" type="button" value="Clear Input" onclick="clearButton_onclick(event)"/>
+			</div>
+			<p>
+				2. Click here to render the graph:
+				<input id="drawButton" type="button" value="Paint Tree" onclick="drawButton_onclick(event)"/>
+			</p>
+			<br />
+			<canvas id="treeCanvas">
+				<p>This requires a Canvas-enabled browser.</p>
+				<script type="text/javascript" src="./excanvas.compiled.js"></script>
+			</canvas>
+		</div>
+	</body>
+</html>
