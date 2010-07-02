@@ -80,6 +80,7 @@ PhyloPainter.prototype =
 		this._renderArcs();
 		this._renderNodes();
 	},
+	
 	_drawCircle : function(r)
 	{
 		this._context.strokeStyle = "rgb(0, 0, 0)";
@@ -137,12 +138,14 @@ PhyloPainter.prototype =
 		this._context.moveTo(parentX, parentRectangle.centerY());
 		this._context.quadraticCurveTo(parentX, childRectangle.centerY(), childRectangle.x - PhyloPainter.PADDING, childRectangle.centerY());
 		this._context.stroke();
+		this._context.closePath();
 		this._context.beginPath();
 		this._context.fillStyle = "rgb(0, 0, 0)";
 		this._context.lineTo(childRectangle.x - PhyloPainter.PADDING, childRectangle.centerY() - (PhyloPainter.PADDING >> 1));
 		this._context.lineTo(childRectangle.x - PhyloPainter.PADDING, childRectangle.centerY() + (PhyloPainter.PADDING >> 1));
 		this._context.lineTo(childRectangle.x, childRectangle.centerY());
 		this._context.fill();
+		this._context.closePath();
 	},
 	_renderNode : function(node)
 	{

@@ -1,275 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-	<!-- Phylogenetic Context.  -->	<declare>		<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-PhylogeneticGraph">
-			<mo>P</mo>
-		</csymbol>		<list>
-			<!--  Vertex Set (Taxonomic Units) -->
-			<set>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>1</mn></msub></mphantom></ci>
-					<!-- Specifying the type as "set" and omitting a value indicates that this is a taxonomic unit. -->
-					<!-- Using "mphantom" indicates that the label is not to be shown in the chart. -->				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>2</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>3</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>4</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>5</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>6</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>7</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>8</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>9</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>10</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>11</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>12</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set"><mphantom><mo>HTU</mo><msub><mn>13</mn></msub></mphantom></ci>				</declare>				<declare>					<ci type="set">Crocodylus niloticus</ci>				</declare>				<declare>					<ci type="set">Diadectes molaris</ci>				</declare>				<declare>					<ci type="set">Dimorphodon</ci>				</declare>				<declare>					<ci type="set">Equus africanus</ci>				</declare>				<declare>					<ci type="set">Equus ferus</ci>				</declare>				<declare>					<ci type="set">Equus stenonis</ci>				</declare>				<declare>					<ci type="set">Homo sapiens</ci>				</declare>				<declare>					<ci type="set">Ichthyornis</ci>				</declare>				<declare>					<ci type="set">Lacerta agilis</ci>				</declare>				<declare>					<ci type="set">Ornithorhynchus anatinus</ci>				</declare>				<declare>					<ci type="set">Pterodactylus</ci>				</declare>				<declare>					<ci type="set">Struthio camelus</ci>				</declare>				<declare>					<ci type="set">Testudo graeca</ci>				</declare>				<declare>					<ci type="set">Tinamus major</ci>				</declare>				<declare>					<ci type="set">Tyrannosaurus</ci>				</declare>				<declare>					<ci type="set">Vespertilio murinus</ci>				</declare>				<declare>					<ci type="set">Vultur gryphus</ci>				</declare>				<declare>					<ci type="set"><mtext>hinny</mtext></ci>
-				</declare>				<declare>					<ci type="set"><mtext>mule</mtext></ci>				</declare>			</set>			<!--  Edge Set -->
-			<set>				<list><ci><mphantom><mo>HTU</mo><msub><mn>1</mn></msub></mphantom></ci><ci>Diadectes molaris</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>1</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>2</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>2</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>3</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>2</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>6</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>3</mn></msub></mphantom></ci><ci>Ornithorhynchus anatinus</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>3</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>4</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>4</mn></msub></mphantom></ci><ci>Homo sapiens</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>4</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>5</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>5</mn></msub></mphantom></ci><ci>Vespertilio murinus</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>5</mn></msub></mphantom></ci><ci>Equus stenonis</ci></list>				<list><ci>Equus stenonis</ci><ci>Equus africanus</ci></list>				<list><ci>Equus stenonis</ci><ci>Equus ferus</ci></list>				<list><ci>Equus africanus</ci><ci><mtext>mule</mtext></ci></list>				<list><ci>Equus africanus</ci><ci><mtext>hinny</mtext></ci></list>				<list><ci>Equus ferus</ci><ci><mtext>mule</mtext></ci></list>				<list><ci>Equus ferus</ci><ci><mtext>hinny</mtext></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>6</mn></msub></mphantom></ci><ci>Testudo graeca</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>6</mn></msub></mphantom></ci><ci>Lacerta agilis</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>6</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>7</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>7</mn></msub></mphantom></ci><ci>Crocodylus niloticus</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>7</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>8</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>8</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>9</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>8</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>10</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>9</mn></msub></mphantom></ci><ci>Dimorphodon</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>9</mn></msub></mphantom></ci><ci>Pterodactylus</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>10</mn></msub></mphantom></ci><ci>Tyrannosaurus</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>10</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>11</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>11</mn></msub></mphantom></ci><ci>Ichthyornis</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>11</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>12</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>12</mn></msub></mphantom></ci><ci>Vultur gryphus</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>12</mn></msub></mphantom></ci><ci><mphantom><mo>HTU</mo><msub><mn>13</mn></msub></mphantom></ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>13</mn></msub></mphantom></ci><ci>Struthio camelus</ci></list>				<list><ci><mphantom><mo>HTU</mo><msub><mn>13</mn></msub></mphantom></ci><ci>Tinamus major</ci></list>			</set>		</list>	</declare>
-	
-	<!-- Character-Based Sets -->	<declare>		<ci><ms>wings used for powered flight</ms></ci>		<apply>			<union/>			<ci><mphantom><mo>HTU</mo><msub><mn>9</mn></msub></mphantom></ci>			<ci><mphantom><mo>HTU</mo><msub><mn>11</mn></msub></mphantom></ci>			<ci><mphantom><mo>HTU</mo><msub><mn>12</mn></msub></mphantom></ci>			<ci><mphantom><mo>HTU</mo><msub><mn>13</mn></msub></mphantom></ci>			<ci>Dimorphodon</ci>			<ci>Ichthyornis</ci>			<ci>Pterodactylus</ci>			<ci>Tinamus major</ci>			<ci>Vespertilio murinus</ci>			<ci>Vultur gryphus</ci>		</apply>	</declare>	<declare>		<ci><ms>extant</ms></ci>		<apply>			<union/>			<ci>Crocodylus niloticus</ci>			<ci>Equus africanus</ci>			<ci>Equus ferus</ci>			<ci>Homo sapiens</ci>			<ci>Lacerta agilis</ci>			<ci>Ornithorhynchus anatinus</ci>			<ci>Struthio camelus</ci>			<ci>Testudo graeca</ci>			<ci>Tinamus major</ci>			<ci>Vespertilio murinus</ci>			<ci>Vultur gryphus</ci>			<ci><mtext>mule</mtext></ci>			<ci><mtext>hinny</mtext></ci>		</apply>	</declare>
-	
-	<!-- Specimens -->	<declare>		<ci><mtext>YPM-VP 1450</mtext></ci>		<ci>Ichthyornis</ci>
-		<!-- YPM-VP 1450 is the type specimen of the type species of Ichthyornis. -->
-		<!-- These are equated because the resolution of the context is too coarse to clarify any further. -->	</declare>
-	
-	<!-- Synonyms -->
-	<declare>
-		<ci>Tetrao major</ci>
-		<ci>Tinamus major</ci>
-	</declare>
-	<declare>
-		<ci>Equus caballus</ci>
-		<ci>Equus ferus</ci>
-	</declare>
-	<declare>
-		<ci>Equus asinus</ci>
-		<ci>Equus africanus</ci>
-	</declare>
-	
-	<!-- Hybrid Formulas -->
-	<declare>
-		<ci>
-			<mrow>
-				<mi>Equus africanus</mi>
-				<mo form="infix">&#xD7;</mo>
-				<mi>Equus ferus</mi>
-			</mrow>
-		</ci>
-		<ci><mtext>mule</mtext></ci>
-	</declare>
-	<declare>
-		<ci>
-			<mrow>
-				<mi>Equus ferus</mi>
-				<mo form="infix">&#xD7;</mo>
-				<mi>Equus africanus</mi>
-			</mrow>
-		</ci>
-		<ci><mtext>hinny</mtext></ci>
-	</declare>
-	
-	<!--  Clade Definitions -->
-	<!-- Note that these are all examples, not necessarily published definitions. -->	<declare>
-		<ci>Amniota</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-				<!--  The presentation markup here ("<mo>Clade</mo>") is not strictly necessary. -->
-			</csymbol>
-			<apply>
-				<union/>
-				<ci>Crocodylus niloticus</ci>
-				<ci>Homo sapiens</ci>
-				<ci>Lacerta agilis</ci>
-				<ci>Testudo graeca</ci>
-				<ci>Vultur gryphus</ci>
-			</apply>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Archosauria</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>
-				<union/>
-				<ci>Vultur gryphus</ci>
-				<ci>Crocodylus niloticus</ci>
-			</apply>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Avemetatarsalia</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>
-				<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors">
-					<mo form="infix">&#x2190;</mo>
-				</csymbol>
-				<ci>Vultur gryphus</ci>
-				<ci>Crocodylus niloticus</ci>
-			</apply>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Aves</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>
-				<union/>
-				<ci>Struthio camelus</ci>
-				<ci>Tinamus major</ci>
-				<ci>Vultur gryphus</ci>
-			</apply>
-		</apply>
-	</declare>
-	<declare>		<ci>Avialae</ci>		<apply>			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>				<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-SynapomorphicPredecessors">
-					<mo form="infix">@</mo>
-				</csymbol>				<ci><ms>wings used for powered flight</ms></ci>				<ci>Vultur gryphus</ci>			</apply>		</apply>	</declare>	<declare>
-		<ci>Dinosauromorpha</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>
-				<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors">
-					<mo form="infix">&#x2190;</mo>
-				</csymbol>
-				<ci>Tyrannosaurus</ci>
-				<ci>Pterodactylus</ci>
-			</apply>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Ichthyornithes</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>
-				<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors">
-					<mo form="infix">&#x2190;</mo>
-				</csymbol>
-				<ci><mtext>YPM-VP 1450</mtext></ci>
-				<apply>
-					<union/>
-					<ci>Struthio camelus</ci>
-					<ci>Tinamus major</ci>
-					<ci>Vultur gryphus</ci>
-				</apply>
-			</apply>
-		</apply>
-	</declare>
-	<declare>		<ci>Mammalia</ci>		<apply>			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>				<union/>				<ci>Homo sapiens</ci>				<ci>Ornithorhynchus anatinus</ci>			</apply>		</apply>	</declare>	<declare>
-		<ci>Neognathae</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade">
-				<mo>Crown</mo>
-			</csymbol>
-			<apply>
-				<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors">
-					<mo form="infix">&#x2190;</mo>
-				</csymbol>
-				<ci>Vultur gryphus</ci>
-				<apply>
-					<union/>
-					<ci>Struthio camelus</ci>
-					<ci>Tinamus major</ci>
-				</apply>
-			</apply>
-		</apply>
-	</declare>
-	<declare>		<ci>Ornithodira</ci>		<apply>			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>				<union/>				<ci>Vultur gryphus</ci>				<ci>Pterodactylus</ci>			</apply>		</apply>	</declare>	<declare>
-		<ci>Palaeognathae</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-CrownClade">
-				<mo>Crown</mo>
-			</csymbol>
-			<apply>
-				<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-ExclusivePredecessors">
-					<mo form="infix">&#x2190;</mo>
-				</csymbol>
-				<apply>
-					<union/>
-					<ci>Struthio camelus</ci>
-					<ci>Tinamus major</ci>
-				</apply>
-				<ci>Vultur gryphus</ci>
-			</apply>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Pan-Amniota</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade">
-				<mo>Total</mo>
-			</csymbol>
-			<ci>Amniota</ci>
-			<ci><ms>extant</ms></ci>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Pan-Archosauria</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade">
-				<mo>Total</mo>
-			</csymbol>
-			<ci>Archosauria</ci>
-			<ci><ms>extant</ms></ci>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Pan-Aves</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade">
-				<mo>Total</mo>
-			</csymbol>
-			<ci>Aves</ci>
-			<ci><ms>extant</ms></ci>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Pan-Neognathae</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade">
-				<mo>Total</mo>
-			</csymbol>
-			<ci>Neognathae</ci>
-			<ci><ms>extant</ms></ci>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Pan-Palaeognathae</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-TotalClade">
-				<mo>Total</mo>
-			</csymbol>
-			<ci>Palaeognathae</ci>
-			<ci><ms>extant</ms></ci>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Pegasoferae</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>
-				<union/>
-				<ci>Equus ferus</ci>
-				<ci>Vespertilio murinus</ci>
-			</apply>
-		</apply>
-	</declare>
-	<declare>
-		<ci>Tyrannoraptora</ci>
-		<apply>
-			<csymbol definitionURL="http://namesonnodes.org/ns/math/2009#def-Clade">
-				<mo>Clade</mo>
-			</csymbol>
-			<apply>
-				<union/>
-				<ci>Tyrannosaurus</ci>
-				<ci>Vultur gryphus</ci>
-			</apply>
-		</apply>
-	</declare>
-</math>

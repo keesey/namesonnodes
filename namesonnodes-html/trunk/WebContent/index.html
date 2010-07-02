@@ -17,59 +17,87 @@
 		<div id="content">
 			<h1><span class="title">Names on Nodes</span></h1>
 			<p class="subtitle">automated application of biological nomenclature</p>
-			<h2>About <span class="title">Names on Nodes</span></h2>
-			<p>
-				<span class="title">Names on Nodes</span> is a web application that automatically applies biological nomenclature to datasets.
-				Datasets may be uploaded as bioinformatics files (<span class="langname">Nexus</span>, <span class="langname">NexML</span>, etc.).
-				<span class="title">Names on Nodes</span> uses the mathematical definitions of names to apply them to phylogenetic hypotheses.
-			</p>
-			<p>
-				The basic principles which <span class="title">Names on Nodes</span> uses were laid out in:
-			</p>
-			<ul>
-				<li>
-					<span class="citation-authors">Keesey, T. M.</span> (2007 Sep 21).
-					A mathematical approach to defining clade names, with potential applications to computer storage and processing.
-					<span class="title">Zoologica Scripta</span>
-					<span class="volume-number">36</span>(6):607&ndash;621.
-					<a href="http://dx.doi.org/10.1111/j.1463-6409.2007.00302.x"><code>doi:10.1111/j.1463-6409.2007.00302.x</code></a>
-				</li>
-			</ul>
-			<p>
-				Currently <span class="title">Names on Nodes</span> is in development.
-				It is not yet known when it will be launched.
-				Progress can be tracked at Mike Keesey's blog, <a href="http://3lbmonkeybrain.blogspot.com/search/label/Names%20on%20Nodes" class="title">A Three-Pound Monkey Brain</a>.
-			</p>
+			<h2>Applications</h2>
+			<table class="item">
+				<tr>
+					<td class="icon">
+						<a href="./app/" class="icon">
+							<img src="./images/app.jpg" width="150" height="90" alt="Names on Nodes: online application"/>
+						</a>
+					</td>
+					<td>
+						<p>
+							<span class="app-title title">Names on Nodes</span> is a web application that automatically applies biological nomenclature to datasets.
+							Datasets may be loaded as bioinformatics files (currently <span class="langname">Newick</span> and <span class="langname">NexML</span>).
+							<span class="title">Names on Nodes</span> uses the mathematical definitions of names to apply them to phylogenetic hypotheses.
+						</p>
+						<p>
+							The basic principles which <span class="title">Names on Nodes</span> uses were laid out in:
+						</p>
+						<ul>
+							<li>
+								<span class="citation-authors">Keesey, T. M.</span> (2007 Sep 21).
+								A mathematical approach to defining clade names, with potential applications to computer storage and processing.
+								<span class="title">Zoologica Scripta</span>
+								<span class="volume-number">36</span>(6):607&ndash;621.
+								<a href="http://dx.doi.org/10.1111/j.1463-6409.2007.00302.x"><code>doi:10.1111/j.1463-6409.2007.00302.x</code></a>
+							</li>
+						</ul>
+						<p>
+							Currently <span class="title">Names on Nodes</span> is in a public alpha phase.
+							The project has a <a href="http://bitbucket.org/keesey/namesonnodes-sa">BitBucket page</a> where you can <a href="http://bitbucket.org/keesey/namesonnodes-sa/issues/new/">report issues</a>, <a href="http://bitbucket.org/keesey/namesonnodes-sa/issues/new/">request features</a>, and check out the source code (using <a href="http://mercurial.org/">Mercurial</a>).
+							Progress can be followed at Mike Keesey's blog, <a href="http://3lbmonkeybrain.blogspot.com/search/label/Names%20on%20Nodes" class="title">A Three-Pound Monkey Brain</a>.
+						</p>
+						<p>
+							Older <span class="title">Names on Nodes</span> projects (also incomplete) are housed on <span class="title">Google Code</span>, here: <a href="http://code.google.com/p/namesonnodes/"><code>http://code.google.com/p/namesonnodes/</code></a>.
+							The <span class="title">Google Code</span> repository also houses all versions of this website.
+						</p>
+						<div class="link">
+							<a href="./app/">Open <span class="title">Names on Nodes</span> &rarr;</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="item">
+				<tr>
+					<td class="icon">
+						<a href="./texttree/" class="icon">
+							<img src="./images/texttree.png" width="150" height="90" alt="Text Tree Maker"/>
+						</a>
+					</td>
+					<td>
+						<p>
+							<span class="app-title title">Text Tree Maker</span> converts Newick tree strings into readable text cladograms.
+						</p>
+						<div class="link">
+							<a href="./texttree/">Open <span class="title">Text Tree Maker</span> &rarr;</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="item">
+				<tr>
+					<td class="icon">
+						<a href="./phylopainter/" class="icon">
+							<img src="./images/phylopainter.png" width="150" height="90" alt="PhyloPainter"/>
+						</a>
+					</td>
+					<td>
+						<p>
+							<span class="app-title title">PhyloPainter</span> converts Newick tree strings into cladograms using an HTML 5 <code>&lt;canvas&gt;</code> object.
+						</p>
+						<div class="link">
+							<a href="./phylopainter/">Open <span class="title">PhyloPainter</span> &rarr;</a>
+						</div>
+					</td>
+				</tr>
+			</table>
 			<h2>Documentation</h2>
 			<h3><span class="langname">MathML</span> Definitions</h3>
 			<p>
 				<span class="title">Names on Nodes</span> uses <a href="http://www.w3.org/TR/MathML2/" class="langname">MathML 2.0</a> to model nomenclatural definitions.
 				To accomplish this, it relies on certain mathematical entities related to phylogeny.
 				These are defined and discussed in the <a href="./ns/math/2009/index.html"><span class="title"><span class="langname">MathML</span> Definitions</span> document</a>.
-			</p>
-			<h2>Open Source Code</h2>
-			<p>
-				The <span class="title">Names on Nodes: Standalone Version</span> source code (primarily <span class="langname">ActionScript</span> and <span class="langname">MXML</span>) has been moved to <span class="title">Bitbucket</span>.
-				It is not currently complete, but if you would like to check it out you may do so at the following URL: <a href="http://bitbucket.org/keesey/namesonnodes-sa/"><code>http://bitbucket.org/keesey/namesonnodes-sa/</code></a>.
-				Older <span class="title">Names on Nodes</span> projects (also incomplete) are housed on <span class="title">Google Code</span>, here: <a href="http://code.google.com/p/namesonnodes/"><code>http://code.google.com/p/namesonnodes/</code></a>.
-				The <span class="title">Google Code</span> repository also houses all versions of this website.
-			</p>
-			<h2>Demo Tools</h2>
-			<p>
-				Until <span class="title">Names on Nodes</span> is complete, a series of small applications will be released online in order to showcase some of the functionality.
-				These present an opportunity to test certain components before the final application is complete.
-			</p>
-			<h3><span class="title"><span class="langname">Nexus</span> Viewer</span></h3>
-			<p>
-				<span class="title"><span class="langname">Nexus</span> Viewer</span> opens <span class="langname">Nexus</span> files and displays the trees in them combined into a single phylogenetic network.
-				(Note that this only works properly for <span class="langname">Nexus</span> files with rooted trees.
-				For files without rooted trees, it will simply display a series of operational taxonomic units.)
-				<a href="./nexusdemo">Click here.</a>
-			</p>
-			<h3><span class="title">Text Tree Maker</span></h3>
-			<p>
-				<span class="title">Text Tree Maker</span> converts Newick tree strings into readable text cladograms.
-				<a href="./texttree">Click here.</a>
 			</p>
 		</div>
 	</body>

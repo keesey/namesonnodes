@@ -6,8 +6,9 @@
 		<title>PhyloPainter</title>
 		<script type="text/javascript" src="./Newick.js"></script>
 		<script type="text/javascript" src="./PhyloPainter.js"></script>
+		<script type="text/javascript" src="./excanvas.compiled.js"></script>
 		<script type="text/javascript">
-			//<[CDATA[
+			//<![CDATA[
 				var painter;
 				function onError(event)
 				{
@@ -67,6 +68,7 @@
 			<p style="text-align:right">&mdash;Bob Ross</p>
 			<p><span class="title">PhyloPainter</span> is a prototype tool which reads Newick tree strings and renders the data as a visual graph on an HTML 5 canvas.</p>
 			<p>This is part of the <a href="http://namesonnodes.org/" class="title">Names on Nodes</a> project.</p>
+			<p>NOTE: This tool does not work on all browsers.</p>
 			<h2>Process</h2>
 			<p>1. Enter a Newick tree string:</p>
 			<div style="text-align: right">
@@ -82,7 +84,6 @@
 			<br />
 			<canvas id="treeCanvas">
 				<p>This requires a Canvas-enabled browser.</p>
-				<script type="text/javascript" src="./excanvas.compiled.js"></script>
 			</canvas>
 		</div>
 	</body>
